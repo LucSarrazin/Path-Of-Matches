@@ -1,5 +1,4 @@
 {
-  "enablePackageSignatureVerification": false,
   "dependencies": {
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.cinemachine": "3.1.5",
