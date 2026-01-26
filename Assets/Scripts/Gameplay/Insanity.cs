@@ -3,23 +3,26 @@ using System.Collections;
 
 public class Insanity : MonoBehaviour
 {
+    [SerializeField]
     private int insanityLvl = 0;
-    private float lum;
+    private DarkZone detector;
+    private bool wait;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ResetInsanity();
+        detector = FindAnyObjectByType<DarkZone>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        lum = SetLightLevel(transform.position);
-
-        if (insanityLvl < 0.2f)
+        if (wait == false && (detector.IsInDarkZone || insanityLvl > 0))
+        {
+            wait = true;
             StartCoroutine(UpdateInsanity());
+        }
 
+        //Game ends if the madness level is above 4
         if (insanityLvl == 4)
         {
             Debug.Log("Death");
@@ -28,6 +31,7 @@ public class Insanity : MonoBehaviour
 
     public void IncreaseInsanity()
     {
+        //Prevents madness from exceeding the maximum level
         if (insanityLvl == 4)
             return;
         else
@@ -36,6 +40,7 @@ public class Insanity : MonoBehaviour
 
     public void DecreaseInsanity()
     {
+        //Prevents madness from falling below the lowest level
         if (insanityLvl == 0)
             return;
         else
@@ -49,6 +54,7 @@ public class Insanity : MonoBehaviour
 
     public void ChooseInsanity(int lvl)
     {
+        //Prevents the selection of an invalid madness level
         if (lvl < 0)
             lvl = 0;
         else if (lvl > 4)
@@ -56,35 +62,16 @@ public class Insanity : MonoBehaviour
         insanityLvl = lvl;
     }
 
-    public float SetLightLevel(Vector3 position)
-    {
-        float lightLevel = 0f;
-
-        foreach (Light light in FindObjectsByType<Light>(FindObjectsSortMode.None))
-        {
-            if (!light.enabled) continue;
-
-            Vector3 dir = light.transform.position - position;
-
-            if (!Physics.Raycast(position, dir, out RaycastHit hit))
-            {
-                float distance = dir.magnitude;
-                float attenuation = 1f / (distance * distance);
-
-                lightLevel += light.intensity * attenuation;
-            }
-        }
-
-        return lightLevel;
-    }
-
     IEnumerator UpdateInsanity()
     {
+        //allows to take a break between each insanity level update
         yield return new WaitForSeconds(5f);
 
-        if (lum < 0.2f)
-            DecreaseInsanity();
-        else
+        if (detector.IsInDarkZone)
             IncreaseInsanity();
+        else
+            DecreaseInsanity();
+
+        wait = false;
     }
 }
