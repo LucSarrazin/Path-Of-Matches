@@ -6,8 +6,12 @@ public class PlayerMovements : MonoBehaviour
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
     private bool _canMove;
-
     private float _currentSpeed;
+
+    private Vector2 _lookInputs;
+    private float _pointerSensitivity;
+    private float _xRotation = 0f; 
+
 
     private void Awake()
     {
@@ -21,6 +25,13 @@ public class PlayerMovements : MonoBehaviour
 
         _rigidbody = _playerReferences.Rigidbody;
 
+        /*TEST*/
+        _pointerSensitivity = _playerReferences.PointerSensitivity;
+    }
+
+    private void Update()
+    {
+        LookPlayer(); 
     }
 
     private void FixedUpdate()
@@ -29,8 +40,7 @@ public class PlayerMovements : MonoBehaviour
         MovePlayer();
     }
 
-
-    /* MOVE */
+    /* MOVE : */
 
     public void SetSpeed(float speed)
     {
@@ -41,6 +51,7 @@ public class PlayerMovements : MonoBehaviour
     { 
         _moveInputs = input;
     }
+
 
     public void CanMove(bool enable)
     {
@@ -63,6 +74,30 @@ public class PlayerMovements : MonoBehaviour
         velocity.y = _rigidbody.linearVelocity.y;
 
         _rigidbody.linearVelocity = velocity;
+    }
+
+    /* LOOK : */
+
+    public void SetLookInputs(Vector2 look)
+    {
+        _lookInputs = look;
+    }
+
+    private void LookPlayer()
+    {
+        //SetLookInputs(_playerReferences.Controls.LookInputs);
+
+        float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime; 
+        float pointerY = _lookInputs.y * _pointerSensitivity * Time.deltaTime;
+
+        /* Horizontal rotation : */
+        _playerReferences.transform.Rotate(Vector3.up * pointerX);
+
+        /* Vertical rotation : */
+        _xRotation -= pointerY; /*Inverse*/
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f); /* to avoid absolute flip */
+
+        _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
 
     }

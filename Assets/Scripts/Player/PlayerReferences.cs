@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class PlayerReferences : MonoBehaviour
 {
-    [Header("Player movements :")]
+    [Header("[PLAYER] MOVEMENTS VARIABLES :")]
     [SerializeField] private float _walkSpeed;
+    [SerializeField] private float _pointerSensitivity = 100f;
 
+    [Header("[PLAYER] GENERAL COMPONENTS :")]
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Transform _head;
     [SerializeField] private PlayerControls _controls;
     [SerializeField] private PlayerMovements _playerMovements;
 
@@ -14,10 +17,12 @@ public class PlayerReferences : MonoBehaviour
     // VARIABLES //
 
     public float WalkSpeed { get => _walkSpeed; }
+    public float PointerSensitivity { get => _pointerSensitivity; }
 
     // COMPONENTS //
 
     public Rigidbody Rigidbody { get => _rigidbody; }
+    public Transform Head { get => _head; }
 
     // SCRIPTS //
 

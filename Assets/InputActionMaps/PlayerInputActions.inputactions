@@ -97,11 +97,21 @@
     ],
     "controlSchemes": [
         {
-            "name": "New Control Scheme",
-            "bindingGroup": "New Control Scheme",
+            "name": "Control Scheme",
+            "bindingGroup": "Control Scheme",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Pointer>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
