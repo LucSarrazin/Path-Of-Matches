@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerReferences : MonoBehaviour
 {
-    public static PlayerReferences Instance { get; private set; }
-
     [Header("Player movements :")]
     [SerializeField] private float _walkSpeed;
 
@@ -30,11 +28,6 @@ public class PlayerReferences : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-
         /* [SAFETY] "Get Components" to load scripts, if they aren't connected in inspector : */
         
         if (_rigidbody == null)

@@ -18,9 +18,6 @@ public class PlayerIdleState : PlayerState
 
     public override void Update()
     {
-        Debug.Log("_playerReferences = " + _playerReferences);
-        Debug.Log("Controls = " + _playerReferences?.Controls);
-
         if (_playerReferences.Controls.MoveInputs != Vector2.zero)
         {
             _stateMachine.TransitionTo(_playerStates.Walk);

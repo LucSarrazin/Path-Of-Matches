@@ -9,7 +9,8 @@ public class PlayerWalkState : PlayerState
     public override void Enter()
     {
         Debug.Log("[PLAYER - STATE] | ENTER WALK STATE");
-        _playerReferences.PlayerMovements.MovePlayer(/*_playerReferences.WalkSpeed*/);
+        _playerReferences.PlayerMovements.CanMove(true);
+        _playerReferences.PlayerMovements.SetSpeed(_playerReferences.WalkSpeed);
     }
 
     public override void Exit()
@@ -19,9 +20,10 @@ public class PlayerWalkState : PlayerState
 
     public override void Update()
     {
-        _playerReferences.PlayerMovements.MovePlayer(/*_playerReferences.WalkSpeed*/);
+        _playerReferences.PlayerMovements.SetMoveInputs(_playerReferences.Controls.MoveInputs);
 
-        if (Mathf.Approximately(_playerReferences.Controls.MoveInputs.x, 0f))
+        /* TRANSITIONS */
+        if (_playerReferences.Controls.MoveInputs.sqrMagnitude < 0.01f)
         {
             _stateMachine.TransitionTo(_playerStates.Idle);
             return;
