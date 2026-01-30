@@ -8,16 +8,24 @@ public class PlayerWalkState : PlayerState
 
     public override void Enter()
     {
-        Debug.Log("[PLAYER - STATE] | ENTER WALK");
+        Debug.Log("[PLAYER - STATE] | ENTER WALK STATE");
+        _playerReferences.PlayerMovements.MovePlayer(/*_playerReferences.WalkSpeed*/);
     }
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        _playerReferences.PlayerMovements.MovePlayer(/*_playerReferences.WalkSpeed*/);
+
+        if (Mathf.Approximately(_playerReferences.Controls.MoveInputs.x, 0f))
+        {
+            _stateMachine.TransitionTo(_playerStates.Idle);
+            return;
+        }
+
     }
 }

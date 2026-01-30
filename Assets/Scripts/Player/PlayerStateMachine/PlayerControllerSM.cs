@@ -8,7 +8,8 @@ public class PlayerControllerSM : MonoBehaviour
 
     private void Awake()
     {
-        _references = PlayerReferences.Instance;
+        _references = GetComponentInParent<PlayerReferences>(); 
+        if (_references == null) { Debug.Log("Player refs aren't charged");  } 
         _stateMachine = new StateMachine(); 
         _states = new PlayerStates(_stateMachine, _references);
         _stateMachine.TransitionTo(_states.Idle);

@@ -13,11 +13,18 @@ public class PlayerIdleState : PlayerState
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("_playerReferences = " + _playerReferences);
+        Debug.Log("Controls = " + _playerReferences?.Controls);
+
+        if (_playerReferences.Controls.MoveInputs != Vector2.zero)
+        {
+            _stateMachine.TransitionTo(_playerStates.Walk);
+            return;
+        }
     }
 }

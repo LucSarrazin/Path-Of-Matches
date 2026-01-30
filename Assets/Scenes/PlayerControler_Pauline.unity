@@ -257,6 +257,8 @@ GameObject:
   - component: {fileID: 248235869}
   - component: {fileID: 248235870}
   - component: {fileID: 248235871}
+  - component: {fileID: 248235872}
+  - component: {fileID: 248235873}
   m_Layer: 0
   m_Name: Controls
   m_TagString: Untagged
@@ -326,7 +328,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &248235871
@@ -341,6 +343,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83236b0981168e443b76a230c8d619fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControls
+--- !u!114 &248235872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248235868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02b71e1ee047d94e96b06da2b36e2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovements
+--- !u!114 &248235873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248235868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90352ee01f9eb874f91a718965971555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerSM
 --- !u!1 &833855664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1046,6 @@ GameObject:
   - component: {fileID: 1766511736}
   - component: {fileID: 1766511739}
   - component: {fileID: 1766511737}
-  - component: {fileID: 1766511738}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1074,18 +1099,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1766511738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766511735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02b71e1ee047d94e96b06da2b36e2f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovements
 --- !u!114 &1766511739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1114,7 @@ MonoBehaviour:
   _walkSpeed: 5
   _rigidbody: {fileID: 1766511737}
   _controls: {fileID: 248235871}
+  _playerMovements: {fileID: 248235872}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

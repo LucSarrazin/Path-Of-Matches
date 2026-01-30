@@ -5,7 +5,6 @@ public class PlayerMovements : MonoBehaviour
     private float _testSpeed = 5f; 
 
 
-
     public void MovePlayer(/*float speed*/)
     {
         Vector3 moveLR = PlayerReferences.Instance.Controls.MoveInputs.x * transform.right; 
