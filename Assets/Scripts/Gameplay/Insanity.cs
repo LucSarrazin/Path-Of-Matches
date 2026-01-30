@@ -4,9 +4,15 @@ using System.Collections;
 public class Insanity : MonoBehaviour
 {
     [SerializeField]
-    private int insanityLvl = 0;
+    private int insanityLvl;
     private DarkZone detector;
     private bool wait;
+
+    public int InsanityLvl
+    {
+        get { return insanityLvl; }
+        private set { insanityLvl = value; }
+    }
 
     void Start()
     {
@@ -32,24 +38,24 @@ public class Insanity : MonoBehaviour
     public void IncreaseInsanity()
     {
         //Prevents madness from exceeding the maximum level
-        if (insanityLvl == 4)
+        if (InsanityLvl == 4)
             return;
         else
-            insanityLvl++;
+            InsanityLvl++;
     }
 
     public void DecreaseInsanity()
     {
         //Prevents madness from falling below the lowest level
-        if (insanityLvl == 0)
+        if (InsanityLvl == 0)
             return;
         else
-            insanityLvl--;
+            InsanityLvl--;
     }
 
     public void ResetInsanity()
     {
-        insanityLvl = 0;
+        InsanityLvl = 0;
     }
 
     public void ChooseInsanity(int lvl)
@@ -59,7 +65,7 @@ public class Insanity : MonoBehaviour
             lvl = 0;
         else if (lvl > 4)
             lvl = 4;
-        insanityLvl = lvl;
+        InsanityLvl = lvl;
     }
 
     IEnumerator UpdateInsanity()
