@@ -29,7 +29,7 @@ public class Insanity : MonoBehaviour
         }
 
         //Game ends if the madness level is above 4
-        if (insanityLvl == 4)
+        if (insanityLvl == 5)
         {
             Debug.Log("Death");
         }
@@ -38,7 +38,7 @@ public class Insanity : MonoBehaviour
     public void IncreaseInsanity()
     {
         //Prevents madness from exceeding the maximum level
-        if (InsanityLvl == 4)
+        if (InsanityLvl == 5)
             return;
         else
             InsanityLvl++;
@@ -63,15 +63,15 @@ public class Insanity : MonoBehaviour
         //Prevents the selection of an invalid madness level
         if (lvl < 0)
             lvl = 0;
-        else if (lvl > 4)
-            lvl = 4;
+        else if (lvl > 5)
+            lvl = 5;
         InsanityLvl = lvl;
     }
 
     IEnumerator UpdateInsanity()
     {
         //allows to take a break between each insanity level update
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(30f);
 
         if (detector.IsInDarkZone)
             IncreaseInsanity();

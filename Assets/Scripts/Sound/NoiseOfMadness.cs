@@ -11,7 +11,7 @@ public class NoiseOfMadness : MonoBehaviour
     private AudioSource sound;
     private bool wait;
 
-    private void Start()
+    void Start()
     {
         player = FindAnyObjectByType<Insanity>();
         sound = GetComponent<AudioSource>();
