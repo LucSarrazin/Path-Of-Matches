@@ -74,6 +74,7 @@ public class PlayerMovements : MonoBehaviour
         velocity.y = _rigidbody.linearVelocity.y;
 
         _rigidbody.linearVelocity = velocity;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     /* LOOK : */
@@ -99,6 +100,9 @@ public class PlayerMovements : MonoBehaviour
 
         _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
+        /*Method to lock cursor on screen*/
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
 }
