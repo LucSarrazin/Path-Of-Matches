@@ -4,7 +4,7 @@ public class DarkZone : MonoBehaviour
 {
     private static bool isInDarkZone;
 
-    public bool IsInDarkZone
+    public static bool IsInDarkZone
     {
         get { return isInDarkZone; }      
         private set { isInDarkZone = value; } 

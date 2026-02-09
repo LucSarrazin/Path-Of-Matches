@@ -23,7 +23,7 @@ public class Screamer : MonoBehaviour
 
     void Update()
     {
-        if (player.InsanityLvl > 0 && Random.Range(0, 2000 - 250 * (player.InsanityLvl - 1)) == 0 && wait == false)
+        if (player.InsanityLvl > 3 && Random.Range(0, 2000 - 250 * (player.InsanityLvl - 1)) == 0 && wait == false)
         {
             screamer.color = new Color(1, 1, 1, 1);
             screamer.texture = listScreamers[Random.Range(0, listScreamers.Count)];

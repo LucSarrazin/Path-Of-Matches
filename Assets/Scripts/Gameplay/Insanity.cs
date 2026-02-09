@@ -5,7 +5,6 @@ public class Insanity : MonoBehaviour
 {
     [SerializeField]
     private int insanityLvl;
-    private DarkZone detector;
     private bool wait;
 
     public int InsanityLvl
@@ -17,12 +16,11 @@ public class Insanity : MonoBehaviour
     void Start()
     {
         ResetInsanity();
-        detector = FindAnyObjectByType<DarkZone>();
     }
 
     void Update()
     {
-        if (wait == false && (detector.IsInDarkZone || insanityLvl > 0))
+        if (wait == false && (DarkZone.IsInDarkZone || insanityLvl > 0))
         {
             wait = true;
             StartCoroutine(UpdateInsanity());
@@ -71,9 +69,9 @@ public class Insanity : MonoBehaviour
     IEnumerator UpdateInsanity()
     {
         //allows to take a break between each insanity level update
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(5f);
 
-        if (detector.IsInDarkZone)
+        if (DarkZone.IsInDarkZone && SafeZone.IsInSafeZone == false)
             IncreaseInsanity();
         else
             DecreaseInsanity();
