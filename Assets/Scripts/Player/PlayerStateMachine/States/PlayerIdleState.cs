@@ -23,5 +23,17 @@ public class PlayerIdleState : PlayerState
             _stateMachine.TransitionTo(_playerStates.Walk);
             return;
         }
+
+        if (_playerReferences.Controls.WantToInteract)
+        {
+            _stateMachine.TransitionTo(_playerStates.Interact);
+            return;
+        }
+
+        if (_playerReferences.Controls.WantToThrow)
+        {
+            _stateMachine.TransitionTo(_playerStates.Throw);
+            return;
+        }
     }
 }

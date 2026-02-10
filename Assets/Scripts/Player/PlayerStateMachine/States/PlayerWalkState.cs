@@ -28,12 +28,26 @@ public class PlayerWalkState : PlayerState
             _stateMachine.TransitionTo(_playerStates.Idle);
             return;
         }
+
         if (_playerReferences.Controls.WantToRun)
         {
             _stateMachine.TransitionTo(_playerStates.Run);
             return;
         }
-        
+
+        if (_playerReferences.Controls.WantToInteract)
+        {
+            _stateMachine.TransitionTo(_playerStates.Interact);
+            return;
+        }
+
+        if (_playerReferences.Controls.WantToThrow)
+        {
+            _stateMachine.TransitionTo(_playerStates.Throw);
+            return;
+        }
+
+
 
     }
 }

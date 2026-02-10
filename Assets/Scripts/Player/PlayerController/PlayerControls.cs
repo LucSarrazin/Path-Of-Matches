@@ -17,6 +17,12 @@ public class PlayerControls : MonoBehaviour
     private bool _wantToInteract;
     public bool WantToInteract => _wantToInteract;
 
+    private bool _wantToThrow; 
+    public bool WantToThrow => _wantToThrow;
+
+    private bool _wantToSwitchMatch; 
+    public bool WantToSwitchMatch => _wantToSwitchMatch;
+
     private void Awake()
     {
         if (_playerMovements == null) { _playerMovements = GetComponent<PlayerMovements>(); }
@@ -65,6 +71,32 @@ public class PlayerControls : MonoBehaviour
         else if (context.phase == InputActionPhase.Canceled)
         {
             _wantToInteract = false;
+        }
+    }
+
+    public void ThrowInputCallback(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            _wantToThrow = true;
+            Debug.Log("Player want to throw a match.");
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            _wantToThrow = false;
+        }
+    }
+
+    public void SwitchMatchInputCallback(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            _wantToSwitchMatch = true;
+            Debug.Log("Player want to switch the equipped match.");
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            _wantToSwitchMatch = false;
         }
     }
 
