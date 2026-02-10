@@ -4,6 +4,7 @@ public class PlayerReferences : MonoBehaviour
 {
     [Header("[PLAYER] MOVEMENTS VARIABLES :")]
     [SerializeField] private float _walkSpeed;
+    [SerializeField] private float _runSpeed;
     [SerializeField] private float _pointerSensitivity = 100f;
 
     [Header("[PLAYER] GENERAL COMPONENTS :")]
@@ -17,6 +18,7 @@ public class PlayerReferences : MonoBehaviour
     // VARIABLES //
 
     public float WalkSpeed { get => _walkSpeed; }
+    public float RunSpeed { get => _runSpeed; }
     public float PointerSensitivity { get => _pointerSensitivity; }
 
     // COMPONENTS //

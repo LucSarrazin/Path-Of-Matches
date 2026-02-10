@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class PlayerWalkState : PlayerState
+public class PlayerRunState : PlayerState
 {
-    public PlayerWalkState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates) : base(stateMachine, playerReferences, playerStates)
+    public PlayerRunState (StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates) : base(stateMachine, playerReferences, playerStates)
     {
     }
 
     public override void Enter()
     {
-        Debug.Log("[PLAYER - STATE] | ENTER WALK STATE");
+        Debug.Log("[PLAYER - STATE] | ENTER RUN STATE");
         _playerReferences.PlayerMovements.CanMove(true);
-        _playerReferences.PlayerMovements.SetSpeed(_playerReferences.WalkSpeed);
+        _playerReferences.PlayerMovements.SetSpeed(_playerReferences.RunSpeed);
     }
 
     public override void Exit()
@@ -28,12 +28,12 @@ public class PlayerWalkState : PlayerState
             _stateMachine.TransitionTo(_playerStates.Idle);
             return;
         }
-        if (_playerReferences.Controls.WantToRun)
+        /* WALK TRANSITION */
+        if (!_playerReferences.Controls.WantToRun)
         {
-            _stateMachine.TransitionTo(_playerStates.Run);
+            _stateMachine.TransitionTo(_playerStates.Walk);
             return;
         }
-        
-
     }
+    
 }
