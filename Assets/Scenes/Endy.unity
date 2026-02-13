@@ -1802,6 +1802,7 @@ GameObject:
   - component: {fileID: 2086209775}
   - component: {fileID: 2086209776}
   - component: {fileID: 2086209777}
+  - component: {fileID: 2086209778}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -1933,10 +1934,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4673201d23960f64cb57eab81e2f1bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseOfMadness
-  madnessLvl: 3
+  madnessLvl: 1
   listSound:
   - {fileID: 8300000, guid: b9356c5f8ae2d014b85f9fa1faa533d5, type: 3}
   - {fileID: 8300000, guid: 7302f06f4a0f74146a5d962e71de97f1, type: 3}
+--- !u!114 &2086209778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086209774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9eb721b4f607064f89f180e7872ae01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundParameter
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

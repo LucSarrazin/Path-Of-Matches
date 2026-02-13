@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class NoiseOfMadness : MonoBehaviour
 {
@@ -30,9 +31,14 @@ public class NoiseOfMadness : MonoBehaviour
 
     IEnumerator PlaySound()
     {
-        yield return new WaitForSeconds(Random.Range(25, 60));
-        sound.generator = listSound[Random.Range(0, listSound.Count)];
-        sound.Play();
+        yield return new WaitForSeconds(Random.Range(25, 60 - 5 * madnessLvl));
+
+        if (player.InsanityLvl >= madnessLvl)
+        {
+            sound.generator = listSound[Random.Range(0, listSound.Count)];
+            sound.Play();
+        } 
+
         wait = false;
     }
 }
