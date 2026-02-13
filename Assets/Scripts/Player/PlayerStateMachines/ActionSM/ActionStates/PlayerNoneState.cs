@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class PlayerNoneStatePlayerActionState
+public class PlayerNoneState : PlayerActionState
 {
-
-    public PlayerThrowState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates states) : base(stateMachine, playerReferences, playerStates)
+    public PlayerNoneState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates states) : base(stateMachine, playerReferences, states)
     {
     }
 
@@ -21,13 +20,13 @@ public class PlayerNoneStatePlayerActionState
     {
         if (_playerReferences.Controls.WantToThrow)
         {
-            _stateMachine.TransitionTo(_playerStates.Throw);
+            _stateMachine.TransitionTo(_actionStates.Throw);
             return;
         }
 
         if (_playerReferences.Controls.WantToInteract)
         {
-            _stateMachine.TransitionTo(_playerStates.Interact);
+            _stateMachine.TransitionTo(_actionStates.Interact);
             return;
         }
     }

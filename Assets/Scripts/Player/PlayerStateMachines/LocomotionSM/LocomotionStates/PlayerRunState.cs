@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerRunState : PlayerState
+public class PlayerRunState : PlayerLocomotionState
 {
     public PlayerRunState (StateMachine stateMachine, PlayerReferences playerReferences, PlayerLocomotionStates playerStates) : base(stateMachine, playerReferences, playerStates)
     {

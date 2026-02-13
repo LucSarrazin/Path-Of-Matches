@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInteractState : PlayerActionState
 {
-    public PlayerInteractState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates states) : base(stateMachine, playerReferences, playerStates)
+    public PlayerInteractState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates states) : base(stateMachine, playerReferences, states)
     {
     }
 
@@ -20,14 +20,14 @@ public class PlayerInteractState : PlayerActionState
     {
         if (_playerReferences.Controls.WantToThrow)
         {
-            _stateMachine.TransitionTo(_playerStates.Throw);
+            _stateMachine.TransitionTo(_actionStates.Throw);
             return;
         }
 
         /* Change by "else" ? */
         if (!_playerReferences.Controls.WantToInteract && !_playerReferences.Controls.WantToThrow)
         {
-            _stateMachine.TransitionTo(_playerStates.None);
+            _stateMachine.TransitionTo(_actionStates.None);
             return;
         }
 

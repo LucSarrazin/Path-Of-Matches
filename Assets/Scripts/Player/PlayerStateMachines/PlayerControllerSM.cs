@@ -6,8 +6,8 @@ public class PlayerControllerSM : MonoBehaviour
     private StateMachine _actionStateMachine;
     //private StateMachine _stateMachine;
     //private PlayerStates _states;
-    private PlayerStates _locomotionStates;
-    private PlayerStates _actionStates;
+    private PlayerLocomotionStates _locomotionStates;
+    private PlayerActionStates _actionStates;
     private PlayerReferences _references;
 
     private void Awake()
@@ -22,8 +22,8 @@ public class PlayerControllerSM : MonoBehaviour
         _actionStateMachine = new StateMachine();
         //_stateMachine = new StateMachine();
 
-        _locomotionStates = new PlayerStates(_locomotionStateMachine, _references);
-        _actionStateMachine = new PlayerActionStates(_actionStateMachine, _references);
+        _locomotionStates = new PlayerLocomotionStates(_locomotionStateMachine, _references);
+        _actionStates = new PlayerActionStates(_actionStateMachine, _references);
         //
 
         _locomotionStateMachine.TransitionTo(_locomotionStates.Idle);

@@ -12,7 +12,7 @@ public class PlayerActionStates
     {
         _none = new PlayerNoneState(stateMachine, references, this);
         _interact = new PlayerInteractState(stateMachine, references, this);
-        _throw = new PlayerThrowState(stateMachine, playerReferences, playerStates: this);
+        _throw = new PlayerThrowState(stateMachine, references, this);
 
     }
 }

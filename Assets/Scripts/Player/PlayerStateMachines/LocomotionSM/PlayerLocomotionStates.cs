@@ -14,9 +14,9 @@ public class PlayerLocomotionStates
 
     public PlayerLocomotionStates(StateMachine stateMachine, PlayerReferences playerReferences)
     {
-        _idle = new PlayerIdleState(stateMachine, playerReferences, playerStates: this);
-        _walk = new PlayerWalkState(stateMachine, playerReferences, playerStates: this);
-        _run = new PlayerRunState(stateMachine, playerReferences, playerStates: this);
+        _idle = new PlayerIdleState(stateMachine, playerReferences, this);
+        _walk = new PlayerWalkState(stateMachine, playerReferences, this);
+        _run = new PlayerRunState(stateMachine, playerReferences, this);
         //_interact = new PlayerInteractState(stateMachine, playerReferences, playerStates: this);
         //_throw = new PlayerThrowState(stateMachine, playerReferences, playerStates: this);
     }

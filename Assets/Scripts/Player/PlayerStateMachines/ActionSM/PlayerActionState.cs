@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class PlayerActionStates
+public abstract class PlayerActionState : IState
 {
     protected StateMachine _stateMachine;
     protected PlayerReferences _playerReferences;
