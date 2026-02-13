@@ -22,6 +22,8 @@ public class PlayerInteractions : MonoBehaviour
         _interactibleLayerMask = _playerReferences.InteractibleLayer;
     }
 
+    /* --- Interact methods --- */
+
     private bool CanInteract(out RaycastHit hit)
     {
         Ray ray = new Ray(_viewCamera.transform.position, _viewCamera.transform.forward);
@@ -60,7 +62,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void Update()
     {
-        GetInteractable(); 
+        GetInteractable();
     }
 
     /* --- Editor Scripting --- */

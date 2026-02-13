@@ -10,7 +10,7 @@ public class PlayerMovements : MonoBehaviour
 
     private Vector2 _lookInputs;
     private float _pointerSensitivity;
-    private float _xRotation = 0f; 
+    private float _xRotation = 0f;
 
 
     private void Awake()
@@ -27,9 +27,21 @@ public class PlayerMovements : MonoBehaviour
         _pointerSensitivity = _playerReferences.PointerSensitivity;
     }
 
+    private void Start()
+    {
+        /* Method to set view on Start */
+        _xRotation = 0f;
+        _playerReferences.Head.localRotation = Quaternion.identity;
+
+        /*Method to lock cursor on screen*/
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+    }
+
     private void Update()
     {
-        LookPlayer(); 
+        LookPlayer();
     }
 
     private void FixedUpdate()
@@ -38,7 +50,7 @@ public class PlayerMovements : MonoBehaviour
         MovePlayer();
     }
 
-    /* MOVE : */
+    /* --- Method : MOVE --- */
 
     public void SetSpeed(float speed)
     {
@@ -46,7 +58,7 @@ public class PlayerMovements : MonoBehaviour
     }
 
     public void SetMoveInputs(Vector2 input)
-    { 
+    {
         _moveInputs = input;
     }
 
@@ -75,7 +87,7 @@ public class PlayerMovements : MonoBehaviour
         _rigidbody.angularVelocity = Vector3.zero;
     }
 
-    /* LOOK : */
+    /* --- Method : LOOK --- */
 
     public void SetLookInputs(Vector2 look)
     {
@@ -86,7 +98,7 @@ public class PlayerMovements : MonoBehaviour
     {
         //SetLookInputs(_playerReferences.Controls.LookInputs);
 
-        float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime; 
+        float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime;
         float pointerY = _lookInputs.y * _pointerSensitivity * Time.deltaTime;
 
         /* Horizontal rotation : */
@@ -98,9 +110,7 @@ public class PlayerMovements : MonoBehaviour
 
         _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
 
-        /*Method to lock cursor on screen*/
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+
 
     }
 }

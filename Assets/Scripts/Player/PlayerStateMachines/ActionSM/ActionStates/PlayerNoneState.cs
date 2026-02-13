@@ -13,7 +13,7 @@ public class PlayerNoneState : PlayerActionState
 
     public override void Exit()
     {
-        Debug.Log("[PLAYER - STATE ACTION] | EXIT NONE");
+        //Debug.Log("[PLAYER - STATE ACTION] | EXIT NONE");
     }
 
     public override void Update()
@@ -27,6 +27,12 @@ public class PlayerNoneState : PlayerActionState
         if (_playerReferences.Controls.WantToInteract)
         {
             _stateMachine.TransitionTo(_actionStates.Interact);
+            return;
+        }
+
+        if (_playerReferences.Controls.WantToSwitchMatch)
+        {
+            _stateMachine.TransitionTo(_actionStates.SwitchMatch);
             return;
         }
     }

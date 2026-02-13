@@ -27,12 +27,9 @@ public class PlayerInteractState : PlayerActionState
             return;
         }
 
-        /* Change by "else" ? */
-        if (!_playerReferences.Controls.WantToInteract && !_playerReferences.Controls.WantToThrow)
-        {
-            _stateMachine.TransitionTo(_actionStates.None);
-            return;
-        }
+        /* else */
+        _stateMachine.TransitionTo(_actionStates.None);
+        return;
 
     }
 }

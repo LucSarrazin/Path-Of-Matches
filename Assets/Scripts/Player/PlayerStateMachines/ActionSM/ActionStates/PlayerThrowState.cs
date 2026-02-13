@@ -19,20 +19,22 @@ public class PlayerThrowState : PlayerActionState
     public override void Update()
     {
 
-        if (_playerReferences.Controls.WantToThrow)
+        if (_playerReferences.Controls.WantToInteract)
         {
-            _stateMachine.TransitionTo(_actionStates.Throw);
+            _stateMachine.TransitionTo(_actionStates.Interact);
             return;
         }
 
-        /* Change by "else" ? */
-        if (!_playerReferences.Controls.WantToInteract && !_playerReferences.Controls.WantToThrow)
+        if (_playerReferences.Controls.WantToSwitchMatch)
         {
-            _stateMachine.TransitionTo(_actionStates.None);
+            _stateMachine.TransitionTo(_actionStates.SwitchMatch);
             return;
         }
 
-
+        /* else */
+        _stateMachine.TransitionTo(_actionStates.None);
+        return;
     }
+
 
 }

@@ -68,7 +68,6 @@ public class PlayerControls : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             _wantToInteract = true;
-            Debug.Log("Player want to interact.");
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -81,7 +80,6 @@ public class PlayerControls : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             _wantToThrow = true;
-            Debug.Log("Player want to throw a match.");
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
@@ -94,7 +92,6 @@ public class PlayerControls : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             _wantToSwitchMatch = true;
-            Debug.Log("Player want to switch the equipped match.");
         }
         else if (context.phase == InputActionPhase.Canceled)
         {
