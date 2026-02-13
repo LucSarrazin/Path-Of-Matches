@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags: []
+  tags:
+  - Matches
+  - MatchesChest
+  - TorchFire
   layers:
   - Default
   - TransparentFX
@@ -13,6 +17,8 @@ TagManager:
   - UI
   - Interactable
   - 
+  - Player
+  - Matches
   - 
   - 
   - 
