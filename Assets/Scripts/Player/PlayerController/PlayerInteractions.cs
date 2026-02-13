@@ -4,9 +4,10 @@ public class PlayerInteractions : MonoBehaviour
 {
     [SerializeField] private PlayerReferences _playerReferences;
     private Camera _viewCamera;
-    private Transform _head ;
     private LayerMask _interactibleLayerMask;
     private float _checkDistance;
+
+    private IInteractable _currentInteractable;
 
     private void Awake()
     {
@@ -27,29 +28,46 @@ public class PlayerInteractions : MonoBehaviour
         return Physics.Raycast(ray, out hit, _checkDistance, _interactibleLayerMask);
     }
 
-    public void CheckInteract()
+    private void GetInteractable() /* And active focus method */
     {
         if (CanInteract(out RaycastHit hit))
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            if (interactable != null)
+
+            if (interactable != _currentInteractable)
             {
-                interactable.Interact();
+                _currentInteractable?.LoseFocus();
+                _currentInteractable = interactable;
+                _currentInteractable?.OnFocus();
             }
         }
-
+        else
+        {
+            _currentInteractable?.LoseFocus();
+            _currentInteractable = null;
+        }
     }
 
     public void TryInteract()
     {
-        CheckInteract();
+        if (_currentInteractable != null)
+        {
+            _currentInteractable.Interact();
+        }
+    }
+
+    /* --- Update check for UX highlight focus --- */
+
+    private void Update()
+    {
+        GetInteractable(); 
     }
 
     /* --- Editor Scripting --- */
     private void OnDrawGizmos()
     {
-       _viewCamera = _playerReferences.PlayerViewCamera;
-       _checkDistance = _playerReferences.CheckDistance;
+        _viewCamera = _playerReferences.PlayerViewCamera;
+        _checkDistance = _playerReferences.CheckDistance;
 
         Gizmos.color = Color.red;
         Ray ray = new Ray(_viewCamera.transform.position, _viewCamera.transform.forward);
