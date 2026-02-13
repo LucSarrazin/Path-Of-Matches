@@ -1,17 +1,18 @@
-public abstract class PlayerState : IState
+public abstract class PlayerActionState : IState
 {
     protected StateMachine _stateMachine;
     protected PlayerReferences _playerReferences;
-    protected PlayerStates _playerStates;
+    protected PlayerActionStates _actionStates;
 
-    public PlayerState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates)
+    public PlayerActionState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates actionStates)
     {
         _stateMachine = stateMachine;
         _playerReferences = playerReferences;
-        _playerStates = playerStates;
+        _actionStates = actionStates;
     }
 
     public abstract void Enter();
     public abstract void Update();
     public abstract void Exit();
+
 }

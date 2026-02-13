@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+  tags: []
   tags:
   - Matches
   - MatchesChest
@@ -14,6 +15,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Interactable
+  - 
   - Player
   - Matches
   - 
