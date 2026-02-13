@@ -6,6 +6,7 @@ public class PlayerControllerSM : MonoBehaviour
     private StateMachine _actionStateMachine;
     //private StateMachine _stateMachine;
     //private PlayerStates _states;
+
     private PlayerLocomotionStates _locomotionStates;
     private PlayerActionStates _actionStates;
     private PlayerReferences _references;
