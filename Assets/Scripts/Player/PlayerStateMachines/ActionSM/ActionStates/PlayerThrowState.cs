@@ -13,7 +13,7 @@ public class PlayerThrowState : PlayerActionState
 
     public override void Exit()
     {
-        Debug.Log("[PLAYER - STATE ACTION] | EXIT THROW");
+        //Debug.Log("[PLAYER - STATE ACTION] | EXIT THROW");
     }
 
     public override void Update()

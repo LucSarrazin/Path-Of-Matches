@@ -13,7 +13,7 @@ public class PlayerInteractState : PlayerActionState
 
     public override void Exit()
     {
-        Debug.Log("[PLAYER - ACTION STATE] | EXIT INTERACT");
+        //Debug.Log("[PLAYER - ACTION STATE] | EXIT INTERACT");
     }
 
     public override void Update()
