@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
+    [Header("SETTINGS : ")]
     [SerializeField] private PlayerMovements _playerMovements;
+
     private Vector2 _moveInputs;
     public Vector2 MoveInputs => _moveInputs;
 

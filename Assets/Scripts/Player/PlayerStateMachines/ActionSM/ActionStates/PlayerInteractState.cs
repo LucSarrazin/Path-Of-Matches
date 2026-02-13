@@ -9,6 +9,9 @@ public class PlayerInteractState : PlayerActionState
     public override void Enter()
     {
         Debug.Log("[PLAYER - ACTION STATE] | ENTER INTERACT");
+
+        _playerReferences.PlayerInteractions.TryInteract();
+
     }
 
     public override void Exit()

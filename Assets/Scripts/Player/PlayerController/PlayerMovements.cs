@@ -24,8 +24,6 @@ public class PlayerMovements : MonoBehaviour
         }
 
         _rigidbody = _playerReferences.Rigidbody;
-
-        /*TEST*/
         _pointerSensitivity = _playerReferences.PointerSensitivity;
     }
 
