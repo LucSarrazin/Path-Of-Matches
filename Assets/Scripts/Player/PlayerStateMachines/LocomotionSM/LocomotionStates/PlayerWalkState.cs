@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerWalkState : PlayerState
 {
-    public PlayerWalkState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates) : base(stateMachine, playerReferences, playerStates)
+    public PlayerWalkState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerLocomotionStates playerStates) : base(stateMachine, playerReferences, playerStates)
     {
     }
 
@@ -35,17 +35,17 @@ public class PlayerWalkState : PlayerState
             return;
         }
 
-        if (_playerReferences.Controls.WantToInteract)
-        {
-            _stateMachine.TransitionTo(_playerStates.Interact);
-            return;
-        }
+        //if (_playerReferences.Controls.WantToInteract)
+        //{
+        //    _stateMachine.TransitionTo(_playerStates.Interact);
+        //    return;
+        //}
 
-        if (_playerReferences.Controls.WantToThrow)
-        {
-            _stateMachine.TransitionTo(_playerStates.Throw);
-            return;
-        }
+        //if (_playerReferences.Controls.WantToThrow)
+        //{
+        //    _stateMachine.TransitionTo(_playerStates.Throw);
+        //    return;
+        //}
 
 
 

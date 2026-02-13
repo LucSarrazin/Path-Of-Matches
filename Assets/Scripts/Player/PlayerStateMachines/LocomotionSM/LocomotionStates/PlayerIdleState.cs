@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerState
 {
-    public PlayerIdleState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates) : base(stateMachine, playerReferences, playerStates)
+    public PlayerIdleState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerLocomotionStates playerStates) : base(stateMachine, playerReferences, playerStates)
     {
     }
 
@@ -21,18 +21,6 @@ public class PlayerIdleState : PlayerState
         if (_playerReferences.Controls.MoveInputs != Vector2.zero)
         {
             _stateMachine.TransitionTo(_playerStates.Walk);
-            return;
-        }
-
-        if (_playerReferences.Controls.WantToInteract)
-        {
-            _stateMachine.TransitionTo(_playerStates.Interact);
-            return;
-        }
-
-        if (_playerReferences.Controls.WantToThrow)
-        {
-            _stateMachine.TransitionTo(_playerStates.Throw);
             return;
         }
     }

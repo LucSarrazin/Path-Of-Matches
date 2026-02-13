@@ -1,10 +1,10 @@
-public abstract class PlayerState : IState
+public abstract class PlayerLocomotionState : IState
 {
     protected StateMachine _stateMachine;
     protected PlayerReferences _playerReferences;
     protected PlayerStates _playerStates;
 
-    public PlayerState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates)
+    public PlayerLocomotionState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerStates playerStates)
     {
         _stateMachine = stateMachine;
         _playerReferences = playerReferences;
