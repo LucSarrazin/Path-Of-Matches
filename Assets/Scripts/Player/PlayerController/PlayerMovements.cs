@@ -109,8 +109,20 @@ public class PlayerMovements : MonoBehaviour
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f); /* to avoid absolute flip */
 
         _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+    }
 
+    /* --- Method : Freeze movements (interact with an item) --- */
 
+    public void FreezePlayerMovement()
+    {
+        /* - Freeze movement - */
+        CanMove(false);
 
+        /* - Freeze rotation - */
+
+        SetLookInputs(Vector2.zero);
+
+        //_playerReferences.transform.Rotate(Vector3.zero);
+        //_playerReferences.Head.localRotation = Quaternion.identity; 
     }
 }
