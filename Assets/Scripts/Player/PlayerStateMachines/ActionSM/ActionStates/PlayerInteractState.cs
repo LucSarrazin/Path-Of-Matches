@@ -61,6 +61,7 @@ public class PlayerInteractState : PlayerActionState
             if (_playerReferences.Controls.WantToInteract)
             {
                 StopInspection(); 
+                
             }
         }
 

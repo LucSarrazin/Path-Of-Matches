@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
@@ -28,7 +29,7 @@ public class PlayerMovements : MonoBehaviour
         _pointerSensitivity = _playerReferences.PointerSensitivity;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         /* Method to set view on Start */
         _xRotation = 0f;
@@ -38,6 +39,15 @@ public class PlayerMovements : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        yield return null; /* Wait one frame to avoid delta error */
+
+        _lookInputs = Vector2.zero;
+        _canLook = true; 
+    }
+
+    private void OnEnable()
+    {
+        _canLook = false;
     }
 
     private void Update()
@@ -103,8 +113,8 @@ public class PlayerMovements : MonoBehaviour
     {
         if (!_canLook) { return; }
 
-        float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime;
-        float pointerY = _lookInputs.y * _pointerSensitivity * Time.deltaTime;
+        float pointerX = _lookInputs.x * _pointerSensitivity/* * Time.deltaTime*/;
+        float pointerY = _lookInputs.y * _pointerSensitivity /* * Time.deltaTime*/;
 
         /* Horizontal rotation : */
         _playerReferences.transform.Rotate(Vector3.up * pointerX);
