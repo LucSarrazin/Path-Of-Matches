@@ -1,3 +1,4 @@
+using System;
 using UnityEngine; 
 
 public abstract class Interactable : MonoBehaviour, IInteractable
@@ -20,6 +21,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     public virtual void OnFocus()
     {
         _renderer.material.color = Color.green;
+        
     }
 
     public virtual void LoseFocus()
@@ -32,4 +34,5 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     {
         Debug.Log($"Player is interacting with {this.gameObject.name}");
     }
+
 }

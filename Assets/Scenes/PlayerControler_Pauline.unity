@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1319,6 +1319,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
   m_PrefabInstance: {fileID: 3319114135535493858}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1766511737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+  m_PrefabInstance: {fileID: 3319114135535493858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d28dc7d159bf984dbbf60261ea57d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerReferences
 --- !u!1 &1880856252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,9 +1374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8cdbe51e2dbba4fad5c442af3f2abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  _playerReferences: {fileID: 1766511737}
   _matches: {fileID: 1094735918}
   _bpmCount: {fileID: 2087793122}
   _pointer: {fileID: 1080948803}
+  _defaultPointerColor: {r: 0, g: 0, b: 0, a: 1}
+  _onFocusPointerColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1904361084
 GameObject:
   m_ObjectHideFlags: 0

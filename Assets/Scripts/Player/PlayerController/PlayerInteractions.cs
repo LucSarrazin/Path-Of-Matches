@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
@@ -40,13 +41,18 @@ public class PlayerInteractions : MonoBehaviour
             if (interactable != _currentInteractable)
             {
                 _currentInteractable?.LoseFocus();
+
+                if (_currentInteractable != null) OnFocusInteractable?.Invoke(false); 
+
                 _currentInteractable = interactable;
                 _currentInteractable?.OnFocus();
+                OnFocusInteractable?.Invoke(true); 
             }
         }
         else
         {
             _currentInteractable?.LoseFocus();
+            if (_currentInteractable != null) OnFocusInteractable?.Invoke(false);
             _currentInteractable = null;
         }
     }
@@ -56,6 +62,7 @@ public class PlayerInteractions : MonoBehaviour
         if (_currentInteractable != null)
         {
             _currentInteractable.Interact();
+            Debug.Log("TryInteract"); 
         }
     }
 
@@ -65,6 +72,10 @@ public class PlayerInteractions : MonoBehaviour
     {
         GetInteractable();
     }
+
+    /* --- Events --- */
+
+    public Action<bool> OnFocusInteractable;
 
     /* --- Editor Scripting --- */
     private void OnDrawGizmos()
