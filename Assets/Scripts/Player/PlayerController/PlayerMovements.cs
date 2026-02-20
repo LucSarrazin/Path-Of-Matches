@@ -5,8 +5,9 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private PlayerReferences _playerReferences;
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
-    private bool _canMove;
     private float _currentSpeed;
+    private bool _canMove;
+    private bool _canLook;
 
     private Vector2 _lookInputs;
     private float _pointerSensitivity;
@@ -46,7 +47,6 @@ public class PlayerMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_canMove) { return; }
         MovePlayer();
     }
 
@@ -70,6 +70,8 @@ public class PlayerMovements : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (!_canMove) { return; }
+
         Vector3 move = transform.right * _moveInputs.x + transform.forward * _moveInputs.y;
 
         if (move.sqrMagnitude < 0.01f)
@@ -89,6 +91,9 @@ public class PlayerMovements : MonoBehaviour
 
     /* --- Method : LOOK --- */
 
+    public void CanLook(bool enable)
+    { _canLook = enable; }
+
     public void SetLookInputs(Vector2 look)
     {
         _lookInputs = look;
@@ -96,7 +101,7 @@ public class PlayerMovements : MonoBehaviour
 
     private void LookPlayer()
     {
-        //SetLookInputs(_playerReferences.Controls.LookInputs);
+        if (!_canLook) { return; }
 
         float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime;
         float pointerY = _lookInputs.y * _pointerSensitivity * Time.deltaTime;
@@ -111,18 +116,5 @@ public class PlayerMovements : MonoBehaviour
         _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
     }
 
-    /* --- Method : Freeze movements (interact with an item) --- */
 
-    public void FreezePlayerMovement()
-    {
-        /* - Freeze movement - */
-        CanMove(false);
-
-        /* - Freeze rotation - */
-
-        SetLookInputs(Vector2.zero);
-
-        //_playerReferences.transform.Rotate(Vector3.zero);
-        //_playerReferences.Head.localRotation = Quaternion.identity; 
-    }
 }

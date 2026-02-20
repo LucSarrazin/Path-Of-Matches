@@ -65,14 +65,19 @@ public class PlayerControls : MonoBehaviour
 
     public void InteractInputCallback(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.started) /* "Started" for only pressed this frame */
         {
             _wantToInteract = true;
         }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
-            _wantToInteract = false;
-        }
+
+        //if (context.phase == InputActionPhase.Performed)
+        //{
+        //    _wantToInteract = true;
+        //}
+        //else if (context.phase == InputActionPhase.Canceled)
+        //{
+        //    _wantToInteract = false;
+        //}
     }
 
     public void ThrowInputCallback(InputAction.CallbackContext context)
@@ -99,5 +104,9 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        _wantToInteract = false; /* Reset to keep one frame only */
+    }
 
 }

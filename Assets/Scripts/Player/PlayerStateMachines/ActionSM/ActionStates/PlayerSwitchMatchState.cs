@@ -8,7 +8,7 @@ public class PlayerSwitchMatchState : PlayerActionState
     public override void Enter()
     {
         Debug.Log("[PLAYER - ACTION STATE] | ENTER SWITCH MATCH");
-
+        ResetActionComplete();
     }
 
     public override void Exit()
@@ -28,8 +28,7 @@ public class PlayerSwitchMatchState : PlayerActionState
             return;
         }
 
-        /* else */
-        _stateMachine.TransitionTo(_actionStates.None);
-        return;
+        /* Transition to None State when action is complete */
+        CompleteAction(); 
     }
 }

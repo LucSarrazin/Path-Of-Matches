@@ -10,6 +10,7 @@ public class PlayerWalkState : PlayerLocomotionState
     {
         Debug.Log("[PLAYER - STATE] | ENTER WALK STATE");
         _playerReferences.PlayerMovements.CanMove(true);
+        _playerReferences.PlayerMovements.CanLook(true);
         _playerReferences.PlayerMovements.SetSpeed(_playerReferences.WalkSpeed);
     }
 
@@ -34,20 +35,6 @@ public class PlayerWalkState : PlayerLocomotionState
             _stateMachine.TransitionTo(_playerStates.Run);
             return;
         }
-
-        //if (_playerReferences.Controls.WantToInteract)
-        //{
-        //    _stateMachine.TransitionTo(_playerStates.Interact);
-        //    return;
-        //}
-
-        //if (_playerReferences.Controls.WantToThrow)
-        //{
-        //    _stateMachine.TransitionTo(_playerStates.Throw);
-        //    return;
-        //}
-
-
 
     }
 }

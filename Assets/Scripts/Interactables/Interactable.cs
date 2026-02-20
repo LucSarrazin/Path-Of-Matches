@@ -7,6 +7,9 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     protected Renderer _renderer;
     protected Color _baseColor;
 
+    public abstract bool FreezeMovement { get; }
+    public abstract bool FreezeRotationLook { get; }
+
     protected virtual void Awake()
     {
         _renderer = GetComponent<Renderer>();
