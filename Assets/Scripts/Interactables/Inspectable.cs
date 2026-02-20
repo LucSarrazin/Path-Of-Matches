@@ -11,7 +11,6 @@ public class Inspectable : Interactable
 
     public override void Interact()
     {
-        base.Interact();
         Debug.Log($"Inspecting : {gameObject.name}");
     }
 }

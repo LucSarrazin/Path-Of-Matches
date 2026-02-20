@@ -29,7 +29,9 @@ public class PlayerInteractState : PlayerActionState
 
 
             /* -- If inspectable : long interaction -- */
+            
             _playerReferences.PlayerInteractions.TryInteract();
+            _inspectable.Interact();
 
             _isInspecting = true;
         }

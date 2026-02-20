@@ -32,7 +32,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     /* --- Interactions --- */
     public virtual void Interact()
     {
-        Debug.Log($"Player is interacting with {this.gameObject.name}");
+        Debug.Log($"Interacting with : {this.gameObject.name}");
     }
 
 }

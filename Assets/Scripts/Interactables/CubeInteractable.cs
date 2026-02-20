@@ -1,4 +1,4 @@
-using System.Diagnostics;
+using UnityEngine; 
 
 public class CubeInteractable : Interactable
 {
@@ -8,6 +8,6 @@ public class CubeInteractable : Interactable
 
     public override void Interact()
     {
-        /*Action*/
+        base.Interact();
     }
 }

@@ -8,8 +8,8 @@ public class PlayerInteractions : MonoBehaviour
     private LayerMask _interactibleLayerMask;
     private float _checkDistance;
 
-    private IInteractable _currentInteractable;
-    public IInteractable CurrentInteractable => _currentInteractable;
+    private Interactable _currentInteractable;
+    public Interactable CurrentInteractable => _currentInteractable;
 
     private void Awake()
     {
@@ -36,17 +36,17 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (CanInteract(out RaycastHit hit))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != _currentInteractable)
             {
                 _currentInteractable?.LoseFocus();
 
-                if (_currentInteractable != null) OnFocusInteractable?.Invoke(false); 
+                if (_currentInteractable != null) OnFocusInteractable?.Invoke(false);
 
                 _currentInteractable = interactable;
                 _currentInteractable?.OnFocus();
-                OnFocusInteractable?.Invoke(true); 
+                OnFocusInteractable?.Invoke(true);
             }
         }
         else
@@ -59,11 +59,7 @@ public class PlayerInteractions : MonoBehaviour
 
     public void TryInteract()
     {
-        if (_currentInteractable != null)
-        {
-            _currentInteractable.Interact();
-            Debug.Log("TryInteract"); 
-        }
+        _currentInteractable?.Interact();
     }
 
     /* --- Update check for UX highlight focus --- */
