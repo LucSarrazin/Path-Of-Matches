@@ -7,7 +7,7 @@ public class LaunchMatches : MonoBehaviour
     [Header("Matches Parameters")]
     [SerializeField] private GameObject matches;
     [SerializeField] private float force;
-    [SerializeField] private int numberOfMatches;
+    [SerializeField] public int numberOfMatches;
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     private bool charging = false;
