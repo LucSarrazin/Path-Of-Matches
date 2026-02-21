@@ -695,7 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerReferences
   _walkSpeed: 5
   _runSpeed: 0
-  _pointerSensitivity: 40
+  _pointerSensitivity: 0.17
   _interactibleLayerMask:
     serializedVersion: 2
     m_Bits: 0

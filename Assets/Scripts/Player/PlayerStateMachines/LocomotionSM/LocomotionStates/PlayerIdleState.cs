@@ -9,6 +9,7 @@ public class PlayerIdleState : PlayerLocomotionState
     public override void Enter()
     {
         Debug.Log("[PLAYER - STATE] | ENTER IDLE");
+        _playerReferences.PlayerMovements.CanLook(true); 
     }
 
     public override void Exit()

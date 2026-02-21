@@ -10,8 +10,7 @@ public class StateMachine
     public void TransitionTo(IState state)
     {
         /* [SAFETY] : check to avoid loop on same state */
-        if (_currentState == state) 
-            return;
+        if (_currentState == state) return;
 
         _currentState?.Exit();
         _currentState = state;

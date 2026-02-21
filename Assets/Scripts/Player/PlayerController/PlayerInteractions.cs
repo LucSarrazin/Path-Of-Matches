@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
@@ -7,7 +8,8 @@ public class PlayerInteractions : MonoBehaviour
     private LayerMask _interactibleLayerMask;
     private float _checkDistance;
 
-    private IInteractable _currentInteractable;
+    private Interactable _currentInteractable;
+    public Interactable CurrentInteractable => _currentInteractable;
 
     private void Awake()
     {
@@ -34,28 +36,30 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (CanInteract(out RaycastHit hit))
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != _currentInteractable)
             {
                 _currentInteractable?.LoseFocus();
+
+                if (_currentInteractable != null) OnFocusInteractable?.Invoke(false);
+
                 _currentInteractable = interactable;
                 _currentInteractable?.OnFocus();
+                OnFocusInteractable?.Invoke(true);
             }
         }
         else
         {
             _currentInteractable?.LoseFocus();
+            if (_currentInteractable != null) OnFocusInteractable?.Invoke(false);
             _currentInteractable = null;
         }
     }
 
     public void TryInteract()
     {
-        if (_currentInteractable != null)
-        {
-            _currentInteractable.Interact();
-        }
+        _currentInteractable?.Interact();
     }
 
     /* --- Update check for UX highlight focus --- */
@@ -64,6 +68,10 @@ public class PlayerInteractions : MonoBehaviour
     {
         GetInteractable();
     }
+
+    /* --- Events --- */
+
+    public Action<bool> OnFocusInteractable;
 
     /* --- Editor Scripting --- */
     private void OnDrawGizmos()

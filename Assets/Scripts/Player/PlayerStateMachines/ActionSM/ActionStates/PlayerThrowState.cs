@@ -9,6 +9,8 @@ public class PlayerThrowState : PlayerActionState
     public override void Enter()
     {
         Debug.Log("[PLAYER - STATE] | ENTER THROW");
+        ResetActionComplete();
+
     }
 
     public override void Exit()
@@ -31,9 +33,8 @@ public class PlayerThrowState : PlayerActionState
             return;
         }
 
-        /* else */
-        _stateMachine.TransitionTo(_actionStates.None);
-        return;
+        /* Transition to None State when action is complete */
+        CompleteAction();
     }
 
 

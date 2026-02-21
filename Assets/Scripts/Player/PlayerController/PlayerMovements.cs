@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovements : MonoBehaviour
@@ -5,8 +6,9 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private PlayerReferences _playerReferences;
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
-    private bool _canMove;
     private float _currentSpeed;
+    private bool _canMove;
+    private bool _canLook;
 
     private Vector2 _lookInputs;
     private float _pointerSensitivity;
@@ -27,7 +29,7 @@ public class PlayerMovements : MonoBehaviour
         _pointerSensitivity = _playerReferences.PointerSensitivity;
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
         /* Method to set view on Start */
         _xRotation = 0f;
@@ -37,6 +39,15 @@ public class PlayerMovements : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        yield return null; /* Wait one frame to avoid delta error */
+
+        _lookInputs = Vector2.zero;
+        _canLook = true; 
+    }
+
+    private void OnEnable()
+    {
+        _canLook = false;
     }
 
     private void Update()
@@ -46,7 +57,6 @@ public class PlayerMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_canMove) { return; }
         MovePlayer();
     }
 
@@ -70,6 +80,8 @@ public class PlayerMovements : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (!_canMove) { return; }
+
         Vector3 move = transform.right * _moveInputs.x + transform.forward * _moveInputs.y;
 
         if (move.sqrMagnitude < 0.01f)
@@ -89,6 +101,9 @@ public class PlayerMovements : MonoBehaviour
 
     /* --- Method : LOOK --- */
 
+    public void CanLook(bool enable)
+    { _canLook = enable; }
+
     public void SetLookInputs(Vector2 look)
     {
         _lookInputs = look;
@@ -96,10 +111,10 @@ public class PlayerMovements : MonoBehaviour
 
     private void LookPlayer()
     {
-        //SetLookInputs(_playerReferences.Controls.LookInputs);
+        if (!_canLook) { return; }
 
-        float pointerX = _lookInputs.x * _pointerSensitivity * Time.deltaTime;
-        float pointerY = _lookInputs.y * _pointerSensitivity * Time.deltaTime;
+        float pointerX = _lookInputs.x * _pointerSensitivity/* * Time.deltaTime*/;
+        float pointerY = _lookInputs.y * _pointerSensitivity /* * Time.deltaTime*/;
 
         /* Horizontal rotation : */
         _playerReferences.transform.Rotate(Vector3.up * pointerX);
@@ -109,8 +124,7 @@ public class PlayerMovements : MonoBehaviour
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f); /* to avoid absolute flip */
 
         _playerReferences.Head.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
-
-
-
     }
+
+
 }

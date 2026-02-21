@@ -1,3 +1,4 @@
+using System;
 using UnityEngine; 
 
 public abstract class Interactable : MonoBehaviour, IInteractable
@@ -6,6 +7,9 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     protected Renderer _renderer;
     protected Color _baseColor;
+
+    public abstract bool FreezeMovement { get; }
+    public abstract bool FreezeRotationLook { get; }
 
     protected virtual void Awake()
     {
@@ -17,6 +21,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     public virtual void OnFocus()
     {
         _renderer.material.color = Color.green;
+        
     }
 
     public virtual void LoseFocus()
@@ -27,6 +32,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     /* --- Interactions --- */
     public virtual void Interact()
     {
-        Debug.Log($"Player is interacting with {this.gameObject.name}");
+        Debug.Log($"Interacting with : {this.gameObject.name}");
     }
+
 }
