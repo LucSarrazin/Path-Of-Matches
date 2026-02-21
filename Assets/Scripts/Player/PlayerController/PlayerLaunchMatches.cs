@@ -8,47 +8,72 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private GameObject matches;
     [SerializeField] private float force;
     [SerializeField] private int numberOfMatches;
+
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
+
     private bool charging = false;
-    private InputSystem_Actions actions;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    /* --- Public references to Update in UI --- */
+
+    public int NumberOfMatches
     {
-        actions =  new InputSystem_Actions();
-        actions.Player.Enable();
-        actions.Player.Attack.performed += launchPerfomed;
-        actions.Player.Attack.canceled += launchCanceled;
+        get => numberOfMatches;
+        set
+        {
+            if (numberOfMatches == value) return;
+            numberOfMatches = value;
+            OnChangeNumberOfMatches?.Invoke(numberOfMatches);
+        }
     }
 
-    // Update is called once per frame
+    public float Force
+    {
+        get => force;
+        set { if (force == value) return; /* Maybe add here a constraint condition for fluidity ( < 0.1 ?) */
+            force = value; 
+            OnForceChange?.Invoke(force);
+        }
+    }
+
+    /* --- Events --- */
+    public Action<int> OnChangeNumberOfMatches;
+    public Action<float> OnForceChange;
+
+    /* --- Update : force --- */
     void Update()
     {
-        if (force > 0 && force < 10)
+        if (Force > 0 && Force < 10)
         {
             if (charging == true)
             {
-                force += Time.deltaTime;
+                Force += Time.deltaTime;
             }
-            if (force > 1 && charging == false)
+            if (Force > 1 && charging == false)
             {
-                force = 1;
+                Force = 1;
             }
         }
 
-        if (force >= 10 && charging == true)
+        if (Force >= 10 && charging == true)
         {
-            force = 10;
+            Force = 10;
         }
-        else if (force >= 10 && charging == false)
+        else if (Force >= 10 && charging == false)
         {
-            force = 1;
+            Force = 1;
         }
     }
 
-    private void launchPerfomed(InputAction.CallbackContext context)
-    { 
-        if (numberOfMatches > 0)
+    /* --- Public methods to call in the State Machine --- */
+
+    public void StartThrowCharge() => launchPerformed(); 
+    public void StopThrowCharge() => launchCanceled();
+
+
+    private void launchPerformed()
+    {
+        if (NumberOfMatches > 0)
         {
             if (keepInHand == false)
             {
@@ -68,13 +93,13 @@ public class PlayerLaunchMatches : MonoBehaviour
         }
     }
 
-    private void launchCanceled(InputAction.CallbackContext context)
+    private void launchCanceled()
     {
-        if (numberOfMatches > 0)
+        if (NumberOfMatches > 0)
         {
             if (keepInHand == false)
             {
-                Launch(force);
+                Launch(Force);
                 charging = false;
             }
             else
@@ -82,7 +107,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 if (gotMatches == true)
                 {
                     gotMatches = false;
-                    Launch(force);
+                    Launch(Force);
                     charging = false;
                 }
                 else if (gotMatches == false)
@@ -101,8 +126,8 @@ public class PlayerLaunchMatches : MonoBehaviour
     void Launch(float forceActual)
     {
         Debug.Log("Launching matches.");
-        numberOfMatches--;
-        GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0,0.707106829f,0,0.707106829f));
+        NumberOfMatches--;
+        GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0, 0.707106829f, 0, 0.707106829f));
         Rigidbody rb = matchesInstantiate.GetComponentInChildren<Rigidbody>();
         if (rb != null)
         {

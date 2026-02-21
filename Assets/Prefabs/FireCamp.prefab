@@ -140,7 +140,8 @@ GameObject:
   - component: {fileID: 2155885331109695112}
   - component: {fileID: 8093877776485773470}
   - component: {fileID: 2162173101626767676}
-  m_Layer: 6
+  - component: {fileID: 8248898551834625548}
+  m_Layer: 0
   m_Name: Fire
   m_TagString: TorchFire
   m_Icon: {fileID: 0}
@@ -256,6 +257,33 @@ MonoBehaviour:
   _colorOff: {fileID: 2100000, guid: cef5e9c8bcfe5e44491151ea7a084d73, type: 2}
   _colorOn: {fileID: 2100000, guid: 5c8ffa524f7781e48ac71e1354a102d2, type: 2}
   _pointLight: {fileID: 1779829470221726449}
+--- !u!54 &8248898551834625548
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049539963404001071}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3717082148134790881
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,8 +296,7 @@ GameObject:
   - component: {fileID: 3293737192597110271}
   - component: {fileID: 933477198330926579}
   - component: {fileID: 7809414924959257801}
-  - component: {fileID: 2777477986187854380}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WoodBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,18 +397,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2777477986187854380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3717082148134790881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 634dbedad7eb64b4297219f63784bd5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CubeInteractable
 --- !u!1 &8052346555513585967
 GameObject:
   m_ObjectHideFlags: 0

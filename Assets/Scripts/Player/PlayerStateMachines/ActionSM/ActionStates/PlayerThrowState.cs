@@ -11,15 +11,23 @@ public class PlayerThrowState : PlayerActionState
         Debug.Log("[PLAYER - STATE] | ENTER THROW");
         ResetActionComplete();
 
+        _playerReferences.PlayerLaunchMatches.StartThrowCharge();
+
     }
 
     public override void Exit()
     {
         //Debug.Log("[PLAYER - STATE ACTION] | EXIT THROW");
+        _playerReferences.PlayerLaunchMatches.StopThrowCharge(); 
     }
 
     public override void Update()
     {
+        if (!_playerReferences.Controls.WantToThrow)
+        {
+            /* Transition to None State when action is complete */
+            CompleteAction();
+        }
 
         if (_playerReferences.Controls.WantToInteract)
         {
@@ -33,8 +41,7 @@ public class PlayerThrowState : PlayerActionState
             return;
         }
 
-        /* Transition to None State when action is complete */
-        CompleteAction();
+        TryCompleteAction();
     }
 
 

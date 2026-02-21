@@ -15,9 +15,12 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Transform _head;
     [SerializeField] private Camera _viewCamera;
+
+    [Header("[PLAYER] CONTROLS SCRIPTS :")]
     [SerializeField] private PlayerControls _controls;
     [SerializeField] private PlayerMovements _playerMovements;
     [SerializeField] private PlayerInteractions _playerInteractions;
+    [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
 
 
     #region PUBLIC REFERENCES : 
@@ -40,6 +43,7 @@ public class PlayerReferences : MonoBehaviour
     public PlayerControls Controls { get => _controls; }
     public PlayerMovements PlayerMovements { get => _playerMovements; }
     public PlayerInteractions PlayerInteractions { get => _playerInteractions; }
+    public PlayerLaunchMatches PlayerLaunchMatches { get => _playerLaunchMatches; }
     public Camera PlayerViewCamera { get => _viewCamera; }
 
     #endregion

@@ -1914,6 +1914,7 @@ MonoBehaviour:
   _playerReferences: {fileID: 1766511737}
   _matches: {fileID: 1094735918}
   _bpmCount: {fileID: 2087793122}
+  _forceSlider: {fileID: 398294198}
   _pointer: {fileID: 1080948803}
   _defaultPointerColor: {r: 0, g: 0, b: 0, a: 1}
   _onFocusPointerColor: {r: 1, g: 0, b: 0, a: 1}
@@ -2287,7 +2288,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 145633114}
   - {fileID: 242454607}
+  - {fileID: 99079318}
   - {fileID: 1633879148}
   - {fileID: 863196956}
-  - {fileID: 99079318}
   - {fileID: 635136448}
