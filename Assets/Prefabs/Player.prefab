@@ -496,7 +496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4527592748341858728
 Transform:
   m_ObjectHideFlags: 0
@@ -654,6 +654,7 @@ MonoBehaviour:
   _controls: {fileID: 7584742121701950265}
   _playerMovements: {fileID: 7907117140142738080}
   _playerInteractions: {fileID: 5168306066619233619}
+  _playerLaunchMatches: {fileID: 6891605512323746139}
 --- !u!54 &2779984839723981709
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,6 +784,7 @@ GameObject:
   - component: {fileID: 6158152094969755696}
   - component: {fileID: 6410895478291613359}
   - component: {fileID: 9195550913700426094}
+  - component: {fileID: 6891605512323746139}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -908,3 +910,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &6891605512323746139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205602027706492360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcaad48dddfa0d44383422a156ab9da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLaunchMatches
+  matches: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
+  force: 1
+  numberOfMatches: 5
+  keepInHand: 0
+  gotMatches: 0
