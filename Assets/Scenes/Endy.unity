@@ -1134,11 +1134,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerReferences
   _walkSpeed: 5
+  _runSpeed: 0
   _pointerSensitivity: 40
+  _interactibleLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _checkDistance: 15
   _rigidbody: {fileID: 1289330283}
   _head: {fileID: 906993202}
+  _viewCamera: {fileID: 0}
   _controls: {fileID: 773681970}
   _playerMovements: {fileID: 773681969}
+  _playerInteractions: {fileID: 0}
 --- !u!54 &1289330283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1934,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4673201d23960f64cb57eab81e2f1bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseOfMadness
-  madnessLvl: 1
+  madnessLvl: 100
   listSound:
   - {fileID: 8300000, guid: b9356c5f8ae2d014b85f9fa1faa533d5, type: 3}
   - {fileID: 8300000, guid: 7302f06f4a0f74146a5d962e71de97f1, type: 3}

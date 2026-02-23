@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SoundParameter : MonoBehaviour
 {
-    private float intensity = 0.04f;
+    private float intensity = 0.006f;
 
     private AudioSource audioSource; 
     private Insanity player;
@@ -15,6 +15,6 @@ public class SoundParameter : MonoBehaviour
 
     void Update()
     {
-        audioSource.volume = Mathf.Clamp(intensity * player.InsanityLvl * player.InsanityLvl, 0f, 1f);
+        audioSource.volume = Mathf.Clamp(intensity * player.InsanityLvl, 0f, 1f);
     }
 }
