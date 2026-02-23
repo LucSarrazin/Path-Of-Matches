@@ -31,7 +31,7 @@ public class NoiseOfMadness : MonoBehaviour
 
     IEnumerator PlaySound()
     {
-        yield return new WaitForSeconds(Random.Range(25, 60 - 5 * madnessLvl));
+        yield return new WaitForSeconds(Random.Range(25, 180 - 1 * madnessLvl));
 
         if (player.InsanityLvl >= madnessLvl)
         {
