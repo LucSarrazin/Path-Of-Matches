@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4673201d23960f64cb57eab81e2f1bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseOfMadness
-  madnessLvl: 1
+  madnessLvl: 100
   listSound:
   - {fileID: 8300000, guid: b9356c5f8ae2d014b85f9fa1faa533d5, type: 3}
   - {fileID: 8300000, guid: 7302f06f4a0f74146a5d962e71de97f1, type: 3}
