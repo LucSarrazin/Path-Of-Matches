@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ObjectInspection : Interactable
+public class ObjectInspection : Inspectable
 {
     private InputSystem_Actions actions;
     private Vector2 _mousePosition;
