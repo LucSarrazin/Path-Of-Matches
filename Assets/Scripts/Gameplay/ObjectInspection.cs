@@ -18,6 +18,10 @@ public class ObjectInspection : Interactable
     [SerializeField] private Collider collider;
     private Camera playerCamera;
 
+    public override bool FreezeMovement => throw new NotImplementedException();
+
+    public override bool FreezeRotationLook => throw new NotImplementedException();
+
     private void OnEnable()
     {
         actions = new InputSystem_Actions();
