@@ -21,6 +21,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerMovements _playerMovements;
     [SerializeField] private PlayerInteractions _playerInteractions;
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
+    [SerializeField] private Insanity _playerInsanity;
 
 
     #region PUBLIC REFERENCES : 
@@ -44,6 +45,7 @@ public class PlayerReferences : MonoBehaviour
     public PlayerMovements PlayerMovements { get => _playerMovements; }
     public PlayerInteractions PlayerInteractions { get => _playerInteractions; }
     public PlayerLaunchMatches PlayerLaunchMatches { get => _playerLaunchMatches; }
+    public Insanity PlayerInsanity {  get => _playerInsanity; }
     public Camera PlayerViewCamera { get => _viewCamera; }
 
     #endregion
