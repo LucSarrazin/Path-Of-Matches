@@ -433,6 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9103111279690734258}
   - component: {fileID: 3766977604046044841}
+  - component: {fileID: 4505722274171052239}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -478,6 +479,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4505722274171052239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251073555724506627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e1da8792ca09b4daa2d93704be506d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Insanity
+  insanityLvl: 0
 --- !u!1 &7339282314131170251
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +669,7 @@ MonoBehaviour:
   _playerMovements: {fileID: 7907117140142738080}
   _playerInteractions: {fileID: 5168306066619233619}
   _playerLaunchMatches: {fileID: 6891605512323746139}
+  _playerInsanity: {fileID: 4505722274171052239}
 --- !u!54 &2779984839723981709
 Rigidbody:
   m_ObjectHideFlags: 0
