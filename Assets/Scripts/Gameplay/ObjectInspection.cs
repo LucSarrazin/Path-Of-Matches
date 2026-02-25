@@ -7,8 +7,8 @@ public class ObjectInspection : Inspectable
     private InputSystem_Actions actions;
     private Vector2 _mousePosition;
     private Vector2 _screenSize;
-    private bool isDragging = false;
-    private bool flipFlop = false;
+    [SerializeField] private bool isDragging = false;
+    [SerializeField] private bool flipFlop = false;
     [SerializeField] private float force;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 startPosition;
@@ -17,18 +17,6 @@ public class ObjectInspection : Inspectable
     [SerializeField] private float rotationReturnSpeed = 5f;
     [SerializeField] private Collider collider;
     private Camera playerCamera;
-
-    public override bool FreezeMovement => throw new NotImplementedException();
-
-    public override bool FreezeRotationLook => throw new NotImplementedException();
-
-    private void OnEnable()
-    {
-        actions = new InputSystem_Actions();
-        actions.Player.Enable();
-        //actions.Player.Attack.started += AttackOnstarted;
-        //actions.Player.Attack.canceled += AttackOncancel;
-    }
 
     /*private void AttackOnstarted(InputAction.CallbackContext obj)
     {
@@ -40,23 +28,18 @@ public class ObjectInspection : Inspectable
         isDragging = false;
     }*/
 
-    private void OnDisable()
-    {
-        actions.Player.Disable();
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        offset = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);
+        offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
         startPosition = transform.position;
-        playerCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        playerCamera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
-        offset = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);
+        offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
         _mousePosition = Mouse.current.position.ReadValue();
         _screenSize = new Vector2(_mousePosition.x / Screen.width - 0.5f, _mousePosition.y / Screen.height - 0.5f);
 
@@ -80,15 +63,19 @@ public class ObjectInspection : Inspectable
     
     public override void Interact()
     {
-        if (!flipFlop)
+        Debug.Log("Interact appelé depuis : " + new System.Diagnostics.StackTrace());
+        if (flipFlop != true)
         {
-            flipFlop = true;
+            Debug.Log("Ouverture");
             isDragging = true;
-            offset = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);        }
+            flipFlop = true;
+            offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        }
         else
         {
-            flipFlop = false;
+            Debug.Log("Fermeture");
             isDragging = false;
+            flipFlop = false;
         }
     }
 

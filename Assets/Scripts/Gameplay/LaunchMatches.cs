@@ -7,11 +7,13 @@ public class LaunchMatches : MonoBehaviour
     [Header("Matches Parameters")]
     [SerializeField] private GameObject matches;
     [SerializeField] private float force;
+    [SerializeField] private float timeForce;
     [SerializeField] public int numberOfMatches;
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     private bool charging = false;
     private InputSystem_Actions actions;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +30,7 @@ public class LaunchMatches : MonoBehaviour
         {
             if (charging == true)
             {
-                force += Time.deltaTime;
+                force += Time.deltaTime * timeForce;
             }
             if (force > 1 && charging == false)
             {

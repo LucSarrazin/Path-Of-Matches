@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     private PlayerInteractions _playerInteractions;
     private PlayerLaunchMatches _playerLaunchMatches;
+    private Insanity _playerInsanity;
 
     [Header("Display UI parameters : ")]
 
@@ -29,17 +30,19 @@ public class UIManager : MonoBehaviour
     {
         _playerInteractions = _playerReferences.PlayerInteractions;
         _playerLaunchMatches = _playerReferences.PlayerLaunchMatches;
+        _playerInsanity = _playerReferences.PlayerInsanity;
 
         _playerInteractions.OnFocusInteractable += ChangePointerColor;
-
         _playerLaunchMatches.OnChangeNumberOfMatches += UpdateNumberOfMatchesIndicator; 
         _playerLaunchMatches.OnForceChange += UpdateForceIndicator;
+        _playerInsanity.OnInsanityChange += UpdateInsanityIndicator;
 
 
         /* - First Update - */
         InitalConfigForceIndicator();
         UpdateNumberOfMatchesIndicator(_playerLaunchMatches.NumberOfMatches); 
-        UpdateForceIndicator(_playerLaunchMatches.Force); 
+        UpdateForceIndicator(_playerLaunchMatches.Force);
+        UpdateInsanityIndicator(_playerInsanity.InsanityLvl);
 
     }
 
@@ -47,7 +50,9 @@ public class UIManager : MonoBehaviour
     {
         _playerInteractions.OnFocusInteractable -= ChangePointerColor;
         _playerLaunchMatches.OnChangeNumberOfMatches -= UpdateNumberOfMatchesIndicator; 
-        _playerLaunchMatches.OnForceChange -= UpdateForceIndicator; 
+        _playerLaunchMatches.OnForceChange -= UpdateForceIndicator;
+        _playerInsanity.OnInsanityChange -= UpdateInsanityIndicator;
+
     }
 
 
@@ -72,5 +77,5 @@ public class UIManager : MonoBehaviour
 
     private void UpdateNumberOfMatchesIndicator(int numberOfMatches) => _matches.text = numberOfMatches.ToString();
     private void UpdateForceIndicator(float force) => _forceSlider.value = force;
-    private void UpdateInsanityIndicator(float insanity) => _bpmCount.text = insanity.ToString();
+    private void UpdateInsanityIndicator(int insanity) => _bpmCount.text = insanity.ToString();
 }

@@ -7,6 +7,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     [Header("Matches Parameters")]
     [SerializeField] private GameObject matches;
     [SerializeField] private float force;
+    [SerializeField] private float timeForce;
     [SerializeField] private int numberOfMatches;
 
     [SerializeField] private bool keepInHand;
@@ -47,7 +48,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             if (charging == true)
             {
-                Force += Time.deltaTime;
+                Force += Time.deltaTime * timeForce;
             }
             if (Force > 1 && charging == false)
             {

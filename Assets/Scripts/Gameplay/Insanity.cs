@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Insanity : MonoBehaviour
 {
@@ -9,9 +10,17 @@ public class Insanity : MonoBehaviour
 
     public int InsanityLvl
     {
-        get { return insanityLvl; }
-        private set { insanityLvl = value; }
+        get => insanityLvl;
+        set
+        {
+            if (insanityLvl == value) return;
+            insanityLvl = value;
+            OnInsanityChange?.Invoke(insanityLvl);
+        }
     }
+
+    /* --- Events --- */
+    public Action<int> OnInsanityChange;
 
     void Start()
     {
