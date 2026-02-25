@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ObjectInspection : Interactable
+public class ObjectInspection : Inspectable
 {
     private InputSystem_Actions actions;
     private Vector2 _mousePosition;
@@ -17,6 +17,10 @@ public class ObjectInspection : Interactable
     [SerializeField] private float rotationReturnSpeed = 5f;
     [SerializeField] private Collider collider;
     private Camera playerCamera;
+
+    public override bool FreezeMovement => throw new NotImplementedException();
+
+    public override bool FreezeRotationLook => throw new NotImplementedException();
 
     private void OnEnable()
     {

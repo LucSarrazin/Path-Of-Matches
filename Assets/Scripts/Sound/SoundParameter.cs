@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SoundParameter : MonoBehaviour
 {
-    private float intensity = 0.006f;
+    [SerializeField] private float intensity = 0.006f;
 
     private AudioSource audioSource; 
     private Insanity player;

@@ -595,6 +595,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 27abd862-7ae3-4e7f-aea5-1bcc09bd303f
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d4691a8e-ba3f-4eb5-b0f6-70ece7223ac7
+    m_ActionName: 'Player/Run[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b9e8b37-9ddd-4ad0-8286-b6e5fea6fb6e
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c003705-6a9a-4faa-b690-d412114c63bb
+    m_ActionName: 'Player/Throw[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78ac667e-0cc5-467f-89fc-d0690def1cee
+    m_ActionName: 'Player/SwitchMatch[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1146,6 +1162,7 @@ MonoBehaviour:
   _controls: {fileID: 773681970}
   _playerMovements: {fileID: 773681969}
   _playerInteractions: {fileID: 0}
+  _playerLaunchMatches: {fileID: 0}
 --- !u!54 &1289330283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1186,7 +1203,7 @@ GameObject:
   - component: {fileID: 1328741131}
   - component: {fileID: 1328741130}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Screamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

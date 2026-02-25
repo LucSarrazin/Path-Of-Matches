@@ -5,7 +5,11 @@ public class MatchesChest : Interactable
 {
     [SerializeField] private Animator chestAnimator;
     private LaunchMatches launchMatches;
-    
+
+    public override bool FreezeMovement => throw new System.NotImplementedException();
+
+    public override bool FreezeRotationLook => throw new System.NotImplementedException();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
