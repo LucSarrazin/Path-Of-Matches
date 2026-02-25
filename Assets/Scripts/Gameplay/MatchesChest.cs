@@ -4,7 +4,7 @@ using UnityEngine;
 public class MatchesChest : Interactable
 {
     [SerializeField] private Animator chestAnimator;
-    private LaunchMatches launchMatches;
+    private PlayerLaunchMatches launchMatches;
 
     public override bool FreezeMovement => throw new System.NotImplementedException();
 
@@ -13,7 +13,7 @@ public class MatchesChest : Interactable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        launchMatches = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LaunchMatches>();
+        launchMatches = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerLaunchMatches>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class MatchesChest : Interactable
             chestAnimator.SetBool("Open", true);
             chestAnimator.SetBool("Close", false);
             Debug.Log("Chest is Open");
-            launchMatches.numberOfMatches = 5;
+            launchMatches.NumberOfMatches = 5;
             StartCoroutine(OpenChest());
     }
 

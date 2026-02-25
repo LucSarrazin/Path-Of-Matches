@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1867d57fe15745b448695a0fd72ece3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectInspection
+  _freezeMovement: 1
+  _freezeRotationLook: 1
   force: 500
   offset: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
