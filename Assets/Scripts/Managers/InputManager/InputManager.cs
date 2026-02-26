@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
+        // -- Variable initialization -- //
+
         move = actions.FindAction("Move");
         interact = actions.FindAction("Interact");
         throwAction = actions.FindAction("Throw");
@@ -23,35 +25,29 @@ public class InputManager : MonoBehaviour
 
     void OnEnable()
     {
+        // -- Activates all player controls -- //
+
         move.Enable();
         interact.Enable();
         throwAction.Enable();
+        runAction.Enable();
+        switchMatchesAction.Enable();
     }
 
     void OnDisable()
     {
+        // -- Disables all player controls -- //
+
         move.Disable();
         interact.Disable();
         throwAction.Disable();
+        runAction.Disable();
+        switchMatchesAction.Disable();
     }
-
-    public Vector2 GetMove()
-    {
-        return move.ReadValue<Vector2>();
-    }
-
-    public bool InteractPressed()
-    {
-        return interact.WasPressedThisFrame();
-    }
-
-    public bool ThrowPressed()
-    {
-        return throwAction.WasPressedThisFrame();
-    }
-
     public void Save()
     {
+        // -- Save player controls -- //
+
         PlayerPrefs.SetString(
             "rebinds",
             actions.SaveBindingOverridesAsJson()
@@ -60,6 +56,8 @@ public class InputManager : MonoBehaviour
 
     public void Load()
     {
+        // -- reclaims player controls -- //
+
         if (PlayerPrefs.HasKey("rebinds"))
         {
             actions.LoadBindingOverridesFromJson(
