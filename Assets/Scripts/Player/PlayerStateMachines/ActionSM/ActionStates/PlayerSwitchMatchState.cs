@@ -12,6 +12,7 @@ public class PlayerSwitchMatchState : PlayerActionState
 
         _playerReferences.PlayerMovements.CanMove(false);
 
+        // Changes the player's matches skin //
         _playerReferences.PlayerSwitchMatches.Switch();
 
         CompleteAction();

@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8627451
       objectReference: {fileID: 0}
+    - target: {fileID: 1553264501853198403, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
+      propertyPath: possessed
+      value: False
+      objectReference: {fileID: 0}
     - target: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
       propertyPath: m_Name
       value: Matches Variant

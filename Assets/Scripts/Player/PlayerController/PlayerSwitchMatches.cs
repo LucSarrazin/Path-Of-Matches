@@ -21,6 +21,8 @@ public class PlayerSwitchMatches : MonoBehaviour
 
     public void UpdateSkins()
     {
+        // -- Updates the list of skins owned by the player at the scene launch -- //
+
         foreach (GameObject skin in listPrefabsMatches)
         {
             if (skin.GetComponent<Matches>().possessed == "True")
@@ -32,6 +34,8 @@ public class PlayerSwitchMatches : MonoBehaviour
 
     public void Switch()
     {
+        // -- Switch between matches skins -- //
+
         if (skinNumber == listSkinMatches.Count)
         {
             skinNumber = 1;
@@ -46,6 +50,8 @@ public class PlayerSwitchMatches : MonoBehaviour
 
     public void AddMatchesSkin(GameObject matches)
     {
+        // -- Adds a new matches skin to the player's skin list -- //
+
         if (listPrefabsMatches.Contains(matches))
         {
             listSkinMatches.Add(matches);

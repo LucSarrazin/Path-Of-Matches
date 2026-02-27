@@ -4258,6 +4258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 846916452}
   - component: {fileID: 846916454}
+  - component: {fileID: 846916455}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -4338,6 +4339,23 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &846916455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846916450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb5e55159be3494596cff32ef05dcd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSwitchMatches
+  listPrefabsMatches:
+  - {fileID: 4200394936036997217, guid: 1abdcbdb039e35b41a294257a99e241b, type: 3}
+  - {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
+  _playerReferences: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+  listSkinMatches: []
 --- !u!1 &860545721
 GameObject:
   m_ObjectHideFlags: 0
