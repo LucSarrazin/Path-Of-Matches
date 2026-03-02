@@ -14,8 +14,6 @@ public class PlayerSwitchMatchState : PlayerActionState
 
         // Changes the player's matches skin //
         _playerReferences.PlayerSwitchMatches.Switch();
-
-        CompleteAction();
     }
 
     public override void Exit()
@@ -30,13 +28,19 @@ public class PlayerSwitchMatchState : PlayerActionState
             _stateMachine.TransitionTo(_actionStates.Throw);
             return;
         }
+
         if (_playerReferences.Controls.WantToInteract)
         {
             _stateMachine.TransitionTo(_actionStates.Interact);
             return;
         }
 
-        /* Transition to None State when action is complete */
-        CompleteAction(); 
+        if (!_playerReferences.Controls.WantToSwitchMatch)
+        {
+            /* Transition to None State when action is complete */
+            CompleteAction();
+        }
+
+        TryCompleteAction(); 
     }
 }

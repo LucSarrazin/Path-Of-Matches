@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerLaunchMatches : MonoBehaviour
 {
     [Header("Matches Parameters")]
-    [SerializeField] private GameObject matches;
+    public GameObject matches;
     [SerializeField] private float force;
     [SerializeField] private float timeForce;
     [SerializeField] private int numberOfMatches;
@@ -86,7 +86,7 @@ public class PlayerLaunchMatches : MonoBehaviour
 
     private void launchPerformed()
     {
-        if (NumberOfMatches > 0)
+        if (NumberOfMatches > 0 && matches != null)
         {
             if (keepInHand == false)
             {
@@ -108,7 +108,7 @@ public class PlayerLaunchMatches : MonoBehaviour
 
     private void launchCanceled()
     {
-        if (NumberOfMatches > 0)
+        if (NumberOfMatches > 0 && matches != null)
         {
             if (keepInHand == false)
             {

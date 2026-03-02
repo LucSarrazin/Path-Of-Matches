@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,15 +9,26 @@ public class PlayerSwitchMatches : MonoBehaviour
 {
     [Header("SETTINGS : ")]
     public List<GameObject> listPrefabsMatches = new List<GameObject>();
+    public List<GameObject> listSkinMatches = new List<GameObject>();
+    public int skinNumber;
 
     [SerializeField] private PlayerReferences _playerReferences;
-    [SerializeField] private List<GameObject> listSkinMatches = new List<GameObject>();
-    private int skinNumber;
 
 
     private void Start()
     {
         UpdateSkins();
+
+        Load();
+
+        if (listSkinMatches.Count > 0)
+        {
+            _playerReferences.PlayerLaunchMatches.Matches = listSkinMatches[skinNumber];
+        }
+        else
+        {
+            _playerReferences.PlayerLaunchMatches.Matches = null;
+        }
     }
 
     public void UpdateSkins()
@@ -36,16 +48,20 @@ public class PlayerSwitchMatches : MonoBehaviour
     {
         // -- Switch between matches skins -- //
 
-        if (skinNumber == listSkinMatches.Count)
+        if (listSkinMatches.Count == 0) return;
+
+        if (skinNumber >= listSkinMatches.Count-1)
         {
-            skinNumber = 1;
+            skinNumber = 0;
         }
         else
         {
             skinNumber++;
         }
 
-        _playerReferences.PlayerLaunchMatches.Matches = listSkinMatches[skinNumber-1];
+        _playerReferences.PlayerLaunchMatches.Matches = listSkinMatches[skinNumber];
+
+        Save();
     }
 
     public void AddMatchesSkin(GameObject matches)
@@ -56,6 +72,24 @@ public class PlayerSwitchMatches : MonoBehaviour
         {
             listSkinMatches.Add(matches);
             matches.GetComponent<Matches>().Save();
+            _playerReferences.PlayerLaunchMatches.Matches = matches;
         }
+    }
+
+    public void Save()
+    {
+        // -- Save skinsID -- //
+
+        PlayerPrefs.SetString(
+            "IDallumette",
+            skinNumber.ToSafeString()
+        );
+    }
+
+    public void Load()
+    {
+        // -- reclaims skinsID -- //
+
+        skinNumber = Convert.ToInt32(PlayerPrefs.GetString("IDallumette"));
     }
 }

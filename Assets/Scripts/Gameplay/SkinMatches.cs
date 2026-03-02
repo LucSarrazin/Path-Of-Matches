@@ -1,4 +1,4 @@
-using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkinMatches : Interactable
@@ -9,6 +9,14 @@ public class SkinMatches : Interactable
     public override bool FreezeMovement => throw new System.NotImplementedException();
 
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
+
+    private void Start()
+    {
+        if (skin.GetComponent<Matches>().possessed == "True")
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public override void Interact()
     {
