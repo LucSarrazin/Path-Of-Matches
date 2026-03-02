@@ -12,6 +12,7 @@ public class PlayerLaunchMatches : MonoBehaviour
 
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
+    [SerializeField] private GameObject handMatches;
 
     private bool charging = false;
 
@@ -119,6 +120,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             {
                 if (gotMatches == true)
                 {
+                    handMatches.SetActive(false);
                     gotMatches = false;
                     Launch(Force);
                     charging = false;
@@ -126,6 +128,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 else if (gotMatches == false)
                 {
                     Debug.Log("Have matches in hand.");
+                    handMatches.SetActive(true);
                     gotMatches = true;
                 }
             }
