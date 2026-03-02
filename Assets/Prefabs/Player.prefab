@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5168306066619233619}
   - component: {fileID: 7907117140142738080}
   - component: {fileID: 2610262378154956148}
-  m_Layer: 8
+  - component: {fileID: 5431683900157532527}
+  m_Layer: 0
   m_Name: Controls
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -213,6 +214,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90352ee01f9eb874f91a718965971555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerSM
+--- !u!114 &5431683900157532527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064110805542341279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb5e55159be3494596cff32ef05dcd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSwitchMatches
+  listPrefabsMatches:
+  - {fileID: 1553264501853198403, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
+  _playerReferences: {fileID: 2416036259461145865}
 --- !u!1 &2522935982293375098
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2177151818672278025}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Graphics
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -254,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 718239632341254876}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: View (pivot)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -291,7 +307,7 @@ GameObject:
   - component: {fileID: 2237160241957588228}
   - component: {fileID: 9048579292701565300}
   - component: {fileID: 2255950603670862751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -400,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7082150237601991059}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -434,7 +450,7 @@ GameObject:
   - component: {fileID: 9103111279690734258}
   - component: {fileID: 3766977604046044841}
   - component: {fileID: 4505722274171052239}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -504,7 +520,7 @@ GameObject:
   - component: {fileID: 8868562995668469148}
   - component: {fileID: 527127639705840344}
   - component: {fileID: 4881711433220304353}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Nose
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -617,7 +633,7 @@ GameObject:
   - component: {fileID: 5467795341916777544}
   - component: {fileID: 2416036259461145865}
   - component: {fileID: 2779984839723981709}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -669,6 +685,7 @@ MonoBehaviour:
   _playerMovements: {fileID: 7907117140142738080}
   _playerInteractions: {fileID: 5168306066619233619}
   _playerLaunchMatches: {fileID: 6891605512323746139}
+  _playerSwitchMatches: {fileID: 5431683900157532527}
   _playerInsanity: {fileID: 4505722274171052239}
 --- !u!54 &2779984839723981709
 Rigidbody:
@@ -708,7 +725,7 @@ GameObject:
   - component: {fileID: 6810040723345152239}
   - component: {fileID: 1012894112296175170}
   - component: {fileID: 5822107335228495056}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -800,7 +817,7 @@ GameObject:
   - component: {fileID: 6410895478291613359}
   - component: {fileID: 9195550913700426094}
   - component: {fileID: 6891605512323746139}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -904,7 +921,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -939,7 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLaunchMatches
   matches: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
   force: 1
-  timeForce: 5
+  timeForce: 0
   numberOfMatches: 5
   keepInHand: 0
   gotMatches: 0

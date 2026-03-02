@@ -9,10 +9,18 @@ public class PlayerSwitchMatchState : PlayerActionState
     {
         Debug.Log("[PLAYER - ACTION STATE] | ENTER SWITCH MATCH");
         ResetActionComplete();
+
+        _playerReferences.PlayerMovements.CanMove(false);
+
+        // Changes the player's matches skin //
+        _playerReferences.PlayerSwitchMatches.Switch();
+
+        CompleteAction();
     }
 
     public override void Exit()
     {
+        _playerReferences.PlayerMovements.CanMove(true);
     }
 
     public override void Update()

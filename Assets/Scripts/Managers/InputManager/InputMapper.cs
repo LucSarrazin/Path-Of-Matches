@@ -14,7 +14,9 @@ public class InputMapper : MonoBehaviour
 
     public void OnButtonClick(int bindingIndex)
     {
-        if (isEditing) return;
+        // -- Activating key editing mode when a key editing button is pressed -- //
+
+        if (isEditing) return; // Check if the player is already editing another key //
 
         clickedButton = EventSystem.current.currentSelectedGameObject;
 
@@ -26,23 +28,29 @@ public class InputMapper : MonoBehaviour
 
     void StartRebind(int bindingIndex)
     {
+        // -- key editing mode -- //
+
         isEditing = true;
 
-        actionReference.action.Disable();
+        actionReference.action.Disable(); // disables all player controls //
+
+        // -- When a new key is pressed -- //
 
         actionReference.action.PerformInteractiveRebinding(bindingIndex)
             .OnComplete(operation =>
             {
-                actionReference.action.Enable();
+                actionReference.action.Enable(); // Enables all player controls //
 
                 operation.Dispose();
 
+                // Change the display of the old key in settings to the new one //
                 string newKey = actionReference.action.GetBindingDisplayString(bindingIndex);
 
                 clickedButton.transform.GetChild(0)
                     .GetComponent<TMP_Text>().text = newKey;
+                // ------------------------------------------------------------ //
 
-                Save();
+                Save(); 
 
                 isEditing = false;
             })
@@ -51,6 +59,8 @@ public class InputMapper : MonoBehaviour
 
     void Save()
     {
+        // -- Save player controls -- //
+
         PlayerPrefs.SetString(
             "rebinds",
             actionReference.action.actionMap.asset.SaveBindingOverridesAsJson()

@@ -26,7 +26,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public virtual void LoseFocus()
     {
-        _renderer.material.color = _baseColor;
+        if (_renderer != null) _renderer.material.color = _baseColor;
     }
 
     /* --- Interactions --- */

@@ -20,6 +20,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerControls _controls;
     [SerializeField] private PlayerMovements _playerMovements;
     [SerializeField] private PlayerInteractions _playerInteractions;
+    [SerializeField] private PlayerSwitchMatches _playerSwitchMatches;
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
 
@@ -44,6 +45,7 @@ public class PlayerReferences : MonoBehaviour
     public PlayerControls Controls { get => _controls; }
     public PlayerMovements PlayerMovements { get => _playerMovements; }
     public PlayerInteractions PlayerInteractions { get => _playerInteractions; }
+    public PlayerSwitchMatches PlayerSwitchMatches { get => _playerSwitchMatches; }
     public PlayerLaunchMatches PlayerLaunchMatches { get => _playerLaunchMatches; }
     public Insanity PlayerInsanity {  get => _playerInsanity; }
     public Camera PlayerViewCamera { get => _viewCamera; }

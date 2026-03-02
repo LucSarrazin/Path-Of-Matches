@@ -17,6 +17,17 @@ public class PlayerLaunchMatches : MonoBehaviour
 
     /* --- Public references to Update in UI --- */
 
+    public GameObject Matches
+    {
+        get => matches;
+        set
+        {
+            if (matches == value) return;
+            matches = value;
+            OnChangeMatches?.Invoke(matches);
+        }
+    }
+
     public int NumberOfMatches
     {
         get => numberOfMatches;
@@ -40,6 +51,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     /* --- Events --- */
     public Action<int> OnChangeNumberOfMatches;
     public Action<float> OnForceChange;
+    public Action<GameObject> OnChangeMatches;
 
     /* --- Update : force --- */
     void Update()
