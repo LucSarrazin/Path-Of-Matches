@@ -1,12 +1,19 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ObjectInspection : Inspectable
 {
     private InputSystem_Actions actions;
     private Vector2 _mousePosition;
     private Vector2 _screenSize;
+    [SerializeField] private PlayerReferences playerReferences;
+    [SerializeField] private TextMeshProUGUI textNameObject;
+    [SerializeField] private TextMeshProUGUI textDescription;
+    [SerializeField] private GameObject UI;
+    [SerializeField] private GameObject UIInspection;
     [SerializeField] private bool isDragging = false;
     [SerializeField] private bool flipFlop = false;
     [SerializeField] private float force;
@@ -16,6 +23,7 @@ public class ObjectInspection : Inspectable
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationReturnSpeed = 5f;
     [SerializeField] private Collider collider;
+    [SerializeField] private string description;
     private Camera playerCamera;
 
     /*private void AttackOnstarted(InputAction.CallbackContext obj)
@@ -47,9 +55,13 @@ public class ObjectInspection : Inspectable
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            transform.position = Vector3.Lerp(transform.position,offset, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
             transform.Rotate(_screenSize.x * force * Time.deltaTime * Vector3.up, Space.World);
             transform.Rotate(_screenSize.y * force * Time.deltaTime * Vector3.left, Space.World);
+            textNameObject.text = gameObject.name;
+            textDescription.text = description;
+            UI.SetActive(false);
+            UIInspection.SetActive(true);
         }
         else
         {
@@ -57,6 +69,10 @@ public class ObjectInspection : Inspectable
             Cursor.visible = false;
             transform.position = Vector3.Lerp(transform.position,startPosition,moveSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationReturnSpeed * Time.deltaTime);
+            textNameObject.text = null;
+            textDescription.text = null;
+            UI.SetActive(true);
+            UIInspection.SetActive(false);
         }
     }
     
@@ -81,11 +97,11 @@ public class ObjectInspection : Inspectable
 
     public override void OnFocus()
     {
-        
+
     }
 
     public override void LoseFocus()
     {
-        
+
     }
 }
