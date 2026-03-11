@@ -110,6 +110,6 @@ public class LaunchMatches : MonoBehaviour
         {
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
-        Destroy(matchesInstantiate, 30f);
+        Destroy(matchesInstantiate, 15f);
     }
 }

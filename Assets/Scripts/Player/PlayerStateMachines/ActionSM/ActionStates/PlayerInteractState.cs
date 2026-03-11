@@ -50,6 +50,11 @@ public class PlayerInteractState : PlayerActionState
 
         _playerReferences.PlayerMovements.CanMove(true);
         _playerReferences.PlayerMovements.CanLook(true);
+        
+        if (_inspectable != null)
+        {
+            _inspectable.Interact();
+        }
 
         _inspectable = null;
         _interactable = null;

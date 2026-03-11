@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -24,17 +25,37 @@ public class ObjectInspection : Inspectable
     [SerializeField] private float rotationReturnSpeed = 5f;
     [SerializeField] private Collider collider;
     [SerializeField] private string description;
+    [SerializeField] private GameObject light;
+    [SerializeField] private Light pointLightMatches;
+    private PlayerInputActions playerInputActions;
     private Camera playerCamera;
 
-    /*private void AttackOnstarted(InputAction.CallbackContext obj)
+    private void DragOnstarted(InputAction.CallbackContext obj)
     {
-        isDragging = true;
+        if (flipFlop == true)
+        {
+            isDragging = true;
+        }
     }
 
-    private void AttackOncancel(InputAction.CallbackContext obj)
+    private void DragOncancel(InputAction.CallbackContext obj)
     {
-        isDragging = false;
-    }*/
+        if (flipFlop == true)
+        {
+            isDragging = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInputActions.Disable();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +63,8 @@ public class ObjectInspection : Inspectable
         offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
         startPosition = transform.position;
         playerCamera = Camera.main;
+        playerInputActions.Player.SwitchMatch.performed += DragOnstarted;
+        playerInputActions.Player.SwitchMatch.canceled += DragOncancel;
     }
 
     // Update is called once per frame
@@ -51,6 +74,11 @@ public class ObjectInspection : Inspectable
         _mousePosition = Mouse.current.position.ReadValue();
         _screenSize = new Vector2(_mousePosition.x / Screen.width - 0.5f, _mousePosition.y / Screen.height - 0.5f);
 
+        if (flipFlop == true)
+        {
+            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
+        }
+
         if (isDragging == true)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -58,40 +86,44 @@ public class ObjectInspection : Inspectable
             transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
             transform.Rotate(_screenSize.x * force * Time.deltaTime * Vector3.up, Space.World);
             transform.Rotate(_screenSize.y * force * Time.deltaTime * Vector3.left, Space.World);
-            textNameObject.text = gameObject.name;
-            textDescription.text = description;
-            UI.SetActive(false);
-            UIInspection.SetActive(true);
         }
-        else
+        else if(flipFlop == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             transform.position = Vector3.Lerp(transform.position,startPosition,moveSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationReturnSpeed * Time.deltaTime);
-            textNameObject.text = null;
-            textDescription.text = null;
-            UI.SetActive(true);
-            UIInspection.SetActive(false);
         }
     }
     
     
     public override void Interact()
     {
-        Debug.Log("Interact appelé depuis : " + new System.Diagnostics.StackTrace());
         if (flipFlop != true)
         {
             Debug.Log("Ouverture");
-            isDragging = true;
             flipFlop = true;
+            //transform.position = offset + playerReferences.transform.right * -1f * 0.4f;
+            pointLightMatches.intensity = 0.3f;
+            light.SetActive(true);
+            textNameObject.text = gameObject.name;
+            textDescription.text = description;
+            UI.SetActive(false);
+            UIInspection.SetActive(true);
             offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+            ((BoxCollider)collider).size = new Vector3(10f, 10f, 10f);        
         }
         else
         {
-            Debug.Log("Fermeture");
-            isDragging = false;
+            Debug.Log("Fermeture"); 
             flipFlop = false;
+            pointLightMatches.intensity = 10f;
+            light.SetActive(true);
+            textNameObject.text = null;
+            textDescription.text = null;
+            UI.SetActive(true);
+            UIInspection.SetActive(false);
+            ((BoxCollider)collider).size = new Vector3(1f, 1f, 1f);
         }
     }
 

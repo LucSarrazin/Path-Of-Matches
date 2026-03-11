@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Torch : MonoBehaviour
@@ -7,6 +8,7 @@ public class Torch : MonoBehaviour
     [SerializeField] private Material _colorOff;
     [SerializeField] private Material _colorOn;
     [SerializeField] private GameObject _pointLight;
+    [SerializeField] private bool _safeZoneTorch;
     private MeshRenderer _meshRenderer;
 
 
@@ -32,10 +34,22 @@ public class Torch : MonoBehaviour
 
             if (!oneTime)
             {
+                oneTime = true;
                 _pointLight.SetActive(true);
                 _meshRenderer.material = _colorOn;
-                oneTime = true;
+                if (_safeZoneTorch == false)
+                {
+                    StartCoroutine(waitBeforeTurningOff());
+                }
             }
         }
+    }
+
+    IEnumerator waitBeforeTurningOff()
+    {
+        yield return new WaitForSeconds(15f);
+        _pointLight.SetActive(false);
+        _meshRenderer.material = _colorOff;
+        oneTime = false;
     }
 }

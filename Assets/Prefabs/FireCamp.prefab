@@ -257,6 +257,7 @@ MonoBehaviour:
   _colorOff: {fileID: 2100000, guid: cef5e9c8bcfe5e44491151ea7a084d73, type: 2}
   _colorOn: {fileID: 2100000, guid: 5c8ffa524f7781e48ac71e1354a102d2, type: 2}
   _pointLight: {fileID: 1779829470221726449}
+  _safeZoneTorch: 1
 --- !u!54 &8248898551834625548
 Rigidbody:
   m_ObjectHideFlags: 0
