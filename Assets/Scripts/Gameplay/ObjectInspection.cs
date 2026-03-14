@@ -81,16 +81,12 @@ public class ObjectInspection : Inspectable
 
         if (isDragging == true)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
             transform.Rotate(_screenSize.x * force * Time.deltaTime * Vector3.up, Space.World);
-            transform.Rotate(_screenSize.y * force * Time.deltaTime * Vector3.left, Space.World);
+            transform.Rotate(_screenSize.y * force * Time.deltaTime * Vector3.right, Space.World);
         }
         else if(flipFlop == false)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
             transform.position = Vector3.Lerp(transform.position,startPosition,moveSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationReturnSpeed * Time.deltaTime);
         }
@@ -102,6 +98,8 @@ public class ObjectInspection : Inspectable
         if (flipFlop != true)
         {
             Debug.Log("Ouverture");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             flipFlop = true;
             //transform.position = offset + playerReferences.transform.right * -1f * 0.4f;
             pointLightMatches.intensity = 0.3f;
@@ -116,6 +114,8 @@ public class ObjectInspection : Inspectable
         else
         {
             Debug.Log("Fermeture"); 
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             flipFlop = false;
             pointLightMatches.intensity = 10f;
             light.SetActive(true);

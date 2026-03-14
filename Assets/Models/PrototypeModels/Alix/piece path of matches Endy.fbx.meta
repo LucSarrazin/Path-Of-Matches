@@ -3,7 +3,32 @@ guid: 183598432ef31a84897bdaef5d6d2dad
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Endy
+    second: {fileID: 2100000, guid: 631b11cfb2289d942ac94be3b41274af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: a7ad7e5f7ffaa324ba92d22a4b859252, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: endy
+    second: {fileID: 2800000, guid: 6b8fbe64a877e5d45b9eb1fe22ae7790, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: luc
+    second: {fileID: 2800000, guid: a9e05a1b2ed65fb4d98f1f9948c8a879, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: texture piece 1
+    second: {fileID: 2800000, guid: 662e860f98099f84bab09dbf17d14475, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

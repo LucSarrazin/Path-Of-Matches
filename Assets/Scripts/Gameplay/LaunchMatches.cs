@@ -17,7 +17,7 @@ public class LaunchMatches : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        actions =  new InputSystem_Actions();
+        actions = new InputSystem_Actions();
         actions.Player.Enable();
         actions.Player.Attack.performed += launchPerfomed;
         actions.Player.Attack.canceled += launchCanceled;
@@ -110,6 +110,6 @@ public class LaunchMatches : MonoBehaviour
         {
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
-        Destroy(matchesInstantiate, 15f);
+        Destroy(matchesInstantiate, 10f);
     }
 }
