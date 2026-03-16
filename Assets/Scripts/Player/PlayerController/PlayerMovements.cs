@@ -48,6 +48,15 @@ public class PlayerMovements : MonoBehaviour
     private void OnEnable()
     {
         _canLook = false;
+
+        /* - Events */
+        _playerReferences.OnPointerSensitivityChanged += UpdatePointerSensitivity; 
+    }
+
+    private void OnDisable()
+    {
+        /* - Events */
+        _playerReferences.OnPointerSensitivityChanged -= UpdatePointerSensitivity;
     }
 
     private void Update()
@@ -107,6 +116,11 @@ public class PlayerMovements : MonoBehaviour
     public void SetLookInputs(Vector2 look)
     {
         _lookInputs = look;
+    }
+
+    private void UpdatePointerSensitivity(float sensitivity)
+    {
+        _pointerSensitivity = sensitivity;
     }
 
     private void LookPlayer()

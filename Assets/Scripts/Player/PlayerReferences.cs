@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerReferences : MonoBehaviour
@@ -24,6 +25,8 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
 
+    public Action<float> OnPointerSensitivityChanged; 
+
 
     #region PUBLIC REFERENCES : 
 
@@ -31,7 +34,16 @@ public class PlayerReferences : MonoBehaviour
 
     public float WalkSpeed { get => _walkSpeed; }
     public float RunSpeed { get => _runSpeed; }
-    public float PointerSensitivity { get => _pointerSensitivity; }
+    public float PointerSensitivity {
+        get => _pointerSensitivity;
+        set
+        {
+            if (_pointerSensitivity == value) return;
+
+            _pointerSensitivity = value;
+            OnPointerSensitivityChanged?.Invoke(value);
+        }
+    }
     public float CheckDistance { get => _checkDistance; }
 
     // COMPONENTS //

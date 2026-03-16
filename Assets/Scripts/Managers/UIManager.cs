@@ -78,4 +78,10 @@ public class UIManager : MonoBehaviour
     private void UpdateNumberOfMatchesIndicator(int numberOfMatches) => _matches.text = numberOfMatches.ToString();
     private void UpdateForceIndicator(float force) => _forceSlider.value = force;
     private void UpdateInsanityIndicator(int insanity) => _bpmCount.text = insanity.ToString();
+
+    /* - Public method to change sensitivity of the pointer -> maybe to move on other script "UI" made by luc dedicated to Pause Menu ? | Or keep it in this general UI Manager ? - */
+    public void OnPointerSensitivityChanged(float value)
+    {
+        _playerReferences.PointerSensitivity = value;
+    }
 }
