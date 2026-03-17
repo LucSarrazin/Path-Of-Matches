@@ -27,7 +27,7 @@ public class MatchesChest : Interactable
             chestAnimator.SetBool("Open", true);
             chestAnimator.SetBool("Close", false);
             Debug.Log("Chest is Open");
-            launchMatches.NumberOfMatches = 5;
+            launchMatches.NumberOfMatches = 10;
             StartCoroutine(OpenChest());
     }
 

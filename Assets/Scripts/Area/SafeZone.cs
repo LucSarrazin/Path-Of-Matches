@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SafeZone : MonoBehaviour
@@ -9,6 +10,24 @@ public class SafeZone : MonoBehaviour
     {
         get { return safeZoneCompte > 0; }
     }
+    private void Start()
+    {
+        Collider[] hits = Physics.OverlapBox(
+            transform.position,
+            transform.localScale / 2,
+            transform.rotation
+        );
+
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Player"))
+            {
+                playerInside = true;
+                safeZoneCompte++;
+                break;
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +38,14 @@ public class SafeZone : MonoBehaviour
             safeZoneCompte++;
         }
     }
-
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && !playerInside)
+        {
+            playerInside = true;
+            safeZoneCompte++;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         //Check if the player is not in a safe area
@@ -32,6 +58,16 @@ public class SafeZone : MonoBehaviour
     }
 
     private void OnDestroy()
+    {
+        // Case: the safe zone disappears while the player is inside it
+        if (playerInside)
+        {
+            safeZoneCompte--;
+            safeZoneCompte = Mathf.Max(0, safeZoneCompte);
+        }
+    }
+
+    private void OnDisable()
     {
         // Case: the safe zone disappears while the player is inside it
         if (playerInside)

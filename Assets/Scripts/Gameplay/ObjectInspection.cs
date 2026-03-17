@@ -76,19 +76,19 @@ public class ObjectInspection : Inspectable
 
         if (flipFlop == true)
         {
-            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.unscaledDeltaTime);
         }
 
         if (isDragging == true)
         {
-            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.deltaTime);
-            transform.Rotate(_screenSize.x * force * Time.deltaTime * Vector3.up, Space.World);
-            transform.Rotate(_screenSize.y * force * Time.deltaTime * Vector3.right, Space.World);
+            transform.position = Vector3.Lerp(transform.position, offset + playerReferences.transform.right * -1f * 0.4f, moveSpeed * Time.unscaledDeltaTime);
+            transform.Rotate(_screenSize.x * force * Time.unscaledDeltaTime * Vector3.up, Space.World);
+            transform.Rotate(_screenSize.y * force * Time.unscaledDeltaTime * Vector3.right, Space.World);
         }
         else if(flipFlop == false)
         {
-            transform.position = Vector3.Lerp(transform.position,startPosition,moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationReturnSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position,startPosition,moveSpeed * Time.unscaledDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, rotationReturnSpeed * Time.unscaledDeltaTime);
         }
     }
     
@@ -109,7 +109,8 @@ public class ObjectInspection : Inspectable
             UI.SetActive(false);
             UIInspection.SetActive(true);
             offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
-            ((BoxCollider)collider).size = new Vector3(10f, 10f, 10f);        
+            ((BoxCollider)collider).size = new Vector3(10f, 10f, 10f);    
+            Time.timeScale = 0f;
         }
         else
         {
@@ -123,7 +124,8 @@ public class ObjectInspection : Inspectable
             textDescription.text = null;
             UI.SetActive(true);
             UIInspection.SetActive(false);
-            ((BoxCollider)collider).size = new Vector3(1f, 1f, 1f);
+            ((BoxCollider)collider).size = new Vector3(1f, 1f, 1f); 
+            Time.timeScale = 1f;
         }
     }
 
