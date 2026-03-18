@@ -123,6 +123,7 @@ public class ObjectInspection : Inspectable
             textNameObject.text = null;
             textDescription.text = null;
             UI.SetActive(true);
+            playerInputActions.Player.Escape.performed += UI.GetComponent<PauseMenuButton>().EscapeOnperformed;
             UIInspection.SetActive(false);
             ((BoxCollider)collider).size = new Vector3(1f, 1f, 1f); 
             Time.timeScale = 1f;

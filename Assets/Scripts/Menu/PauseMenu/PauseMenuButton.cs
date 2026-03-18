@@ -27,7 +27,7 @@ public class PauseMenuButton : MonoBehaviour
         playerInputActions.Player.Escape.performed += EscapeOnperformed;
     }
 
-    private void EscapeOnperformed(InputAction.CallbackContext obj)
+    public void EscapeOnperformed(InputAction.CallbackContext obj)
     {
         if (!paused)
         {
