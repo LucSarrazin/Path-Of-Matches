@@ -581,6 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CubeInspectable
   _freezeMovement: 1
   _freezeRotationLook: 1
+  _data: {fileID: 11400000, guid: 75013ce137fccaa4b8476d3b0f7c14d2, type: 2}
 --- !u!1 &242454606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2167,8 @@ MonoBehaviour:
   _defaultPointerColor: {r: 0, g: 0, b: 0, a: 1}
   _onFocusPointerColor: {r: 1, g: 0, b: 0, a: 1}
   _inspectionPanel: {fileID: 907573536}
+  _textNameObject: {fileID: 1397036284}
+  _textDescription: {fileID: 1306778121}
 --- !u!1 &1889762801
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     [Header("[INSPECTION] SETTINGS : ")]
     [SerializeField] private GameObject _inspectionPanel;
+    [SerializeField] private TextMeshProUGUI _textNameObject;
+    [SerializeField] private TextMeshProUGUI _textDescription;
 
 
     private void Awake()
@@ -103,9 +105,12 @@ public class UIManager : MonoBehaviour
 
     // * --- Methods for Inspection panel --- * //
 
-    public void ToggleInspectionPanel()
+    public void ToggleInspectionPanel(InspectableObjectData data)
     {
         _inspectionPanel.SetActive(!_inspectionPanel.activeSelf);
+        _textNameObject.text = data.Name;
+        _textDescription.text = data.Description;
+
     }
 
     // * --- General Methods --- * //
