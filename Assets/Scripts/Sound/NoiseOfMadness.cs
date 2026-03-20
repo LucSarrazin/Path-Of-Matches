@@ -31,13 +31,14 @@ public class NoiseOfMadness : MonoBehaviour
 
     IEnumerator PlaySound()
     {
-        yield return new WaitForSeconds(Random.Range(25, 180 - 1 * madnessLvl));
+        //yield return new WaitForSeconds(Random.Range(25, 180 - 1 * madnessLvl));
+        yield return new WaitForSeconds(Random.Range(5, 30));
 
-        if (player.InsanityLvl >= madnessLvl)
-        {
+        //if (player.InsanityLvl >= madnessLvl)
+        //{
             sound.generator = listSound[Random.Range(0, listSound.Count)];
             sound.Play();
-        } 
+        //} 
 
         wait = false;
     }

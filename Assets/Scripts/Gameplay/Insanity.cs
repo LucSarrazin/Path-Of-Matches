@@ -76,7 +76,7 @@ public class Insanity : MonoBehaviour
     IEnumerator UpdateInsanity()
     {
         //allows to take a break between each insanity level update
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
 
         if (DarkZone.IsInDarkZone && SafeZone.IsInSafeZone == false)
             IncreaseInsanity(3);
