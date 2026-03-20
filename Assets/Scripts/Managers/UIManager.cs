@@ -4,26 +4,41 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("General parameters : ")]
+    public static UIManager Instance { get; private set; } /* SINGLETON : to call Manager UI Panels in scripts as "Inspectable" (Automatic reference in Inheritance scripts) */
+
+    [Header("[GENERAL] references : ")]
     [SerializeField] private PlayerReferences _playerReferences;
 
     private PlayerInteractions _playerInteractions;
     private PlayerLaunchMatches _playerLaunchMatches;
     private Insanity _playerInsanity;
 
-    [Header("Display UI parameters : ")]
+    [Header("[OVERVIEW] SETTINGS : ")]
 
+    [Header("Panel texts settings :")]
     [SerializeField] private TextMeshProUGUI _matches;
     [SerializeField] private TextMeshProUGUI _bpmCount;
     [SerializeField] private Slider _forceSlider;
 
-    [Header("Pointer parameters : ")]
+    [Header("Pointer settings : ")]
     [SerializeField] private Image _pointer;
     [SerializeField] private Color _defaultPointerColor = Color.black;
     [SerializeField] private Color _onFocusPointerColor = Color.red;
 
-    private void OnStart()
+    [Header("[INSPECTION] SETTINGS : ")]
+    [SerializeField] private GameObject _inspectionPanel;
+
+
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
+        //DontDestroyOnLoad(gameObject); /*If we want to keep it between scenes*/
     }
 
     private void OnEnable()
@@ -33,14 +48,14 @@ public class UIManager : MonoBehaviour
         _playerInsanity = _playerReferences.PlayerInsanity;
 
         _playerInteractions.OnFocusInteractable += ChangePointerColor;
-        _playerLaunchMatches.OnChangeNumberOfMatches += UpdateNumberOfMatchesIndicator; 
+        _playerLaunchMatches.OnChangeNumberOfMatches += UpdateNumberOfMatchesIndicator;
         _playerLaunchMatches.OnForceChange += UpdateForceIndicator;
         _playerInsanity.OnInsanityChange += UpdateInsanityIndicator;
 
 
         /* - First Update - */
         InitalConfigForceIndicator();
-        UpdateNumberOfMatchesIndicator(_playerLaunchMatches.NumberOfMatches); 
+        UpdateNumberOfMatchesIndicator(_playerLaunchMatches.NumberOfMatches);
         UpdateForceIndicator(_playerLaunchMatches.Force);
         UpdateInsanityIndicator(_playerInsanity.InsanityLvl);
 
@@ -49,12 +64,13 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         _playerInteractions.OnFocusInteractable -= ChangePointerColor;
-        _playerLaunchMatches.OnChangeNumberOfMatches -= UpdateNumberOfMatchesIndicator; 
+        _playerLaunchMatches.OnChangeNumberOfMatches -= UpdateNumberOfMatchesIndicator;
         _playerLaunchMatches.OnForceChange -= UpdateForceIndicator;
         _playerInsanity.OnInsanityChange -= UpdateInsanityIndicator;
 
     }
 
+    // * --- Methods for Overview panel --- * //
 
     private void ChangePointerColor(bool isFocusing)
     {
@@ -71,7 +87,7 @@ public class UIManager : MonoBehaviour
 
     private void InitalConfigForceIndicator()
     {
-        _forceSlider.minValue = 1f; 
+        _forceSlider.minValue = 1f;
         _forceSlider.maxValue = 10f;
     }
 
@@ -84,4 +100,14 @@ public class UIManager : MonoBehaviour
     {
         _playerReferences.PointerSensitivity = value;
     }
+
+    // * --- Methods for Inspection panel --- * //
+
+    public void ToggleInspectionPanel()
+    {
+        _inspectionPanel.SetActive(!_inspectionPanel.activeSelf);
+    }
+
+    // * --- General Methods --- * //
+
 }
