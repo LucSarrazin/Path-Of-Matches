@@ -14,14 +14,21 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     protected virtual void Awake()
     {
         _renderer = GetComponent<Renderer>();
-        _baseColor = _renderer.material.color;
 
+        _baseColor = _renderer.material.color;
     }
 
     public virtual void OnFocus()
     {
+
+        if (_renderer == null)
+        {
+            Debug.Log("Can't access to renderer ");
+            return; 
+        }
+
         _renderer.material.color = Color.green;
-        
+
     }
 
     public virtual void LoseFocus()

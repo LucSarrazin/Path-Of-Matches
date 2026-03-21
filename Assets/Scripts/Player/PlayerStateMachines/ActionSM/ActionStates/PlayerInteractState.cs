@@ -5,6 +5,7 @@ public class PlayerInteractState : PlayerActionState
     private IInteractable _interactable;
     private Inspectable _inspectable;
     private bool _isInspecting;
+    private bool _needsToStartInteraction = false;
 
     public PlayerInteractState(StateMachine stateMachine, PlayerReferences playerReferences, PlayerActionStates states) : base(stateMachine, playerReferences, states)
     {
@@ -19,18 +20,27 @@ public class PlayerInteractState : PlayerActionState
         _interactable = _playerReferences.PlayerInteractions.CurrentInteractable;
         if (_interactable == null) { CompleteAction(); return; } /* Stop action and go back to None State */
 
+        ResetActionComplete();
+
         /* -- If get inspectable interactable : freeze movements and rotations -- */
         _inspectable = _interactable as Inspectable;
 
         if (_inspectable != null)
         {
+            _playerReferences.Controls.IsInspecting = true;
             _playerReferences.PlayerMovements.CanMove(!_inspectable.FreezeMovement ? true : false);
             _playerReferences.PlayerMovements.CanLook(!_inspectable.FreezeRotationLook ? true : false);
 
+            /* -- Cursor -- */
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            _isInspecting = true;
+
+            _needsToStartInteraction = true;
 
             /* -- If inspectable : long interaction -- */
-            
-            _playerReferences.PlayerInteractions.TryInteract();
+
+            //_playerReferences.PlayerInteractions.TryInteract();
             //_inspectable.Interact();
 
             _isInspecting = true;
@@ -46,15 +56,13 @@ public class PlayerInteractState : PlayerActionState
 
     public override void Exit()
     {
-        //Debug.Log("[PLAYER - ACTION STATE] | EXIT INTERACT");
-
+        Debug.Log("[INTERACT STATE] Exit() appelé");
+        _playerReferences.Controls.IsInspecting = false;
+        _isInspecting = false; // reset explicite
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _playerReferences.PlayerMovements.CanMove(true);
         _playerReferences.PlayerMovements.CanLook(true);
-        
-        if (_inspectable != null)
-        {
-            _inspectable.Interact();
-        }
 
         _inspectable = null;
         _interactable = null;
@@ -62,32 +70,36 @@ public class PlayerInteractState : PlayerActionState
 
     public override void Update()
     {
-        if (_isInspecting)
+        Debug.Log($"[INTERACT STATE] Update | _isInspecting={_isInspecting} | _inspectable={_inspectable}");
+
+        if (_needsToStartInteraction)
         {
-            /* If input is pressed again : stop the inspection */
-            if (_playerReferences.Controls.WantToInteract)
-            {
-                StopInspection(); 
-                
-            }
+            Debug.Log("[INTERACT STATE] Appel Open()");
+
+            _needsToStartInteraction = false;
+            _inspectable.Open(); //  à la place de TryInteract()
         }
 
-        if (_playerReferences.Controls.WantToThrow)
+        if (_isInspecting && _inspectable != null)
         {
-            _stateMachine.TransitionTo(_actionStates.Throw);
+            Debug.Log($"[INTERACT STATE] IsDraggingInspectable={_playerReferences.Controls.IsDraggingInspectable}");
+
+            _inspectable.SetDragging(_playerReferences.Controls.IsDraggingInspectable);
+
+            if (_playerReferences.Controls.WantToInteract)
+                StopInspection();
             return;
         }
 
-        /* Check if action is over/complete */
-        TryCompleteAction(); 
-
+        TryCompleteAction();
     }
 
     /* -- Special method for inspectable types */
 
     private void StopInspection()
     {
-        /* Add event to close UI panel */
+        _inspectable.Close(); // Close() uniquement ici
+        _isInspecting = false;
         CompleteAction();
     }
 }

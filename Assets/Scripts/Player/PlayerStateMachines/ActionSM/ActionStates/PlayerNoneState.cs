@@ -18,6 +18,8 @@ public class PlayerNoneState : PlayerActionState
 
     public override void Update()
     {
+        Debug.Log("[NONE STATE] Update");
+
         if (_playerReferences.Controls.WantToThrow)
         {
             _stateMachine.TransitionTo(_actionStates.Throw);

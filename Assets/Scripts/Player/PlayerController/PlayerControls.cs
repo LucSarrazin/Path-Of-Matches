@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControls : MonoBehaviour
 {
     [Header("SETTINGS : ")]
+    [SerializeField] private PlayerReferences _playerReferences;
     [SerializeField] private PlayerMovements _playerMovements;
 
     private Vector2 _moveInputs;
@@ -19,11 +20,15 @@ public class PlayerControls : MonoBehaviour
     private bool _wantToInteract;
     public bool WantToInteract => _wantToInteract;
 
-    private bool _wantToThrow; 
+    private bool _wantToThrow;
     public bool WantToThrow => _wantToThrow;
 
-    private bool _wantToSwitchMatch; 
+    public float DragValue { get; private set; }
+
+    private bool _wantToSwitchMatch;
     public bool WantToSwitchMatch => _wantToSwitchMatch;
+
+    public bool IsInspecting { get; set; }
 
     private void Awake()
     {
@@ -32,6 +37,7 @@ public class PlayerControls : MonoBehaviour
 
     public void MoveInputsCallback(InputAction.CallbackContext context)
     {
+        if (IsInspecting) return;
         if (context.phase == InputActionPhase.Performed)
         {
             _moveInputs = context.ReadValue<Vector2>();
@@ -44,6 +50,7 @@ public class PlayerControls : MonoBehaviour
 
     public void LookInputsCallback(InputAction.CallbackContext context)
     {
+        //if (IsInspecting) return;
         _lookInputs = context.ReadValue<Vector2>();
 
         //Debug.Log($"Mouse delta {_lookInputs} | Phase : {context.phase} ");
@@ -53,6 +60,7 @@ public class PlayerControls : MonoBehaviour
 
     public void RunInputCallback(InputAction.CallbackContext context)
     {
+        if (IsInspecting) return;
         if (context.phase == InputActionPhase.Performed)
         {
             _wantToRun = true;
@@ -65,6 +73,7 @@ public class PlayerControls : MonoBehaviour
 
     public void InteractInputCallback(InputAction.CallbackContext context)
     {
+        
         if (context.started) /* "Started" for only pressed this frame */
         {
             _wantToInteract = true;
@@ -82,6 +91,8 @@ public class PlayerControls : MonoBehaviour
 
     public void ThrowInputCallback(InputAction.CallbackContext context)
     {
+        if (IsInspecting) return;
+
         if (context.phase == InputActionPhase.Performed)
         {
             _wantToThrow = true;
@@ -92,15 +103,30 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    public bool IsDraggingInspectable { get; private set; }
+
     public void SwitchMatchInputCallback(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        bool isInspecting = _playerReferences.PlayerControllerSM.CurrentActionState
+                            == _playerReferences.PlayerControllerSM.ActionStates.Interact;
+
+        if (isInspecting)
         {
-            _wantToSwitchMatch = true;
-        }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
+            if (context.phase == InputActionPhase.Performed)
+                IsDraggingInspectable = true;
+            else if (context.phase == InputActionPhase.Canceled)
+                IsDraggingInspectable = false;
+
+            // WantToSwitchMatch reste false : l'autre action est neutralisée
             _wantToSwitchMatch = false;
+        }
+        else
+        {
+            IsDraggingInspectable = false;
+            if (context.phase == InputActionPhase.Performed)
+                _wantToSwitchMatch = true;
+            else if (context.phase == InputActionPhase.Canceled)
+                _wantToSwitchMatch = false;
         }
     }
 

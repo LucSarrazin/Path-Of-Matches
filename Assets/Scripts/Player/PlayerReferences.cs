@@ -18,6 +18,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private Camera _viewCamera;
 
     [Header("[PLAYER] CONTROLS SCRIPTS :")]
+    [SerializeField] private PlayerControllerSM _playerControllerSM; /* Ref to StateMachine */ 
     [SerializeField] private PlayerControls _controls;
     [SerializeField] private PlayerMovements _playerMovements;
     [SerializeField] private PlayerInteractions _playerInteractions;
@@ -54,6 +55,7 @@ public class PlayerReferences : MonoBehaviour
 
     // SCRIPTS //
 
+    public PlayerControllerSM PlayerControllerSM { get => _playerControllerSM; }
     public PlayerControls Controls { get => _controls; }
     public PlayerMovements PlayerMovements { get => _playerMovements; }
     public PlayerInteractions PlayerInteractions { get => _playerInteractions; }
@@ -85,7 +87,5 @@ public class PlayerReferences : MonoBehaviour
             _controls = GetComponentInChildren<PlayerControls>();
             Debug.Log($" - GO : {this} -> script 'PlayerControls' charged by GetComponent.");
         }
-
-
     }
 }

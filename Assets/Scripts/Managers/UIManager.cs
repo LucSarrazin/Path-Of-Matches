@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textDescription;
 
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -105,12 +106,18 @@ public class UIManager : MonoBehaviour
 
     // * --- Methods for Inspection panel --- * //
 
+    public bool IsInspectionPanelOpen => _inspectionPanel.activeSelf;
+
     public void ToggleInspectionPanel(InspectableObjectData data)
     {
-        _inspectionPanel.SetActive(!_inspectionPanel.activeSelf);
-        _textNameObject.text = data.Name;
-        _textDescription.text = data.Description;
+        bool isActive = !_inspectionPanel.activeSelf;
+        _inspectionPanel.SetActive(isActive);
 
+        if (isActive)
+        {
+            _textNameObject.text = data.Name;
+            _textDescription.text = data.Description;
+        }
     }
 
     // * --- General Methods --- * //

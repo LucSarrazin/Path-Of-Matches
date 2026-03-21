@@ -10,11 +10,11 @@ public class ObjectInspection : Inspectable
     private InputSystem_Actions actions;
     private Vector2 _mousePosition;
     private Vector2 _screenSize;
-    [SerializeField] private PlayerReferences playerReferences;
-    [SerializeField] private TextMeshProUGUI textNameObject;
-    [SerializeField] private TextMeshProUGUI textDescription;
-    [SerializeField] private GameObject UI;
-    [SerializeField] private GameObject UIInspection;
+    [SerializeField] private PlayerReferences playerReferences; 
+    [SerializeField] private TextMeshProUGUI textNameObject; /* X */
+    [SerializeField] private TextMeshProUGUI textDescription; /* X */
+    [SerializeField] private GameObject UI; /* X */
+    [SerializeField] private GameObject UIInspection; /* X */
     [SerializeField] private bool isDragging = false;
     [SerializeField] private bool flipFlop = false;
     [SerializeField] private float force;
@@ -104,8 +104,8 @@ public class ObjectInspection : Inspectable
             //transform.position = offset + playerReferences.transform.right * -1f * 0.4f;
             pointLightMatches.intensity = 0.3f;
             light.SetActive(true);
-            textNameObject.text = gameObject.name;
-            textDescription.text = description;
+            textNameObject.text = gameObject.name; /* X */
+            textDescription.text = description; /* X */
             UI.SetActive(false);
             UIInspection.SetActive(true);
             offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
