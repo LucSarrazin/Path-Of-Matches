@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -65,16 +66,26 @@ public class Inspectable : Interactable
 
     public void Open()
     {
-        _startPosition = transform.position;
         _flipFlop = true;
+        _collider.enabled = false;
+
+        _playerReferences.PointLightMatches.intensity = 0.3f;
+        _playerReferences.Light.SetActive(true);
+
         UIManager.Instance.ToggleInspectionPanel(_data);
+
     }
 
     public void Close()
     {
         _flipFlop = false;
         _isDragging = false;
+        _playerReferences.PointLightMatches.intensity = 10f;
+        _playerReferences.Light.SetActive(true);
+
         UIManager.Instance.ToggleInspectionPanel(_data);
+        _collider.enabled = true;
+
     }
 
     // Interact() pour compatibilité

@@ -703,7 +703,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.3, y: 0.2, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &360969125
 MeshRenderer:
@@ -1198,7 +1198,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.3, y: 0.2, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &829014293
 MeshRenderer:
@@ -2756,7 +2756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2404388698026654165, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3552623494164780880, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
       propertyPath: UI
@@ -3118,6 +3118,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1633879148}
     m_Modifications:
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _light
+      value: 
+      objectReference: {fileID: 3319114135535493860}
+    - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _pointLightMatches
+      value: 
+      objectReference: {fileID: 3319114135535493859}
+    - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _playerControllerSM
       value: 
       objectReference: {fileID: 274443334}
@@ -3161,6 +3169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5822107335228495056, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7584742121701950265, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _playerReferences
       value: 
@@ -3174,6 +3186,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+--- !u!108 &3319114135535493859 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 83824921142590736, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+  m_PrefabInstance: {fileID: 3319114135535493858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3319114135535493860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764581554531547518, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+  m_PrefabInstance: {fileID: 3319114135535493858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3666019734731273751
 PrefabInstance:
   m_ObjectHideFlags: 0
