@@ -660,7 +660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
   _playerReferences: {fileID: 0}
   _focusSpriteDistance: 0.7
-  _playerReferences: {fileID: 0}
   skin: {fileID: 4200394936036997217, guid: 1abdcbdb039e35b41a294257a99e241b, type: 3}
 --- !u!65 &155924862
 BoxCollider:
@@ -1851,6 +1850,10 @@ PrefabInstance:
       propertyPath: pointLightMatches
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3712346173988340214, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3863103941325077392, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.267818
@@ -1896,6 +1899,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 01209a2cdabef5048ad0085b574b2def, type: 2}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 3552623494164780880, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1921,7 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7d05ef539e754295c27f442c4e671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  _playerReferences: {fileID: 0}
+  _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
   _freezeMovement: 1
   _freezeRotationLook: 1
@@ -2023,9 +2027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1899f29652a1090459282684f841d74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
-  _playerReferences: {fileID: 0}
+  _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
-  _playerReferences: {fileID: 0}
   skin: {fileID: 4200394936036997217, guid: 1abdcbdb039e35b41a294257a99e241b, type: 3}
 --- !u!65 &899841783
 BoxCollider:
@@ -2922,7 +2925,7 @@ PrefabInstance:
     - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: _playerReferences
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1800778252}
     - target: {fileID: 7524593395992713812, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: m_Name
       value: ---MANAGERS---
@@ -3721,6 +3724,10 @@ PrefabInstance:
       propertyPath: pointLightMatches
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3712346173988340214, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3863103941325077392, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.374191
@@ -3770,6 +3777,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 631b11cfb2289d942ac94be3b41274af, type: 2}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 3552623494164780880, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3795,7 +3803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7d05ef539e754295c27f442c4e671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  _playerReferences: {fileID: 0}
+  _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
   _freezeMovement: 1
   _freezeRotationLook: 1
@@ -3901,6 +3909,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169272778417634337, guid: 19139616e56b9dd4592e02121b26a4fe, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1800778252}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 0}
@@ -3919,17 +3931,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---CONTROLS---
       objectReference: {fileID: 0}
+    - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48
+      objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.60072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.80728
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.84685
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4011,6 +4035,14 @@ PrefabInstance:
       propertyPath: _interactibleFocusSprite
       value: 
       objectReference: {fileID: 1547841134}
+    - target: {fileID: 6892830278438530302, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4966,6 +4998,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1995727441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1800778252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5280984324227263546, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 1547841133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d28dc7d159bf984dbbf60261ea57d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerReferences
 --- !u!1001 &1810447992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5079,6 +5122,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d9135fbcf38af6c4f91ba8cb600c8233, type: 2}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 3552623494164780880, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5104,7 +5148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7d05ef539e754295c27f442c4e671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  _playerReferences: {fileID: 0}
+  _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
   _freezeMovement: 1
   _freezeRotationLook: 1
@@ -5417,6 +5461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169272778417634337, guid: 19139616e56b9dd4592e02121b26a4fe, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1800778252}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 0}
@@ -5598,6 +5646,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e2920d1ed17a75f4390412135ab72dc9, type: 2}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 3552623494164780880, guid: 9fd12d448e6726e40a3398cda71feed5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5623,7 +5672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7d05ef539e754295c27f442c4e671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  _playerReferences: {fileID: 0}
+  _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
   _freezeMovement: 1
   _freezeRotationLook: 1
@@ -6610,6 +6659,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169272778417634337, guid: 19139616e56b9dd4592e02121b26a4fe, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1800778252}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 0}

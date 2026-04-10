@@ -13,8 +13,8 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     [Header("[INTERACTABLE] FOCUS SETTINGS ")]
     private Outline _outline;
 
-    private Color _outlineColor => UIManager.Instance.OutlineColor;
-    private float _outlineWidth => UIManager.Instance.OutlineWidth;
+    private Color _outlineColor;
+    private float _outlineWidth;
 
     private Transform _interactableTransform;
     private GameObject _focusSprite;
@@ -24,22 +24,37 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     protected virtual void Awake()
     {
+    }
+
+    protected virtual void Start()
+    {
+        Initialization();
+    }
+
+    protected virtual void Initialization()
+    {
+
         _interactableTransform = this.transform;
-
         _focusSprite = _playerReferences.InteractibleFocusSprite;
+        _focusSprite.SetActive(false);
+        
+        _outlineColor = UIManager.Instance.OutlineColor;
+        _outlineWidth = UIManager.Instance.OutlineWidth;
 
-        if (!TryGetComponent(out Outline outline))
+        if (!TryGetComponent(out _outline))
         {
-            outline = gameObject.AddComponent<Outline>();
-            _outline = outline;
-
-            _outline.OutlineMode = Outline.Mode.OutlineVisible;
-            _outline.OutlineColor = _outlineColor;
-            _outline.OutlineWidth = _outlineWidth;
-            _outline.enabled = false;
+            _outline = gameObject.AddComponent<Outline>();
         }
 
+        _outline.OutlineMode = Outline.Mode.OutlineVisible;
+        _outline.OutlineColor = _outlineColor;
+        _outline.OutlineWidth = _outlineWidth;
+        _outline.enabled = false;
+
+
+
     }
+
 
     public virtual void OnFocus()
     {
