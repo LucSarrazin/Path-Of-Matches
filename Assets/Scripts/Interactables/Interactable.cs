@@ -1,5 +1,5 @@
 using System;
-using UnityEngine; 
+using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour, IInteractable
 {
@@ -10,11 +10,14 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     /* --- Display focus on raycast --- */
 
+    [Header("[INTERACTABLE] FOCUS SETTINGS ")]
+    private Outline _outline;
+
+    private Color _outlineColor => UIManager.Instance.OutlineColor;
+    private float _outlineWidth => UIManager.Instance.OutlineWidth;
+
     private Transform _interactableTransform;
     private GameObject _focusSprite;
-
-    protected Renderer _renderer;
-    protected Color _baseColor;
 
     public abstract bool FreezeMovement { get; }
     public abstract bool FreezeRotationLook { get; }
@@ -22,19 +25,29 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     protected virtual void Awake()
     {
         _interactableTransform = this.transform;
+
         _focusSprite = _playerReferences.InteractibleFocusSprite;
 
-        _renderer = GetComponent<Renderer>();
+        if (!TryGetComponent(out Outline outline))
+        {
+            outline = gameObject.AddComponent<Outline>();
+            _outline = outline;
 
-        _baseColor = _renderer.material.color;
+            _outline.OutlineMode = Outline.Mode.OutlineVisible;
+            _outline.OutlineColor = _outlineColor;
+            _outline.OutlineWidth = _outlineWidth;
+            _outline.enabled = false;
+        }
+
     }
 
     public virtual void OnFocus()
     {
-        if (_renderer == null)
+
+        if (_outline == null)
         {
-            Debug.Log("Can't access to renderer ");
-            return; 
+            Debug.Log("Can't access to outline Component ");
+            return;
         }
 
         if (_focusSprite == null)
@@ -46,15 +59,15 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         _focusSprite.SetActive(true);
         _focusSprite.transform.position = _interactableTransform.position + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
-        _renderer.material.color = Color.green;
+
+        _outline.enabled = true;
 
     }
 
     public virtual void LoseFocus()
     {
         _focusSprite.SetActive(false);
-
-        if (_renderer != null) _renderer.material.color = _baseColor;
+        _outline.enabled = false;
     }
 
     /* --- Interactions --- */
