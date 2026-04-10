@@ -8,9 +8,10 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _pointerSensitivity = 100f;
 
-    [Header("[PLAYER] INTERACTION VARIABLES")]
+    [Header("[PLAYER] INTERACTION SETTINGS")]
     [SerializeField] private LayerMask _interactibleLayerMask;
     [SerializeField] private float _checkDistance = 15f;
+    [SerializeField] private GameObject _interactibleFocusSprite;
 
     [Header("[PLAYER] GENERAL COMPONENTS :")]
     [SerializeField] private Rigidbody _rigidbody;
@@ -56,6 +57,7 @@ public class PlayerReferences : MonoBehaviour
     public Rigidbody Rigidbody { get => _rigidbody; }
     public Transform Head { get => _head; }
     public LayerMask InteractibleLayer { get => _interactibleLayerMask; }
+    public GameObject InteractibleFocusSprite {  get => _interactibleFocusSprite; }
     public GameObject Light => _light; 
     public Light PointLightMatches => _pointLightMatches;
 

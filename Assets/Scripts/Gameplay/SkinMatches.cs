@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SkinMatches : Interactable
 {
-    [SerializeField] private PlayerReferences _playerReferences;
     [SerializeField] private GameObject skin;
 
     public override bool FreezeMovement => throw new System.NotImplementedException();
