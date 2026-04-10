@@ -125,6 +125,8 @@ public class PlayerMovements : MonoBehaviour
 
     private void LookPlayer()
     {
+        Debug.Log($"CanLook: {_canLook}"); // à retirer après debug
+
         if (!_canLook) { return; }
 
         float pointerX = _lookInputs.x * _pointerSensitivity/* * Time.deltaTime*/;

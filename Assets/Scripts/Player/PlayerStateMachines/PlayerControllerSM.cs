@@ -9,6 +9,12 @@ public class PlayerControllerSM : MonoBehaviour
     private PlayerActionStates _actionStates;
     private PlayerReferences _references;
 
+    public StateMachine ActionStateMachine => _actionStateMachine;
+    public PlayerActionStates ActionStates => _actionStates;
+
+    public IState CurrentActionState => _actionStateMachine.CurrentState;
+
+
     private void Awake()
     {
         _references = GetComponentInParent<PlayerReferences>(); 
