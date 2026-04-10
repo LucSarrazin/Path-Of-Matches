@@ -4,26 +4,28 @@ using UnityEngine.InputSystem;
 
 public class Inspectable : Interactable
 {
-
-    [Header("SETTINGS :")]
+    [Header("[INSPECTABLE] GENERAL SETTINGS ")]
+    //[Header("Player movements freeze settings : ")]
     [SerializeField] private bool _freezeMovement = true;
     [SerializeField] private bool _freezeRotationLook = true;
-    [Tooltip("Speed of the object to move on panel")]
+    [Header("Object behaviour in UI Inspection Panel: ")]
+    [Tooltip("Speed of the object to move on panel, test/read-only : please edit in script after test, to keep harmony")]
     [SerializeField] private float _moveSpeed = 5f;
+    [Tooltip("Speed rotation of the object to quit panel, test/read-only : please edit in script after test, to keep harmony")]
     [SerializeField] private float _rotationReturnSpeed = 5f;
-    [Tooltip("Rotation force of the object inspectable")]
+    [Tooltip("Rotation force of the object inspectable, test/read-only : please edit in script after test, to keep harmony")]
     [SerializeField] private float _force = 50;
 
-    [Header("References")]
+    [Header("DATAS :")]
+    [Tooltip("Datas to display on UI inspectable panel")]
     [SerializeField] private InspectableObjectData _data;
-    [SerializeField] private PlayerReferences _playerReferences;
+
+    /* --- Private variables --- */
 
     public override bool FreezeMovement => _freezeMovement;
     public override bool FreezeRotationLook => _freezeRotationLook;
 
     /* -- Display Object variables -- */
-
-    /*[SerializeField] */
     private bool _flipFlop;
     private bool _isDragging;
     private Vector2 _screenSize;
