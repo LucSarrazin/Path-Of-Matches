@@ -11,8 +11,9 @@ public class MatchesChest : Interactable
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         launchMatches = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerLaunchMatches>();
     }
 

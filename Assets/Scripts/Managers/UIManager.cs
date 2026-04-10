@@ -29,7 +29,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _inspectionPanel;
     [SerializeField] private TextMeshProUGUI _textNameObject;
     [SerializeField] private TextMeshProUGUI _textDescription;
+    [SerializeField] private Color _outlineColor = new Color(1f, 1f, 1f, 0.8f);
+    [SerializeField] private float _outlineWidth = 8f;
 
+
+    // * --- Public references --- * //
+    public Color OutlineColor => _outlineColor; 
+    public float OutlineWidth => _outlineWidth;
 
 
     private void Awake()
