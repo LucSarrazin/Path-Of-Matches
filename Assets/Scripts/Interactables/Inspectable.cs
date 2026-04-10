@@ -12,7 +12,7 @@ public class Inspectable : Interactable
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _rotationReturnSpeed = 5f;
     [Tooltip("Rotation force of the object inspectable")]
-    [SerializeField] private float _force;
+    [SerializeField] private float _force = 50;
 
     [Header("References")]
     [SerializeField] private InspectableObjectData _data;
