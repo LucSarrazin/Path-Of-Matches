@@ -151,46 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1867d57fe15745b448695a0fd72ece3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectInspection
-  _freezeMovement: 1
-  _freezeRotationLook: 1
-  playerReferences: {fileID: 0}
-  textNameObject: {fileID: 0}
-  textDescription: {fileID: 0}
-  UI: {fileID: 0}
-  UIInspection: {fileID: 0}
-  isDragging: 0
-  flipFlop: 0
-  force: 500
-  offset: {x: 0, y: 0, z: 0}
-  startPosition: {x: 0, y: 0, z: 0}
-  slerpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  moveSpeed: 5
-  rotationReturnSpeed: 5
-  collider: {fileID: 166277669}
-  description: 
 --- !u!65 &166277669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -824,6 +784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83236b0981168e443b76a230c8d619fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControls
+  _playerReferences: {fileID: 0}
   _playerMovements: {fileID: 487595880}
 --- !u!114 &487595882
 MonoBehaviour:
@@ -975,9 +936,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _checkDistance: 15
-  _rigidbody: {fileID: 610785313}
+  _interactibleFocusSprite: {fileID: 0}
+  _rigidbody: {fileID: 0}
   _head: {fileID: 192748565}
   _viewCamera: {fileID: 0}
+  _light: {fileID: 0}
+  _pointLightMatches: {fileID: 0}
+  _playerControllerSM: {fileID: 0}
   _controls: {fileID: 487595881}
   _playerMovements: {fileID: 487595880}
   _playerInteractions: {fileID: 0}
@@ -1254,6 +1219,10 @@ PrefabInstance:
     - target: {fileID: 1064110805542341279, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438378509337622012, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2522935982293375098, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Layer
