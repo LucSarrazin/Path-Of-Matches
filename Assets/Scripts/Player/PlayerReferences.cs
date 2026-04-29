@@ -3,15 +3,36 @@ using UnityEngine;
 
 public class PlayerReferences : MonoBehaviour
 {
-    [Header("[PLAYER] MOVEMENTS VARIABLES :")]
+    [Header("[PLAYER] MOVEMENTS - VIEW VARIABLES :")]
+    [SerializeField] private float _pointerSensitivity = 100f;
+
+    [Header("[PLAYER] MOVEMENTS - SPEED VARIABLES :")]
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
-    [SerializeField] private float _pointerSensitivity = 100f;
+
+    //** -- Section dedicated to slopes and stairs behaviour -- ** //
+
+    [Header("[PLAYER] MOVEMENTS - GROUND CHECKER SYSTEM :")]
+    /* Radius needs to always be lower than the capsule collider radius of the character, if not it can detect walls ! */
+    [SerializeField] private float _groundCheckRadius = 0.3f;
+    [SerializeField] private float _groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask _groundLayer;
+
+    [Header("[PLAYER] MOVEMENTS - SLOPE AND STEP OFFSET SYSTEM :")]
+    [Tooltip("Max angle between ground and slope - Angle max entre la surface du sol et celle de la pente ")]
+    [SerializeField] private float _maxSlopeAngle = 45f;
+    [SerializeField] private float _stepHeight = 0.4f;
+    [SerializeField] private float _stepCheckDistance = 0.5f;
+
+    //** -- Section dedicated to interaction behaviour -- ** //
 
     [Header("[PLAYER] INTERACTION SETTINGS")]
     [SerializeField] private LayerMask _interactibleLayerMask;
+    [Tooltip("Check distance of the raycast view !")]
     [SerializeField] private float _checkDistance = 15f;
     [SerializeField] private GameObject _interactibleFocusSprite;
+
+    //** -- Section dedicated to general script references -- ** //
 
     [Header("[PLAYER] GENERAL COMPONENTS :")]
     [SerializeField] private Rigidbody _rigidbody;
@@ -50,7 +71,16 @@ public class PlayerReferences : MonoBehaviour
             OnPointerSensitivityChanged?.Invoke(value);
         }
     }
-    public float CheckDistance { get => _checkDistance; }
+
+    public float GroundCheckRadius => _groundCheckRadius;
+    public float GroundCheckDistance => _groundCheckDistance;
+    public LayerMask GroundLayer => _groundLayer;
+
+    public float MaxSlopeAngle => _maxSlopeAngle;
+    public float StepHeight => _stepHeight;
+    public float StepCheckDistance => _stepCheckDistance;
+
+    public float CheckDistance { get => _checkDistance; } /* Pointer view raycast */
 
     // COMPONENTS //
 

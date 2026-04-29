@@ -4,6 +4,11 @@ using UnityEngine;
 public class PlayerMovements : MonoBehaviour
 {
     [SerializeField] private PlayerReferences _playerReferences;
+    [SerializeField] private CapsuleCollider _capsuleCollider;
+
+    private Vector3 _slopeNormal = Vector3.up;
+    private bool _isGrounded = true;
+
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
     private float _currentSpeed;
@@ -66,7 +71,55 @@ public class PlayerMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GroundCheck();
         MovePlayer();
+    }
+
+    /* --- Method : GROUND CHECKER, SphereCast type --- */
+
+    private void GroundCheck() 
+    {
+        Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height /2f);
+        Vector3 origin = pivotFootPosition + Vector3.up * _playerReferences.GroundCheckRadius;
+
+        if (Physics.SphereCast(origin, _playerReferences.GroundCheckRadius, Vector3.down,
+            out RaycastHit hit, _playerReferences.GroundCheckDistance, _playerReferences.GroundLayer))
+        {
+            _isGrounded = true;
+            _slopeNormal = hit.normal; // normale's value you touch, to keep 
+        }else
+        {
+            _isGrounded = false;
+            _slopeNormal = Vector3.up; // default
+        }
+    }
+
+
+    private void OnDrawGizmos() /* Editor Scripting : Method to draw groundChecker in Editor */
+    {
+        if (_capsuleCollider == null) return;
+
+        Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height / 2f);
+        Vector3 origin = pivotFootPosition + Vector3.up * _playerReferences.GroundCheckRadius;
+
+        // Simule le SphereCast uniquement pour le Gizmo
+        bool grounded = Physics.SphereCast(origin, _playerReferences.GroundCheckRadius, Vector3.down, 
+            out _, _playerReferences.GroundCheckDistance, _playerReferences.GroundLayer);
+
+        Gizmos.color = grounded ? Color.green : Color.red;
+        Gizmos.DrawWireSphere(origin + Vector3.down * _playerReferences.GroundCheckDistance,
+                              _playerReferences.GroundCheckRadius);
+    }
+
+    private bool IsOnSlope()
+    {
+        float angle = Vector3.Angle(Vector3.up, _slopeNormal);
+        if (angle > 0.1f && angle < _playerReferences.MaxSlopeAngle)
+        {
+            return true;
+        }
+        return false;
+
     }
 
     /* --- Method : MOVE --- */
@@ -101,8 +154,18 @@ public class PlayerMovements : MonoBehaviour
 
         move.Normalize();
 
+        if (_isGrounded && IsOnSlope())
+        {
+            // projetter déplacement player sur le plan de la pente
+            move = Vector3.ProjectOnPlane(move, _slopeNormal).normalized;
+        }
         Vector3 velocity = move * _currentSpeed;
         velocity.y = _rigidbody.linearVelocity.y;
+
+        if (_isGrounded && IsOnSlope())
+        {
+            velocity.y = -1f; // force to stick on ground and avoid slide
+        }
 
         _rigidbody.linearVelocity = velocity;
         _rigidbody.angularVelocity = Vector3.zero;
