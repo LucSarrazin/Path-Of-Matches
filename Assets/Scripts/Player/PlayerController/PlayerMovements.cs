@@ -9,6 +9,8 @@ public class PlayerMovements : MonoBehaviour
     private Vector3 _slopeNormal = Vector3.up;
     private bool _isGrounded = true;
 
+    private bool _isStepping; 
+
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
     private float _currentSpeed;
@@ -72,6 +74,7 @@ public class PlayerMovements : MonoBehaviour
     private void FixedUpdate()
     {
         GroundCheck();
+        StepOffset();
         MovePlayer();
     }
 
@@ -99,16 +102,39 @@ public class PlayerMovements : MonoBehaviour
     {
         if (_capsuleCollider == null) return;
 
+        /* - Draw GroundChecker - */
+
         Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height / 2f);
         Vector3 origin = pivotFootPosition + Vector3.up * _playerReferences.GroundCheckRadius;
 
         // Simule le SphereCast uniquement pour le Gizmo
-        bool grounded = Physics.SphereCast(origin, _playerReferences.GroundCheckRadius, Vector3.down, 
+        bool grounded = Physics.SphereCast(origin, _playerReferences.GroundCheckRadius, Vector3.down,
             out _, _playerReferences.GroundCheckDistance, _playerReferences.GroundLayer);
 
         Gizmos.color = grounded ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(origin + Vector3.down * _playerReferences.GroundCheckDistance,
-                              _playerReferences.GroundCheckRadius);
+        Gizmos.DrawWireSphere(origin + Vector3.down * _playerReferences.GroundCheckDistance, _playerReferences.GroundCheckRadius);
+
+        /* - Draw StepOffSet Checker - */
+
+        Vector3 moveDirection = (transform.right * _moveInputs.x
+                               + transform.forward * _moveInputs.y).normalized;
+
+        // En éditeur, si pas de direction, on utilise forward par défaut
+        if (moveDirection == Vector3.zero) moveDirection = transform.forward;
+
+        // --- Raycast BAS ---
+        Vector3 rayLowOrigin = pivotFootPosition + Vector3.up * 0.05f;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(rayLowOrigin, moveDirection * _playerReferences.StepCheckDistance);
+
+        // --- Raycast HAUT ---
+        Vector3 rayHighOrigin = pivotFootPosition + Vector3.up * (_playerReferences.StepHeight + 0.05f);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawRay(rayHighOrigin, moveDirection * _playerReferences.StepCheckDistance);
+
+        // --- Visualisation de la hauteur de marche ---
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(pivotFootPosition + Vector3.up * 1f, pivotFootPosition + Vector3.up * (_playerReferences.StepHeight + 1f)) ; 
     }
 
     private bool IsOnSlope()
@@ -120,6 +146,65 @@ public class PlayerMovements : MonoBehaviour
         }
         return false;
 
+    }
+
+    /* --- Method : StepOffset System to allow Upstairs --- */
+
+    private void StepOffset()
+    {
+        if (!_isGrounded || _moveInputs.sqrMagnitude < 0.1f)
+        {
+            _isStepping = false;
+            return;
+        }
+
+        Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height / 2f);
+
+        Vector3 moveDirection = (transform.right * _moveInputs.x + transform.forward * _moveInputs.y).normalized;
+
+        // --- Raycast BAS ---
+        Vector3 rayLowOrigin = pivotFootPosition + Vector3.up * 0.05f;
+
+        bool hitLow = Physics.Raycast(
+            rayLowOrigin,
+            moveDirection,
+            out RaycastHit hitLowInfo,
+            _playerReferences.StepCheckDistance,
+            _playerReferences.GroundLayer
+        );
+
+        if (!hitLow)
+        {
+            _isStepping = false;
+            return;
+        }
+
+        // --- Raycast HAUT ---
+        Vector3 rayHighOrigin = pivotFootPosition + Vector3.up * (_playerReferences.StepHeight + 0.05f);
+
+        bool hitHigh = Physics.Raycast(
+            rayHighOrigin,
+            moveDirection,
+            _playerReferences.StepCheckDistance,
+            _playerReferences.GroundLayer
+        );
+
+        // --- Condition de step ---
+        if (!hitHigh && !_isStepping)
+        {
+            _isStepping = true;
+
+            //// petit déplacement vertical seulement (simple et efficace)
+            //_rigidbody.MovePosition(
+            //    _rigidbody.position + Vector3.up * (_playerReferences.StepHeight * 0.5f)
+
+            _rigidbody.velocity = new Vector3(
+    _rigidbody.velocity.x,
+    2f,
+    _rigidbody.velocity.z
+
+            );
+        }
     }
 
     /* --- Method : MOVE --- */
@@ -162,7 +247,7 @@ public class PlayerMovements : MonoBehaviour
         Vector3 velocity = move * _currentSpeed;
         velocity.y = _rigidbody.linearVelocity.y;
 
-        if (_isGrounded && IsOnSlope())
+        if (_isGrounded && IsOnSlope() )
         {
             velocity.y = -1f; // force to stick on ground and avoid slide
         }
