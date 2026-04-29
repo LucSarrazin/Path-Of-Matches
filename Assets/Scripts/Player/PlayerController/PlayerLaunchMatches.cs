@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     [SerializeField] private GameObject handMatches;
+    [SerializeField] private float timeBeforeDisable = 15f;
 
     private bool charging = false;
 
@@ -76,6 +78,19 @@ public class PlayerLaunchMatches : MonoBehaviour
         else if (Force >= 10 && charging == false)
         {
             Force = 1;
+        }
+
+        if (gotMatches)
+        {
+            timeBeforeDisable -= Time.deltaTime;
+
+            if (timeBeforeDisable < 0f)
+            {
+                timeBeforeDisable = 15f;
+                NumberOfMatches--;
+                handMatches.SetActive(false);
+                gotMatches = false;
+            }
         }
     }
 
@@ -149,6 +164,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
-        Destroy(matchesInstantiate, 15f);
+        Destroy(matchesInstantiate, timeBeforeDisable);
+        timeBeforeDisable = 15f;
     }
 }
