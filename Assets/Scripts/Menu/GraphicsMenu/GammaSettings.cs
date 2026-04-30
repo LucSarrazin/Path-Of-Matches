@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -8,15 +11,22 @@ public class GammaSettings : MonoBehaviour
 {
     private Volume volume;
     private ColorAdjustments colorAdjustments;
+    private float savedValue;
 
-    [SerializeField] UnityEngine.UI.Slider gammaSlider;
+    [SerializeField] List<UnityEngine.UI.Slider> gammaSlider;
 
     void Start()
     {
         volume = FindAnyObjectByType<Volume>();
         volume.profile.TryGet(out colorAdjustments);
 
-        float savedValue = PlayerPrefs.GetFloat("GammaValue", 0f);
+        if (PlayerPrefs.HasKey("GammaValue"))
+        {
+            GameObject validationGamma = GameObject.Find("Button_ValidationGamma"); 
+            validationGamma.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
+        }
+
+        savedValue = PlayerPrefs.GetFloat("GammaValue", 0f);
 
         if (colorAdjustments != null)
         {
@@ -25,18 +35,32 @@ public class GammaSettings : MonoBehaviour
 
         if (gammaSlider != null)
         {
-            gammaSlider.value = savedValue;
+            foreach (UnityEngine.UI.Slider slider in gammaSlider)
+            {
+                slider.value = savedValue;
+            }
         }
     }
 
-    public void SetGamma()
+    public void SetGamma(UnityEngine.UI.Slider sliderUse)
     {
-        PlayerPrefs.SetFloat("GammaValue", gammaSlider.value);
+        savedValue = sliderUse.value;
+        PlayerPrefs.SetFloat("GammaValue", sliderUse.value);
         PlayerPrefs.Save();
 
         if (colorAdjustments != null)
         {
-            colorAdjustments.postExposure.value = gammaSlider.value;
+            colorAdjustments.postExposure.value = sliderUse.value;
+        }
+
+        foreach (UnityEngine.UI.Slider slider in gammaSlider)
+        {
+            if (slider.value != savedValue)
+            {
+                slider.value = savedValue;
+            }
         }
     }
 }
+
+
