@@ -15,6 +15,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private bool gotMatches = false;
     [SerializeField] private GameObject handMatches;
     [SerializeField] private float timeBeforeDisable = 15f;
+    [SerializeField] private Animator handAnimator;
 
     private bool charging = false;
 
@@ -64,20 +65,24 @@ public class PlayerLaunchMatches : MonoBehaviour
             if (charging == true)
             {
                 Force += Time.deltaTime * timeForce;
+                handAnimator.SetBool("Throw", false);
             }
             if (Force > 1 && charging == false)
             {
                 Force = 1;
+                handAnimator.SetBool("Throw", false);
             }
         }
 
         if (Force >= 10 && charging == true)
         {
             Force = 10;
+            handAnimator.SetBool("Throw", false);
         }
         else if (Force >= 10 && charging == false)
         {
             Force = 1;
+            handAnimator.SetBool("Throw", false);
         }
 
         if (gotMatches)
@@ -90,8 +95,17 @@ public class PlayerLaunchMatches : MonoBehaviour
                 NumberOfMatches--;
                 handMatches.SetActive(false);
                 gotMatches = false;
+                handAnimator.SetBool("Throw", true);
+                handAnimator.SetBool("Take", false);
+                StartCoroutine("TimeDisable");
             }
         }
+    }
+
+    IEnumerator TimeDisable()
+    {
+        yield return new WaitForSeconds(0.7f);
+        handAnimator.SetBool("Throw", false);
     }
 
     /* --- Public methods to call in the State Machine --- */
@@ -137,6 +151,8 @@ public class PlayerLaunchMatches : MonoBehaviour
                 {
                     handMatches.SetActive(false);
                     gotMatches = false;
+                    handAnimator.SetBool("Throw", true);
+                    handAnimator.SetBool("Take", false);
                     Launch(Force);
                     charging = false;
                 }
@@ -145,6 +161,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     Debug.Log("Have matches in hand.");
                     handMatches.SetActive(true);
                     gotMatches = true;
+                    handAnimator.SetBool("Take", true);
                 }
             }
         }
