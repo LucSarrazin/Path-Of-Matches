@@ -16,6 +16,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private GameObject handMatches;
     [SerializeField] private float timeBeforeDisable = 15f;
     [SerializeField] private Animator handAnimator;
+    [SerializeField] private ShakeCamera cameraShake;
 
     private bool charging = false;
 
@@ -64,6 +65,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             if (charging == true)
             {
+                cameraShake.ShakeScreenMatches();
                 Force += Time.deltaTime * timeForce;
                 handAnimator.SetBool("Throw", false);
             }
@@ -92,9 +94,11 @@ public class PlayerLaunchMatches : MonoBehaviour
             if (timeBeforeDisable < 0f)
             {
                 timeBeforeDisable = 15f;
+                cameraShake.StopShakeMatches();
                 NumberOfMatches--;
                 handMatches.SetActive(false);
                 gotMatches = false;
+                charging = false;
                 handAnimator.SetBool("Throw", true);
                 handAnimator.SetBool("Take", false);
                 StartCoroutine("TimeDisable");
@@ -174,6 +178,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     void Launch(float forceActual)
     {
         Debug.Log("Launching matches.");
+        cameraShake.StopShakeMatches();
         NumberOfMatches--;
         GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0, 0.707106829f, 0, 0.707106829f));
         Rigidbody rb = matchesInstantiate.GetComponentInChildren<Rigidbody>();
