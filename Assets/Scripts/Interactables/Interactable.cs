@@ -75,7 +75,6 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
         _focusSprite.SetActive(true);
         _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
-        //_focusSprite.transform.position = _interactableTransform.position + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
 
         _outline.enabled = true;

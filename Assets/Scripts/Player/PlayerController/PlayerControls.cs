@@ -45,6 +45,8 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         if (_playerMovements == null) { _playerMovements = GetComponent<PlayerMovements>(); }
+
+        _canEscape = true; 
     }
 
     public void MoveInputsCallback(InputAction.CallbackContext context)
