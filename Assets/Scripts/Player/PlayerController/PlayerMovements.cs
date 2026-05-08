@@ -9,7 +9,7 @@ public class PlayerMovements : MonoBehaviour
     private Vector3 _slopeNormal = Vector3.up;
     private bool _isGrounded = true;
 
-    private bool _isStepping; 
+    private bool _isStepping;
 
     private Vector2 _moveInputs;
     private Rigidbody _rigidbody;
@@ -49,7 +49,7 @@ public class PlayerMovements : MonoBehaviour
         yield return null; /* Wait one frame to avoid delta error */
 
         _lookInputs = Vector2.zero;
-        _canLook = true; 
+        _canLook = true;
     }
 
     private void OnEnable()
@@ -57,7 +57,7 @@ public class PlayerMovements : MonoBehaviour
         _canLook = false;
 
         /* - Events */
-        _playerReferences.OnPointerSensitivityChanged += UpdatePointerSensitivity; 
+        _playerReferences.OnPointerSensitivityChanged += UpdatePointerSensitivity;
     }
 
     private void OnDisable()
@@ -80,9 +80,9 @@ public class PlayerMovements : MonoBehaviour
 
     /* --- Method : GROUND CHECKER, SphereCast type --- */
 
-    private void GroundCheck() 
+    private void GroundCheck()
     {
-        Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height /2f);
+        Vector3 pivotFootPosition = transform.position - Vector3.up * (_capsuleCollider.height / 2f);
         Vector3 origin = pivotFootPosition + Vector3.up * _playerReferences.GroundCheckRadius;
 
         if (Physics.SphereCast(origin, _playerReferences.GroundCheckRadius, Vector3.down,
@@ -90,7 +90,8 @@ public class PlayerMovements : MonoBehaviour
         {
             _isGrounded = true;
             _slopeNormal = hit.normal; // normale's value you touch, to keep 
-        }else
+        }
+        else
         {
             _isGrounded = false;
             _slopeNormal = Vector3.up; // default
@@ -119,7 +120,7 @@ public class PlayerMovements : MonoBehaviour
         Vector3 moveDirection = (transform.right * _moveInputs.x
                                + transform.forward * _moveInputs.y).normalized;
 
-        // En éditeur, si pas de direction, on utilise forward par défaut
+        // En ï¿½diteur, si pas de direction, on utilise forward par dï¿½faut
         if (moveDirection == Vector3.zero) moveDirection = transform.forward;
 
         // --- Raycast BAS ---
@@ -134,7 +135,7 @@ public class PlayerMovements : MonoBehaviour
 
         // --- Visualisation de la hauteur de marche ---
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(pivotFootPosition + Vector3.up * 1f, pivotFootPosition + Vector3.up * (_playerReferences.StepHeight + 1f)) ; 
+        Gizmos.DrawLine(pivotFootPosition + Vector3.up * 1f, pivotFootPosition + Vector3.up * (_playerReferences.StepHeight + 1f));
     }
 
     private bool IsOnSlope()
@@ -194,14 +195,14 @@ public class PlayerMovements : MonoBehaviour
         {
             _isStepping = true;
 
-            //// petit déplacement vertical seulement (simple et efficace)
+            //// petit dï¿½placement vertical seulement (simple et efficace)
             //_rigidbody.MovePosition(
             //    _rigidbody.position + Vector3.up * (_playerReferences.StepHeight * 0.5f)
 
-            _rigidbody.velocity = new Vector3(
-    _rigidbody.velocity.x,
+            _rigidbody.linearVelocity = new Vector3(
+    _rigidbody.linearVelocity.x,
     2f,
-    _rigidbody.velocity.z
+    _rigidbody.linearVelocity.z
 
             );
         }
@@ -241,13 +242,13 @@ public class PlayerMovements : MonoBehaviour
 
         if (_isGrounded && IsOnSlope())
         {
-            // projetter déplacement player sur le plan de la pente
+            // projetter dï¿½placement player sur le plan de la pente
             move = Vector3.ProjectOnPlane(move, _slopeNormal).normalized;
         }
         Vector3 velocity = move * _currentSpeed;
         velocity.y = _rigidbody.linearVelocity.y;
 
-        if (_isGrounded && IsOnSlope() )
+        if (_isGrounded && IsOnSlope())
         {
             velocity.y = -1f; // force to stick on ground and avoid slide
         }
@@ -273,7 +274,7 @@ public class PlayerMovements : MonoBehaviour
 
     private void LookPlayer()
     {
-        Debug.Log($"CanLook: {_canLook}"); // à retirer après debug
+        Debug.Log($"CanLook: {_canLook}"); // ï¿½ retirer aprï¿½s debug
 
         if (!_canLook) { return; }
 

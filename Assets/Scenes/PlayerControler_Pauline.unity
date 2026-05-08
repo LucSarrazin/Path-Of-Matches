@@ -3655,6 +3655,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+--- !u!114 &3666019734731273752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8040434673490480608, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+  m_PrefabInstance: {fileID: 3666019734731273751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &8366936970568774725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3739,6 +3750,10 @@ PrefabInstance:
       propertyPath: _textNameObject
       value: 
       objectReference: {fileID: 1397036284}
+    - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: _forceSliderTest
+      value: 
+      objectReference: {fileID: 3666019734731273752}
     - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: _inspectionPanel
       value: 
