@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -33,9 +35,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Color _outlineColor = new Color(1f, 1f, 1f, 0.8f);
     [SerializeField] private float _outlineWidth = 8f;
 
+    [Header("[PAUSE MENU] SETTINGS : ")]
+    [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private bool paused = false;
 
     // * --- Public references --- * //
-    public Color OutlineColor => _outlineColor; 
+    public Color OutlineColor => _outlineColor;
     public float OutlineWidth => _outlineWidth;
 
 
@@ -49,7 +54,14 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         //DontDestroyOnLoad(gameObject); /*If we want to keep it between scenes*/
+
     }
+
+    private void Start()
+    {
+        _pauseMenu.SetActive(false); /* To be sure pause Menu isn't active on Start */
+    }
+
 
     private void OnEnable()
     {
@@ -57,10 +69,14 @@ public class UIManager : MonoBehaviour
         _playerLaunchMatches = _playerReferences.PlayerLaunchMatches;
         _playerInsanity = _playerReferences.PlayerInsanity;
 
+
+        /* - Events - */
         _playerInteractions.OnFocusInteractable += ChangePointerColor;
         _playerLaunchMatches.OnChangeNumberOfMatches += UpdateNumberOfMatchesIndicator;
         _playerLaunchMatches.OnForceChange += UpdateForceIndicator;
         _playerInsanity.OnInsanityChange += UpdateInsanityIndicator;
+
+        _playerReferences.Controls.OnEscapeClick += TogglePauseMenuPanel; 
 
 
         /* - First Update - */
@@ -73,10 +89,13 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable()
     {
+        /* - Events - */
         _playerInteractions.OnFocusInteractable -= ChangePointerColor;
         _playerLaunchMatches.OnChangeNumberOfMatches -= UpdateNumberOfMatchesIndicator;
         _playerLaunchMatches.OnForceChange -= UpdateForceIndicator;
         _playerInsanity.OnInsanityChange -= UpdateInsanityIndicator;
+
+        _playerReferences.Controls.OnEscapeClick -= TogglePauseMenuPanel;
 
     }
 
@@ -124,6 +143,39 @@ public class UIManager : MonoBehaviour
         {
             _textNameObject.text = data.Name;
             _textDescription.text = data.Description;
+        }
+    }
+
+    // * --- Methods for Pause Menu Panel --- *
+
+    public void TogglePauseMenuPanel()
+    {
+        if (!paused)
+        {
+            paused = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            _pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+
+            _playerReferences.PlayerMovements.CanMove(false);
+            _playerReferences.PlayerMovements.CanLook(false);
+
+            _playerReferences.Controls.CanThrow = false; 
+        }
+        else
+        {
+            paused = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+
+            _playerReferences.PlayerMovements.CanMove(true);
+            _playerReferences.PlayerMovements.CanLook(true);
+
+            _playerReferences.Controls.CanThrow = true;
+
         }
     }
 

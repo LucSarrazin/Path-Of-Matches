@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -30,6 +30,15 @@ public class PlayerControls : MonoBehaviour
 
     public bool IsInspecting { get; set; }
 
+    private bool _canThrow = true; 
+    public bool CanThrow { get => _canThrow ; set => _canThrow = value; }
+
+    /* -- Events -- */
+
+    public event Action OnEscapeClick; 
+
+    /* -- General Methods -- */
+
     private void Awake()
     {
         if (_playerMovements == null) { _playerMovements = GetComponent<PlayerMovements>(); }
@@ -52,8 +61,6 @@ public class PlayerControls : MonoBehaviour
     {
         //if (IsInspecting) return;
         _lookInputs = context.ReadValue<Vector2>();
-
-        //Debug.Log($"Mouse delta {_lookInputs} | Phase : {context.phase} ");
 
         _playerMovements.SetLookInputs(_lookInputs);
     }
@@ -92,6 +99,8 @@ public class PlayerControls : MonoBehaviour
     public void ThrowInputCallback(InputAction.CallbackContext context)
     {
         if (IsInspecting) return;
+
+        if(!CanThrow) return;
 
         if (context.phase == InputActionPhase.Performed)
         {
@@ -135,4 +144,12 @@ public class PlayerControls : MonoBehaviour
         _wantToInteract = false; /* Reset to keep one frame only */
     }
 
+
+    public void EscapeInputCallback(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            OnEscapeClick?.Invoke(); 
+        }
+    }
 }

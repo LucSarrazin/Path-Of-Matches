@@ -28,6 +28,7 @@ public class PlayerInteractState : PlayerActionState
         if (_inspectable != null)
         {
             _playerReferences.Controls.IsInspecting = true;
+            _playerReferences.Controls.CanThrow = false;
             _playerReferences.PlayerMovements.CanMove(!_inspectable.FreezeMovement ? true : false);
             _playerReferences.PlayerMovements.CanLook(!_inspectable.FreezeRotationLook ? true : false);
 
@@ -59,6 +60,7 @@ public class PlayerInteractState : PlayerActionState
         Debug.Log("[INTERACT STATE] Exit() appelé");
         _playerReferences.Controls.IsInspecting = false;
         _isInspecting = false; // reset explicite
+        _playerReferences.Controls.CanThrow = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _playerReferences.PlayerMovements.CanMove(true);

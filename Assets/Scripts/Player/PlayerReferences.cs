@@ -10,20 +10,6 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
-    ////** -- Section dedicated to slopes and stairs behaviour -- ** //
-
-    //[Header("[PLAYER] MOVEMENTS - GROUND CHECKER SYSTEM :")]
-    ///* Radius needs to always be lower than the capsule collider radius of the character, if not it can detect walls ! */
-    //[SerializeField] private float _groundCheckRadius = 0.3f;
-    //[SerializeField] private float _groundCheckDistance = 0.2f;
-    //[SerializeField] private LayerMask _groundLayer;
-
-    //[Header("[PLAYER] MOVEMENTS - SLOPE AND STEP OFFSET SYSTEM :")]
-    //[Tooltip("Max angle between ground and slope - Angle max entre la surface du sol et celle de la pente ")]
-    //[SerializeField] private float _maxSlopeAngle = 45f;
-    //[SerializeField] private float _stepHeight = 0.4f;
-    //[SerializeField] private float _stepCheckDistance = 0.5f;
-
     //** -- Section dedicated to interaction behaviour -- ** //
 
     [Header("[PLAYER] INTERACTION SETTINGS")]
@@ -73,13 +59,6 @@ public class PlayerReferences : MonoBehaviour
         }
     }
 
-    //public float GroundCheckRadius => _groundCheckRadius;
-    //public float GroundCheckDistance => _groundCheckDistance;
-    //public LayerMask GroundLayer => _groundLayer;
-
-    //public float MaxSlopeAngle => _maxSlopeAngle;
-    //public float StepHeight => _stepHeight;
-    //public float StepCheckDistance => _stepCheckDistance;
 
     public float CheckDistance { get => _checkDistance; } /* Pointer view raycast */
 
@@ -109,12 +88,6 @@ public class PlayerReferences : MonoBehaviour
     private void Awake()
     {
         /* [SAFETY] "Get Components" to load scripts, if they aren't connected in inspector : */
-
-        //if (_rigidbody == null)
-        //{
-        //    _rigidbody = GetComponent<Rigidbody>();
-        //    Debug.Log($" - GO : {this} -> script 'Rigidbody' charged by GetComponent.");
-        //}
 
         if (_characterController == null)
         {
