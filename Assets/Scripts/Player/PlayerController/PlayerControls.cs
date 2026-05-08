@@ -32,6 +32,9 @@ public class PlayerControls : MonoBehaviour
 
     private bool _canThrow = true; 
     public bool CanThrow { get => _canThrow ; set => _canThrow = value; }
+    
+    private bool _canEscape = true; 
+    public bool CanEscape { get => _canEscape; set => _canEscape = value; }
 
     /* -- Events -- */
 
@@ -59,7 +62,7 @@ public class PlayerControls : MonoBehaviour
 
     public void LookInputsCallback(InputAction.CallbackContext context)
     {
-        //if (IsInspecting) return;
+        if (IsInspecting) return;
         _lookInputs = context.ReadValue<Vector2>();
 
         _playerMovements.SetLookInputs(_lookInputs);
@@ -116,10 +119,11 @@ public class PlayerControls : MonoBehaviour
 
     public void SwitchMatchInputCallback(InputAction.CallbackContext context)
     {
-        bool isInspecting = _playerReferences.PlayerControllerSM.CurrentActionState
-                            == _playerReferences.PlayerControllerSM.ActionStates.Interact;
+        //bool isInspecting = _playerReferences.PlayerControllerSM.CurrentActionState
+        //                    == _playerReferences.PlayerControllerSM.ActionStates.Interact;
+        
 
-        if (isInspecting)
+        if (IsInspecting)
         {
             if (context.phase == InputActionPhase.Performed)
                 IsDraggingInspectable = true;
@@ -147,6 +151,7 @@ public class PlayerControls : MonoBehaviour
 
     public void EscapeInputCallback(InputAction.CallbackContext context)
     {
+        if (!_canEscape) { return; }
         if (context.phase == InputActionPhase.Performed)
         {
             OnEscapeClick?.Invoke(); 

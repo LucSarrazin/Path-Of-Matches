@@ -17,6 +17,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     private float _outlineWidth;
 
     private Transform _interactableTransform;
+    private Vector3 _interactableInitialPosition; 
     private GameObject _focusSprite;
 
     public abstract bool FreezeMovement { get; }
@@ -35,6 +36,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     {
 
         _interactableTransform = this.transform;
+        _interactableInitialPosition = _interactableTransform.position; 
         _focusSprite = _playerReferences.InteractibleFocusSprite;
         _focusSprite.SetActive(false);
         
@@ -72,7 +74,8 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         }
 
         _focusSprite.SetActive(true);
-        _focusSprite.transform.position = _interactableTransform.position + Vector3.up * _focusSpriteDistance;
+        _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
+        //_focusSprite.transform.position = _interactableTransform.position + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
 
         _outline.enabled = true;

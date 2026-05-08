@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7729744037236872787
 Transform:
   m_ObjectHideFlags: 0
@@ -182,27 +182,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7352922772879459244}
+      objectReference: {fileID: 111681416401586698}
     - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EscapeInputCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerControls, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250038750956227339, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -48
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalRotation.w
