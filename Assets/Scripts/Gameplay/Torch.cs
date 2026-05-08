@@ -47,9 +47,10 @@ public class Torch : MonoBehaviour
 
     IEnumerator waitBeforeTurningOff()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(5f);
         _pointLight.SetActive(false);
         _meshRenderer.material = _colorOff;
         oneTime = false;
+        Destroy(gameObject);
     }
 }

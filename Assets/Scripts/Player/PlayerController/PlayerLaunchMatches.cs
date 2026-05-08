@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,9 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     [SerializeField] private GameObject handMatches;
+    [SerializeField] private float timeBeforeDisable = 15f;
+    [SerializeField] private Animator handAnimator;
+    [SerializeField] private ShakeCamera cameraShake;
 
     private bool charging = false;
 
@@ -61,22 +65,51 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             if (charging == true)
             {
+                cameraShake.ShakeScreenMatches();
                 Force += Time.deltaTime * timeForce;
+                handAnimator.SetBool("Throw", false);
             }
             if (Force > 1 && charging == false)
             {
                 Force = 1;
+                handAnimator.SetBool("Throw", false);
             }
         }
 
         if (Force >= 10 && charging == true)
         {
             Force = 10;
+            handAnimator.SetBool("Throw", false);
         }
         else if (Force >= 10 && charging == false)
         {
             Force = 1;
+            handAnimator.SetBool("Throw", false);
         }
+
+        if (gotMatches)
+        {
+            timeBeforeDisable -= Time.deltaTime;
+
+            if (timeBeforeDisable < 0f)
+            {
+                timeBeforeDisable = 15f;
+                cameraShake.StopShakeMatches();
+                NumberOfMatches--;
+                handMatches.SetActive(false);
+                gotMatches = false;
+                charging = false;
+                handAnimator.SetBool("Throw", true);
+                handAnimator.SetBool("Take", false);
+                StartCoroutine("TimeDisable");
+            }
+        }
+    }
+
+    IEnumerator TimeDisable()
+    {
+        yield return new WaitForSeconds(0.7f);
+        handAnimator.SetBool("Throw", false);
     }
 
     /* --- Public methods to call in the State Machine --- */
@@ -122,6 +155,8 @@ public class PlayerLaunchMatches : MonoBehaviour
                 {
                     handMatches.SetActive(false);
                     gotMatches = false;
+                    handAnimator.SetBool("Throw", true);
+                    handAnimator.SetBool("Take", false);
                     Launch(Force);
                     charging = false;
                 }
@@ -130,6 +165,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     Debug.Log("Have matches in hand.");
                     handMatches.SetActive(true);
                     gotMatches = true;
+                    handAnimator.SetBool("Take", true);
                 }
             }
         }
@@ -142,6 +178,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     void Launch(float forceActual)
     {
         Debug.Log("Launching matches.");
+        cameraShake.StopShakeMatches();
         NumberOfMatches--;
         GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0, 0.707106829f, 0, 0.707106829f));
         Rigidbody rb = matchesInstantiate.GetComponentInChildren<Rigidbody>();
@@ -149,6 +186,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
-        Destroy(matchesInstantiate, 15f);
+        Destroy(matchesInstantiate, timeBeforeDisable);
+        timeBeforeDisable = 15f;
     }
 }

@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _matches;
     [SerializeField] private TextMeshProUGUI _bpmCount;
     [SerializeField] private Slider _forceSlider;
+    [SerializeField] private Image _forceSliderTest;
 
     [Header("Pointer settings : ")]
     [SerializeField] private Image _pointer;
@@ -101,7 +102,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void UpdateNumberOfMatchesIndicator(int numberOfMatches) => _matches.text = numberOfMatches.ToString();
-    private void UpdateForceIndicator(float force) => _forceSlider.value = force;
+    private void UpdateForceIndicator(float force) => _forceSliderTest.fillAmount = Mathf.InverseLerp(1f, 10f, force); //_forceSlider.value = force;
     private void UpdateInsanityIndicator(int insanity) => _bpmCount.text = insanity.ToString();
 
     /* - Public method to change sensitivity of the pointer -> maybe to move on other script "UI" made by luc dedicated to Pause Menu ? | Or keep it in this general UI Manager ? | Or made a "Game Settings" Script ? - */
