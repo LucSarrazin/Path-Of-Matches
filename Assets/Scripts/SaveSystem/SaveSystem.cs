@@ -3,8 +3,22 @@ using UnityEngine;
 
 public class SaveSystem : MonoBehaviour
 {
+    [Header("[REFERENCES]")]
+    [SerializeField] private PlayerReferences _playerReferences;
+
+
     /* - Save JSON File Path Way - */
     private string _savePath;
+
+    private void OnEnable()
+    {
+        GameEvents.OnAutoSaveRequested += AutoSave;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnAutoSaveRequested -= AutoSave;
+    }
 
     private void Awake()
     {
@@ -12,14 +26,24 @@ public class SaveSystem : MonoBehaviour
         Debug.Log($"Save file path location :{_savePath}");
     }
 
-    // --- Method : Save --- //
-    public void SaveGame(float playerPosX, float playerPosY,float playerPosZ, int matchesCount, float pointerSensitivity)
+
+
+    // * --- Methods : Save --- * //
+    public void AutoSave(Transform target)
+    {
+        int matchesCount = _playerReferences.PlayerLaunchMatches.NumberOfMatches;
+        float pointerSensitiviy = _playerReferences.PointerSensitivity;
+        SaveGame(target, matchesCount, pointerSensitiviy);
+    }
+
+
+    private void SaveGame(Transform target, int matchesCount, float pointerSensitivity)
     {
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
-        data._playerPosX = playerPosX;
-        data._playerPosY = playerPosY;
-        data._playerPosZ = playerPosZ;
+        data._playerPosX = target.position.x +1 ; // try add only 1 meter to check
+        data._playerPosY = target.position.y;
+        data._playerPosZ = target.position.z;
         data._matchesCount = matchesCount;
         data._pointerSensitivity = pointerSensitivity;
 
@@ -32,9 +56,9 @@ public class SaveSystem : MonoBehaviour
         Debug.Log("Save complete");
     }
 
-    // --- Method : Load --- //
+    // * --- Method : Load --- * //
         
-    public SaveData LoadGame()
+    private SaveData LoadGame()
     {
         if(!File.Exists(_savePath))
         {
@@ -50,5 +74,20 @@ public class SaveSystem : MonoBehaviour
 
         Debug.Log("Last save loaded ! ");
         return data;
+    }
+
+    // * --- Method : Delete --- * //
+
+    private void DeleteSave()
+    {
+        if (File.Exists(_savePath))
+        {
+            File.Delete(_savePath);
+            Debug.Log("Last save Deleted ! ");
+        }
+        else
+        {
+            Debug.LogWarning("No saved file to delete !");
+        }
     }
 }
