@@ -39,6 +39,9 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
 
+    // * -- private references -- * //
+    private Transform _body;
+
     public Action<float> OnPointerSensitivityChanged; 
 
 
@@ -66,6 +69,7 @@ public class PlayerReferences : MonoBehaviour
 
     //public Rigidbody Rigidbody { get => _rigidbody; }
     public CharacterController CharacterController { get => _characterController; }
+    public Transform Body {  get => _body; }
     public Transform Head { get => _head; }
     public LayerMask InteractibleLayer { get => _interactibleLayerMask; }
     public GameObject InteractibleFocusSprite {  get => _interactibleFocusSprite; }
@@ -105,5 +109,7 @@ public class PlayerReferences : MonoBehaviour
             _controls = GetComponentInChildren<PlayerControls>();
             Debug.Log($" - GO : {this} -> script 'PlayerControls' charged by GetComponent.");
         }
+
+        _body = this.transform;
     }
 }

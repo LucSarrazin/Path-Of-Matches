@@ -27,7 +27,6 @@ public class SaveSystem : MonoBehaviour
     }
 
 
-
     // * --- Methods : Save --- * //
     public void AutoSave(Transform target)
     {
@@ -42,7 +41,7 @@ public class SaveSystem : MonoBehaviour
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
         data._playerPosX = target.position.x +1 ; // try add only 1 meter to check
-        data._playerPosY = target.position.y;
+        data._playerPosY = target.position.y ;
         data._playerPosZ = target.position.z;
         data._matchesCount = matchesCount;
         data._pointerSensitivity = pointerSensitivity;
@@ -54,11 +53,12 @@ public class SaveSystem : MonoBehaviour
         File.WriteAllText(_savePath, json);
 
         Debug.Log("Save complete");
+        Debug.Log($"Future player position X = {data._playerPosX} | Y = {data._playerPosY} | Z = {data._playerPosZ} ");
     }
 
     // * --- Method : Load --- * //
-        
-    private SaveData LoadGame()
+
+    public SaveData LoadSave()
     {
         if(!File.Exists(_savePath))
         {
@@ -74,6 +74,13 @@ public class SaveSystem : MonoBehaviour
 
         Debug.Log("Last save loaded ! ");
         return data;
+    }
+
+    public void LoadGame(Transform player/*, int matchesCounter*/)
+    {
+        SaveData data = LoadSave();
+        player.position = new Vector3(data._playerPosX, data._playerPosY, data._playerPosZ);
+
     }
 
     // * --- Method : Delete --- * //
