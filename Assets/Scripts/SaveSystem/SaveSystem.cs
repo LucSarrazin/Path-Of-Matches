@@ -13,11 +13,13 @@ public class SaveSystem : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnAutoSaveRequested += AutoSave;
+        GameEvents.OnLoadRequested += LoadGame;
     }
 
     private void OnDisable()
     {
         GameEvents.OnAutoSaveRequested -= AutoSave;
+        GameEvents.OnLoadRequested -= LoadGame;
     }
 
     private void Awake()
@@ -40,9 +42,13 @@ public class SaveSystem : MonoBehaviour
     {
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
-        data._playerPosX = target.position.x +1 ; // try add only 1 meter to check
-        data._playerPosY = target.position.y ;
-        data._playerPosZ = target.position.z;
+        
+        // * -- Target Position -- * /
+        data._targetPosX = target.position.x /*+1*/ ; // try add only 1 meter to check
+        data._targetPosY = target.position.y ;
+        data._targetPosZ = target.position.z;
+
+        // * -- Variables * -- //
         data._matchesCount = matchesCount;
         data._pointerSensitivity = pointerSensitivity;
 
@@ -53,10 +59,46 @@ public class SaveSystem : MonoBehaviour
         File.WriteAllText(_savePath, json);
 
         Debug.Log("Save complete");
-        Debug.Log($"Future player position X = {data._playerPosX} | Y = {data._playerPosY} | Z = {data._playerPosZ} ");
+        Debug.Log($"Future player position X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ} ");
     }
 
     // * --- Method : Load --- * //
+    public void LoadGame()
+    {
+        SaveData data = LoadSave();
+
+        if (data == null)
+        {
+            Debug.Log("First Game, no save to load");
+            return;
+        }
+
+        /* -- Player Position -- */
+
+        Transform body = _playerReferences.Body;
+        Transform head = _playerReferences.Head;
+
+        Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
+
+        Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY, data._targetPosZ);
+        body.position = playerNewPos;
+
+        head.LookAt(targetPos);
+
+        float rotY = head.eulerAngles.y;
+        body.rotation = Quaternion.Euler(0f, rotY, 0f);
+
+        float rotX = head.eulerAngles.x;
+        if (rotX > 180f) rotX -= 360f;
+        //_xRotation = rotX;
+        _playerReferences.PlayerMovements.SetXRotation(rotX);
+        head.localRotation = Quaternion.Euler(rotX, 0f, 0f);
+
+        // * -- Variables * -- //
+        _playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
+        _playerReferences.PointerSensitivity = data._pointerSensitivity;
+
+    }
 
     public SaveData LoadSave()
     {
@@ -76,12 +118,6 @@ public class SaveSystem : MonoBehaviour
         return data;
     }
 
-    public void LoadGame(Transform player/*, int matchesCounter*/)
-    {
-        SaveData data = LoadSave();
-        player.position = new Vector3(data._playerPosX, data._playerPosY, data._playerPosZ);
-
-    }
 
     // * --- Method : Delete --- * //
 

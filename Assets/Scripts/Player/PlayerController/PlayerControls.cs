@@ -120,11 +120,7 @@ public class PlayerControls : MonoBehaviour
     public bool IsDraggingInspectable { get; private set; }
 
     public void SwitchMatchInputCallback(InputAction.CallbackContext context)
-    {
-        //bool isInspecting = _playerReferences.PlayerControllerSM.CurrentActionState
-        //                    == _playerReferences.PlayerControllerSM.ActionStates.Interact;
-        
-
+    {   
         if (IsInspecting)
         {
             if (context.phase == InputActionPhase.Performed)
