@@ -9,6 +9,7 @@ public class PlayerNoneState : PlayerActionState
     public override void Enter()
     {
         Debug.Log("[PLAYER - STATE ACTION] | ENTER NONE");
+
     }
 
     public override void Exit()
@@ -18,7 +19,7 @@ public class PlayerNoneState : PlayerActionState
 
     public override void Update()
     {
-        Debug.Log("[NONE STATE] Update");
+        //Debug.Log("[NONE STATE] Update");
 
         if (_playerReferences.Controls.WantToThrow)
         {

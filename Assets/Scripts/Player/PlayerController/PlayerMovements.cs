@@ -15,7 +15,7 @@ public class PlayerMovements : MonoBehaviour
     private Rigidbody _rigidbody;
     private float _currentSpeed;
     private bool _canMove;
-    private bool _canLook;
+    private bool _canLook = false;
 
     private Vector2 _lookInputs;
     private float _pointerSensitivity;
@@ -41,17 +41,20 @@ public class PlayerMovements : MonoBehaviour
     private IEnumerator Start()
     {
         /* Method to set view on Start */
-        _xRotation = 0f;
-        _playerReferences.Head.localRotation = Quaternion.identity;
+        //_xRotation = 0f;
+        //_playerReferences.Head.localRotation = Quaternion.identity;
+
 
         /*Method to lock cursor on screen*/
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
+        //_lookInputs = Vector2.zero;
+        GameEvents.OnLoadRequested?.Invoke();
         yield return null; /* Wait one frame to avoid delta error */
-
-        _lookInputs = Vector2.zero;
         _canLook = true;
+
+
     }
 
     private void OnEnable()
@@ -127,11 +130,14 @@ public class PlayerMovements : MonoBehaviour
         _pointerSensitivity = sensitivity;
     }
 
+    public void SetXRotation(float value) /*Used in Load Save System to avoid mistake on rotation*/
+    {
+        _xRotation = Mathf.Clamp(value, -90f, 90f); // on clamp aussi ici par sécurité
+    }
+
     private void LookPlayer()
     {
-
         if (!_canLook) { return; }
-
         float pointerX = _pointerSensitivity * _lookInputs.x;
         float pointerY = _pointerSensitivity *_lookInputs.y;
 

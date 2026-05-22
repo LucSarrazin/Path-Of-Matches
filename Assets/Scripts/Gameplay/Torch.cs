@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour
 {
+    [Header("[SETTINGS]")]
+    //* If it's a fire camp = TRUE
+    //* Because it create a new SAVE on light ON
+    //* Maybe change this name, to be more clear and avoir mistakes ? 
+    [Tooltip("Change in inspector ONLY if it's a fire camp -> TRUE, it allows a new save")]
+    [SerializeField] private bool _allowSave = false;
+
+    [Header("[REFERENCES]")]
     private bool oneTime = false;
     [SerializeField] private Material _colorOff;
     [SerializeField] private Material _colorOn;
@@ -11,8 +19,6 @@ public class Torch : MonoBehaviour
     [SerializeField] private bool _safeZoneTorch;
     private MeshRenderer _meshRenderer;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
@@ -20,7 +26,6 @@ public class Torch : MonoBehaviour
         _pointLight.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -31,12 +36,17 @@ public class Torch : MonoBehaviour
         if (other.CompareTag("Matches"))
         {
             Debug.Log("Matches touch the torch");
+            /* Save here : allow re-save on another fireCamp */
+            /* try by sending fire camp position */
+            if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform); }
 
             if (!oneTime)
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
                 _meshRenderer.material = _colorOn;
+
+
                 if (_safeZoneTorch == false)
                 {
                     StartCoroutine(waitBeforeTurningOff());
