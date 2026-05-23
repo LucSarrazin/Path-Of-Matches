@@ -25,6 +25,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private CharacterController _characterController; /* Replace Rigidbody */
     [SerializeField] private Transform _head;
     [SerializeField] private Camera _viewCamera;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("[PLAYER] MATCHES COMPONENTS :")]
     [SerializeField] private GameObject _light;
@@ -75,6 +76,7 @@ public class PlayerReferences : MonoBehaviour
     public GameObject InteractibleFocusSprite {  get => _interactibleFocusSprite; }
     public GameObject Light => _light; 
     public Light PointLightMatches => _pointLightMatches;
+    public AudioSource PlayerAudioSource => _audioSource; 
 
     // SCRIPTS //
 
