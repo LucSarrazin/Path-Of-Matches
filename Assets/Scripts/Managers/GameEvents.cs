@@ -9,6 +9,5 @@ public static class GameEvents
     public static Action<Transform> OnAutoSaveRequested;
     public static Action OnLoadRequested;
 
-    //Maybe later : 
-    //public static Action OnDieCharacter;
+    public static Action OnPlayerDeath; 
 }
