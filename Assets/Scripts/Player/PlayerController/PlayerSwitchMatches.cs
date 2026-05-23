@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class PlayerSwitchMatches : MonoBehaviour
@@ -13,6 +14,7 @@ public class PlayerSwitchMatches : MonoBehaviour
     public int skinNumber;
 
     [SerializeField] private PlayerReferences _playerReferences;
+    public UnityEvent onSwitched;
 
 
     private void Start()
@@ -48,6 +50,8 @@ public class PlayerSwitchMatches : MonoBehaviour
     {
         // -- Switch between matches skins -- //
 
+        onSwitched?.Invoke();
+        
         if (listSkinMatches.Count == 0) return;
 
         if (skinNumber >= listSkinMatches.Count-1)
