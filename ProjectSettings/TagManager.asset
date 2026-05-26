@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TorchFire
   - Matches
+  - MatchesChest
   layers:
   - Default
   - TransparentFX
@@ -14,13 +15,13 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - Ground
+  - 
   - Player
   - Matches
-  - 
-  - 
-  - 
-  - 
+  - Mud
+  - Wood
+  - Rock
+  - DirtyGround
   - 
   - 
   - 
