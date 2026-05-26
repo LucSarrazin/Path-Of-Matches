@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Insanity : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Insanity : MonoBehaviour
         //Game ends if the madness level is above 4
         if (insanityLvl == 150)
         {
+            GameEvents.OnPlayerDeath?.Invoke(); //Add Event on Player's Death
+           
             Debug.Log("Death");
         }
     }
