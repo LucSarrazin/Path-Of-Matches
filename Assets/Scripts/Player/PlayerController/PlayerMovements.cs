@@ -7,6 +7,8 @@ public class PlayerMovements : MonoBehaviour
     private CharacterController _characterController;
     private Vector2 _moveInputs;
     private float _currentSpeed;
+    public float CurrentSpeed => _currentSpeed;
+
     private bool _canMove;
     private bool _canLook = false;
 

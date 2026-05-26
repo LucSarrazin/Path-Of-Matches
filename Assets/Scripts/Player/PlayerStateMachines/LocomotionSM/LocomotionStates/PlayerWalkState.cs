@@ -49,14 +49,15 @@ public class PlayerWalkState : PlayerLocomotionState
 
     private void PlayFootSteps()
     {
-        //Debug.Log("Try play footsteps");
         _footstepTimer -= Time.deltaTime;
 
         if (_footstepTimer <= 0f)
         {
             _playerReferences.PlayerFootStep.PlayFootstep();
 
-            _footstepTimer = _playerReferences.PlayerFootStep.FootStepInterval;
+            float speed = _playerReferences.PlayerMovements.CurrentSpeed;
+
+            _footstepTimer = 2.5f / speed; 
         }
     }
 }
