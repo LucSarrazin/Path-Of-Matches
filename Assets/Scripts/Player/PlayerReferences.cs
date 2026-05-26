@@ -40,6 +40,9 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
 
+    [Header("[PLAYER] SFX SCRIPTS :")]
+    [SerializeField] private PlayerFootStep _playerFootStep;
+
     // * -- private references -- * //
     private Transform _body;
 
@@ -88,6 +91,10 @@ public class PlayerReferences : MonoBehaviour
     public PlayerLaunchMatches PlayerLaunchMatches { get => _playerLaunchMatches; }
     public Insanity PlayerInsanity {  get => _playerInsanity; }
     public Camera PlayerViewCamera { get => _viewCamera; }
+
+    // SFX 
+    public PlayerFootStep PlayerFootStep => _playerFootStep;
+
 
     #endregion
 

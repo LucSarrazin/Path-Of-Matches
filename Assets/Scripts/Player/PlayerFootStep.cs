@@ -10,12 +10,19 @@ public class FootstepSurface
 
 public class PlayerFootStep : MonoBehaviour
 {
+    [Header("[SETTINGS]")]
+    [SerializeField] private float _volume = 0.5f;
+    [SerializeField] private float _footstepInterval = 0.5f;
+
+    [Header("[SURFACES]")]
+    [SerializeField] private FootstepSurface[] _surfaces;
+
     [Header("[REFERENCES]")]
     [SerializeField] private PlayerReferences _playerReferences;
     [SerializeField] private PlayerGroundChecker _groundChecker;
 
-    [Header("[SURFACES]")]
-    [SerializeField] private FootstepSurface[] _surfaces;
+    public float FootStepInterval => _footstepInterval;
+
 
     private Dictionary<int, AudioClip[]> _surfaceMap;
 
@@ -108,7 +115,7 @@ public class PlayerFootStep : MonoBehaviour
 
             AudioClip randomClip = clips[GetRandomIndex(clips.Length)];
 
-            _playerReferences.PlayerAudioSource.PlayOneShot(randomClip);
+            _playerReferences.PlayerAudioSource.PlayOneShot(randomClip, _volume);
         }
     }
 }
