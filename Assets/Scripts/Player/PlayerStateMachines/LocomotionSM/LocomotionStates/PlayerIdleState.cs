@@ -19,10 +19,17 @@ public class PlayerIdleState : PlayerLocomotionState
 
     public override void Update()
     {
+        if (_playerReferences.Controls.WantToRun && _playerReferences.Controls.MoveInputs != Vector2.zero)
+        {
+            _stateMachine.TransitionTo(_playerStates.Run);
+            return;
+        }
+
         if (_playerReferences.Controls.MoveInputs != Vector2.zero)
         {
             _stateMachine.TransitionTo(_playerStates.Walk);
             return;
         }
+
     }
 }

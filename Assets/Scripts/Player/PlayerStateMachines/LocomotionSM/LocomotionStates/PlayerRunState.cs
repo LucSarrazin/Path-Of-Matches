@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerRunState : PlayerLocomotionState
 {
+    private float _footstepTimer;
+
     public PlayerRunState (StateMachine stateMachine, PlayerReferences playerReferences, PlayerLocomotionStates playerStates) : base(stateMachine, playerReferences, playerStates)
     {
     }
@@ -23,6 +25,8 @@ public class PlayerRunState : PlayerLocomotionState
     {
         _playerReferences.PlayerMovements.SetMoveInputs(_playerReferences.Controls.MoveInputs);
 
+        PlayFootSteps();
+
         /* TRANSITIONS */
         if (_playerReferences.Controls.MoveInputs.sqrMagnitude < 0.01f)
         {
@@ -36,5 +40,19 @@ public class PlayerRunState : PlayerLocomotionState
             return;
         }
     }
-    
+
+    private void PlayFootSteps()
+    {
+        _footstepTimer -= Time.deltaTime;
+
+        if (_footstepTimer <= 0f)
+        {
+            _playerReferences.PlayerFootStep.PlayFootstep();
+
+            float speed = _playerReferences.PlayerMovements.CurrentSpeed;
+
+            _footstepTimer = 3f / speed; 
+        }
+    }
+
 }

@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5ed524a16d824449bbbdba25765fb9, type: 3}
   m_Name: PainterRendererFeature
   m_EditorClassIdentifier: Assembly-CSharp::PainterRendererFeature
-  m_Active: 1
+  m_Active: 0
   settings:
     painterMaterial: {fileID: 2100000, guid: 598146b68488eba46be5f5ce4b71688f, type: 2}
     downscale: 5
