@@ -5,15 +5,10 @@ public class PlayerMovements : MonoBehaviour
 {
     [SerializeField] private PlayerReferences _playerReferences;
     private CharacterController _characterController;
-
-    private Vector3 _slopeNormal = Vector3.up;
-    private bool _isGrounded = true;
-
-    private bool _isStepping;
-
     private Vector2 _moveInputs;
-    private Rigidbody _rigidbody;
     private float _currentSpeed;
+    public float CurrentSpeed => _currentSpeed;
+
     private bool _canMove;
     private bool _canLook = false;
 

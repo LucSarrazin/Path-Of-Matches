@@ -25,6 +25,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private CharacterController _characterController; /* Replace Rigidbody */
     [SerializeField] private Transform _head;
     [SerializeField] private Camera _viewCamera;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("[PLAYER] MATCHES COMPONENTS :")]
     [SerializeField] private GameObject _light;
@@ -38,6 +39,9 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerSwitchMatches _playerSwitchMatches;
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
+
+    [Header("[PLAYER] SFX SCRIPTS :")]
+    [SerializeField] private PlayerFootStep _playerFootStep;
 
     // * -- private references -- * //
     private Transform _body;
@@ -75,6 +79,7 @@ public class PlayerReferences : MonoBehaviour
     public GameObject InteractibleFocusSprite {  get => _interactibleFocusSprite; }
     public GameObject Light => _light; 
     public Light PointLightMatches => _pointLightMatches;
+    public AudioSource PlayerAudioSource => _audioSource; 
 
     // SCRIPTS //
 
@@ -86,6 +91,10 @@ public class PlayerReferences : MonoBehaviour
     public PlayerLaunchMatches PlayerLaunchMatches { get => _playerLaunchMatches; }
     public Insanity PlayerInsanity {  get => _playerInsanity; }
     public Camera PlayerViewCamera { get => _viewCamera; }
+
+    // SFX 
+    public PlayerFootStep PlayerFootStep => _playerFootStep;
+
 
     #endregion
 
