@@ -18,6 +18,17 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private Animator handAnimator;
     [SerializeField] private ShakeCamera cameraShake;
 
+    [SerializeField] private float timeBeforeEndAnimation = 4f; 
+    private bool _autoReleased = false; // flag : allumette déjà relâchée automatiquement
+    public bool AutoReleased => _autoReleased;
+
+    // Et une méthode pour le reset proprement depuis l'extérieur
+    public void ConsumeAutoRelease()
+    {
+        _autoReleased = false;
+        Force = 1;
+    }
+
     private bool charging = false;
 
     /* --- Public references to Update in UI --- */
@@ -87,22 +98,58 @@ public class PlayerLaunchMatches : MonoBehaviour
             handAnimator.SetBool("Throw", false);
         }
 
+        //if (gotMatches)
+        //{
+        //    timeBeforeDisable -= Time.deltaTime;
+
+        //    if (timeBeforeDisable <= timeBeforeEndAnimation)
+        //    {
+        //        Launch(2f);
+        //        gotMatches = false;
+        //        charging = false;
+        //        _autoReleased = true;
+        //        handMatches.SetActive(false);
+        //    }
+        //    if (timeBeforeDisable < 0f)
+        //    {
+        //        timeBeforeDisable = 15f;
+        //        cameraShake.StopShakeMatches();
+        //        //NumberOfMatches--;
+        //        //Launch(1f);
+        //        //handMatches.SetActive(false);
+        //        //gotMatches = false;
+        //        //charging = false;
+        //        //_autoReleased = true;
+        //        handAnimator.SetBool("Throw", true);
+        //        handAnimator.SetBool("Take", false);
+        //        StartCoroutine("TimeDisable");
+        //    }
+        //}
+
         if (gotMatches)
         {
             timeBeforeDisable -= Time.deltaTime;
 
-            if (timeBeforeDisable < 0f)
+            // Guard : on ne lance qu'une seule fois
+            if (timeBeforeDisable <= timeBeforeEndAnimation && !_autoReleased)
             {
-                timeBeforeDisable = 15f;
-                cameraShake.StopShakeMatches();
-                NumberOfMatches--;
+                _autoReleased = true;   // posé AVANT Launch() pour éviter tout re-déclenchement
+                charging = false;
                 handMatches.SetActive(false);
                 gotMatches = false;
-                charging = false;
+                Launch(2f);
                 handAnimator.SetBool("Throw", true);
                 handAnimator.SetBool("Take", false);
                 StartCoroutine("TimeDisable");
             }
+        }
+
+        // Reset timeBeforeDisable séparément, une fois qu'il est épuisé
+        if (timeBeforeDisable < 0f)
+        {
+            timeBeforeDisable = 15f;
+            cameraShake.StopShakeMatches();
+            ConsumeAutoRelease();
         }
     }
 
@@ -128,20 +175,15 @@ public class PlayerLaunchMatches : MonoBehaviour
             }
             else
             {
-                if (gotMatches == true)
-                {
-                    charging = true;
-                }
+                if (gotMatches == true) charging = true;
             }
         }
-        else
-        {
-            Debug.Log("No matches left.");
-        }
+        else { Debug.Log("No matches left."); }
     }
 
     private void launchCanceled()
     {
+        // Redevient simple, sans guard _autoReleased
         if (NumberOfMatches > 0 && matches != null)
         {
             if (keepInHand == false)
@@ -162,22 +204,18 @@ public class PlayerLaunchMatches : MonoBehaviour
                 }
                 else if (gotMatches == false)
                 {
-                    Debug.Log("Have matches in hand.");
                     handMatches.SetActive(true);
                     gotMatches = true;
                     handAnimator.SetBool("Take", true);
                 }
             }
         }
-        else
-        {
-            Debug.Log("No matches left.");
-        }
+        else { Debug.Log("No matches left."); }
     }
 
     void Launch(float forceActual)
     {
-        Debug.Log("Launching matches.");
+        //Debug.Log("Launching matches.");
         cameraShake.StopShakeMatches();
         NumberOfMatches--;
         GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0, 0.707106829f, 0, 0.707106829f));
@@ -188,5 +226,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         }
         Destroy(matchesInstantiate, timeBeforeDisable);
         timeBeforeDisable = 15f;
+
+        //Force = 1; //  reset propre
     }
 }

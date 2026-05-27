@@ -11,14 +11,26 @@ public class PlayerThrowState : PlayerActionState
         Debug.Log("[PLAYER - STATE] | ENTER THROW");
         ResetActionComplete();
 
+        if (_playerReferences.PlayerLaunchMatches.AutoReleased)
+        {
+            // Une allumette s'est consumée pendant qu'on était en None
+            // On consomme le flag et on laisse launchCanceled() sortir normalement l'allumette
+            _playerReferences.PlayerLaunchMatches.ConsumeAutoRelease();
+        }
+
         _playerReferences.PlayerLaunchMatches.StartThrowCharge();
 
     }
-
     public override void Exit()
     {
-        //Debug.Log("[PLAYER - STATE ACTION] | EXIT THROW");
-        _playerReferences.PlayerLaunchMatches.StopThrowCharge(); 
+        if (_playerReferences.PlayerLaunchMatches.AutoReleased)
+        {
+            // L'allumette a déjà été lancée automatiquement, on ne rappelle pas StopThrowCharge
+            _playerReferences.PlayerLaunchMatches.ConsumeAutoRelease();
+            return;
+        }
+
+        _playerReferences.PlayerLaunchMatches.StopThrowCharge();
     }
 
     public override void Update()
