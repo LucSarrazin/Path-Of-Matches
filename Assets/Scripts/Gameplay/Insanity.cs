@@ -8,6 +8,7 @@ public class Insanity : MonoBehaviour
     [SerializeField]
     private int insanityLvl;
     private bool wait;
+    [SerializeField] private Animator animator;
 
     public int InsanityLvl
     {
@@ -42,6 +43,27 @@ public class Insanity : MonoBehaviour
             GameEvents.OnPlayerDeath?.Invoke(); //Add Event on Player's Death
            
             Debug.Log("Death");
+        }
+
+        if (insanityLvl >= 70 && insanityLvl < 90)
+        {
+            animator.SetBool("Hard", false);
+            animator.SetBool("Mid", false);
+            animator.SetBool("Low", true);
+        }
+
+        if (insanityLvl >= 90 && insanityLvl < 125)
+        {
+            animator.SetBool("Hard", false);
+            animator.SetBool("Mid", true);
+            animator.SetBool("Low", false);
+        }
+
+        if (insanityLvl >= 125 && insanityLvl < 150)
+        {
+            animator.SetBool("Hard", true);
+            animator.SetBool("Mid", false);
+            animator.SetBool("Low", false);
         }
     }
 
