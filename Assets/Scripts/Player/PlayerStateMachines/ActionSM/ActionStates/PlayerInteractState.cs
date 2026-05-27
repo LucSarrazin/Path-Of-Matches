@@ -31,9 +31,6 @@ public class PlayerInteractState : PlayerActionState
             _playerReferences.Controls.CanThrow = false;
             _playerReferences.Controls.CanEscape = false;
 
-            //_playerReferences.PlayerMovements.CanMove(_inspectable.FreezeMovement);
-            //_playerReferences.PlayerMovements.CanLook(_inspectable.FreezeRotationLook);
-
             /* -- Cursor -- */
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
@@ -42,11 +39,14 @@ public class PlayerInteractState : PlayerActionState
             _needsToStartInteraction = true;
 
             /* -- If inspectable : long interaction -- */
-
-            //_playerReferences.PlayerInteractions.TryInteract();
-            //_inspectable.Interact();
-
             _isInspecting = true;
+
+            /* -- Reset Hand Animation -- */
+            //Un peu schlag ---- A revoir !
+            _playerReferences.Watch.SetBoolSwitch(false); 
+            _playerReferences.Watch.openWatch();
+            //_playerReferences.Watch.WatchAnimator.SetBool("Close", true);
+
         }
         else
         {
@@ -65,11 +65,8 @@ public class PlayerInteractState : PlayerActionState
         _playerReferences.Controls.CanThrow = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        //_playerReferences.PlayerMovements.CanMove(true);
-        //_playerReferences.PlayerMovements.CanLook(true);
 
         _playerReferences.Controls.CanEscape = true;
-
 
         _inspectable = null;
         _interactable = null;
