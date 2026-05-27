@@ -1032,8 +1032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf4837272d017545985ffc40e0fb2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFootStep
-  _playerReferences: {fileID: 1766511737}
-  _groundChecker: {fileID: 236830562}
+  _volume: 0.35
+  _footstepInterval: 0.45
   _surfaces:
   - LayerName: Mud
     Clips:
@@ -1082,8 +1082,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f1547ad8fbfa4f24d83e5a445aee860d, type: 3}
     - {fileID: 8300000, guid: 47832b56ccba5bc408b1d5aac1871746, type: 3}
     - {fileID: 8300000, guid: 3d132da7af60f1145a3deb6a8bc42a08, type: 3}
-  _volume: 0.35
-  _footstepInterval: 0.45
+  _playerReferences: {fileID: 1766511737}
+  _groundChecker: {fileID: 236830562}
 --- !u!1 &360969121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,7 +4009,63 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6892830278438530302, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892830278438530302, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Size.x
+      value: 19.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Size.y
+      value: 19.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 507d4180905b4c048b826b123565172d, type: 3}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314836983707127913, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
