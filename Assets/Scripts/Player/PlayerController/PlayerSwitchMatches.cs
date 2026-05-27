@@ -50,7 +50,7 @@ public class PlayerSwitchMatches : MonoBehaviour
     {
         // -- Switch between matches skins -- //
 
-        onSwitched?.Invoke();
+        onSwitched?.Invoke(); // To Enable / Disable Watch view 
         
         if (listSkinMatches.Count == 0) return;
 

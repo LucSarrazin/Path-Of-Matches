@@ -104,6 +104,7 @@ public class PlayerControls : MonoBehaviour
     public void ThrowInputCallback(InputAction.CallbackContext context)
     {
         if (IsInspecting) return;
+        if (_wantToSwitchMatch) return;
 
         if(!CanThrow) return;
 
@@ -120,7 +121,8 @@ public class PlayerControls : MonoBehaviour
     public bool IsDraggingInspectable { get; private set; }
 
     public void SwitchMatchInputCallback(InputAction.CallbackContext context)
-    {   
+    {
+        if (WantToThrow) return;
         if (IsInspecting)
         {
             if (context.phase == InputActionPhase.Performed)

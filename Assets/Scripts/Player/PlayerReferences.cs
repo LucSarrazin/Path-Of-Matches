@@ -26,6 +26,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private Transform _head;
     [SerializeField] private Camera _viewCamera;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private Watch _watch;
 
     [Header("[PLAYER] MATCHES COMPONENTS :")]
     [SerializeField] private GameObject _light;
@@ -80,6 +81,7 @@ public class PlayerReferences : MonoBehaviour
     public GameObject Light => _light; 
     public Light PointLightMatches => _pointLightMatches;
     public AudioSource PlayerAudioSource => _audioSource; 
+    public Watch Watch => _watch;
 
     // SCRIPTS //
 
