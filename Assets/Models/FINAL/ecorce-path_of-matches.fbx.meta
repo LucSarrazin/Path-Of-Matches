@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: fa8dcb26a68639b46a44928b32977f0a
+guid: a6658eb14e8e55a4c9d3ed9dadccabef
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 4484e5a328c57be469e459c405e40eee, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 4b419d699a6c1c949965b9fc9ec5b893, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 45eb01e6d0db8b142b8664829124f7d3, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture-coffre-bois
-    second: {fileID: 2800000, guid: 57f64cb016f348d4ca0c5c97a8f7e0e0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture-coffre-fer
-    second: {fileID: 2800000, guid: 25c02d6e5a9ec094cbfbd46a7e1de718, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -60,7 +35,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

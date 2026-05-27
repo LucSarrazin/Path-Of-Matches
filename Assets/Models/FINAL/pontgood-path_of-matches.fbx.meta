@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa8dcb26a68639b46a44928b32977f0a
+guid: 3a1bcec7daa67db49a292abf91bdd587
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -8,27 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: 4484e5a328c57be469e459c405e40eee, type: 2}
+    second: {fileID: 2100000, guid: a160af544e8109742aa56cf3d4f06d78, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: 4b419d699a6c1c949965b9fc9ec5b893, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: 45eb01e6d0db8b142b8664829124f7d3, type: 2}
+      name: Material.008
+    second: {fileID: 2100000, guid: 83979c46d42bdd5409b89d6d28c541bc, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: texture-coffre-bois
-    second: {fileID: 2800000, guid: 57f64cb016f348d4ca0c5c97a8f7e0e0, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: texture-coffre-fer
-    second: {fileID: 2800000, guid: 25c02d6e5a9ec094cbfbd46a7e1de718, type: 3}
+      name: texture-pont
+    second: {fileID: 2800000, guid: 5e9c068a5d7de08448470697c179e343, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -60,7 +50,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
