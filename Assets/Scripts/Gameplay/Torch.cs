@@ -15,15 +15,22 @@ public class Torch : MonoBehaviour
     private bool oneTime = false;
     [SerializeField] private Material _colorOff;
     [SerializeField] private Material _colorOn;
+    [SerializeField] private GameObject _particle;
     [SerializeField] private GameObject _pointLight;
     [SerializeField] private bool _safeZoneTorch;
+    [SerializeField] private bool _destroyObjectAfter;
+    [SerializeField] private float _timeForDisapearing;
     private MeshRenderer _meshRenderer;
 
     void Start()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material = _colorOff;
+        if (_colorOff != null)
+        {
+            _meshRenderer.material = _colorOff;
+        }
         _pointLight.SetActive(false);
+        _particle.SetActive(false);
     }
 
     void Update()
@@ -44,7 +51,11 @@ public class Torch : MonoBehaviour
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
-                _meshRenderer.material = _colorOn;
+                _particle.SetActive(true);
+                if (_colorOn != null)
+                {
+                    _meshRenderer.material = _colorOn;
+                }
 
 
                 if (_safeZoneTorch == false)
@@ -57,10 +68,17 @@ public class Torch : MonoBehaviour
 
     IEnumerator waitBeforeTurningOff()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(_timeForDisapearing);
         _pointLight.SetActive(false);
-        _meshRenderer.material = _colorOff;
+        _particle.SetActive(false);
+        if (_colorOff != null)
+        {
+            _meshRenderer.material = _colorOff;
+        }
         oneTime = false;
-        Destroy(gameObject);
+        if (_destroyObjectAfter == true)
+        {
+            Destroy(gameObject);
+        }
     }
 }
