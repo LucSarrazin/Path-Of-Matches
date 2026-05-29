@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
   _playerReferences: {fileID: 0}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   skin: {fileID: 4200394936036997217, guid: 1abdcbdb039e35b41a294257a99e241b, type: 3}
   oneTime: 0
 --- !u!65 &155924862
@@ -4226,6 +4227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BunkerInteractable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   mapName: Underground
 --- !u!4 &570286507 stripped
 Transform:
@@ -5316,6 +5318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   skin: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
   oneTime: 0
 --- !u!1 &788818525
@@ -5851,6 +5854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5
@@ -6244,6 +6248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   skin: {fileID: 4200394936036997217, guid: 1abdcbdb039e35b41a294257a99e241b, type: 3}
   oneTime: 0
 --- !u!65 &899841783
@@ -7662,7 +7667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchesChest
   _playerReferences: {fileID: 1800778252}
-  _focusSpriteDistance: 0.7
+  _focusSpriteDistance: 3.5
+  _focusSpriteSize: 0.018
   chestAnimator: {fileID: 1039055306}
 --- !u!1 &1039873340
 GameObject:
@@ -9701,6 +9707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CubeInspectable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5
@@ -10871,6 +10878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5
@@ -11007,7 +11015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.6
+      value: 19.62
       objectReference: {fileID: 0}
     - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11015,7 +11023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2535295189839373691, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -350.1
+      value: -433.24
       objectReference: {fileID: 0}
     - target: {fileID: 2571441951459299420, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: listSkinMatches.Array.size
@@ -11043,31 +11051,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.246025
+      value: 471.91
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 140.65
+      value: 127.6
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -99.26
+      value: 220.14
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12731238
+      value: 0.70711297
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.99186265
+      value: 0.7071006
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11075,7 +11083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -165.371
+      value: 89.999
       objectReference: {fileID: 0}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -11095,15 +11103,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.03
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.03
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7729744037236872787, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -13532,6 +13540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5
@@ -15640,6 +15649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
   _playerReferences: {fileID: 1800778252}
   _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5

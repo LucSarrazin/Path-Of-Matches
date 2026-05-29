@@ -6,8 +6,9 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     [Header("[INTERACTABLE] GENERAL SETTINGS ")]
     [SerializeField] protected PlayerReferences _playerReferences;
     //[Tooltip("WARNING : For read-only or test to adjust, please change value in script to keep logic")]//
-    [Tooltip("WARNING : To calibrate distance between transform to sprite")]
+    [Tooltip("To calibrate distance between gameObject's transform to sprite")]
     [SerializeField] private float _focusSpriteDistance = 0.7f;
+    [SerializeField] private float _focusSpriteSize = 0.018f;
 
     /* --- Display focus on raycast --- */
 
@@ -79,6 +80,10 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
         _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
+
+        // -- Fix Size : 
+        _focusSprite.transform.localScale = Vector3.one * _focusSpriteSize;
+
 
         _outline.enabled = true;
 
