@@ -10,8 +10,9 @@ public class SkinMatches : Interactable
 
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         // if (skin.GetComponent<Matches>().possessed == "True")
         // {
         //     Destroy(gameObject);

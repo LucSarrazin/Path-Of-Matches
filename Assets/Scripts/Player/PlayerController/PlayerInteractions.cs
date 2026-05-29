@@ -37,6 +37,7 @@ public class PlayerInteractions : MonoBehaviour
         if (CanInteract(out RaycastHit hit))
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
+                //Debug.Log($"Hit {interactable.gameObject.name}");
 
             if (interactable != _currentInteractable)
             {
@@ -47,6 +48,7 @@ public class PlayerInteractions : MonoBehaviour
                 _currentInteractable = interactable;
                 _currentInteractable?.OnFocus();
                 OnFocusInteractable?.Invoke(true);
+                Debug.Log($"Focus {interactable.gameObject.name}");
             }
         }
         else

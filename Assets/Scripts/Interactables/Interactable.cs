@@ -5,7 +5,8 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 {
     [Header("[INTERACTABLE] GENERAL SETTINGS ")]
     [SerializeField] protected PlayerReferences _playerReferences;
-    [Tooltip("WARNING : For read-only or test to adjust, please change value in script to keep logic")]
+    //[Tooltip("WARNING : For read-only or test to adjust, please change value in script to keep logic")]//
+    [Tooltip("WARNING : To calibrate distance between transform to sprite")]
     [SerializeField] private float _focusSpriteDistance = 0.7f;
 
     /* --- Display focus on raycast --- */
@@ -46,6 +47,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         if (!TryGetComponent(out _outline))
         {
             _outline = gameObject.AddComponent<Outline>();
+            Debug.Log($"Outline component added to {gameObject.name}");
         }
 
         _outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -53,7 +55,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         _outline.OutlineWidth = _outlineWidth;
         _outline.enabled = false;
 
-
+        Debug.Log($"Try add outline initialization to : {gameObject.name}");
 
     }
 
@@ -63,17 +65,18 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
         if (_outline == null)
         {
-            Debug.Log("Can't access to outline Component ");
+            Debug.Log($"Can't access to outline Component : {gameObject.name}");
             return;
         }
 
         if (_focusSprite == null)
         {
-            Debug.Log("Can't access to focus Sprite ");
+            Debug.Log($"Can't access to focus Sprite : {gameObject.name} ");
             return;
         }
 
         _focusSprite.SetActive(true);
+
         _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
 
