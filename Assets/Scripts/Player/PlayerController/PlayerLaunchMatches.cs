@@ -14,15 +14,15 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     [SerializeField] private GameObject handMatches;
-    [SerializeField] private float timeBeforeDisable = 15f;
+    [SerializeField] private float timeBeforeDisable = 12f;
     [SerializeField] private Animator handAnimator;
     [SerializeField] private ShakeCamera cameraShake;
 
     [SerializeField] private float timeBeforeEndAnimation = 4f; 
-    private bool _autoReleased = false; // flag : allumette déjà relâchée automatiquement
+    private bool _autoReleased = false; // flag : allumette dï¿½jï¿½ relï¿½chï¿½e automatiquement
     public bool AutoReleased => _autoReleased;
 
-    // Et une méthode pour le reset proprement depuis l'extérieur
+    // Et une mï¿½thode pour le reset proprement depuis l'extï¿½rieur
     public void ConsumeAutoRelease()
     {
         _autoReleased = false;
@@ -133,21 +133,20 @@ public class PlayerLaunchMatches : MonoBehaviour
             // Guard : on ne lance qu'une seule fois
             if (timeBeforeDisable <= timeBeforeEndAnimation && !_autoReleased)
             {
-                _autoReleased = true;   // posé AVANT Launch() pour éviter tout re-déclenchement
+                _autoReleased = true;   // posï¿½ AVANT Launch() pour ï¿½viter tout re-dï¿½clenchement
                 charging = false;
                 handMatches.SetActive(false);
                 gotMatches = false;
                 Launch(2f);
-                handAnimator.SetBool("Throw", true);
                 handAnimator.SetBool("Take", false);
                 StartCoroutine("TimeDisable");
             }
         }
 
-        // Reset timeBeforeDisable séparément, une fois qu'il est épuisé
+        // Reset timeBeforeDisable sï¿½parï¿½ment, une fois qu'il est ï¿½puisï¿½
         if (timeBeforeDisable < 0f)
         {
-            timeBeforeDisable = 15f;
+            timeBeforeDisable = 12f;
             cameraShake.StopShakeMatches();
             ConsumeAutoRelease();
         }
@@ -225,7 +224,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
         Destroy(matchesInstantiate, timeBeforeDisable);
-        timeBeforeDisable = 15f;
+        timeBeforeDisable = 12f;
 
         //Force = 1; //  reset propre
     }

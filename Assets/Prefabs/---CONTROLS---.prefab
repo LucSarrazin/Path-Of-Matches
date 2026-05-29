@@ -865,6 +865,14 @@ PrefabInstance:
       propertyPath: listSound.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: timeBeforeDisable
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: timeBeforeEndAnimation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7584742121701950265, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _playerMovements
       value: 
@@ -876,6 +884,10 @@ PrefabInstance:
     - target: {fileID: 7661479801854322475, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601303810285273418, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8960248909059307666, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
