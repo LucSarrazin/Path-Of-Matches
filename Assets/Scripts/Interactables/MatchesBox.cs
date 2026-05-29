@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkinMatches : Interactable
+public class MatchesBox : Interactable
 {
     [SerializeField] private GameObject skin;
     [SerializeField] private bool oneTime;
@@ -9,19 +9,10 @@ public class SkinMatches : Interactable
 
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
 
-    //protected override void Start()
-    //{
-    //    base.Start();
-    //    // if (skin.GetComponent<Matches>().possessed == "True")
-    //    // {
-    //    //     Destroy(gameObject);
-    //    // }
-    //}
-
     public override void Interact()
     {
         if (oneTime) return;
-        
+
         oneTime = true;
         // -- Adds the skin to the player's skin list when they interact with -- //
         _playerReferences.PlayerSwitchMatches.AddMatchesSkin(skin);

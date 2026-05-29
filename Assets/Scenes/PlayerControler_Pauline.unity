@@ -519,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &179419942
 Transform:
   m_ObjectHideFlags: 0
@@ -1007,6 +1007,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.343569, y: 1.4760878, z: 2.2437391}
   m_Center: {x: -0.002475321, y: 0.2522775, z: -0.0025960207}
+--- !u!114 &291934137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291934126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1899f29652a1090459282684f841d74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkinMatches
+  _playerReferences: {fileID: 1766511737}
+  _focusSpriteDistance: 0.7
+  skin: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
+  oneTime: 0
 --- !u!114 &333650320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7092472056079701458, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
@@ -1035,7 +1051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &360969122
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,7 +1542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &829014290
 Transform:
   m_ObjectHideFlags: 0
@@ -1900,7 +1916,7 @@ Transform:
   - {fileID: 860542020}
   - {fileID: 116891335}
   - {fileID: 267594841}
-  - {fileID: 1256078244}
+  - {fileID: 291934127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907573536 stripped
@@ -2092,7 +2108,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1256078244}
+    m_TransformParent: {fileID: 863196956}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7e13d8effdd35cd43a38e42258255b54, type: 3}
       propertyPath: m_LocalScale.x
@@ -2169,6 +2185,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e13d8effdd35cd43a38e42258255b54, type: 3}
       insertIndex: -1
       addedObject: {fileID: 291934128}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e13d8effdd35cd43a38e42258255b54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 291934137}
   m_SourcePrefab: {fileID: 100100000, guid: 7e13d8effdd35cd43a38e42258255b54, type: 3}
 --- !u!1 &1049773657
 GameObject:
@@ -2189,7 +2208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1049773658
 Transform:
   m_ObjectHideFlags: 0
@@ -2510,60 +2529,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16de3428e037a94bb405737fcce857a, type: 3}
---- !u!1 &1256078243
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1256078244}
-  - component: {fileID: 1256078245}
-  m_Layer: 6
-  m_Name: Boite_Alumettes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1256078244
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256078243}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 291934127}
-  m_Father: {fileID: 863196956}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1256078245
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256078243}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 2.343569, y: 1.4760878, z: 2.2437391}
-  m_Center: {x: -0.002475321, y: 0.2522775, z: -0.0025960207}
 --- !u!1 &1265010912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,6 +2901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863196956}
     m_Modifications:
+    - target: {fileID: 666385760794903049, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1766511737}
     - target: {fileID: 6092651279212586734, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
       propertyPath: m_Name
       value: coffre-allumettes
@@ -2980,18 +2949,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8261079874593010373, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
-      propertyPath: _playerReferences
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8261079874593010373, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1454652303800583572, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1793819066}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
 --- !u!1 &1511177638
 GameObject:
@@ -3500,31 +3461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d28dc7d159bf984dbbf60261ea57d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerReferences
---- !u!1 &1793819064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1454652303800583572, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
-  m_PrefabInstance: {fileID: 1402396000}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1793819066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793819064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3df8fbd3803e544b67e30ba4c43149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MatchesChest
-  _playerReferences: {fileID: 1766511737}
-  _focusSpriteDistance: 3.5
-  chestAnimator: {fileID: 1793819067}
---- !u!95 &1793819067 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8246635989763549740, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
-  m_PrefabInstance: {fileID: 1402396000}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1912335759
 GameObject:
   m_ObjectHideFlags: 0

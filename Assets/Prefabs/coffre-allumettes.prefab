@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3031587945772622086}
-  - component: {fileID: 8261079874593010373}
   - component: {fileID: 4659814568846173997}
   - component: {fileID: 8246635989763549740}
+  - component: {fileID: 666385760794903049}
   m_Layer: 6
   m_Name: Coffre
   m_TagString: Untagged
@@ -36,21 +36,6 @@ Transform:
   - {fileID: 7761677088889169713}
   m_Father: {fileID: 6901382297799097428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8261079874593010373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454652303800583572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3df8fbd3803e544b67e30ba4c43149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MatchesChest
-  _playerReferences: {fileID: 0}
-  _focusSpriteDistance: 0.7
-  chestAnimator: {fileID: 8246635989763549740}
 --- !u!65 &4659814568846173997
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94,6 +79,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &666385760794903049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454652303800583572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3df8fbd3803e544b67e30ba4c43149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MatchesChest
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 3.5
+  chestAnimator: {fileID: 8246635989763549740}
 --- !u!1 &2349304891221072815
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,4 +354,4 @@ Transform:
   m_Children:
   - {fileID: 3031587945772622086}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -110.155, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
