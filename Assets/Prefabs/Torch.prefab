@@ -128,9 +128,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42161e80e163e2f4a9597305cf5e48b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torch
+  _allowSave: 0
   _colorOff: {fileID: 2100000, guid: cef5e9c8bcfe5e44491151ea7a084d73, type: 2}
   _colorOn: {fileID: 2100000, guid: 5c8ffa524f7781e48ac71e1354a102d2, type: 2}
+  _particle: {fileID: 0}
   _pointLight: {fileID: 3862195695720298345}
+  _safeZoneTorch: 0
+  _destroyObjectAfter: 0
+  _timeForDisapearing: 0
 --- !u!54 &2760123607735020479
 Rigidbody:
   m_ObjectHideFlags: 0
