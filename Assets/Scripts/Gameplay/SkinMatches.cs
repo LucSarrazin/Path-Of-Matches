@@ -4,6 +4,7 @@ using UnityEngine;
 public class SkinMatches : Interactable
 {
     [SerializeField] private GameObject skin;
+    [SerializeField] private bool oneTime;
 
     public override bool FreezeMovement => throw new System.NotImplementedException();
 
@@ -11,18 +12,22 @@ public class SkinMatches : Interactable
 
     private void Start()
     {
-        if (skin.GetComponent<Matches>().possessed == "True")
-        {
-            Destroy(gameObject);
-        }
+        // if (skin.GetComponent<Matches>().possessed == "True")
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     public override void Interact()
     {
-        // -- Adds the skin to the player's skin list when they interact with -- //
-        _playerReferences.PlayerSwitchMatches.AddMatchesSkin(skin);
+        if (oneTime != true)
+        {
+            oneTime = true;
+            // -- Adds the skin to the player's skin list when they interact with -- //
+            _playerReferences.PlayerSwitchMatches.AddMatchesSkin(skin);
 
-        GetComponent<MeshRenderer>().enabled = false;
-        Destroy(gameObject);
+            GetComponent<MeshRenderer>().enabled = false;
+            Destroy(gameObject);
+        }
     }
 }

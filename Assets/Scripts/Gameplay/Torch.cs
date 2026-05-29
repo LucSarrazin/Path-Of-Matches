@@ -30,7 +30,10 @@ public class Torch : MonoBehaviour
             _meshRenderer.material = _colorOff;
         }
         _pointLight.SetActive(false);
-        _particle.SetActive(false);
+        if (_particle != null)
+        {
+            _particle.SetActive(false);
+        }
     }
 
     void Update()
@@ -51,7 +54,10 @@ public class Torch : MonoBehaviour
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
-                _particle.SetActive(true);
+                if (_particle != null)
+                {
+                    _particle.SetActive(true);
+                }
                 if (_colorOn != null)
                 {
                     _meshRenderer.material = _colorOn;
@@ -70,7 +76,10 @@ public class Torch : MonoBehaviour
     {
         yield return new WaitForSeconds(_timeForDisapearing);
         _pointLight.SetActive(false);
-        _particle.SetActive(false);
+        if (_particle != null)
+        {
+            _particle.SetActive(false);
+        }
         if (_colorOff != null)
         {
             _meshRenderer.material = _colorOff;
