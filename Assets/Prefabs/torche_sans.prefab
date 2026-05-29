@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1457337767128380723}
   - component: {fileID: 2064094569626059581}
   - component: {fileID: 7906538895811035285}
+  - component: {fileID: 1047307057871371802}
+  - component: {fileID: 7440937123122455356}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -127,6 +129,39 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!135 &1047307057871371802
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736824638833909898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 83.28
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7440937123122455356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736824638833909898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cefe8bb04051b4d95b373cbcea623d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafeZone
 --- !u!1001 &2021840461546375409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +213,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
       propertyPath: m_Name
       value: torche_sans
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
+      propertyPath: m_TagString
+      value: TorchFire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
