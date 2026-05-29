@@ -83,8 +83,11 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public virtual void LoseFocus()
     {
-        _focusSprite.SetActive(false);
-        _outline.enabled = false;
+        if (_focusSprite != null)
+            _focusSprite.SetActive(false);
+
+        if (_outline != null)
+            _outline.enabled = false;
     }
 
     /* --- Interactions --- */

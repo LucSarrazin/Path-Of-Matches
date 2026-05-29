@@ -20,14 +20,14 @@ public class SkinMatches : Interactable
 
     public override void Interact()
     {
-        if (oneTime != true)
-        {
-            oneTime = true;
-            // -- Adds the skin to the player's skin list when they interact with -- //
-            _playerReferences.PlayerSwitchMatches.AddMatchesSkin(skin);
+        if (oneTime) return;
+        
+        oneTime = true;
+        // -- Adds the skin to the player's skin list when they interact with -- //
+        _playerReferences.PlayerSwitchMatches.AddMatchesSkin(skin);
 
-            GetComponent<MeshRenderer>().enabled = false;
-            Destroy(gameObject);
-        }
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Collider>().enabled = false;
+        this.enabled = false;
     }
 }
