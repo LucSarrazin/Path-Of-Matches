@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeInspectable
   _playerReferences: {fileID: 0}
-  _focusSpriteDistance: 0.7
+  _focusSpriteDistance: 0.95
   _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
