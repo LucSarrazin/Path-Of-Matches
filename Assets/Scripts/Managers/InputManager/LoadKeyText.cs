@@ -23,4 +23,11 @@ public class LoadKeyText : MonoBehaviour
 
         text.text = actionReference.action.GetBindingDisplayString(bindingIndex);
     }
+
+    // -- Add OnEnable to use In Game UI Updates -- //
+
+    private void OnEnable()
+    {
+        UpdateKeyText();
+    }
 }

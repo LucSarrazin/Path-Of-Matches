@@ -80,6 +80,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
         _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
         _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
+        _focusSprite.transform.Rotate(0f, 180f, 0f);
 
         // -- Fix Size : 
         _focusSprite.transform.localScale = Vector3.one * _focusSpriteSize;
