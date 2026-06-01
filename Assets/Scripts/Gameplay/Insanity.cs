@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Insanity : MonoBehaviour
 {
-    [SerializeField]
-    private int insanityLvl;
+    [SerializeField] private int insanityLvl;
+    [SerializeField] private int addInsanity = 3;
+    [SerializeField] private int loseInsanity = 3;
     private bool wait;
     [SerializeField] private Animator animator;
 
@@ -104,9 +105,9 @@ public class Insanity : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
 
         if (DarkZone.IsInDarkZone && SafeZone.IsInSafeZone == false)
-            IncreaseInsanity(3);
+            IncreaseInsanity(addInsanity);
         else
-            DecreaseInsanity(3);
+            DecreaseInsanity(loseInsanity);
 
         wait = false;
     }
