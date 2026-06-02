@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
 public class SafeZone : MonoBehaviour
 {
@@ -10,23 +11,10 @@ public class SafeZone : MonoBehaviour
     {
         get { return safeZoneCompte > 0; }
     }
+
     private void Start()
     {
-        Collider[] hits = Physics.OverlapBox(
-            transform.position,
-            transform.localScale / 2,
-            transform.rotation
-        );
-
-        foreach (var hit in hits)
-        {
-            if (hit.CompareTag("Player"))
-            {
-                playerInside = true;
-                safeZoneCompte++;
-                break;
-            }
-        }
+        PlayerDetector();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,14 +26,17 @@ public class SafeZone : MonoBehaviour
             safeZoneCompte++;
         }
     }
+
     private void OnTriggerStay(Collider other)
     {
+        //Check if the player is in a safe area
         if (other.CompareTag("Player") && !playerInside)
         {
             playerInside = true;
             safeZoneCompte++;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("EXIT : " + other.name);
@@ -60,12 +51,39 @@ public class SafeZone : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerInside = false;
+        if (playerInside)
+        {
+            playerInside = false;
+            safeZoneCompte--;
+        }
     }
 
     private void OnDisable()
     {
-        playerInside = false;
+        if (playerInside)
+        {
+            playerInside = false;
+            safeZoneCompte--;
+        }
+    }
+
+    private void PlayerDetector()
+    {
+        Collider[] hits = Physics.OverlapBox(
+            transform.position,
+            transform.localScale / 2,
+            transform.rotation
+        );
+
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Player") && !playerInside)
+            {
+                playerInside = true;
+                safeZoneCompte++;
+                break;
+            }
+        }
     }
 }
 
