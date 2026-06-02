@@ -67,7 +67,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e2920d1ed17a75f4390412135ab72dc9, type: 2}
-  - {fileID: 2100000, guid: a99acc65d1a1a5043bf8b41ce4cedf42, type: 2}
+  - {fileID: 2100000, guid: da4ea8c79aa410040b1d987a14bb9d02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,11 +159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeInspectable
   _playerReferences: {fileID: 0}
-  _focusSpriteDistance: 0.7
+  _focusSpriteDistance: 0.5
   _focusSpriteSize: 0.018
   _freezeMovement: 1
   _freezeRotationLook: 1
   _moveSpeed: 5
   _rotationReturnSpeed: 5
   _force: 20
-  _data: {fileID: 11400000, guid: 9662e5216a6df85478069e0497797086, type: 2}
+  _data: {fileID: 11400000, guid: 75013ce137fccaa4b8476d3b0f7c14d2, type: 2}
