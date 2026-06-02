@@ -7,12 +7,19 @@ public class BPMSounds : MonoBehaviour
     [SerializeField] PlayerReferences _playerReferences;
 
     [Header("[Audio Settings]")]
+    [Header("Pitch")]
     [SerializeField] private float _smoothBPMSpeed = 3f;
     [SerializeField] private float _minBpmPitch = 0.8f;
     [SerializeField] private float _maxBpmPitch = 2.4f;
 
+    //[Header("Volume")]
+    //[SerializeField] private float _smoothVolumeSpeed = 3f;
+    //[SerializeField, Range(0f, 1f)] private float _minVolume = 0.1f;
+    //[SerializeField, Range(0f, 1f)] private float _maxVolume = 1f;
+
     private Insanity _insanity;
     private float _targetPitch;
+    private float _targetVolume;
     private void OnEnable()
     {
         _insanity.OnInsanityChange += UpdateHeartBeatPitch;
@@ -55,6 +62,6 @@ public class BPMSounds : MonoBehaviour
     {
         float normalizedlInsanity = Mathf.InverseLerp(70f, 150f, insanityLvl);
         _targetPitch = Mathf.Lerp(_minBpmPitch, _maxBpmPitch, normalizedlInsanity);
-    }
 
+    }
 }
