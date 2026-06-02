@@ -321,6 +321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!82 &197715667 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2452173653930004378, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 1630429757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &205578846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1782223206581851590, guid: bb0f5d35f8e4da946b7eb109769e801b, type: 3}
@@ -2769,6 +2774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---CONTROLS---
       objectReference: {fileID: 0}
+    - target: {fileID: 2452173653930004378, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: Priority
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2478586749229181361, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_SortingOrder
       value: 250
@@ -2789,6 +2798,14 @@ PrefabInstance:
       propertyPath: 'listSound.Array.data[4]'
       value: 
       objectReference: {fileID: 8300000, guid: df17e76ad2f7ad14b815a6a12c30b789, type: 3}
+    - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: _heartBeat
+      value: 
+      objectReference: {fileID: 197715667}
+    - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 787194404}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 511.28
