@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class SaveSystem : MonoBehaviour
     {
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
+
+        // * -- Scene's Index -- * //
+        data.SceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
         
         // * -- Target Position -- * /
         data._targetPosX = target.position.x /*+1*/ ; // try add only 1 meter to check
@@ -73,6 +77,11 @@ public class SaveSystem : MonoBehaviour
             return;
         }
 
+        /* -- Scene's index -- */
+        if (SceneManager.GetActiveScene().buildIndex != data.SceneBuildIndex)
+        {
+            SceneManager.LoadScene(data.SceneBuildIndex);
+        }
         /* -- Player Position -- */
 
         Transform body = _playerReferences.Body;
