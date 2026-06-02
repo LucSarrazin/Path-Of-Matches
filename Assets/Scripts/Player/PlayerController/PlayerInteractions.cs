@@ -48,7 +48,7 @@ public class PlayerInteractions : MonoBehaviour
                 _currentInteractable = interactable;
                 _currentInteractable?.OnFocus();
                 OnFocusInteractable?.Invoke(true);
-                Debug.Log($"Focus {interactable.gameObject.name}");
+                //Debug.Log($"Focus {interactable.gameObject.name}");
             }
         }
         else

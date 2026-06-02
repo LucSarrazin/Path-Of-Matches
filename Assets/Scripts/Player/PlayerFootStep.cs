@@ -86,9 +86,6 @@ public class PlayerFootStep : MonoBehaviour
 
     private int GetRandomIndex(int length)
     {
-        if (length <= 1)
-            return 0;
-
         int index;
         do
         {
@@ -114,8 +111,9 @@ public class PlayerFootStep : MonoBehaviour
                 return;
 
             AudioClip randomClip = clips[GetRandomIndex(clips.Length)];
+            _playerReferences.PlayerAudioSource.pitch = Random.Range(0.95f, 1.05f); // Switch pitch to randomise footsteps
 
-            _playerReferences.PlayerAudioSource.PlayOneShot(randomClip, _volume);
+           _playerReferences.PlayerAudioSource.PlayOneShot(randomClip, _volume);
         }
     }
 }

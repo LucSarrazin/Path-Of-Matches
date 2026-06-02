@@ -20,7 +20,7 @@ public class LoadKeyText : MonoBehaviour
     public void UpdateKeyText()
     {
         // -- updates the display of keys in the menu -- //
-
+        if (text == null) return;
         text.text = actionReference.action.GetBindingDisplayString(bindingIndex);
     }
 

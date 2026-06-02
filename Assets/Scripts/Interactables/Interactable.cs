@@ -48,7 +48,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         if (!TryGetComponent(out _outline))
         {
             _outline = gameObject.AddComponent<Outline>();
-            Debug.Log($"Outline component added to {gameObject.name}");
+            //Debug.Log($"Outline component added to {gameObject.name}");
         }
 
         _outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -56,7 +56,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         _outline.OutlineWidth = _outlineWidth;
         _outline.enabled = false;
 
-        Debug.Log($"Try add outline initialization to : {gameObject.name}");
+        //Debug.Log($"Try add outline initialization to : {gameObject.name}");
 
     }
 
