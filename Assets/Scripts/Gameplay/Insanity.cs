@@ -5,11 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Insanity : MonoBehaviour
 {
+    [Header("[SETTINGS]")]
     [SerializeField] private int insanityLvl;
     [SerializeField] private int addInsanity = 3;
     [SerializeField] private int loseInsanity = 3;
-    private bool wait;
+
+    [Header("[ANIMATION]")]
     [SerializeField] private Animator animator;
+
+    private bool wait;
+    public static bool isDead;
 
     public int InsanityLvl
     {
@@ -25,7 +30,7 @@ public class Insanity : MonoBehaviour
     /* --- Events --- */
     public Action<int> OnInsanityChange;
 
-    void Start()
+    private void Awake()
     {
         ResetInsanity();
     }
@@ -39,10 +44,10 @@ public class Insanity : MonoBehaviour
         }
 
         //Game ends if the madness level is above 4
-        if (insanityLvl == 150)
+        if (insanityLvl == 150 && !isDead)
         {
+            isDead = true;
             GameEvents.OnPlayerDeath?.Invoke(); //Add Event on Player's Death
-           
             Debug.Log("Death");
         }
 

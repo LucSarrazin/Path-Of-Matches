@@ -1126,6 +1126,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+--- !u!1 &835158830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1661389743676615931, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 1630429757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835158839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835158830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b673040841c3442af566312eb08d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathSounds
+  _volume: 0.2
+  audioWakeUp: {fileID: 8300000, guid: fce4d18aee6ff6d4fbb57d4b16a44852, type: 3}
 --- !u!1001 &846380218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2881,7 +2900,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1661389743676615931, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      insertIndex: 7
+      addedObject: {fileID: 835158839}
   m_SourcePrefab: {fileID: 100100000, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
 --- !u!4 &1637220207 stripped
 Transform:
