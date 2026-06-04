@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class DeathSounds : MonoBehaviour
+public class PlayerDeath : MonoBehaviour
 {
-    [Header("[SETTINGS]")]
+    [Header("SETTINGS :\n[ANIMATION]")]
+
+    [Header("[AUDIO]")]
     [SerializeField] private float _volume = 0.5f;
     [SerializeField] private AudioClip audioWakeUp;
 
