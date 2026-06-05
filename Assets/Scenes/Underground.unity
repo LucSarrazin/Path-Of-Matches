@@ -1657,6 +1657,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e024b7b6f0254e4b9201ebac75fd26d, type: 3}
+--- !u!114 &954360844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2142914174104241574, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 1630429757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d45b2b8c49b9454d9a461a411311b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watch
 --- !u!1001 &980199313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2817,6 +2828,10 @@ PrefabInstance:
       propertyPath: 'listSound.Array.data[4]'
       value: 
       objectReference: {fileID: 8300000, guid: df17e76ad2f7ad14b815a6a12c30b789, type: 3}
+    - target: {fileID: 3993929658259439720, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 954360844}
     - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: _heartBeat
       value: 

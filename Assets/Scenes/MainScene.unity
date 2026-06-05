@@ -11105,6 +11105,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3993929658259439720, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 634675662}
+    - target: {fileID: 3993929658259439720, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: numberOfMatches
       value: 10
       objectReference: {fileID: 0}
