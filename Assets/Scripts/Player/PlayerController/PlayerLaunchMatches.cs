@@ -14,6 +14,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private bool keepInHand;
     [SerializeField] private bool gotMatches = false;
     [SerializeField] private GameObject handMatches;
+    [SerializeField] private Watch leftHand;
     [SerializeField] private float timeBeforeDisable = 12f;
     [SerializeField] private Animator handAnimator;
     [SerializeField] private ShakeCamera cameraShake;
@@ -183,7 +184,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     private void launchCanceled()
     {
         // Redevient simple, sans guard _autoReleased
-        if (NumberOfMatches > 0 && matches != null)
+        if (NumberOfMatches > 0 && matches != null && !leftHand.GetBoolTakeMatches())
         {
             if (keepInHand == false)
             {
@@ -203,13 +204,20 @@ public class PlayerLaunchMatches : MonoBehaviour
                 }
                 else if (gotMatches == false)
                 {
-                    handMatches.SetActive(true);
-                    gotMatches = true;
-                    handAnimator.SetBool("Take", true);
+                    StartCoroutine(Take());
                 }
             }
         }
         else { Debug.Log("No matches left."); }
+    }
+
+    IEnumerator Take()
+    {
+        StartCoroutine(leftHand.waitAnimTakeMatches());
+        yield return new WaitForSeconds(1);
+        handAnimator.SetBool("Take", true);
+        gotMatches = true;
+        handMatches.SetActive(true);
     }
 
     void Launch(float forceActual)
