@@ -5,30 +5,30 @@ using UnityEngine;
 public class FogZone : MonoBehaviour
 {
     [SerializeField] private int delay;
-    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private ParticleSystem particleSystem;
     private bool oneTime = false;
+    private bool destroyed = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !destroyed)
         {
             
         }
 
         if (other.CompareTag("Matches"))
         {
-            if (oneTime == false)
+            if (oneTime == false && !destroyed)
             {
                 oneTime = true;
-                Destroy(other.gameObject, delay);
-                StartCoroutine(Delay());
+                StartCoroutine(Delay(other));
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !destroyed)
         {
             
         }
@@ -39,9 +39,10 @@ public class FogZone : MonoBehaviour
         }
     }
 
-    IEnumerator Delay()
+    IEnumerator Delay(Collider other)
     {
         yield return new WaitForSeconds(delay);
-        meshRenderer.enabled = false;
+        particleSystem.Stop();
+        destroyed = true;
     }
 }
