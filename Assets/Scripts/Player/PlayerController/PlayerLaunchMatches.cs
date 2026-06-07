@@ -214,10 +214,11 @@ public class PlayerLaunchMatches : MonoBehaviour
     IEnumerator Take()
     {
         StartCoroutine(leftHand.waitAnimTakeMatches());
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         handAnimator.SetBool("Take", true);
         gotMatches = true;
         handMatches.SetActive(true);
+        yield return null;
     }
 
     void Launch(float forceActual)

@@ -2620,6 +2620,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fa1595398581d694bb1649ebea667412, type: 3}
   m_PrefabInstance: {fileID: 924462990}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1577208966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2142914174104241574, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 1630429757}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d45b2b8c49b9454d9a461a411311b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Watch
 --- !u!1001 &1578083448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2910,6 +2921,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 2571441951459299420, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: listPrefabsMatches.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2571441951459299420, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: 'listPrefabsMatches.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
     - target: {fileID: 3652519393501267361, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_SortingOrder
       value: 200
@@ -2926,6 +2945,10 @@ PrefabInstance:
       propertyPath: 'listSound.Array.data[4]'
       value: 
       objectReference: {fileID: 8300000, guid: df17e76ad2f7ad14b815a6a12c30b789, type: 3}
+    - target: {fileID: 3993929658259439720, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 1577208966}
     - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: _heartBeat
       value: 
@@ -4273,7 +4296,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+      maxColor: {r: 0.10980393, g: 0.10980393, b: 0.1137255, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4714,7 +4737,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 5
+    type: 0
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4722,7 +4745,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 15, y: 15, z: 15}
+    m_Scale: {x: 5, y: 5, z: 5}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
