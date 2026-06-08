@@ -50,7 +50,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -83,7 +83,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4779e2767bddb6348a9c4ef0dd5be757, type: 3}
       propertyPath: m_Name
-      value: lampadaire-modee-texture (1)
+      value: Lampadaire
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4779e2767bddb6348a9c4ef0dd5be757, type: 3}
       propertyPath: m_StaticEditorFlags
