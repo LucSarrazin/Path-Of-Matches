@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.015686275, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 0.10980393, g: 0.10196079, b: 0.09411766, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.003
   m_LinearFogStart: 0
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 8e5d6588de5edf24aaeb1417cfff370f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 698f05a3acf62d84b804af346e7d10a1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -15764,6 +15764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8d74415dfa7d84cab7558a4f562e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadScenes
+  loadingScreen: {fileID: 0}
+  loadingBar: {fileID: 0}
 --- !u!1 &1629659566
 GameObject:
   m_ObjectHideFlags: 0
