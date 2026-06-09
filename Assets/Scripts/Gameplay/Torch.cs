@@ -19,7 +19,9 @@ public class Torch : MonoBehaviour
     [SerializeField] private GameObject _pointLight;
     [SerializeField] private bool _safeZoneTorch;
     [SerializeField] private bool _destroyObjectAfter;
+    [SerializeField] private bool _torchDestroyFog;
     [SerializeField] private float _timeForDisapearing;
+    [SerializeField] private FogZone _fogZone;
     private MeshRenderer _meshRenderer;
 
     void Start()
@@ -67,6 +69,12 @@ public class Torch : MonoBehaviour
                 if (_safeZoneTorch == false)
                 {
                     StartCoroutine(waitBeforeTurningOff());
+                }
+                
+
+                if (_torchDestroyFog == true)
+                {
+                    _fogZone.disableFog();
                 }
             }
         }

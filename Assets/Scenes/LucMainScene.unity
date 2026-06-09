@@ -9579,12 +9579,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 2141103180}
     m_Modifications:
     - target: {fileID: 240041231927515812, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 240041231927515812, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
       propertyPath: lengthInSec
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: SubModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
       propertyPath: ShapeModule.m_Scale.x
@@ -9595,8 +9603,32 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: ShapeModule.randomPositionAmount
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2582153263932501393, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999830096717848510, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0.6119404
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999830096717848510, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999830096717848510, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5930585727474559567, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
       propertyPath: m_Name
