@@ -7,8 +7,8 @@ public class Insanity : MonoBehaviour
 {
     [Header("[SETTINGS]")]
     [SerializeField] private int insanityLvl;
-    [SerializeField] private int addInsanity = 3;
-    [SerializeField] private int loseInsanity = 3;
+    [SerializeField] public int addInsanity = 3;
+    [SerializeField] public int loseInsanity = 3;
 
     [Header("[ANIMATION]")]
     [SerializeField] private Animator animator;

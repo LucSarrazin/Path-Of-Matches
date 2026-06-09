@@ -6,6 +6,7 @@ public class FogZone : MonoBehaviour
 {
     [SerializeField] private int delay;
     [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private PlayerReferences _playerReferences;
     private bool oneTime = false;
     private bool destroyed = false;
 
@@ -13,7 +14,7 @@ public class FogZone : MonoBehaviour
     {
         if (other.CompareTag("Player") && !destroyed)
         {
-            
+            _playerReferences.PlayerInsanity.addInsanity = 20;
         }
 
         if (other.CompareTag("Matches"))
@@ -30,7 +31,7 @@ public class FogZone : MonoBehaviour
     {
         if (other.CompareTag("Player") && !destroyed)
         {
-            
+            _playerReferences.PlayerInsanity.addInsanity = 8;
         }
 
         if (other.CompareTag("Matches"))
