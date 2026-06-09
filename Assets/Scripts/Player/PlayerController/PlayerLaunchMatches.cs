@@ -184,7 +184,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     private void launchCanceled()
     {
         // Redevient simple, sans guard _autoReleased
-        if (NumberOfMatches > 0 && matches != null && !leftHand.GetBoolTakeMatches())
+        if (NumberOfMatches > 0 && matches != null ) //&& !leftHand.GetBoolTakeMatches()
         {
             if (keepInHand == false)
             {
