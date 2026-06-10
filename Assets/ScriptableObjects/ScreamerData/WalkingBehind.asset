@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScreamerData
   screamerName: WalkingBehind
   screamerPrefab: {fileID: 0}
-  description: 
+  description: When you don't look at him, he moving....
