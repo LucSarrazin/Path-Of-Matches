@@ -38,6 +38,7 @@ public class SaveSystem : MonoBehaviour
     {
         int matchesCount = _playerReferences.PlayerLaunchMatches.NumberOfMatches;
         float pointerSensitiviy = _playerReferences.PointerSensitivity;
+        _isNewSave = false;
         SaveGame(target, matchesCount, pointerSensitiviy);
     }
 
@@ -74,66 +75,65 @@ public class SaveSystem : MonoBehaviour
     {
         SaveData data = LoadSave();
 
-        /* -- Player Position -- */
-        Transform body = _playerReferences.Body;
-        Transform head = _playerReferences.Head;
-
-        Debug.Log($"Initial body position :  X = {body.position.x} | Y = {body.position.y} | Z = {body.position.z} ");
-
-        if (_isNewSave)
+        if (SceneManager.GetActiveScene().buildIndex != 0) // If not in Menu Scene
         {
-            // * -- Initialization if JSON don't exist : SAFETY -- * //
-            AutoSave(body);
+            if (_isNewSave) // IF JSON FILE DON'T EXIST !
+            {
+                AutoSave(_playerReferences.transform);
+                Debug.Log("AutoSave initial player positon because JSON file not available"); 
+                return;
 
-        } else
-        {
-            // * - Move Player to last save spawn point - * //
+            }
+            else
+            {
+                /* -- Load last scene's index save if not the current scene that you are in -- */
+                if (data.SceneBuildIndex is int sceneIndex &&
+                    SceneManager.GetActiveScene().buildIndex != sceneIndex)
+                {
+                    SceneManager.LoadScene(sceneIndex);
+                }
+                else
+                {
+                    SceneManager.LoadScene(0); // If scene Index don't exist, load menu 
+                    Debug.Log("Scene Index not valid, go back to menu");
+                    return;
+                }
 
+                /* -- Player Position -- */
+                Transform body = _playerReferences.Body;
+                Transform head = _playerReferences.Head;
+
+                Debug.Log($"Initial body position :  X = {body.position.x} | Y = {body.position.y} | Z = {body.position.z} ");
+
+                // * - Move Player to last save spawn point - * //
+                Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
+                Debug.Log($"Target position : X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ}");
+
+                Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY, data._targetPosZ);
+                body.position = playerNewPos;
+
+                // * - Look at target position - * //
+                head.LookAt(targetPos);
+
+                float rotY = head.eulerAngles.y;
+                body.rotation = Quaternion.Euler(0f, rotY, 0f);
+
+                float rotX = head.eulerAngles.x;
+                if (rotX > 180f) rotX -= 360f;
+                //_xRotation = rotX;
+                _playerReferences.PlayerMovements.SetXRotation(rotX);
+                head.localRotation = Quaternion.Euler(rotX, 0f, 0f);
+
+                //// * -- Variables * -- //
+                //_playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
+                //_playerReferences.PointerSensitivity = data._pointerSensitivity;
+
+                AutoSave(_playerReferences.transform);
+
+            }
 
         }
 
-        ///* -- Load last scene's index save if not the current scene that you are in -- */
-        //if (data.SceneBuildIndex is int sceneIndex &&
-        //    SceneManager.GetActiveScene().buildIndex != sceneIndex)
-        //{
-        //    SceneManager.LoadScene(sceneIndex);
-        //}
-        //else
-        //{
-        //    SceneManager.LoadScene(0); // If scene Index don't exist, load menu 
-        //    Debug.Log("Scene Index not valid, go back to menu");
-        //    return;
-        //}
-
-        //if (SceneManager.GetActiveScene().buildIndex != 0)
-        //{
-
-
-        Debug.Log($"Initial position :  X = {body.position.x} | Y = {body.position.y} | Z = {body.position.z} "); 
-
-        Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
-
-        Debug.Log($"Target position : X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ}"); 
-
-        Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY, data._targetPosZ);
-        body.position = playerNewPos;
-
-        head.LookAt(targetPos);
-
-        float rotY = head.eulerAngles.y;
-        body.rotation = Quaternion.Euler(0f, rotY, 0f);
-
-        float rotX = head.eulerAngles.x;
-        if (rotX > 180f) rotX -= 360f;
-        //_xRotation = rotX;
-        _playerReferences.PlayerMovements.SetXRotation(rotX);
-        head.localRotation = Quaternion.Euler(rotX, 0f, 0f);
-
-        // * -- Variables * -- //
-        _playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
-        _playerReferences.PointerSensitivity = data._pointerSensitivity;
-
-        //}
 
     }
 
@@ -142,7 +142,7 @@ public class SaveSystem : MonoBehaviour
         if (!File.Exists(_savePath))
         {
             Debug.LogWarning("Last save file not found -> create a new save");
-            _isNewSave = true; 
+            _isNewSave = true;
             return new SaveData(); // return empty object (default)
         }
 
