@@ -27,10 +27,16 @@ public class GraphicsMenu : MonoBehaviour
     private int savedValueScreenSizeX;
     private int savedValueScreenSizeY;
 
+    [Header("[GRAPHICS] SIZE SCREEN SETTINGS :")]
+    [SerializeField] private TMP_Dropdown qualityDropDown;
+
+    private int savedValueQuality;
+
     void Start()
     {
         InitialiseGamma();
         InitialiseScreenSize();
+        InitialiseQuality();
     }
 
     private void InitialiseGamma()
@@ -77,6 +83,16 @@ public class GraphicsMenu : MonoBehaviour
         }
     }
 
+    private void InitialiseQuality()
+    {
+        savedValueQuality = Convert.ToInt32(PlayerPrefs.GetFloat("QualityValue", 1));
+
+        if (qualityDropDown != null)
+        {
+            qualityDropDown.value = savedValueQuality;
+        }
+    }
+
     public void SetGamma(UnityEngine.UI.Slider sliderUse)
     {
         volume.sharedProfile.TryGet(out colorAdjustments);
@@ -116,6 +132,15 @@ public class GraphicsMenu : MonoBehaviour
         PlayerPrefs.Save();
 
         Screen.SetResolution(savedValueScreenSizeX, savedValueScreenSizeY, FullScreenMode.Windowed);
+    }
+
+    public void SetQuality(TMP_Dropdown dropdownUse)
+    {
+        savedValueQuality = dropdownUse.value;
+        PlayerPrefs.SetFloat("QualityValue", dropdownUse.value);
+        PlayerPrefs.Save();
+
+        QualitySettings.SetQualityLevel(dropdownUse.value);
     }
 }
 
