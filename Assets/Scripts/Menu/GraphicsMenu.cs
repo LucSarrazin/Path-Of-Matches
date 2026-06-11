@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
@@ -35,7 +36,7 @@ public class GraphicsMenu : MonoBehaviour
     private void InitialiseGamma()
     {
         volume = FindAnyObjectByType<Volume>();
-        volume.profile.TryGet(out colorAdjustments);
+        volume.sharedProfile.TryGet(out colorAdjustments);
 
         if (PlayerPrefs.HasKey("GammaValue"))
         {
@@ -78,6 +79,8 @@ public class GraphicsMenu : MonoBehaviour
 
     public void SetGamma(UnityEngine.UI.Slider sliderUse)
     {
+        volume.sharedProfile.TryGet(out colorAdjustments);
+
         savedValueGamma = sliderUse.value;
         PlayerPrefs.SetFloat("GammaValue", sliderUse.value);
         PlayerPrefs.Save();
