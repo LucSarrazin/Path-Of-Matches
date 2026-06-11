@@ -35,21 +35,14 @@ public class PlayerMovements : MonoBehaviour
 
     private IEnumerator Start()
     {
-        /* Method to set view on Start */
-        //_xRotation = 0f;
-        //_playerReferences.Head.localRotation = Quaternion.identity;
-
+        GameEvents.OnLoadRequested?.Invoke();
+        yield return null; /* Wait one frame to avoid delta error */
 
         /*Method to lock cursor on screen*/
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        //_lookInputs = Vector2.zero;
-        GameEvents.OnLoadRequested?.Invoke();
-        yield return null; /* Wait one frame to avoid delta error */
         _canLook = true;
-
-
     }
 
     private void OnEnable()
