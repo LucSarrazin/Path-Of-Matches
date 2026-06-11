@@ -54,8 +54,11 @@ public class Inspectable : Interactable
         if (_isDragging)
         {
             Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-            transform.Rotate(mouseDelta.x * _force * Time.unscaledDeltaTime * Vector3.up, Space.World);
-            transform.Rotate(mouseDelta.y * _force * Time.unscaledDeltaTime * Vector3.right, Space.World);
+            float rotationX = mouseDelta.y * _force * Time.unscaledDeltaTime;
+            float rotationY = -mouseDelta.x * _force * Time.unscaledDeltaTime;
+
+            Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0f);
+            transform.rotation = rotation * transform.rotation;
         }
 
         else if (!_flipFlop)
@@ -68,6 +71,7 @@ public class Inspectable : Interactable
 
     public void Open()
     {
+        _playerReferences.PlayerMovements.SetLookInputs(Vector2.zero);
         _flipFlop = true;
         _collider.enabled = false;
 
@@ -75,7 +79,6 @@ public class Inspectable : Interactable
         _playerReferences.Light.SetActive(true);
 
         UIManager.Instance.ToggleInspectionPanel(_data);
-
     }
 
     public void Close()
@@ -87,7 +90,6 @@ public class Inspectable : Interactable
 
         UIManager.Instance.ToggleInspectionPanel(_data);
         _collider.enabled = true;
-
     }
 
     // Interact() pour compatibilité

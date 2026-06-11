@@ -132,7 +132,11 @@ public class PlayerMovements : MonoBehaviour
 
     private void LookPlayer()
     {
-        if (!_canLook) { return; }
+        if (!_canLook) 
+        { 
+            return; 
+        }
+
         float pointerX = _pointerSensitivity * _lookInputs.x;
         float pointerY = _pointerSensitivity *_lookInputs.y;
 
