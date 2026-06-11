@@ -3573,6 +3573,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912335759}
   m_Mesh: {fileID: -411200167620398211, guid: 74a13dda44ef0f449a4ebafe2dfc2883, type: 3}
+--- !u!82 &1922889151 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2452173653930004378, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+  m_PrefabInstance: {fileID: 38237498037373505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1994951971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4226,6 +4231,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ---CONTROLS---
       objectReference: {fileID: 0}
+    - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: _heartBeat
+      value: 
+      objectReference: {fileID: 1922889151}
+    - target: {fileID: 4444847181727752707, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1766511737}
     - target: {fileID: 4601394514574222934, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.062
@@ -4526,7 +4539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6506111433748377560, guid: 760617f1ba13ddb4c8439a81cb0cc28d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7493778552472391659, guid: 760617f1ba13ddb4c8439a81cb0cc28d, type: 3}
       propertyPath: _playerReferences
