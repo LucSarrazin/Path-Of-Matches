@@ -7,20 +7,23 @@ public class SaveSystem : MonoBehaviour
     [Header("[REFERENCES]")]
     [SerializeField] private PlayerReferences _playerReferences;
 
-
     /* - Save JSON File Path Way - */
     private string _savePath;
+
+    bool _isNewSave = false;
 
     private void OnEnable()
     {
         GameEvents.OnAutoSaveRequested += AutoSave;
         GameEvents.OnLoadRequested += LoadGame;
+        GameEvents.OnDeleteSaveRequested += DeleteSave;
     }
 
     private void OnDisable()
     {
         GameEvents.OnAutoSaveRequested -= AutoSave;
         GameEvents.OnLoadRequested -= LoadGame;
+        GameEvents.OnDeleteSaveRequested -= DeleteSave;
     }
 
     private void Awake()
@@ -46,10 +49,10 @@ public class SaveSystem : MonoBehaviour
 
         // * -- Scene's Index -- * //
         data.SceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
-        
+
         // * -- Target Position -- * /
         data._targetPosX = target.position.x /*+1*/ ; // try add only 1 meter to check
-        data._targetPosY = target.position.y ;
+        data._targetPosY = target.position.y;
         data._targetPosZ = target.position.z;
 
         // * -- Variables * -- //
@@ -71,23 +74,46 @@ public class SaveSystem : MonoBehaviour
     {
         SaveData data = LoadSave();
 
-        if (data == null)
-        {
-            Debug.Log("First Game, no save to load");
-            return;
-        }
-
-        /* -- Scene's index -- */
-        if (SceneManager.GetActiveScene().buildIndex != data.SceneBuildIndex)
-        {
-            SceneManager.LoadScene(data.SceneBuildIndex);
-        }
         /* -- Player Position -- */
-
         Transform body = _playerReferences.Body;
         Transform head = _playerReferences.Head;
 
+        Debug.Log($"Initial body position :  X = {body.position.x} | Y = {body.position.y} | Z = {body.position.z} ");
+
+        if (_isNewSave)
+        {
+            // * -- Initialization if JSON don't exist : SAFETY -- * //
+            AutoSave(body);
+
+        } else
+        {
+            // * - Move Player to last save spawn point - * //
+
+
+        }
+
+        ///* -- Load last scene's index save if not the current scene that you are in -- */
+        //if (data.SceneBuildIndex is int sceneIndex &&
+        //    SceneManager.GetActiveScene().buildIndex != sceneIndex)
+        //{
+        //    SceneManager.LoadScene(sceneIndex);
+        //}
+        //else
+        //{
+        //    SceneManager.LoadScene(0); // If scene Index don't exist, load menu 
+        //    Debug.Log("Scene Index not valid, go back to menu");
+        //    return;
+        //}
+
+        //if (SceneManager.GetActiveScene().buildIndex != 0)
+        //{
+
+
+        Debug.Log($"Initial position :  X = {body.position.x} | Y = {body.position.y} | Z = {body.position.z} "); 
+
         Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
+
+        Debug.Log($"Target position : X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ}"); 
 
         Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY, data._targetPosZ);
         body.position = playerNewPos;
@@ -107,13 +133,16 @@ public class SaveSystem : MonoBehaviour
         _playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
         _playerReferences.PointerSensitivity = data._pointerSensitivity;
 
+        //}
+
     }
 
     public SaveData LoadSave()
     {
-        if(!File.Exists(_savePath))
+        if (!File.Exists(_savePath))
         {
             Debug.LogWarning("Last save file not found -> create a new save");
+            _isNewSave = true; 
             return new SaveData(); // return empty object (default)
         }
 
@@ -130,7 +159,7 @@ public class SaveSystem : MonoBehaviour
 
     // * --- Method : Delete --- * //
 
-    private void DeleteSave()
+    public void DeleteSave()
     {
         if (File.Exists(_savePath))
         {

@@ -45,7 +45,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerFootStep _playerFootStep;
 
     // * -- private references -- * //
-    private Transform _body;
+    [SerializeField] private Transform _body /*=> this.transform*/;
 
     public Action<float> OnPointerSensitivityChanged; 
 
@@ -121,6 +121,9 @@ public class PlayerReferences : MonoBehaviour
             Debug.Log($" - GO : {this} -> script 'PlayerControls' charged by GetComponent.");
         }
 
-        _body = this.transform;
+        //_body = this.transform;
+
+        Debug.Log($"BODY POSITION : {_body.position.x}"); 
+
     }
 }
