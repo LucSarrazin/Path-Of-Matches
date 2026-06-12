@@ -22,11 +22,18 @@ public class Torch : MonoBehaviour
     [SerializeField] private bool _torchDestroyFog;
     [SerializeField] private float _timeForDisapearing;
     [SerializeField] private FogZone _fogZone;
-    private MeshRenderer _meshRenderer;
+    [SerializeField] private Renderer _meshRenderer;
+    private float timer;
+    //private SkinnedMeshRenderer _skinnedMeshRenderer;
 
     void Start()
     {
+        //_skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         _meshRenderer = GetComponent<MeshRenderer>();
+        if (_meshRenderer == null)
+        {
+            _meshRenderer = GetComponent<SkinnedMeshRenderer>();
+        }
         if (_colorOff != null)
         {
             _meshRenderer.material = _colorOff;
@@ -40,7 +47,11 @@ public class Torch : MonoBehaviour
 
     void Update()
     {
-
+        if (_colorOn != null)
+        {
+            timer += Time.deltaTime;
+            _meshRenderer.material.SetFloat("_EffectTime", timer);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +74,7 @@ public class Torch : MonoBehaviour
                 if (_colorOn != null)
                 {
                     _meshRenderer.material = _colorOn;
+                    _meshRenderer.material.SetFloat("_EffectTime", 0);
                 }
 
 
