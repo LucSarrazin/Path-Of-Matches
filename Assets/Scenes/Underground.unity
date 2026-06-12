@@ -3555,6 +3555,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6891464897095868255, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _delay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891464897095868255, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _minVolume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6891464897095868255, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _normalVolumeSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7661479801854322475, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
       value: ---PLAYER---

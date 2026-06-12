@@ -47,7 +47,7 @@ public class Torch : MonoBehaviour
     {
         if (other.CompareTag("Matches"))
         {
-            Debug.Log("Matches touch the torch");
+            //Debug.Log("Matches touch the torch");
             /* Save here : allow re-save on another fireCamp */
             /* try by sending fire camp position */
             if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform, false); }
