@@ -2,8 +2,18 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private SaveSystem saveSystem;
+
+    private void Start()
+    {
+        if (saveSystem == null) { FindAnyObjectByType(typeof(SaveSystem)); }
+
+        saveSystem.LoadGame();
+    }
+
     private void OnEnable()
     {
         GameEvents.OnPlayerDeath += PlayerDeath; 
@@ -17,5 +27,7 @@ public class GameManager : MonoBehaviour
     private void PlayerDeath()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //saveSystem.LoadGame();
     }
 }

@@ -35,7 +35,7 @@ public class PlayerMovements : MonoBehaviour
 
     private IEnumerator Start()
     {
-        GameEvents.OnLoadRequested?.Invoke();
+        //GameEvents.OnAutoSaveRequested?.Invoke(_playerReferences.transform);
         yield return null; /* Wait one frame to avoid delta error */
 
         /*Method to lock cursor on screen*/

@@ -8104,6 +8104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _material: {fileID: 2100000, guid: 08620eb47eaac664895bde474a052524, type: 2}
+--- !u!114 &1090646438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7493778552472391659, guid: 760617f1ba13ddb4c8439a81cb0cc28d, type: 3}
+  m_PrefabInstance: {fileID: 1775299664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db6ec17d3dc608419d2565335960bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
 --- !u!1001 &1111333499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8955,6 +8966,10 @@ PrefabInstance:
       propertyPath: _playerReferences
       value: 
       objectReference: {fileID: 2100923661}
+    - target: {fileID: 6306688012062452363, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: saveSystem
+      value: 
+      objectReference: {fileID: 1090646438}
     - target: {fileID: 7524593395992713812, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: m_Name
       value: ---MANAGERS---

@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
@@ -30,6 +31,12 @@ public class SaveSystem : MonoBehaviour
     {
         _savePath = Path.Combine(Application.persistentDataPath, "save.json");
         Debug.Log($"Save file path location :{_savePath}");
+    }
+
+    private IEnumerator Start()
+    {
+        //GameEvents.OnAutoSaveRequested?.Invoke(_playerReferences.transform);
+        yield return null; /* Wait one frame to avoid delta error */
     }
 
 
@@ -66,7 +73,7 @@ public class SaveSystem : MonoBehaviour
         /* Write in JSON file*/
         File.WriteAllText(_savePath, json);
 
-        Debug.Log("Save complete");
+        Debug.Log($"[SAVE COMPLETE] Scene index {data.SceneBuildIndex}");
         Debug.Log($"Future player position X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ} ");
     }
 
@@ -74,31 +81,19 @@ public class SaveSystem : MonoBehaviour
     public void LoadGame()
     {
         SaveData data = LoadSave();
+        int _currentScene = SceneManager.GetActiveScene().buildIndex; 
 
-        if (SceneManager.GetActiveScene().buildIndex != 0) // If not in Menu Scene
+        if (_currentScene != 0) // If not in Menu Scene - SAFETY 
         {
-            if (_isNewSave) // IF JSON FILE DON'T EXIST !
+            if (_isNewSave || _currentScene != data.SceneBuildIndex) // IF JSON FILE DON'T EXIST OR THIS SCENE ISN'T THE SAME ONE 
             {
                 AutoSave(_playerReferences.transform);
-                Debug.Log("AutoSave initial player positon because JSON file not available"); 
+                Debug.Log("AutoSave initial player positon");
                 return;
 
             }
-            else
+            else if (data.SceneBuildIndex == _currentScene)
             {
-                /* -- Load last scene's index save if not the current scene that you are in -- */
-                if (data.SceneBuildIndex is int sceneIndex &&
-                    SceneManager.GetActiveScene().buildIndex != sceneIndex)
-                {
-                    SceneManager.LoadScene(sceneIndex);
-                }
-                else
-                {
-                    SceneManager.LoadScene(0); // If scene Index don't exist, load menu 
-                    Debug.Log("Scene Index not valid, go back to menu");
-                    return;
-                }
-
                 /* -- Player Position -- */
                 Transform body = _playerReferences.Body;
                 Transform head = _playerReferences.Head;
@@ -109,7 +104,7 @@ public class SaveSystem : MonoBehaviour
                 Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
                 Debug.Log($"Target position : X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ}");
 
-                Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY, data._targetPosZ);
+                Vector3 playerNewPos = new Vector3(data._targetPosX + 1, data._targetPosY +1, data._targetPosZ);
                 body.position = playerNewPos;
 
                 // * - Look at target position - * //
@@ -120,21 +115,10 @@ public class SaveSystem : MonoBehaviour
 
                 float rotX = head.eulerAngles.x;
                 if (rotX > 180f) rotX -= 360f;
-                //_xRotation = rotX;
                 _playerReferences.PlayerMovements.SetXRotation(rotX);
                 head.localRotation = Quaternion.Euler(rotX, 0f, 0f);
-
-                //// * -- Variables * -- //
-                //_playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
-                //_playerReferences.PointerSensitivity = data._pointerSensitivity;
-
-                AutoSave(_playerReferences.transform);
-
             }
-
         }
-
-
     }
 
     public SaveData LoadSave()
@@ -152,7 +136,7 @@ public class SaveSystem : MonoBehaviour
         //Convert to C# Object
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-        Debug.Log("Last save loaded ! ");
+        //Debug.Log("Last save loaded ! ");
         return data;
     }
 

@@ -1,7 +1,7 @@
 [System.Serializable]
 public class SaveData
 {
-    public int? SceneBuildIndex;
+    public int SceneBuildIndex;
 
     public float _targetPosX; 
     public float _targetPosY;
