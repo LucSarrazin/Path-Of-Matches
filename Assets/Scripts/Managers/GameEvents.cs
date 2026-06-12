@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public static class GameEvents
 {
-    public static Action<Transform> OnAutoSaveRequested;
+    public static Action<Transform, bool> OnAutoSaveRequested;
     public static Action OnLoadRequested;
     public static Action OnPlayerDeath;
     public static Action OnDeleteSaveRequested; 

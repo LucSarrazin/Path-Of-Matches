@@ -59,7 +59,7 @@ public class PlayerInteractState : PlayerActionState
 
     public override void Exit()
     {
-        Debug.Log("[INTERACT STATE] Exit() appelé");
+        //Debug.Log("[INTERACT STATE] Exit() appelé");
         _playerReferences.Controls.IsInspecting = false;
         _isInspecting = false; // reset explicite
         _playerReferences.Controls.CanThrow = true;
@@ -74,11 +74,11 @@ public class PlayerInteractState : PlayerActionState
 
     public override void Update()
     {
-        Debug.Log($"[INTERACT STATE] Update | _isInspecting={_isInspecting} | _inspectable={_inspectable}");
+        //Debug.Log($"[INTERACT STATE] Update | _isInspecting={_isInspecting} | _inspectable={_inspectable}");
 
         if (_needsToStartInteraction)
         {
-            Debug.Log("[INTERACT STATE] Appel Open()");
+            //Debug.Log("[INTERACT STATE] Appel Open()");
 
             _needsToStartInteraction = false;
             _inspectable.Open(); //  à la place de TryInteract()
@@ -86,7 +86,7 @@ public class PlayerInteractState : PlayerActionState
 
         if (_isInspecting && _inspectable != null)
         {
-            Debug.Log($"[INTERACT STATE] IsDraggingInspectable={_playerReferences.Controls.IsDraggingInspectable}");
+            //Debug.Log($"[INTERACT STATE] IsDraggingInspectable={_playerReferences.Controls.IsDraggingInspectable}");
 
             _inspectable.SetDragging(_playerReferences.Controls.IsDraggingInspectable);
 

@@ -2,6 +2,7 @@
 public class SaveData
 {
     public int SceneBuildIndex;
+    public bool IsSceneEntrancePosition;
 
     public float _targetPosX; 
     public float _targetPosY;

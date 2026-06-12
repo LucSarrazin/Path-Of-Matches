@@ -3067,7 +3067,8 @@ PrefabInstance:
       value: ---PLAYER---
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7339282314131170251, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
@@ -9654,6 +9655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphicsSettings
   gammaSlider:
   - {fileID: 0}
+  sizeDropDown: {fileID: 0}
+  qualityDropDown: {fileID: 0}
 --- !u!4 &1367110139
 Transform:
   m_ObjectHideFlags: 0
