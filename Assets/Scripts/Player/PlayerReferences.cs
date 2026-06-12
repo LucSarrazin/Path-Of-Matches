@@ -45,7 +45,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerFootStep _playerFootStep;
 
     // * -- private references -- * //
-    private Transform _body;
+    /*[SerializeField] */private Transform _body ;
 
     public Action<float> OnPointerSensitivityChanged; 
 
@@ -122,5 +122,6 @@ public class PlayerReferences : MonoBehaviour
         }
 
         _body = this.transform;
+
     }
 }

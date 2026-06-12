@@ -36,6 +36,11 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     protected virtual void Initialization()
     {
+        if (_playerReferences == null)
+        {
+            _playerReferences = FindAnyObjectByType<PlayerReferences>();
+            Debug.Log("Please Add PlayerReferences in inspector to avoid use of FindAnyObject");
+        }
 
         _interactableTransform = this.transform;
         _interactableInitialPosition = _interactableTransform.position; 
