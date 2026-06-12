@@ -9654,6 +9654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphicsSettings
   gammaSlider:
   - {fileID: 0}
+  sizeDropDown: {fileID: 0}
+  qualityDropDown: {fileID: 0}
 --- !u!4 &1367110139
 Transform:
   m_ObjectHideFlags: 0

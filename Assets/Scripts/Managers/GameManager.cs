@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 
@@ -27,7 +26,11 @@ public class GameManager : MonoBehaviour
     private void PlayerDeath()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-        //saveSystem.LoadGame();
+    private void OnApplicationQuit()
+    {
+        //saveSystem.DeleteSave(); 
     }
 }
+

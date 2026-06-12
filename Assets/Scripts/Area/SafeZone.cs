@@ -24,6 +24,9 @@ public class SafeZone : MonoBehaviour
         {
             playerInside = true;
             safeZoneCompte++;
+            //Debug.Log("[SZ SCRIPT] Player Enter Safe Zone");
+            GameEvents.OnSafeZoneEnter?.Invoke(); 
+
         }
     }
 
@@ -46,6 +49,10 @@ public class SafeZone : MonoBehaviour
             playerInside = false;
             safeZoneCompte--;
             safeZoneCompte = Mathf.Max(0, safeZoneCompte);
+
+            //Debug.Log("[SZ SCRIPT] Player Exit Safe Zone");
+
+            GameEvents.OnDarkZoneEnter?.Invoke();
         }
     }
 

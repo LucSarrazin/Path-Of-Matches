@@ -21,6 +21,8 @@ public class DarkZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsInDarkZone = true;
+            GameEvents.OnDarkZoneEnter?.Invoke();
+            //Debug.Log("[DZ SCRIPT] Player Enter Dark Zone");
         }
     }
 
@@ -30,6 +32,7 @@ public class DarkZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsInDarkZone = false;
+            //Debug.Log("[DZ SCRIPT] Player Exit Dark Zone");
         }
     }
 }
