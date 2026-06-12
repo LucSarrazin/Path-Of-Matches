@@ -20,7 +20,7 @@ public class BPMSounds : MonoBehaviour
 
     [Header("[Events Settings]")]
     [Tooltip("Delay before pause BPM sound when player enter in a safe Zone")]
-    [SerializeField] private float _delay = 2f; 
+    [SerializeField] private float _delay = 2f;
 
     private Insanity _insanity;
     private float _targetPitch;
@@ -29,22 +29,7 @@ public class BPMSounds : MonoBehaviour
     private bool _isInSafeZone = false;
     private Coroutine _fadeVolumeCoroutine;
 
-    private void OnEnable()
-    {
-        _insanity.OnInsanityChange += UpdateHeartBeatSFX;
-
-        GameEvents.OnDarkZoneEnter += PlayHeartBeat;
-        GameEvents.OnSafeZoneEnter += StopHeartBeat; 
-
-    }
-
-    private void OnDisable()
-    {
-        _insanity.OnInsanityChange -= UpdateHeartBeatSFX;
-
-        GameEvents.OnDarkZoneEnter -= PlayHeartBeat;
-        GameEvents.OnSafeZoneEnter -= StopHeartBeat;
-    }
+    [SerializeField] private bool _darkZoneExist;
 
     private void Awake()
     {
@@ -60,6 +45,35 @@ public class BPMSounds : MonoBehaviour
 
         _insanity = _playerReferences.PlayerInsanity;
     }
+
+    private void OnEnable()
+    {
+        DarkZone darkZone = FindAnyObjectByType<DarkZone>();
+        //Debug.Log($"DarkZone trouvée : {darkZone}");
+        if (darkZone != null /*&& darkZone.isActiveAndEnabled*/) { _darkZoneExist = true; }
+        else { _darkZoneExist = false; }
+
+        if (_darkZoneExist)
+        {
+            _insanity.OnInsanityChange += UpdateHeartBeatSFX;
+
+            GameEvents.OnDarkZoneEnter += PlayHeartBeat;
+            GameEvents.OnSafeZoneEnter += StopHeartBeat;
+        }
+
+    }
+
+    private void OnDisable()
+    {
+        if (_darkZoneExist)
+        {
+            _insanity.OnInsanityChange -= UpdateHeartBeatSFX;
+
+            GameEvents.OnDarkZoneEnter -= PlayHeartBeat;
+            GameEvents.OnSafeZoneEnter -= StopHeartBeat;
+        }
+    }
+
 
     private void Start()
     {
@@ -81,7 +95,7 @@ public class BPMSounds : MonoBehaviour
     // insanity Lvl -> 70 to 150  (int) 
     // PALIERS : 70 | 90 | 125
 
-    private void UpdateHeartBeatSFX(int insanityLvl) 
+    private void UpdateHeartBeatSFX(int insanityLvl)
     {
         float normalizedlInsanity = Mathf.InverseLerp(70f, 150f, insanityLvl);
         _targetPitch = Mathf.Lerp(_minBpmPitch, _maxBpmPitch, normalizedlInsanity);
@@ -100,11 +114,11 @@ public class BPMSounds : MonoBehaviour
 
     private void StopHeartBeat()
     {
-        _isInSafeZone = true; 
+        _isInSafeZone = true;
 
-        if(_fadeVolumeCoroutine != null) StopCoroutine(_fadeVolumeCoroutine); // SAFETY CHECK -> Stop coroutine to avoid double routines
+        if (_fadeVolumeCoroutine != null) StopCoroutine(_fadeVolumeCoroutine); // SAFETY CHECK -> Stop coroutine to avoid double routines
 
-        _fadeVolumeCoroutine = StartCoroutine(FadeOutVolumeAndPause()); 
+        _fadeVolumeCoroutine = StartCoroutine(FadeOutVolumeAndPause());
 
         Debug.Log($"[BPM SFX] Start Coroutine to STOP Heart Beat after {_delay}");
     }
@@ -112,18 +126,18 @@ public class BPMSounds : MonoBehaviour
     private IEnumerator FadeOutVolumeAndPause()
     {
         float startVolume = _heartBeat.volume;
-        float duration = _delay; 
-        float timer = 0f; 
+        float duration = _delay;
+        float timer = 0f;
 
         while (timer < duration)
         {
             timer += Time.deltaTime;
 
-            _heartBeat.volume = Mathf.Lerp(startVolume, 0f, timer/duration); 
+            _heartBeat.volume = Mathf.Lerp(startVolume, 0f, timer / duration);
             yield return null;
         }
         _heartBeat.volume = 0f;
-        _heartBeat.Pause(); 
+        _heartBeat.Pause();
 
         Debug.Log($"[BPM SFX] Heart Beat STOPPED ");
     }
