@@ -9,6 +9,7 @@ public class TimelinePhare : MonoBehaviour
     [SerializeField] private PlayableDirector _timelinePlayable;
     [SerializeField] private PlayerReferences _playerReferences;
     [SerializeField] private GameObject timelineObject;
+    [SerializeField] private Transform cam;
     [SerializeField] private changeMaterial phare;
     [SerializeField] private bool onetime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +36,7 @@ public class TimelinePhare : MonoBehaviour
         {
             if (onetime != true)
             {
+                cam.rotation = new Quaternion(0, 0, 0, 1);
                 _playerReferences.PlayerMovements.CanMove(false);
                 _playerReferences.PlayerMovements.CanLook(false);
                 timelineObject.SetActive(true);

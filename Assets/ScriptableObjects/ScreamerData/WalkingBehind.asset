@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: WalkingBehind
   m_EditorClassIdentifier: Assembly-CSharp::ScreamerData
   screamerName: WalkingBehind
-  screamerPrefab: {fileID: 0}
+  screamerPrefab: {fileID: 8149763852030617697, guid: fd2f7de9b13c4dc498c4784b2211926c, type: 3}
+  destroyAfterSeconds: 15
+  spawnpointName: Back
   description: When you don't look at him, he moving....
