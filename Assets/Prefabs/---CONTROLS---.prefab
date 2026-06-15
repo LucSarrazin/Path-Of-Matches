@@ -220,6 +220,11 @@ MonoBehaviour:
   _smoothBPMSpeed: 3
   _minBpmPitch: 0.8
   _maxBpmPitch: 2.4
+  _normalVolumeSpeed: 3
+  _minVolume: 0.4
+  _maxVolume: 1
+  _delay: 2
+  _darkZoneExist: 0
 --- !u!82 &2452173653930004378
 AudioSource:
   m_ObjectHideFlags: 0
@@ -432,7 +437,7 @@ GameObject:
   - component: {fileID: 8338580836308559212}
   m_Layer: 8
   m_Name: HandCam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +666,7 @@ GameObject:
   - component: {fileID: 1560681071639762521}
   - component: {fileID: 5180317772499666532}
   - component: {fileID: 2142914174104241574}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,6 +1523,10 @@ PrefabInstance:
     - target: {fileID: 8960248909059307666, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
       value: RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960248909059307666, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9048579292701565300, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Enabled
