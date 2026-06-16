@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4601394514574222934}
   m_Layer: 0
-  m_Name: ---CONTROLS--- (To replace by PLAYER)
+  m_Name: ---CONTROLS---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
