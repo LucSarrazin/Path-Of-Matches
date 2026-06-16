@@ -8,9 +8,12 @@ public class DeadZone : MonoBehaviour
 
     private Coroutine _coroutine;
 
-    private void Start()
+    private void Awake()
     {
-        _collider.GetComponent<BoxCollider>();         
+        if (_collider == null)
+        {
+            _collider = GetComponent<BoxCollider>();         
+        }
     }
 
     private void OnTriggerStay(Collider other)
