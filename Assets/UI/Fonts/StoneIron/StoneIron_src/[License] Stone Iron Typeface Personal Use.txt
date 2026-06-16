@@ -1,0 +1,34 @@
+Stone Iron Font Family
+----------------------------------------------------------------------------------------------------------------------------------------
+
+ Designer : Ilham Herry
+ Foundry  : Ephemera Fonts
+ Contact  : hello@ephemerafonts.com
+ Licensed version : https://ephemerafonts.com/products/stone-iron
+----------------------------------------------------------------------------------------------------------------------------------------
+
+PERSONAL USE LICENSE
+For Stone Iron Font Family
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+This license include coverage for PERSONAL USE ONLY.
+1. Demo Fonts are exclusively for testing purposes, you can use it for 
+mockups and client presentations. If the client decides to use the font, 
+they are required to purchase the appropriate license.
+
+2. Commercial used is not allow under license. You are not permitted to
+distribute this typeface to other parties and you are not permitted to
+change the typeface for distribution either free or for monetary gain.
+Webfont embedding and mobile app are not allowed under the terms of this
+license.
+
+3. You may not modify, adapt, translate, reverse engineer, decompile,
+disassemble, or create derivative works based on the free fonts itself.
+That means to edit/modify the font files itself in font editors/soft-
+ware/programs like FontLab Studio, Fontographer, Font Creator, TypeTool,
+BitFonter, Glyphs, FontStruct, RoboFont, etc.
+
+4. You may not resell or redistribute the free fonts itself or any de-
+rivative works based on the free fonts itself without Ephemera Fonts
+Foundry’s prior written consent.
