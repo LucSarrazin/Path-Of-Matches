@@ -18,8 +18,10 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     private Color _outlineColor;
     private float _outlineWidth;
 
+    private int _flammableLayer;
+
     private Transform _interactableTransform;
-    private Vector3 _interactableInitialPosition; 
+    private Vector3 _interactableInitialPosition;
     private GameObject _focusSprite;
 
     public abstract bool FreezeMovement { get; }
@@ -42,13 +44,24 @@ public abstract class Interactable : MonoBehaviour, IInteractable
             Debug.Log("Please Add PlayerReferences in inspector to avoid use of FindAnyObject");
         }
 
+        _flammableLayer = LayerMask.NameToLayer("Flammable");
+
         _interactableTransform = this.transform;
-        _interactableInitialPosition = _interactableTransform.position; 
+        _interactableInitialPosition = _interactableTransform.position;
         _focusSprite = _playerReferences.InteractibleFocusSprite;
         _focusSprite.SetActive(false);
-        
-        _outlineColor = UIManager.Instance.OutlineColor;
-        _outlineWidth = UIManager.Instance.OutlineWidth;
+
+        // 
+        if (gameObject.layer == _flammableLayer)
+        {
+            _outlineColor = UIManager.Instance.OutlineFlammableColor;
+            _outlineWidth = UIManager.Instance.OutlineFlammableWidth;
+        }
+        else
+        {
+            _outlineColor = UIManager.Instance.OutlineColor;
+            _outlineWidth = UIManager.Instance.OutlineWidth;
+        }
 
         if (!TryGetComponent(out _outline))
         {
@@ -81,15 +94,17 @@ public abstract class Interactable : MonoBehaviour, IInteractable
             return;
         }
 
-        _focusSprite.SetActive(true);
+        if (gameObject.layer != _flammableLayer)
+        {
+            _focusSprite.SetActive(true);
 
-        _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
-        _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
-        _focusSprite.transform.Rotate(0f, 180f, 0f);
+            _focusSprite.transform.position = _interactableInitialPosition + Vector3.up * _focusSpriteDistance;
+            _focusSprite.transform.LookAt(_playerReferences.PlayerViewCamera.transform);
+            _focusSprite.transform.Rotate(0f, 180f, 0f);
 
-        // -- Fix Size : 
-        _focusSprite.transform.localScale = Vector3.one * _focusSpriteSize;
-
+            // -- Fix Size : 
+            _focusSprite.transform.localScale = Vector3.one * _focusSpriteSize;
+        }
 
         _outline.enabled = true;
 

@@ -34,6 +34,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _textDescription;
     [SerializeField] private Color _outlineColor = new Color(1f, 1f, 1f, 0.8f);
     [SerializeField] private float _outlineWidth = 8f;
+    
+    [Header("[FLAMMABLE] SETTINGS : ")]
+    [SerializeField] private Color _outlineFlammableColor = new Color(1f, 0f, 0f, 0.8f);
+    [SerializeField] private float _outlineFlammableWidth = 8f;
 
     [Header("[PAUSE MENU] SETTINGS : ")]
     [SerializeField] private GameObject _pauseMenu;
@@ -42,6 +46,9 @@ public class UIManager : MonoBehaviour
     // * --- Public references --- * //
     public Color OutlineColor => _outlineColor;
     public float OutlineWidth => _outlineWidth;
+
+    public Color OutlineFlammableColor => _outlineFlammableColor;
+    public float OutlineFlammableWidth => _outlineFlammableWidth; 
 
 
     private void Awake()

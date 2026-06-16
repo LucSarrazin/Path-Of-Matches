@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7976082007260797191}
   - component: {fileID: 503734874768941277}
   - component: {fileID: 8407469918811429099}
+  - component: {fileID: 5064132043698188517}
   - component: {fileID: 6457681043652746135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rope
   m_TagString: TorchFire
   m_Icon: {fileID: 0}
@@ -114,6 +115,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5064132043698188517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611119474307537624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!114 &6457681043652746135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,10 +142,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42161e80e163e2f4a9597305cf5e48b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torch
+  _allowSave: 0
   _colorOff: {fileID: 2100000, guid: cef5e9c8bcfe5e44491151ea7a084d73, type: 2}
   _colorOn: {fileID: 2100000, guid: 5c8ffa524f7781e48ac71e1354a102d2, type: 2}
+  _particle: {fileID: 0}
   _pointLight: {fileID: 8767265665692927154}
   _safeZoneTorch: 0
+  _destroyObjectAfter: 0
+  _torchDestroyFog: 0
+  _timeForDisapearing: 0
+  _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
 --- !u!1 &3431501982591446978
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RiddleBridge
   rope: {fileID: 2611119474307537624}
-  rotationReturnSpeed: 0.0005
+  rotationSpeed: 100
 --- !u!1 &6608163544596001017
 GameObject:
   m_ObjectHideFlags: 0

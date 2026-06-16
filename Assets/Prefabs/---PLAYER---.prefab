@@ -442,7 +442,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2fc4e84ae4810d34a8c94e7afcd8286f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1274,7 +1274,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 201
   m_TargetDisplay: 0
 --- !u!114 &8109864989879139057
 MonoBehaviour:
@@ -1645,7 +1645,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 9e2d90e54c7d94a488e45fb969dfe20b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1733,6 +1733,7 @@ MonoBehaviour:
   _minVolume: 0.4
   _maxVolume: 1
   _delay: 1
+  _darkZoneExist: 0
 --- !u!82 &1267978850043569062
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2003,7 +2004,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32631
+    m_Bits: 32759
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

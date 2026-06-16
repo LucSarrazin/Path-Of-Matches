@@ -215,6 +215,10 @@ PrefabInstance:
       value: torche_sans
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
       propertyPath: m_TagString
       value: TorchFire
       objectReference: {fileID: 0}
@@ -229,6 +233,9 @@ PrefabInstance:
       addedObject: {fileID: 6280073720370096230}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 2041110143067172130}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4783022207267980838}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
@@ -240,6 +247,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}
   m_PrefabInstance: {fileID: 2021840461546375409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041110143067172130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211025067240519072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!54 &4783022207267980838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,7 +308,10 @@ MonoBehaviour:
   _pointLight: {fileID: 1736824638833909898}
   _safeZoneTorch: 0
   _destroyObjectAfter: 0
+  _torchDestroyFog: 0
   _timeForDisapearing: 15
+  _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
 --- !u!4 &1983198251842973466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0d52892f2120ae24ebad0de9f62f3d73, type: 3}

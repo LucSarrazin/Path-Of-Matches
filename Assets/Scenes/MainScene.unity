@@ -752,8 +752,12 @@ PrefabInstance:
       value: branche1-path_of-matches
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -762,6 +766,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1393573564}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 841244441}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       insertIndex: -1
       addedObject: {fileID: 841244437}
@@ -2169,6 +2176,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &246879472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246879463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!4 &252996444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1332147589939045789, guid: 19139616e56b9dd4592e02121b26a4fe, type: 3}
@@ -2185,12 +2208,13 @@ GameObject:
   - component: {fileID: 255706186}
   - component: {fileID: 255706185}
   - component: {fileID: 255706184}
-  m_Layer: 0
+  - component: {fileID: 255706187}
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &255706184
 MonoBehaviour:
@@ -2301,6 +2325,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 365137917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &255706187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255706183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 2100923661}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1001 &258706460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2546,8 +2585,12 @@ PrefabInstance:
       value: branche2-path_of-matches (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2556,6 +2599,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1062745828}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1392555966}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1392555962}
@@ -2815,6 +2861,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &365137922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365137913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1001 &400023229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3022,6 +3084,10 @@ PrefabInstance:
       propertyPath: _interactibleFocusSprite
       value: 
       objectReference: {fileID: 413587}
+    - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: _interactibleLayerMask.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38.66
@@ -3480,7 +3546,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &507548470
 MonoBehaviour:
@@ -3644,8 +3710,12 @@ PrefabInstance:
       value: branche2-path_of-matches (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3654,6 +3724,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 507548472}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 246879472}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 246879468}
@@ -3942,7 +4015,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &522029102
 MonoBehaviour:
@@ -4481,6 +4554,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &576954977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576954968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1001 &582933368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5438,6 +5527,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &788958518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788958509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1 &800110404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,6 +5803,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &841244441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841244432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1001 &850241787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6014,8 +6135,12 @@ PrefabInstance:
       value: branche2-path_of-matches (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6024,6 +6149,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1844388424}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1239387581}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1239387577}
@@ -7424,8 +7552,12 @@ PrefabInstance:
       value: branche3-path_of-matches
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c662f1a00b30c424e92ad0e1f0de5b3c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c662f1a00b30c424e92ad0e1f0de5b3c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7434,6 +7566,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 522029104}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c662f1a00b30c424e92ad0e1f0de5b3c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1064803229}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c662f1a00b30c424e92ad0e1f0de5b3c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1064803225}
@@ -7778,7 +7913,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1062745826
 MonoBehaviour:
@@ -7921,6 +8056,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &1064803229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064803220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1 &1066768512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8ac3d99f3da6f45b0872cea8a7af79, type: 3}
@@ -8241,8 +8392,16 @@ PrefabInstance:
       value: branche2-path_of-matches (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8251,6 +8410,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1881946133}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 576954977}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 576954973}
@@ -8441,7 +8603,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1168196446
 MonoBehaviour:
@@ -8670,6 +8832,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &1221644623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221644614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!4 &1221918273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6230795651325268858, guid: 16af5b09ffca8ff45b488c3ecffc5a4f, type: 3}
@@ -9022,6 +9200,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &1239387581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239387572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!1001 &1252598438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9795,6 +9989,22 @@ MonoBehaviour:
   _torchDestroyFog: 0
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
+  _meshRenderer: {fileID: 0}
+--- !u!114 &1392555966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392555957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f0175a20fb1544d857f9c49f7d51f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flammable
+  _playerReferences: {fileID: 0}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
 --- !u!4 &1392950296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1537cd5a7fb5a2a4f96d108dfe2720a9, type: 3}
@@ -9816,7 +10026,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1393573562
 MonoBehaviour:
@@ -9992,8 +10202,12 @@ PrefabInstance:
       value: branche1-path_of-matches (1)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10002,6 +10216,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1168196448}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 788958518}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       insertIndex: -1
       addedObject: {fileID: 788958514}
@@ -10315,8 +10532,16 @@ PrefabInstance:
       value: branche2-path_of-matches
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10325,6 +10550,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 255706186}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 365137922}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aab980eb9b44c54eb4db2d797d3cb7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 365137918}
@@ -13614,7 +13842,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1844388422
 MonoBehaviour:
@@ -13786,8 +14014,12 @@ PrefabInstance:
       value: branche1-path_of-matches (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 123
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13796,6 +14028,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1895032244}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1221644623}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 509ce85d20b11b84b86b89fb078c6979, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1221644619}
@@ -14494,7 +14729,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1881946131
 MonoBehaviour:
@@ -14653,7 +14888,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 123
   m_IsActive: 0
 --- !u!114 &1895032242
 MonoBehaviour:
@@ -14877,6 +15112,7 @@ MonoBehaviour:
   _timelinePlayable: {fileID: 0}
   _playerReferences: {fileID: 0}
   timelineObject: {fileID: 0}
+  cam: {fileID: 0}
   phare: {fileID: 1082718827}
   onetime: 0
 --- !u!65 &1923301079
