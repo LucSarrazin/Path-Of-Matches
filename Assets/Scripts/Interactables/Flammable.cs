@@ -6,5 +6,6 @@ public class Flammable : Interactable
 
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
 
+    
 
 }

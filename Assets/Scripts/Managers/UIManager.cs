@@ -47,6 +47,9 @@ public class UIManager : MonoBehaviour
     public Color OutlineColor => _outlineColor;
     public float OutlineWidth => _outlineWidth;
 
+    public Color OutlineFlammableColor => _outlineFlammableColor;
+    public float OutlineFlammableWidth => _outlineFLammableWidth; 
+
 
     private void Awake()
     {

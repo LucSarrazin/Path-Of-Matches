@@ -472,6 +472,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8148342374833532940}
     m_Modifications:
+    - target: {fileID: 4405335691895622598, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405335691895622598, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5292985747620939614, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -555,6 +563,30 @@ PrefabInstance:
     - target: {fileID: 5814130703299975901, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
       propertyPath: m_Name
       value: InteractibleFocusUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814130703299975901, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670063703613245107, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522504691565676189, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522504691565676189, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6220341388397723371, guid: d3ab4101464ab0047996ce28a9a9fc8f, type: 2}
+    - target: {fileID: 8522504691565676189, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4282920227
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522504691565676189, guid: d8e461a420b0ee147b1bcbe5b876151d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

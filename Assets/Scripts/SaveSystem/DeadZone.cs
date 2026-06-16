@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    private BoxCollider _collider;
+    [SerializeField] private BoxCollider _collider;
     private float _delay = 2f; 
 
     private Coroutine _coroutine;
 
-    private void Awake()
+    private void Start()
     {
         _collider.GetComponent<BoxCollider>();         
     }
