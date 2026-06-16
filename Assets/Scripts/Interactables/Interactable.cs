@@ -46,13 +46,6 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
         _flammableLayer = LayerMask.NameToLayer("Flammable");
 
-        ////
-        ////_layerMask = LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
-        //_layerMask = 1 << gameObject.layer;
-        //Debug.Log($"Layer ID : {gameObject.name} -> {gameObject.layer}");
-        //Debug.Log($"Layer Name : {gameObject.name} -> {LayerMask.LayerToName(gameObject.layer)}");
-        ////
-
         _interactableTransform = this.transform;
         _interactableInitialPosition = _interactableTransform.position;
         _focusSprite = _playerReferences.InteractibleFocusSprite;
