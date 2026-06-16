@@ -3303,6 +3303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1322222535548649896, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _interactibleFocusSprite
       value: 
@@ -3310,6 +3314,14 @@ PrefabInstance:
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _interactibleLayerMask.m_Bits
       value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520594468501002606, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3269033871979777406, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3355,9 +3367,17 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 32759
       objectReference: {fileID: 0}
+    - target: {fileID: 6520918035518426258, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3000
+      objectReference: {fileID: 0}
     - target: {fileID: 7661479801854322475, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
       value: ---PLAYER---
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960248909059307666, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4542,6 +4562,10 @@ PrefabInstance:
     - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: _onFocusPointerColor.r
       value: 0.7490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: _outlineFLammableWidth
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: _outlineFlammableColor.a
