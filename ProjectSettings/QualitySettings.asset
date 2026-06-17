@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 1
+  m_CurrentQuality: 2
   m_QualitySettings:
   - serializedVersion: 5
     name: Mobile
@@ -103,14 +103,14 @@ QualitySettings:
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 4b83569d67af61e458304325a23e5dfd, type: 2}
-    terrainQualityOverrides: 0
-    terrainPixelError: 1
+    terrainQualityOverrides: 123
+    terrainPixelError: 15
     terrainDetailDensityScale: 1
     terrainBasemapDistance: 1000
-    terrainDetailDistance: 80
-    terrainTreeDistance: 5000
-    terrainBillboardStart: 50
-    terrainFadeLength: 5
+    terrainDetailDistance: 50
+    terrainTreeDistance: 500
+    terrainBillboardStart: 1125
+    terrainFadeLength: 111.8
     terrainMaxTrees: 50
     excludedTargetPlatforms:
     - Android
@@ -142,7 +142,7 @@ QualitySettings:
     realtimeGICPUUsage: 100
     adaptiveVsyncExtraA: 0
     adaptiveVsyncExtraB: 0
-    lodBias: 2
+    lodBias: 3
     meshLodThreshold: 1
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -153,19 +153,19 @@ QualitySettings:
     streamingMipmapsMaxLevelReduction: 2
     streamingMipmapsMaxFileIORequests: 1024
     particleRaycastBudget: 100
-    asyncUploadTimeSlice: 2
+    asyncUploadTimeSlice: 1
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 4b83569d67af61e458304325a23e5dfd, type: 2}
-    terrainQualityOverrides: 0
-    terrainPixelError: 1
+    terrainQualityOverrides: 123
+    terrainPixelError: 7
     terrainDetailDensityScale: 1
-    terrainBasemapDistance: 1000
-    terrainDetailDistance: 80
-    terrainTreeDistance: 5000
-    terrainBillboardStart: 50
-    terrainFadeLength: 5
+    terrainBasemapDistance: 5000
+    terrainDetailDistance: 100
+    terrainTreeDistance: 2000
+    terrainBillboardStart: 1409
+    terrainFadeLength: 141.2
     terrainMaxTrees: 50
     excludedTargetPlatforms:
     - Android
@@ -197,7 +197,7 @@ QualitySettings:
     realtimeGICPUUsage: 100
     adaptiveVsyncExtraA: 0
     adaptiveVsyncExtraB: 0
-    lodBias: 2
+    lodBias: 7
     meshLodThreshold: 1
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -213,14 +213,14 @@ QualitySettings:
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 4b83569d67af61e458304325a23e5dfd, type: 2}
-    terrainQualityOverrides: 0
-    terrainPixelError: 1
+    terrainQualityOverrides: 123
+    terrainPixelError: 4
     terrainDetailDensityScale: 1
-    terrainBasemapDistance: 1000
-    terrainDetailDistance: 80
-    terrainTreeDistance: 5000
-    terrainBillboardStart: 50
-    terrainFadeLength: 5
+    terrainBasemapDistance: 12000
+    terrainDetailDistance: 200
+    terrainTreeDistance: 3500
+    terrainBillboardStart: 1655
+    terrainFadeLength: 165.9
     terrainMaxTrees: 50
     excludedTargetPlatforms:
     - Android
@@ -252,7 +252,7 @@ QualitySettings:
     realtimeGICPUUsage: 100
     adaptiveVsyncExtraA: 0
     adaptiveVsyncExtraB: 0
-    lodBias: 2
+    lodBias: 10
     meshLodThreshold: 1
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -268,14 +268,14 @@ QualitySettings:
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
     customRenderPipeline: {fileID: 11400000, guid: 4b83569d67af61e458304325a23e5dfd, type: 2}
-    terrainQualityOverrides: 0
+    terrainQualityOverrides: 123
     terrainPixelError: 1
     terrainDetailDensityScale: 1
-    terrainBasemapDistance: 1000
-    terrainDetailDistance: 80
+    terrainBasemapDistance: 20000
+    terrainDetailDistance: 500
     terrainTreeDistance: 5000
-    terrainBillboardStart: 50
-    terrainFadeLength: 5
+    terrainBillboardStart: 2000
+    terrainFadeLength: 200
     terrainMaxTrees: 50
     excludedTargetPlatforms:
     - Android
