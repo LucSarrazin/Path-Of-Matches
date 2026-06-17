@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Torch : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Torch : MonoBehaviour
     [SerializeField] private float _timeForDisapearing;
     [SerializeField] private FogZone _fogZone;
     [SerializeField] private Renderer _meshRenderer;
+    public UnityEvent onDestroyed;
     private float timer;
     //private SkinnedMeshRenderer _skinnedMeshRenderer;
 
@@ -107,6 +109,7 @@ public class Torch : MonoBehaviour
         oneTime = false;
         if (_destroyObjectAfter == true)
         {
+            onDestroyed?.Invoke();
             Destroy(gameObject);
         }
     }
