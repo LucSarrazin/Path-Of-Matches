@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static System.Net.Mime.MediaTypeNames;
@@ -16,8 +17,7 @@ public class GraphicsMenu : MonoBehaviour
 {
     [Header("[GRAPHICS] GAMMA SETTINGS :")]
     [SerializeField] private List<UnityEngine.UI.Slider> gammaSlider;
-
-    private Volume volume;
+    [SerializeField] private Volume volume;
     private ColorAdjustments colorAdjustments;
     private float savedValueGamma;
 
@@ -41,10 +41,9 @@ public class GraphicsMenu : MonoBehaviour
 
     private void InitialiseGamma()
     {
-        volume = FindAnyObjectByType<Volume>();
         volume.sharedProfile.TryGet(out colorAdjustments);
 
-        if (PlayerPrefs.HasKey("GammaValue"))
+        if (PlayerPrefs.HasKey("GammaValue") && SceneManager.GetActiveScene().name == "Menu")
         {
             GameObject validationGamma = GameObject.Find("Button_ValidationGamma");
             validationGamma.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
