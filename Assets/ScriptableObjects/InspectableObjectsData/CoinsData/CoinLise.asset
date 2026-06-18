@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoinLise
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece de Lise
-  _description: "Une pi\xE8ce d\xE9corative d'une artiste du jeu"
+  _description: "Une piece d\xE9corative d'une artiste du jeu"

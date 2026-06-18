@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoinLuc
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece de Luc
-  _description: "Une pi\xE8ce d\xE9corative d'un d\xE9veloppeur du jeu"
+  _description: "Une piece d\xE9corative d'un developpeur du jeu"
