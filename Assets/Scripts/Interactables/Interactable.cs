@@ -57,7 +57,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
             _outlineColor = UIManager.Instance.OutlineFlammableColor;
             _outlineWidth = UIManager.Instance.OutlineFlammableWidth;
         }
-        else
+        else 
         {
             _outlineColor = UIManager.Instance.OutlineColor;
             _outlineWidth = UIManager.Instance.OutlineWidth;

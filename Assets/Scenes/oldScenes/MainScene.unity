@@ -2177,6 +2177,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &246879472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,6 +2865,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &365137922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4555,6 +4561,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &576954977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5528,6 +5537,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &788958518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5804,6 +5816,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &841244441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8123,6 +8138,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1064803229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8899,6 +8917,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1221644623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9267,6 +9288,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1239387581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9990,6 +10014,9 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1392555966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16394,6 +16421,10 @@ PrefabInstance:
     - target: {fileID: 319152605501808123, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648793145147753315, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2879379142812022101, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
       propertyPath: m_AnchorMax.x
