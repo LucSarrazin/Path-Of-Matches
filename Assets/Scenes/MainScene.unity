@@ -2292,9 +2292,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &252996444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1332147589939045789, guid: 19139616e56b9dd4592e02121b26a4fe, type: 3}
@@ -3033,9 +3030,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &394725202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1661389743676615931, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
@@ -5093,9 +5087,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &582933368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6451,9 +6442,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &796725377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6784,9 +6772,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &849700101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9142,9 +9127,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1066768512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc8ac3d99f3da6f45b0872cea8a7af79, type: 3}
@@ -10047,9 +10029,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1221918273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6230795651325268858, guid: 16af5b09ffca8ff45b488c3ecffc5a4f, type: 3}
@@ -10403,9 +10382,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1240753086
 GameObject:
   m_ObjectHideFlags: 0
@@ -11253,7 +11229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphicsSettings
   gammaSlider:
   - {fileID: 0}
-  volume: {fileID: 0}
   sizeDropDown: {fileID: 0}
   qualityDropDown: {fileID: 0}
 --- !u!4 &1367110139
@@ -11396,9 +11371,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1392950296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1537cd5a7fb5a2a4f96d108dfe2720a9, type: 3}
@@ -12762,9 +12734,6 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 1544609073}
-  onDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &1544609072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12911,10 +12880,6 @@ PrefabInstance:
       propertyPath: _playerMovements
       value: 
       objectReference: {fileID: 2141103182}
-    - target: {fileID: 5280984324227263546, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
-      propertyPath: blinkingAnimation
-      value: 
-      objectReference: {fileID: 403698750}
     - target: {fileID: 6892830278438530302, guid: ecbca4e7fe5d12d46955987c752f3058, type: 3}
       propertyPath: m_IsActive
       value: 0
