@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4704802913109936457}
   - component: {fileID: 6509131590112166295}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: screamer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1702825009465335981}
   - component: {fileID: 6288116049118760843}
   - component: {fileID: 874164704763912523}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: WalkingScreameur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

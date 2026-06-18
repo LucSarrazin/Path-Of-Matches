@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private SaveSystem saveSystem;
+    [SerializeField] private PlayerReferences playerReferences;
 
     private void Start()
     {
@@ -25,6 +27,14 @@ public class GameManager : MonoBehaviour
 
     private void PlayerDeath()
     {
+        StartCoroutine(Death());
+    }
+
+    IEnumerator Death()
+    {
+        playerReferences.PlayerAudioSource.PlayOneShot(playerReferences.deathSound);
+        playerReferences.blinkingAnimation.SetBool("Death", true);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

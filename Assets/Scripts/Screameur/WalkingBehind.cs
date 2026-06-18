@@ -15,6 +15,7 @@ public class WalkingBehind : ScreamerBehaviour
     [SerializeField] private float footstepDelay = 0.5f;
     [SerializeField] private float nextFootstepTime = 0f;
     [SerializeField] private float playerDistance = 15f;
+    [SerializeField] private float stopDistance = 5f;
     
     public override void Execute()
     {
@@ -44,13 +45,17 @@ public class WalkingBehind : ScreamerBehaviour
             target.GetComponent<Renderer>().material.color = Color.red;
             Debug.Log("Don't See");
             float distance = Vector3.Distance(transform.position, cam.transform.position);
-            if (distance > playerDistance)
+            if (distance >= stopDistance)
             {
-                transform.position = Vector3.Lerp(transform.position, cam.transform.position, speedRun * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, cam.transform.position, speed * Time.deltaTime);
+                if (distance > playerDistance)
+                {
+                    transform.position = Vector3.Lerp(transform.position, cam.transform.position, speedRun * Time.deltaTime);
+                }
+                else
+                {
+                    transform.position = Vector3.Lerp(transform.position, cam.transform.position, speed * Time.deltaTime);
+                }
+                
             }
             PlayFootstep();
         }

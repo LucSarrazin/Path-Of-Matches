@@ -18,6 +18,12 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private float timeBeforeDisable = 12f;
     [SerializeField] private Animator handAnimator;
     [SerializeField] private ShakeCamera cameraShake;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip throwMatches;
+    [SerializeField] private AudioClip takeMatches;
+    [SerializeField] private AudioClip matchesFire;
+    [SerializeField] private AudioClip burningFinger;
+    [SerializeField] private bool oneTimeSound = false;
 
     [SerializeField] private float timeBeforeEndAnimation = 4f; 
     private bool _autoReleased = false; // flag : allumette d�j� rel�ch�e automatiquement
@@ -129,6 +135,12 @@ public class PlayerLaunchMatches : MonoBehaviour
 
         if (gotMatches)
         {
+            if (oneTimeSound == false)
+            {
+                oneTimeSound = true;
+                audioSource.Stop();
+                audioSource.PlayOneShot(matchesFire);
+            }
             timeBeforeDisable -= Time.deltaTime;
 
             // Guard : on ne lance qu'une seule fois
@@ -138,7 +150,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 charging = false;
                 handMatches.SetActive(false);
                 gotMatches = false;
-                Launch(2f);
+                Launch(2f, burningFinger);
                 handAnimator.SetBool("Take", false);
                 StartCoroutine("TimeDisable");
             }
@@ -188,7 +200,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             if (keepInHand == false)
             {
-                Launch(Force);
+                Launch(Force, throwMatches);
                 charging = false;
             }
             else
@@ -199,7 +211,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     gotMatches = false;
                     handAnimator.SetBool("Throw", true);
                     handAnimator.SetBool("Take", false);
-                    Launch(Force);
+                    Launch(Force, throwMatches);
                     charging = false;
                 }
                 else if (gotMatches == false)
@@ -218,12 +230,16 @@ public class PlayerLaunchMatches : MonoBehaviour
         handAnimator.SetBool("Take", true);
         gotMatches = true;
         handMatches.SetActive(true);
+        audioSource.Stop();
+        audioSource.PlayOneShot(takeMatches);
         yield return null;
     }
 
-    void Launch(float forceActual)
+    void Launch(float forceActual, AudioClip clip)
     {
         //Debug.Log("Launching matches.");
+        audioSource.Stop();
+        audioSource.PlayOneShot(clip);
         cameraShake.StopShakeMatches();
         NumberOfMatches--;
         GameObject matchesInstantiate = Instantiate(matches, transform.position, new Quaternion(0, 0.707106829f, 0, 0.707106829f));

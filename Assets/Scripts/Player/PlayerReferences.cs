@@ -26,6 +26,7 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private Transform _head;
     [SerializeField] private Camera _viewCamera;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] public AudioSource _footstepsAudioSource;
     [SerializeField] private Watch _watch;
 
     [Header("[PLAYER] MATCHES COMPONENTS :")]
@@ -40,9 +41,14 @@ public class PlayerReferences : MonoBehaviour
     [SerializeField] private PlayerSwitchMatches _playerSwitchMatches;
     [SerializeField] private PlayerLaunchMatches _playerLaunchMatches;
     [SerializeField] private Insanity _playerInsanity;
+    [SerializeField] public Animator blinkingAnimation;
 
     [Header("[PLAYER] SFX SCRIPTS :")]
     [SerializeField] private PlayerFootStep _playerFootStep;
+    
+    [Header("[PLAYER] SFX SOUNDS CLIPS :")]
+    [SerializeField] public AudioClip deathSound;
+    [SerializeField] public AudioClip reviveSound;
 
     // * -- private references -- * //
     /*[SerializeField] */private Transform _body ;

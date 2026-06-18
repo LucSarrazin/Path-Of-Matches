@@ -111,9 +111,9 @@ public class PlayerFootStep : MonoBehaviour
                 return;
 
             AudioClip randomClip = clips[GetRandomIndex(clips.Length)];
-            _playerReferences.PlayerAudioSource.pitch = Random.Range(0.95f, 1.05f); // Switch pitch to randomise footsteps
+            _playerReferences._footstepsAudioSource.pitch = Random.Range(0.95f, 1.05f); // Switch pitch to randomise footsteps
 
-           _playerReferences.PlayerAudioSource.PlayOneShot(randomClip, _volume);
+           _playerReferences._footstepsAudioSource.PlayOneShot(randomClip, _volume);
         }
     }
 }
