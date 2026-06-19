@@ -6165,6 +6165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6211424107875127768, guid: 28c8206b54569e4448eeb8fc45ac59cf, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8303236191510728999, guid: 28c8206b54569e4448eeb8fc45ac59cf, type: 3}
       propertyPath: m_Name
       value: Coin_Inspectable (2)
