@@ -468,7 +468,8 @@ MonoBehaviour:
   _timeForDisapearing: 15
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
-  _audio: {fileID: 6160900073261324565}
+  _audioSourceLoop: {fileID: 6160900073261324565}
+  _igniteClip: {fileID: 8300000, guid: 78f07eaa4f3609a4ebf27f7bb8c30605, type: 3}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []

@@ -24,7 +24,10 @@ public class Torch : MonoBehaviour
     [SerializeField] private float _timeForDisapearing;
     [SerializeField] private FogZone _fogZone;
     [SerializeField] private Renderer _meshRenderer;
-    [SerializeField] private AudioSource _audio;
+
+    [Header("[REFERENCES]")]
+    [SerializeField] private AudioSource _audioSourceLoop;
+    [SerializeField] private AudioClip _igniteClip; 
 
     public UnityEvent onDestroyed;
     private float timer;
@@ -48,7 +51,7 @@ public class Torch : MonoBehaviour
             _particle.SetActive(false);
         }
 
-        if (_audio == null) _audio = GetComponentInChildren<AudioSource>();
+        if (_audioSourceLoop == null) _audioSourceLoop = GetComponentInChildren<AudioSource>();
     }
 
     void Update()
@@ -79,8 +82,9 @@ public class Torch : MonoBehaviour
                 if (_particle != null)
                 {
                     _particle.SetActive(true);
-                    _audio.Play();
-                    Debug.Log($"Try Play {_audio.gameObject.name}"); 
+                    _audioSourceLoop.PlayOneShot(_igniteClip); 
+                    _audioSourceLoop.Play();
+                    Debug.Log($"Try Play {_audioSourceLoop.gameObject.name}"); 
                 }
                 if (_colorOn != null)
                 {
@@ -108,9 +112,9 @@ public class Torch : MonoBehaviour
         if (_particle != null)
         {
             _particle.SetActive(false);
-            _audio.Stop();
+            _audioSourceLoop.Stop();
 
-            Debug.Log($"Try Stop {_audio.gameObject.name}"); 
+            Debug.Log($"Try Stop {_audioSourceLoop.gameObject.name}"); 
         }
         if (_colorOff != null)
         {
