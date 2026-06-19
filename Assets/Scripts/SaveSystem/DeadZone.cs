@@ -4,6 +4,8 @@ using UnityEngine;
 public class DeadZone : MonoBehaviour
 {
     [SerializeField] private BoxCollider _collider;
+    [SerializeField] private AudioSource _audioSrc;
+    [SerializeField] private AudioClip _bodyFallClip; 
     private float _delay = 2f; 
 
     private Coroutine _coroutine;
@@ -14,6 +16,8 @@ public class DeadZone : MonoBehaviour
         {
             _collider = GetComponent<BoxCollider>();         
         }
+
+        if (_audioSrc == null) _audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +33,8 @@ public class DeadZone : MonoBehaviour
     private IEnumerator WaitBeforeDie()
     {
         float timer = 0f;
+        _audioSrc.PlayOneShot(_bodyFallClip);
+        _audioSrc.Play();
 
         while (timer < _delay)
         {
