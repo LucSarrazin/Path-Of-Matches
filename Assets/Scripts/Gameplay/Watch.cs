@@ -7,6 +7,8 @@ public class Watch : MonoBehaviour
     private bool switched = false;
     private bool isTakingMatches = false;
 
+    public bool IsTakingMatches => isTakingMatches;
+
     // Ajout un peu beaucoup schlag pour tester, a revoir avec Luc pour modif de son script 
     //Juste pour patch rapide dans PlayerInteractState( -> Ranger montre en mode inspection) 
     public void SetBoolSwitch(bool value) { switched = value; }
@@ -47,10 +49,10 @@ public class Watch : MonoBehaviour
     {
         if (!switched)
         {
+            isTakingMatches = true;
             Debug.Log("Close Watch");
             animator.SetBool("Close", true);
-            isTakingMatches = true;
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(1.75f);
             Debug.Log("Open Watch");
             animator.SetBool("Close", false);
             isTakingMatches = false;

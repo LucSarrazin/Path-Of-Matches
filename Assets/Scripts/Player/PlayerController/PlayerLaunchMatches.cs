@@ -177,7 +177,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             }
             else
             {
-                if (gotMatches == true)
+                if (gotMatches == true && !leftHand.IsTakingMatches)
                 {
                     handMatches.SetActive(false);
                     gotMatches = false;
@@ -186,7 +186,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     Launch(Force, throwMatches);
                     charging = false;
                 }
-                else if (gotMatches == false)
+                else if (gotMatches == false && !leftHand.IsTakingMatches)
                 {
                     StartCoroutine(Take());
                 }
@@ -198,12 +198,12 @@ public class PlayerLaunchMatches : MonoBehaviour
     IEnumerator Take()
     {
         StartCoroutine(leftHand.waitAnimTakeMatches());
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.35f);
         handAnimator.SetBool("Take", true);
-        gotMatches = true;
         handMatches.SetActive(true);
         audioSource.Stop();
         audioSource.PlayOneShot(takeMatches);
+        gotMatches = true;
         yield return null;
     }
 
