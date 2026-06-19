@@ -7,6 +7,7 @@ using UnityEngine;
 public static class GameEvents
 {
     public static Action<Transform, bool> OnAutoSaveRequested;
+    public static Action OnSaveComplete;
     public static Action OnLoadRequested;
     public static Action OnPlayerDeath;
     public static Action OnDeleteSaveRequested;

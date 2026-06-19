@@ -24,6 +24,11 @@ public class Torch : MonoBehaviour
     [SerializeField] private float _timeForDisapearing;
     [SerializeField] private FogZone _fogZone;
     [SerializeField] private Renderer _meshRenderer;
+
+    [Header("[REFERENCES]")]
+    [SerializeField] private AudioSource _audioSourceLoop;
+    [SerializeField] private AudioClip _igniteClip; 
+
     public UnityEvent onDestroyed;
     private float timer;
     //private SkinnedMeshRenderer _skinnedMeshRenderer;
@@ -45,6 +50,8 @@ public class Torch : MonoBehaviour
         {
             _particle.SetActive(false);
         }
+
+        if (_audioSourceLoop == null) _audioSourceLoop = GetComponentInChildren<AudioSource>();
     }
 
     void Update()
@@ -61,17 +68,23 @@ public class Torch : MonoBehaviour
         if (other.CompareTag("Matches"))
         {
             //Debug.Log("Matches touch the torch");
-            /* Save here : allow re-save on another fireCamp */
-            /* try by sending fire camp position */
-            if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform, false); }
 
             if (!oneTime)
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
+
+                /* Save here : allow re-save on another fireCamp */
+                /* try by sending fire camp position */
+
+                if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform, false); }
+
                 if (_particle != null)
                 {
                     _particle.SetActive(true);
+                    _audioSourceLoop.PlayOneShot(_igniteClip); 
+                    _audioSourceLoop.Play();
+                    Debug.Log($"Try Play {_audioSourceLoop.gameObject.name}"); 
                 }
                 if (_colorOn != null)
                 {
@@ -79,13 +92,11 @@ public class Torch : MonoBehaviour
                     _meshRenderer.material.SetFloat("_EffectTime", 0);
                 }
 
-
                 if (_safeZoneTorch == false)
                 {
                     StartCoroutine(waitBeforeTurningOff());
                 }
                 
-
                 if (_torchDestroyFog == true)
                 {
                     _fogZone.disableFog();
@@ -101,6 +112,9 @@ public class Torch : MonoBehaviour
         if (_particle != null)
         {
             _particle.SetActive(false);
+            _audioSourceLoop.Stop();
+
+            Debug.Log($"Try Stop {_audioSourceLoop.gameObject.name}"); 
         }
         if (_colorOff != null)
         {

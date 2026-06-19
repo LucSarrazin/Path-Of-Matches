@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoinAlix
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece d'Alix
-  _description: "Une pi\xE8ce d\xE9corative d'une artiste du jeu"
+  _description: Une piece decorative d'une artiste du jeu

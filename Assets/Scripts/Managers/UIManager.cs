@@ -1,7 +1,6 @@
+using System.Collections;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -22,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _bpmCount;
     [SerializeField] private Slider _forceSlider;
     [SerializeField] private Image _forceSliderTest;
+    [SerializeField] private TextMeshProUGUI _saveComplete; 
 
     [Header("Pointer settings : ")]
     [SerializeField] private Image _pointer;
@@ -50,6 +50,8 @@ public class UIManager : MonoBehaviour
     public Color OutlineFlammableColor => _outlineFlammableColor;
     public float OutlineFlammableWidth => _outlineFlammableWidth; 
 
+    private Coroutine _coroutine;
+
 
     private void Awake()
     {
@@ -59,8 +61,6 @@ public class UIManager : MonoBehaviour
             return;
         }
         Instance = this;
-
-        //DontDestroyOnLoad(gameObject); /*If we want to keep it between scenes*/
 
     }
 
@@ -83,7 +83,9 @@ public class UIManager : MonoBehaviour
         _playerLaunchMatches.OnForceChange += UpdateForceIndicator;
         _playerInsanity.OnInsanityChange += UpdateInsanityIndicator;
 
-        _playerReferences.Controls.OnEscapeClick += TogglePauseMenuPanel; 
+        _playerReferences.Controls.OnEscapeClick += TogglePauseMenuPanel;
+
+        GameEvents.OnSaveComplete += ActiveSaveCompleteAdvert;
 
 
         /* - First Update - */
@@ -104,6 +106,7 @@ public class UIManager : MonoBehaviour
 
         _playerReferences.Controls.OnEscapeClick -= TogglePauseMenuPanel;
 
+        GameEvents.OnSaveComplete -= ActiveSaveCompleteAdvert;
     }
 
     // * --- Methods for Overview panel --- * //
@@ -184,6 +187,21 @@ public class UIManager : MonoBehaviour
             _playerReferences.Controls.CanThrow = true;
 
         }
+    }
+
+    public void ActiveSaveCompleteAdvert()
+    {
+        if (_coroutine != null) StopCoroutine(_coroutine);
+         _coroutine =  StartCoroutine(SaveCompteAdvertRoutine()); 
+
+    }
+
+    private IEnumerator SaveCompteAdvertRoutine()
+    {
+        _saveComplete.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        _saveComplete.gameObject.SetActive(false);
+
     }
 
     // * --- General Methods --- * //

@@ -70,6 +70,8 @@ public class SaveSystem : MonoBehaviour
         /* Write in JSON file*/
         File.WriteAllText(_savePath, json);
 
+        GameEvents.OnSaveComplete?.Invoke(); 
+
         //Debug.Log($"[SAVE COMPLETE] Scene index {data.SceneBuildIndex}");
         //Debug.Log($"Future player position X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ} ");
     }

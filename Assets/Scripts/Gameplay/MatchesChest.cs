@@ -4,12 +4,20 @@ using UnityEngine;
 public class MatchesChest : Interactable
 {
     [SerializeField] private Animator chestAnimator;
+    [SerializeField] private AudioSource _chestSFXSource;
     private PlayerLaunchMatches launchMatches;
 
     public override bool FreezeMovement => throw new System.NotImplementedException();
 
     public override bool FreezeRotationLook => throw new System.NotImplementedException();
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        if (_chestSFXSource == null) _chestSFXSource = GetComponentInChildren<AudioSource>();
+    }
     protected override void Start()
     {
         base.Start();
@@ -20,6 +28,7 @@ public class MatchesChest : Interactable
     public override void Interact()
     {
             chestAnimator.SetBool("Open", true);
+            _chestSFXSource.Play();
             chestAnimator.SetBool("Close", false);
             Debug.Log("Chest is Open");
             launchMatches.NumberOfMatches = 10;

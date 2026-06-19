@@ -24,6 +24,7 @@ public class PlayerReferences : MonoBehaviour
     //[SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private CharacterController _characterController; /* Replace Rigidbody */
     [SerializeField] private Transform _head;
+    [SerializeField] private Transform _body;
     [SerializeField] private Camera _viewCamera;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] public AudioSource _footstepsAudioSource;
@@ -49,9 +50,6 @@ public class PlayerReferences : MonoBehaviour
     [Header("[PLAYER] SFX SOUNDS CLIPS :")]
     [SerializeField] public AudioClip deathSound;
     [SerializeField] public AudioClip reviveSound;
-
-    // * -- private references -- * //
-    /*[SerializeField] */private Transform _body ;
 
     public Action<float> OnPointerSensitivityChanged; 
 
@@ -127,7 +125,11 @@ public class PlayerReferences : MonoBehaviour
             Debug.Log($" - GO : {this} -> script 'PlayerControls' charged by GetComponent.");
         }
 
-        _body = this.transform;
+        if (_body == null)
+        {
+            _body = this.transform;
+
+        }
 
     }
 }

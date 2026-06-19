@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoinPauline
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece de Pauline
-  _description: "Une pi\xE8ce d\xE9corative d'une d\xE9veloppeuse du jeu"
+  _description: "Une piece d\xE9corative d'une developpeuse du jeu"

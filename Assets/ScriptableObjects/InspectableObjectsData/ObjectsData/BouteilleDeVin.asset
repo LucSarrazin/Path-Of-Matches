@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BouteilleDeVin
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Bouteille de vin
-  _description: "Une bouteille qui a l'air d\xE9licieuse !"
+  _description: Une bouteille qui a l'air delicieuse !

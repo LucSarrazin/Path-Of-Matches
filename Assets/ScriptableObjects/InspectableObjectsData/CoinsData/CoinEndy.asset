@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoinEndy
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece de Endy
-  _description: "Une pi\xE8ce d\xE9corative d'un d\xE9veloppeur du jeu"
+  _description: Une piece decorative d'un developpeur du jeu
