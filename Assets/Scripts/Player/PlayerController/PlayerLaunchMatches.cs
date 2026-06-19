@@ -105,34 +105,6 @@ public class PlayerLaunchMatches : MonoBehaviour
             handAnimator.SetBool("Throw", false);
         }
 
-        //if (gotMatches)
-        //{
-        //    timeBeforeDisable -= Time.deltaTime;
-
-        //    if (timeBeforeDisable <= timeBeforeEndAnimation)
-        //    {
-        //        Launch(2f);
-        //        gotMatches = false;
-        //        charging = false;
-        //        _autoReleased = true;
-        //        handMatches.SetActive(false);
-        //    }
-        //    if (timeBeforeDisable < 0f)
-        //    {
-        //        timeBeforeDisable = 15f;
-        //        cameraShake.StopShakeMatches();
-        //        //NumberOfMatches--;
-        //        //Launch(1f);
-        //        //handMatches.SetActive(false);
-        //        //gotMatches = false;
-        //        //charging = false;
-        //        //_autoReleased = true;
-        //        handAnimator.SetBool("Throw", true);
-        //        handAnimator.SetBool("Take", false);
-        //        StartCoroutine("TimeDisable");
-        //    }
-        //}
-
         if (gotMatches)
         {
             if (oneTimeSound == false)

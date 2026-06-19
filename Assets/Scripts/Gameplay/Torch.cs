@@ -63,12 +63,13 @@ public class Torch : MonoBehaviour
             //Debug.Log("Matches touch the torch");
             /* Save here : allow re-save on another fireCamp */
             /* try by sending fire camp position */
-            if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform, false); }
 
             if (!oneTime)
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
+                if (_allowSave) { GameEvents.OnAutoSaveRequested?.Invoke(this.transform, false); }
+
                 if (_particle != null)
                 {
                     _particle.SetActive(true);
@@ -79,13 +80,11 @@ public class Torch : MonoBehaviour
                     _meshRenderer.material.SetFloat("_EffectTime", 0);
                 }
 
-
                 if (_safeZoneTorch == false)
                 {
                     StartCoroutine(waitBeforeTurningOff());
                 }
                 
-
                 if (_torchDestroyFog == true)
                 {
                     _fogZone.disableFog();

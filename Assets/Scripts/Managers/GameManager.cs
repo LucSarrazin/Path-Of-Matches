@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        //saveSystem.DeleteSave(); 
+        GameEvents.OnDeleteSaveRequested?.Invoke();
     }
 }
 

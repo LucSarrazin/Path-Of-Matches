@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: e06fe1c676ddf2843aa744ebd05d4101, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -286,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42161e80e163e2f4a9597305cf5e48b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Torch
-  _allowSave: 0
+  _allowSave: 1
   _colorOff: {fileID: 0}
   _colorOn: {fileID: 0}
   _particle: {fileID: 3014989450904127573}
@@ -297,6 +301,9 @@ MonoBehaviour:
   _timeForDisapearing: 0
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  onDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &6689432472975350123
 Rigidbody:
   m_ObjectHideFlags: 0
