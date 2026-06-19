@@ -24,6 +24,8 @@ public class Torch : MonoBehaviour
     [SerializeField] private float _timeForDisapearing;
     [SerializeField] private FogZone _fogZone;
     [SerializeField] private Renderer _meshRenderer;
+    [SerializeField] private AudioSource _audio;
+
     public UnityEvent onDestroyed;
     private float timer;
     //private SkinnedMeshRenderer _skinnedMeshRenderer;
@@ -45,6 +47,8 @@ public class Torch : MonoBehaviour
         {
             _particle.SetActive(false);
         }
+
+        if (_audio == null) _audio = GetComponentInChildren<AudioSource>();
     }
 
     void Update()
@@ -75,6 +79,8 @@ public class Torch : MonoBehaviour
                 if (_particle != null)
                 {
                     _particle.SetActive(true);
+                    _audio.Play();
+                    Debug.Log($"Try Play {_audio.gameObject.name}"); 
                 }
                 if (_colorOn != null)
                 {
@@ -102,6 +108,9 @@ public class Torch : MonoBehaviour
         if (_particle != null)
         {
             _particle.SetActive(false);
+            _audio.Stop();
+
+            Debug.Log($"Try Stop {_audio.gameObject.name}"); 
         }
         if (_colorOff != null)
         {

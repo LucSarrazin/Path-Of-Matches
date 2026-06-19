@@ -1786,6 +1786,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 23.173
       objectReference: {fileID: 0}
+    - target: {fileID: 6160900073261324565, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6160900073261324565, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+      propertyPath: MaxDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747465514064373904, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747465514064373904, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747465514064373904, guid: 88f0c92ef60d23d4b8c90511c355eb10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1910,6 +1930,7 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  _audio: {fileID: 0}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -3292,6 +3313,7 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  _audio: {fileID: 0}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -3763,10 +3785,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: feu-de-camp
       objectReference: {fileID: 0}
-    - target: {fileID: 292489707442442340, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1100269716382993118, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.53239
@@ -3807,22 +3825,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3014989450904127573, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8399512626107879811, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8490320741656223228, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
       propertyPath: _playerReferences
       value: 
       objectReference: {fileID: 1411946600}
-    - target: {fileID: 8975806000343249646, guid: 0cf6eb6a31c3a0b45af82fcecb519f8a, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4261,6 +4267,7 @@ MonoBehaviour:
   _timeForDisapearing: 5
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  _audio: {fileID: 0}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -4387,31 +4394,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10.061074
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.0971704
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.4
+      value: 2.2367427
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7539419
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.6569411
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4419,7 +4426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 82.134
       objectReference: {fileID: 0}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4449,6 +4456,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1029454489}
   m_SourcePrefab: {fileID: 100100000, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+--- !u!114 &1718691608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 786202818093299730, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+  m_PrefabInstance: {fileID: 3666019734731273751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1721731967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,6 +4908,7 @@ MonoBehaviour:
   _timeForDisapearing: 0
   _fogZone: {fileID: 0}
   _meshRenderer: {fileID: 0}
+  _audio: {fileID: 0}
   onDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -5624,6 +5643,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6592312826821218084, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7019608
+      objectReference: {fileID: 0}
     - target: {fileID: 7090120721057209756, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5857,6 +5880,10 @@ PrefabInstance:
       propertyPath: _forceSlider
       value: 
       objectReference: {fileID: 398294198}
+    - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: _saveComplete
+      value: 
+      objectReference: {fileID: 1718691608}
     - target: {fileID: 1110651210599042169, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: _textNameObject
       value: 
