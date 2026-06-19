@@ -6173,6 +6173,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: blinkingAnimation
+      value: 
+      objectReference: {fileID: 2125731685}
+    - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _interactibleFocusSprite
       value: 
       objectReference: {fileID: 2125731684}
@@ -18359,6 +18363,11 @@ GameObject:
 --- !u!1 &2125731684 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1602575526143657864, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+  m_PrefabInstance: {fileID: 2125731680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2125731685 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7266297330702208539, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
   m_PrefabInstance: {fileID: 2125731680}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3684217165158841201
