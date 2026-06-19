@@ -16,10 +16,11 @@ public class DeadZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player is in Dead zone"); 
             if (_coroutine != null) StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(WaitBeforeDie());
         }
