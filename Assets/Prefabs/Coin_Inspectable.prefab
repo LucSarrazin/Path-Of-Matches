@@ -101,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3777403452349603450}
   - component: {fileID: 6211424107875127768}
+  - component: {fileID: 4764243884646816803}
   m_Layer: 6
   m_Name: SFX
   m_TagString: Untagged
@@ -220,6 +221,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!164 &4764243884646816803
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250527597702593472}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -10000
+  m_RoomHF: -10000
+  m_DecayTime: 1
+  m_DecayHFRatio: 1
+  m_ReflectionsLevel: -2602
+  m_ReverbLevel: 200
+  m_ReverbDelay: 0.011
+  m_Diffusion: 0
+  m_Density: 0
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 0
 --- !u!1 &8303236191510728999
 GameObject:
   m_ObjectHideFlags: 0

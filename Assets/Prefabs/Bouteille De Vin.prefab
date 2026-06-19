@@ -123,17 +123,17 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6175117694442201621, guid: 188702bd460489a4ab025fa2cad11368, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5a51594de44423640b2da96d58e8db4e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 30
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 2
+  MaxDistance: 1.01
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -217,20 +217,20 @@ AudioReverbFilter:
   m_GameObject: {fileID: 5358098364870297830}
   m_Enabled: 1
   m_DryLevel: 0
-  m_Room: 0
+  m_Room: -1000
   m_RoomHF: 0
-  m_DecayTime: 1
-  m_DecayHFRatio: 0.5
-  m_ReflectionsLevel: -10000
-  m_ReverbLevel: 0
-  m_ReverbDelay: 0.04
+  m_DecayTime: 2.91
+  m_DecayHFRatio: 1.3
+  m_ReflectionsLevel: -602
+  m_ReverbLevel: -302
+  m_ReverbDelay: 0.022
   m_Diffusion: 100
   m_Density: 100
   m_HFReference: 5000
   m_RoomLF: 0
   m_LFReference: 250
   m_ReflectionsDelay: 0
-  m_ReverbPreset: 27
+  m_ReverbPreset: 9
 --- !u!1001 &1882383986092442706
 PrefabInstance:
   m_ObjectHideFlags: 0

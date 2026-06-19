@@ -4,6 +4,8 @@ public class RiddleBridge : MonoBehaviour
 {
     [SerializeField] private GameObject rope;
     [SerializeField] private float rotationSpeed = 100f;
+    [SerializeField] private AudioSource _audioSource; 
+    [SerializeField] private AudioClip _fallingBridge; 
 
     private Quaternion targetRotation;
 
@@ -16,6 +18,8 @@ public class RiddleBridge : MonoBehaviour
     {
         if (rope == null)
         {
+            _audioSource.PlayOneShot(_fallingBridge);
+
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime
             );
         }

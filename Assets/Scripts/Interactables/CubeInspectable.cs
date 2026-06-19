@@ -7,7 +7,8 @@ public class CubeInspectable : Inspectable
     protected override void Awake()
     {
         base.Awake();
-        _audioSrc = GetComponent<AudioSource>();
+        if (_audioSrc == null) _audioSrc = GetComponent<AudioSource>();
+
     }
 
     public override void Interact()
