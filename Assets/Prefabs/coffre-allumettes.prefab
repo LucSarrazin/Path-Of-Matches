@@ -222,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391196342151762747}
   - component: {fileID: 8802826867272016266}
+  - component: {fileID: 1101877618390505163}
   m_Layer: 6
   m_Name: SFX_Coffre
   m_TagString: Untagged
@@ -341,6 +342,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!164 &1101877618390505163
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067666799439880595}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -10000
+  m_RoomHF: -10000
+  m_DecayTime: 1
+  m_DecayHFRatio: 1
+  m_ReflectionsLevel: -2602
+  m_ReverbLevel: 200
+  m_ReverbDelay: 0.011
+  m_Diffusion: 0
+  m_Density: 0
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 0
 --- !u!1 &6034955798625692123
 GameObject:
   m_ObjectHideFlags: 0

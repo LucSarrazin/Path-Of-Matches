@@ -79,6 +79,8 @@ public class Inspectable : Interactable
         _playerReferences.Light.SetActive(true);
 
         UIManager.Instance.ToggleInspectionPanel(_data);
+        Interact();
+
     }
 
     public void Close()
