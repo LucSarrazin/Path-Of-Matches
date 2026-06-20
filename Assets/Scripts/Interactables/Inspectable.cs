@@ -1,5 +1,6 @@
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Inspectable : Interactable
@@ -19,6 +20,7 @@ public class Inspectable : Interactable
     [Header("DATAS :")]
     [Tooltip("Datas to display on UI inspectable panel")]
     [SerializeField] private InspectableObjectData _data;
+    [SerializeField] private UnityEvent _OpenPage,_ClosingPage;
 
     /* --- Private variables --- */
 
@@ -88,7 +90,7 @@ public class Inspectable : Interactable
 
         UIManager.Instance.ToggleInspectionPanel(_data);
         Interact();
-
+        _OpenPage?.Invoke();
     }
 
     public void Close()
@@ -100,6 +102,7 @@ public class Inspectable : Interactable
 
         UIManager.Instance.ToggleInspectionPanel(_data);
         _collider.enabled = true;
+        _ClosingPage?.Invoke();
     }
 
     // Interact() pour compatibilit�

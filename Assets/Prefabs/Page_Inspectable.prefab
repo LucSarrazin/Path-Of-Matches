@@ -207,8 +207,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.2, z: 0.3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.78253174, y: 0.10328063, z: 0.5228424}
+  m_Center: {x: 0.0038146973, y: 0.048359677, z: 0.00038909912}
 --- !u!114 &2199986784327774147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +230,12 @@ MonoBehaviour:
   _rotationReturnSpeed: 5
   _force: 20
   _data: {fileID: 11400000, guid: aa124ff79ed44ed4ca5939a43da0dfed, type: 2}
+  _OpenPage:
+    m_PersistentCalls:
+      m_Calls: []
+  _ClosingPage:
+    m_PersistentCalls:
+      m_Calls: []
   _audioSrc: {fileID: 6121581592392329493}
 --- !u!1001 &9143974525221562218
 PrefabInstance:
