@@ -19,7 +19,7 @@ public class OpenTuto : MonoBehaviour
 
         _playerReferences.PlayerControllerSM.ActionStateMachine.TransitionTo(_playerReferences.PlayerControllerSM.ActionStates.Interact);
 
-        Quaternion newRotationQuaternion = Quaternion.Euler(0, 0, 150); /*Initial rotation of the page to be instantly readable*/
+        Quaternion newRotationQuaternion = Quaternion.Euler(0, 0, 110); /*Initial rotation of the page to be instantly readable*/
 
         _pageInstructions.transform.rotation = newRotationQuaternion; 
     }
