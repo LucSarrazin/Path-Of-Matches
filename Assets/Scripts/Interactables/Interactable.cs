@@ -41,7 +41,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
         if (_playerReferences == null)
         {
             _playerReferences = FindAnyObjectByType<PlayerReferences>();
-            Debug.Log("Please Add PlayerReferences in inspector to avoid use of FindAnyObject");
+            //Debug.Log("Please Add PlayerReferences in inspector to avoid use of FindAnyObject");
         }
 
         _flammableLayer = LayerMask.NameToLayer("Flammable");

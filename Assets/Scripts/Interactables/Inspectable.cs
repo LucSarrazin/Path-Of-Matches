@@ -1,5 +1,6 @@
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Inspectable : Interactable
@@ -19,6 +20,7 @@ public class Inspectable : Interactable
     [Header("DATAS :")]
     [Tooltip("Datas to display on UI inspectable panel")]
     [SerializeField] private InspectableObjectData _data;
+    [SerializeField] private UnityEvent _OpenPage,_ClosingPage;
 
     /* --- Private variables --- */
 
@@ -44,7 +46,8 @@ public class Inspectable : Interactable
 
     private void Update()
     {
-        _offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        //_offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        _offset = _playerReferences.PlayerViewCamera.transform.position + _playerReferences.PlayerViewCamera.transform.forward * 0.8f;
 
         if (_flipFlop)
         {
@@ -53,12 +56,20 @@ public class Inspectable : Interactable
 
         if (_isDragging)
         {
+            // Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+            // float rotationX = mouseDelta.y * _force * Time.unscaledDeltaTime;
+            // float rotationY = -mouseDelta.x * _force * Time.unscaledDeltaTime;
+            //
+            // Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0f);
+            // transform.rotation = rotation * transform.rotation;
+            
             Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
             float rotationX = mouseDelta.y * _force * Time.unscaledDeltaTime;
             float rotationY = -mouseDelta.x * _force * Time.unscaledDeltaTime;
 
-            Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0f);
-            transform.rotation = rotation * transform.rotation;
+            transform.Rotate(Camera.main.transform.up, rotationY, Space.World);
+            transform.Rotate(Camera.main.transform.right, rotationX, Space.World);
         }
 
         else if (!_flipFlop)
@@ -79,6 +90,8 @@ public class Inspectable : Interactable
         _playerReferences.Light.SetActive(true);
 
         UIManager.Instance.ToggleInspectionPanel(_data);
+        Interact();
+        _OpenPage?.Invoke();
     }
 
     public void Close()
@@ -90,10 +103,11 @@ public class Inspectable : Interactable
 
         UIManager.Instance.ToggleInspectionPanel(_data);
         _collider.enabled = true;
+        _ClosingPage?.Invoke();
     }
 
-    // Interact() pour compatibilité
-    public override void Interact() { }
+    // Interact() pour compatibilitï¿½
+    public override void Interact() { base.Interact(); }
 
     public void SetDragging(bool value)
     {

@@ -73,6 +73,9 @@ public class Torch : MonoBehaviour
             {
                 oneTime = true;
                 _pointLight.SetActive(true);
+                _audioSourceLoop.PlayOneShot(_igniteClip); 
+                _audioSourceLoop.Play();
+                //Debug.Log("Try Play sound");
 
                 /* Save here : allow re-save on another fireCamp */
                 /* try by sending fire camp position */
@@ -82,9 +85,7 @@ public class Torch : MonoBehaviour
                 if (_particle != null)
                 {
                     _particle.SetActive(true);
-                    _audioSourceLoop.PlayOneShot(_igniteClip); 
-                    _audioSourceLoop.Play();
-                    Debug.Log($"Try Play {_audioSourceLoop.gameObject.name}"); 
+                    //Debug.Log($"Try Play {_audioSourceLoop.gameObject.name}"); 
                 }
                 if (_colorOn != null)
                 {

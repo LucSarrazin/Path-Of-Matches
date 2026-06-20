@@ -18,7 +18,7 @@ public class PlayerControls : MonoBehaviour
     public bool WantToRun => _wantToRun;
 
     private bool _wantToInteract;
-    public bool WantToInteract => _wantToInteract;
+    public bool WantToInteract { get => _wantToInteract; set => _wantToInteract = value; }
 
     private bool _wantToThrow;
     public bool WantToThrow => _wantToThrow;

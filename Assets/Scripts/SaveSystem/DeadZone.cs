@@ -4,6 +4,8 @@ using UnityEngine;
 public class DeadZone : MonoBehaviour
 {
     [SerializeField] private BoxCollider _collider;
+    [SerializeField] private AudioSource _audioSrc;
+    [SerializeField] private AudioClip _bodyFallClip; 
     private float _delay = 2f; 
 
     private Coroutine _coroutine;
@@ -14,12 +16,15 @@ public class DeadZone : MonoBehaviour
         {
             _collider = GetComponent<BoxCollider>();         
         }
+
+        if (_audioSrc == null) _audioSrc = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player is in Dead zone"); 
             if (_coroutine != null) StopCoroutine(_coroutine);
             _coroutine = StartCoroutine(WaitBeforeDie());
         }
@@ -28,6 +33,8 @@ public class DeadZone : MonoBehaviour
     private IEnumerator WaitBeforeDie()
     {
         float timer = 0f;
+        _audioSrc.PlayOneShot(_bodyFallClip);
+        _audioSrc.Play();
 
         while (timer < _delay)
         {

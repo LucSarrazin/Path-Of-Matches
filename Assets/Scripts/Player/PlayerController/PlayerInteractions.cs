@@ -9,7 +9,7 @@ public class PlayerInteractions : MonoBehaviour
     private float _checkDistance;
 
     private Interactable _currentInteractable;
-    public Interactable CurrentInteractable => _currentInteractable;
+    public Interactable CurrentInteractable { get => _currentInteractable; set => _currentInteractable = value; }
 
     private void Awake()
     {
