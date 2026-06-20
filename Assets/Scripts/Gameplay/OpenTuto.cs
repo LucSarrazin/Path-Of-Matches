@@ -17,12 +17,9 @@ public class OpenTuto : MonoBehaviour
 
         _playerReferences.PlayerInteractions.CurrentInteractable = _pageInstructions;
 
-        // À remplacer par ton vrai accès à la state machine d'action
-        _playerReferences.PlayerControllerSM.ActionStateMachine.TransitionTo(
-            _playerReferences.PlayerControllerSM.ActionStates.Interact);
+        _playerReferences.PlayerControllerSM.ActionStateMachine.TransitionTo(_playerReferences.PlayerControllerSM.ActionStates.Interact);
 
-        //Vector3 newRotation = new Vector3(0, 0, 90);
-        Quaternion newRotationQuaternion = Quaternion.Euler(0, 0, 150);
+        Quaternion newRotationQuaternion = Quaternion.Euler(0, 0, 150); /*Initial rotation of the page to be instantly readable*/
 
         _pageInstructions.transform.rotation = newRotationQuaternion; 
     }
