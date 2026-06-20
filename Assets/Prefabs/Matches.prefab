@@ -524,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cefe8bb04051b4d95b373cbcea623d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafeZone
+  matches: 1
 --- !u!1001 &7610413066582869456
 PrefabInstance:
   m_ObjectHideFlags: 0

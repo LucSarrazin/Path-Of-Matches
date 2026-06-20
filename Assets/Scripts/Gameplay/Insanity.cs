@@ -9,6 +9,7 @@ public class Insanity : MonoBehaviour
     [SerializeField] private int insanityLvl;
     [SerializeField] public int addInsanity = 3;
     [SerializeField] public int loseInsanity = 3;
+    [SerializeField] public int loseInsanityMatches = 1;
 
     [Header("[ANIMATION]")]
     [SerializeField] private Animator animator;
@@ -109,10 +110,15 @@ public class Insanity : MonoBehaviour
         //allows to take a break between each insanity level update
         yield return new WaitForSeconds(2.5f);
 
-        if (DarkZone.IsInDarkZone && SafeZone.IsInSafeZone == false)
+        if (DarkZone.IsInDarkZone && SafeZone.IsInSafeZone == false && SafeZone.IsInMatcheZone == false)
             IncreaseInsanity(addInsanity);
         else
-            DecreaseInsanity(loseInsanity);
+        {
+            if (SafeZone.IsInMatcheZone && SafeZone.IsInSafeZone == false)
+                DecreaseInsanity(loseInsanityMatches);
+            else
+                DecreaseInsanity(loseInsanity);
+        }
 
         wait = false;
     }
