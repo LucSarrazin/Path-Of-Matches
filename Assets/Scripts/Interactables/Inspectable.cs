@@ -46,7 +46,8 @@ public class Inspectable : Interactable
 
     private void Update()
     {
-        _offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        //_offset = Camera.main.transform.position + Camera.main.transform.forward * 0.8f;
+        _offset = _playerReferences.PlayerViewCamera.transform.position + _playerReferences.PlayerViewCamera.transform.forward * 0.8f;
 
         if (_flipFlop)
         {
@@ -106,7 +107,7 @@ public class Inspectable : Interactable
     }
 
     // Interact() pour compatibilit�
-    public override void Interact() { }
+    public override void Interact() { base.Interact(); }
 
     public void SetDragging(bool value)
     {

@@ -12,17 +12,6 @@ public class Watch : MonoBehaviour
     public void SetBoolSwitch(bool value) { switched = value; }
     public bool GetBoolTakeMatches() { return isTakingMatches; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void openWatch()
     {

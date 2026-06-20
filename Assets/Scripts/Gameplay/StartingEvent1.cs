@@ -19,8 +19,8 @@ public class StartingEvent1 : MonoBehaviour
         if (onetime != true)
         {
             _animatorEye.SetBool("Start", true);
-            resetCamera.ResetCameraPosition();
-            cam.rotation = new Quaternion(0, 0, 0, 1);
+            //resetCamera.ResetCameraPosition();
+            //cam.rotation = new Quaternion(0, 0, 0, 1);
             _playerReferences.PlayerMovements.CanMove(false);
             _playerReferences.PlayerMovements.CanLook(false);
             timelineObject.SetActive(true);

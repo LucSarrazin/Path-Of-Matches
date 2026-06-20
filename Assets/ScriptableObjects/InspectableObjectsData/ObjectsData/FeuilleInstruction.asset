@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7019c7559bcd846bbf7dacf177b503, type: 3}
   m_Name: FeuilleInstruction
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
-  _name: Feuille des instruction
-  _description: Instruction
+  _name: Lettre
+  _description: 'Une etrange lettre d''un predecesseur... '
