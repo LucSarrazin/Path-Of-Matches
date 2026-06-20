@@ -22,7 +22,11 @@ public class changeMaterial : MonoBehaviour
 
         for (int i = 0; i < mats.Length; i++)
         {
-            mats[i] = _material;
+            Debug.Log("Material " + i + " est : " + mats[i].name + " ou ça : " +  mats[i]);
+            if (i == 6)
+            {
+                mats[i] = _material;
+            }
         }
 
         renderer.materials = mats;
