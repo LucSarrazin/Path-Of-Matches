@@ -75,6 +75,7 @@ public class Torch : MonoBehaviour
                 _pointLight.SetActive(true);
                 _audioSourceLoop.PlayOneShot(_igniteClip); 
                 _audioSourceLoop.Play();
+                //Debug.Log("Try Play sound");
 
                 /* Save here : allow re-save on another fireCamp */
                 /* try by sending fire camp position */

@@ -5693,6 +5693,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7018404315205342376, guid: ef5595a30ca5df64ab0b1b44ab18940b, type: 3}
   m_PrefabInstance: {fileID: 7446176091537885706}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &655326780 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 865153957810296306, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
+  m_PrefabInstance: {fileID: 1817719300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658633230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 224648761798213465, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
@@ -15605,7 +15610,7 @@ PrefabInstance:
     - target: {fileID: 545781035937418463, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
       propertyPath: _audioSourceLoop
       value: 
-      objectReference: {fileID: 1961417883}
+      objectReference: {fileID: 655326780}
     - target: {fileID: 629893357078949857, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -15625,6 +15630,10 @@ PrefabInstance:
     - target: {fileID: 701483627328746200, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].time
       value: 0.5809158
+      objectReference: {fileID: 0}
+    - target: {fileID: 701483627328746200, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 701483627328746200, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
@@ -17308,11 +17317,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cbe16f17a4d1f34f969c8309d9fa022, type: 3}
---- !u!82 &1961417883 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 701483627328746200, guid: ab043a9328cfd2f4bbca595d0701a537, type: 3}
-  m_PrefabInstance: {fileID: 1817719300}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1982405497
 PrefabInstance:
   m_ObjectHideFlags: 0

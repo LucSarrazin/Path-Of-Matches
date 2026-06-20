@@ -42,7 +42,7 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("EXIT : " + other.name);
+        //Debug.Log("EXIT : " + other.name);
         //Check if the player is not in a safe area
         if (other.CompareTag("Player") && playerInside)
         {

@@ -1202,7 +1202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
       propertyPath: m_Name
-      value: Page_Inspectable
+      value: Page_instructions_torche
       objectReference: {fileID: 0}
     - target: {fileID: 6121581592392329493, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
       propertyPath: m_Resource
@@ -1212,11 +1212,53 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: cf214c6013f49bb4c992f0de811f97cf, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2199986784327774147, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270276552}
   m_SourcePrefab: {fileID: 100100000, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+--- !u!1 &270276550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+  m_PrefabInstance: {fileID: 270276549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &270276551 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6121581592392329493, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+  m_PrefabInstance: {fileID: 270276549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &270276552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270276550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e70b8094e840964bbed137dcbeb7881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PageInspectable
+  _playerReferences: {fileID: 328344791}
+  _focusSpriteDistance: 0.5
+  _focusSpriteSize: 0.018
+  _freezeMovement: 1
+  _freezeRotationLook: 1
+  _moveSpeed: 5
+  _rotationReturnSpeed: 5
+  _force: 20
+  _data: {fileID: 11400000, guid: b316b9be98dcb6342a36a12aa5134757, type: 2}
+  _OpenPage:
+    m_PersistentCalls:
+      m_Calls: []
+  _ClosingPage:
+    m_PersistentCalls:
+      m_Calls: []
+  _audioSrc: {fileID: 270276551}
 --- !u!1001 &321212659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1915,17 +1957,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
       propertyPath: m_Name
-      value: Page_Inspectable (1)
+      value: Page_instructions2
       objectReference: {fileID: 0}
+    - target: {fileID: 6121581592392329493, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: d19df359abaa9f143939bd5505d13126, type: 3}
     - target: {fileID: 7576314354013830126, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: deaed47e07a56d44ba0b9a4783aa5474, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2199986784327774147, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 404031484}
   m_SourcePrefab: {fileID: 100100000, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+--- !u!1 &404031482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020417453935729682, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+  m_PrefabInstance: {fileID: 404031481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &404031483 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6121581592392329493, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+  m_PrefabInstance: {fileID: 404031481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &404031484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404031482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e70b8094e840964bbed137dcbeb7881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PageInspectable
+  _playerReferences: {fileID: 328344791}
+  _focusSpriteDistance: 0.7
+  _focusSpriteSize: 0.018
+  _freezeMovement: 1
+  _freezeRotationLook: 1
+  _moveSpeed: 5
+  _rotationReturnSpeed: 5
+  _force: 20
+  _data: {fileID: 11400000, guid: 207590a86d34906449d574e9ea8157a6, type: 2}
+  _OpenPage:
+    m_PersistentCalls:
+      m_Calls: []
+  _ClosingPage:
+    m_PersistentCalls:
+      m_Calls: []
+  _audioSrc: {fileID: 404031483}
 --- !u!114 &420462289 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7493778552472391659, guid: 760617f1ba13ddb4c8439a81cb0cc28d, type: 3}
