@@ -510,7 +510,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 420462289}
     - target: {fileID: 6306688012062452363, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: _saveSystem
+      value: 
+      objectReference: {fileID: 420462289}
+    - target: {fileID: 6306688012062452363, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
       propertyPath: playerReferences
+      value: 
+      objectReference: {fileID: 328344791}
+    - target: {fileID: 6306688012062452363, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
+      propertyPath: _playerReferences
       value: 
       objectReference: {fileID: 328344791}
     - target: {fileID: 7524593395992713812, guid: 1e0f828cf47795544a967f44aa4fdc97, type: 3}
