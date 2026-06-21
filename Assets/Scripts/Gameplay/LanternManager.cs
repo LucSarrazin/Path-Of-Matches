@@ -4,9 +4,10 @@ using UnityEngine;
 public class LanternManager : MonoBehaviour
 {
     public GameObject[] lantern;
-    private string goodCode;
-    private string actualCode;
-    public string[] LanternCode;
+    [SerializeField] private string goodCode;
+    [SerializeField] private string actualCode;
+    [SerializeField] private bool oneTime = false;
+    [SerializeField] private Door door;
     public static LanternManager instance;
     private void Awake()
     {
@@ -28,7 +29,14 @@ public class LanternManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (int.Parse(actualCode) >= 100)
+        {
+            if (oneTime == false)
+            {
+                oneTime = true;
+                LookForCode();
+            }
+        }
     }
 
     public void LookForCode()
@@ -36,6 +44,7 @@ public class LanternManager : MonoBehaviour
         if (actualCode == goodCode)
         {
             Debug.Log("BOn code");
+            door.OpenDoor();
         }
         else
         {
@@ -44,13 +53,14 @@ public class LanternManager : MonoBehaviour
             {
                 lantern[i].GetComponent<Lantern>().TurnOff();
             }
+            oneTime = false;
+            actualCode = "";
         }
     }
 
     public void AddCode(string code)
     {
-        LanternCode = new string[] { code };
-        actualCode = LanternCode.ToString();
+        actualCode += code;
         Debug.Log(actualCode);
     }
 }
