@@ -34,6 +34,13 @@ public class WalkingBehind : ScreamerBehaviour
     {
         gameObject.transform.LookAt(cam.transform);
         gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+        
+        float distance1 = Vector3.Distance(transform.position, cam.transform.position);
+        if (distance1 <= 3f)
+        {
+            Destroy(gameObject);
+        }
+        
         if (IsVisible())
         {
             target.GetComponent<Renderer>().material.color = Color.green;

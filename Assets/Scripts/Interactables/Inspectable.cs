@@ -32,6 +32,7 @@ public class Inspectable : Interactable
     private bool _isDragging;
     private Vector2 _screenSize;
     private Vector3 _startPosition;
+    private Quaternion _startRotation;
     private Vector3 _offset;
     private BoxCollider _collider;
 
@@ -41,7 +42,7 @@ public class Inspectable : Interactable
         base.Awake();
         _collider = GetComponent<BoxCollider>();
         _startPosition = transform.position;
-
+        _startRotation = transform.rotation;
     }
 
     private void Update()
@@ -75,7 +76,7 @@ public class Inspectable : Interactable
         else if (!_flipFlop)
         {
             transform.position = Vector3.Lerp(transform.position, _startPosition, _moveSpeed * Time.unscaledDeltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, _rotationReturnSpeed * Time.unscaledDeltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _startRotation, _rotationReturnSpeed * Time.unscaledDeltaTime);
 
         }
     }
