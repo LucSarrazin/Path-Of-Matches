@@ -18,12 +18,12 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        if (audioWakeUp != null && Insanity.isDead)
-        {
-            audioSource.PlayOneShot(audioWakeUp, _volume);
-            Insanity.isDead = false;
-        }
-    }
+    //private void Start()
+    //{
+    //    if (audioWakeUp != null /*&& Insanity.isDead*/)
+    //    {
+    //        audioSource.PlayOneShot(audioWakeUp, _volume);
+    //        //Insanity.isDead = false;
+    //    }
+    //}
 }

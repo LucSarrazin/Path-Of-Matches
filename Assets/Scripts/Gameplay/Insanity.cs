@@ -15,7 +15,7 @@ public class Insanity : MonoBehaviour
     [SerializeField] private Animator animator;
 
     private bool wait;
-    public static bool isDead;
+    //[SerializeField] public static bool isDead;
 
     public int InsanityLvl
     {
@@ -45,11 +45,11 @@ public class Insanity : MonoBehaviour
         }
 
         //Game ends if the madness level is above 4
-        if (insanityLvl == 150 && !isDead)
+        if (insanityLvl >= 150/* && !isDead*/)
         {
-            isDead = true;
+            //isDead = true;
+            Debug.Log("Try play Death event");
             GameEvents.OnPlayerDeath?.Invoke(); //Add Event on Player's Death
-            Debug.Log("Death");
         }
 
         if (insanityLvl >= 70 && insanityLvl < 90)
