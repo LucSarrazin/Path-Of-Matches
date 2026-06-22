@@ -29,6 +29,8 @@ public class PlayerLaunchMatches : MonoBehaviour
     private bool _autoReleased = false; // flag : allumette d�j� rel�ch�e automatiquement
     public bool AutoReleased => _autoReleased;
 
+    public Watch LeftHand => leftHand;
+
     // Et une m�thode pour le reset proprement depuis l'ext�rieur
     public void ConsumeAutoRelease()
     {
@@ -177,7 +179,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             }
             else
             {
-                if (gotMatches == true && !leftHand.IsTakingMatches)
+                if (gotMatches == true)
                 {
                     handMatches.SetActive(false);
                     gotMatches = false;
@@ -186,7 +188,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     Launch(Force, throwMatches);
                     charging = false;
                 }
-                else if (gotMatches == false && !leftHand.IsTakingMatches)
+                else if (gotMatches == false)
                 {
                     StartCoroutine(Take());
                 }
