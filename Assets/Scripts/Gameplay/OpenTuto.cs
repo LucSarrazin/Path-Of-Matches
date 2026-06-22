@@ -8,7 +8,10 @@ public class OpenTuto : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(OpenAfterSceneInit());
+        if (!StaticDatasFlags.SceneLoadedAfterDeath)
+        {
+            StartCoroutine(OpenAfterSceneInit());
+        }
     }
 
     private IEnumerator OpenAfterSceneInit()

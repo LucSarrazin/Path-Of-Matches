@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         if (_saveSystem != null)
             _saveSystem.LoadGame();
 
-        if (SessionFlags.SceneLoadedAfterDeath)
+        if (StaticDatasFlags.SceneLoadedAfterDeath)
         {
             if (_playerReferences != null)
             {
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("Try play revive sound");
             }
 
-            SessionFlags.SceneLoadedAfterDeath = false;
+            StaticDatasFlags.SceneLoadedAfterDeath = false;
         }
     }
 
@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
             _playerReferences.blinkingAnimation.SetBool("Death", true);
         }
 
-        SessionFlags.SceneLoadedAfterDeath = true;
-        Debug.Log($"SceneLoadedAfterDeath = {SessionFlags.SceneLoadedAfterDeath}");
+        StaticDatasFlags.SceneLoadedAfterDeath = true;
+        Debug.Log($"SceneLoadedAfterDeath = {StaticDatasFlags.SceneLoadedAfterDeath}");
 
         yield return new WaitForSeconds(3f);
 
