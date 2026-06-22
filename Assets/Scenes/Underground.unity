@@ -1567,7 +1567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2116211323307782827, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: loseInsanityMatches
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: blinkingAnimation

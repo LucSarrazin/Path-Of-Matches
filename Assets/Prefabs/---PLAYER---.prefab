@@ -268,7 +268,7 @@ MonoBehaviour:
   insanityLvl: 0
   addInsanity: 3
   loseInsanity: 3
-  loseInsanityMatches: 1
+  loseInsanityMatches: 0
   animator: {fileID: 6617623540389594115}
 --- !u!1 &1143827471618135109
 GameObject:
