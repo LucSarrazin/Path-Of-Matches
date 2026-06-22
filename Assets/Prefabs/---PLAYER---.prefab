@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControls
   _playerReferences: {fileID: 2416036259461145865}
   _playerMovements: {fileID: 3267270881266013185}
+  _isInspecting: 0
 --- !u!114 &5168306066619233619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +268,7 @@ MonoBehaviour:
   insanityLvl: 0
   addInsanity: 3
   loseInsanity: 3
+  loseInsanityMatches: 1
   animator: {fileID: 6617623540389594115}
 --- !u!1 &1143827471618135109
 GameObject:
@@ -1207,6 +1209,7 @@ MonoBehaviour:
   insanityLvl: 0
   addInsanity: 3
   loseInsanity: 3
+  loseInsanityMatches: 1
   animator: {fileID: 6617623540389594115}
 --- !u!1 &5433676933237780586
 GameObject:
@@ -2337,7 +2340,7 @@ MonoBehaviour:
   gotMatches: 0
   handMatches: {fileID: 2438378509337622012}
   leftHand: {fileID: 2069268969484518207}
-  timeBeforeDisable: 12
+  timeBeforeDisable: 11
   handAnimator: {fileID: 3474453664110717700}
   cameraShake: {fileID: 6354478007880008863}
   audioSource: {fileID: 7733927542765000415}

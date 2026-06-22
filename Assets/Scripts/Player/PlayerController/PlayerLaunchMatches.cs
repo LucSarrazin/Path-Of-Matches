@@ -133,7 +133,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         // Reset timeBeforeDisable s�par�ment, une fois qu'il est �puis�
         if (timeBeforeDisable < 0f)
         {
-            timeBeforeDisable = 12f;
+            timeBeforeDisable = 11f;
             cameraShake.StopShakeMatches();
             ConsumeAutoRelease();
         }
@@ -223,7 +223,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
         Destroy(matchesInstantiate, timeBeforeDisable);
-        timeBeforeDisable = 12f;
+        timeBeforeDisable = 11f;
 
         //Force = 1; //  reset propre
     }
