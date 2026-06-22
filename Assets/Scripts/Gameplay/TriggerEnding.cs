@@ -43,10 +43,13 @@ public class TriggerEnding : MonoBehaviour
 
     private IEnumerator PlayEndScene()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         _endingCanvas.SetActive(true);
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(2f);
         GameEvents.OnDeleteSaveRequested?.Invoke();
+        _playerReferences.PlayerAudioSource.PlayOneShot(_playerReferences.reviveSound);
+
+        yield return new WaitForSeconds(7f);
 
         SceneManager.LoadScene(0);
     }
