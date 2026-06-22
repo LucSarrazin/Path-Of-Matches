@@ -6613,7 +6613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: timeBeforeEndAnimation
-      value: 0.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7479087252637705282, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Room
@@ -15154,6 +15154,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2199986784327774147, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+      propertyPath: _playerReferences
+      value: 
+      objectReference: {fileID: 1607863672}
     - target: {fileID: 3378337141804598902, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 144.292
@@ -15198,6 +15202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Page_Inspectable (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7576314354013830126, guid: d2b9d8d24b59c2a4987d41a411d5090c, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 99e64a7ae0373ca4dad87f7191f94a05, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
