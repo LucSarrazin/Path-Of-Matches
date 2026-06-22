@@ -24,12 +24,15 @@ public class PlayerLaunchMatches : MonoBehaviour
     [SerializeField] private AudioClip matchesFire;
     [SerializeField] private AudioClip burningFinger;
     [SerializeField] private bool oneTimeSound = false;
+    [SerializeField] private bool canThrow = true;
 
     [SerializeField] private float timeBeforeEndAnimation = 4f; 
     private bool _autoReleased = false; // flag : allumette d�j� rel�ch�e automatiquement
     public bool AutoReleased => _autoReleased;
 
     public Watch LeftHand => leftHand;
+
+    public bool CanThrow => canThrow;
 
     // Et une m�thode pour le reset proprement depuis l'ext�rieur
     public void ConsumeAutoRelease()
@@ -141,8 +144,10 @@ public class PlayerLaunchMatches : MonoBehaviour
 
     IEnumerator TimeDisable()
     {
-        yield return new WaitForSeconds(0.7f);
+        canThrow = false;
+        yield return new WaitForSeconds(2f);
         handAnimator.SetBool("Throw", false);
+        canThrow = true;
     }
 
     /* --- Public methods to call in the State Machine --- */
