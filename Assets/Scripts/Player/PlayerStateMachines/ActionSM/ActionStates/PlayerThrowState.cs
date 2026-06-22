@@ -23,6 +23,8 @@ public class PlayerThrowState : PlayerActionState
     }
     public override void Exit()
     {
+        _playerReferences.Controls.DelayThrow();
+
         if (_playerReferences.PlayerLaunchMatches.AutoReleased)
         {
             // L'allumette a déjà été lancée automatiquement, on ne rappelle pas StopThrowCharge

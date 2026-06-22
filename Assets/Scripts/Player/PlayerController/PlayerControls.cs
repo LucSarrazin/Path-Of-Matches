@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -106,16 +107,31 @@ public class PlayerControls : MonoBehaviour
         if (IsInspecting) return;
         if (_wantToSwitchMatch) return;
 
-        if(!CanThrow) return;
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            _wantToThrow = false;
+            return;
+        }
 
         if (context.phase == InputActionPhase.Performed)
         {
+            if (!CanThrow) return;
             _wantToThrow = true;
         }
-        else if (context.phase == InputActionPhase.Canceled)
-        {
-            _wantToThrow = false;
-        }
+    }
+
+    private IEnumerator _delayThrow()
+    {
+        CanThrow = false;
+        Debug.Log("[DELAY] !CanThrow");
+        yield return new WaitForSeconds(0.25f);
+        Debug.Log("[DELAY] CanThrow");
+        CanThrow = true;
+    }
+
+    public void DelayThrow()
+    {
+        StartCoroutine(_delayThrow());
     }
 
     public bool IsDraggingInspectable { get; private set; }
