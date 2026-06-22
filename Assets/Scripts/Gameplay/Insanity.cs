@@ -45,7 +45,7 @@ public class Insanity : MonoBehaviour
         }
 
         //Game ends if the madness level is above 4
-        if (insanityLvl >= 150/* && !isDead*/)
+        if (insanityLvl == 150/* && !isDead*/)
         {
             //isDead = true;
             Debug.Log("Try play Death event");
