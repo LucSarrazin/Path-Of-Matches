@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CoinLuc
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Piece de Luc
-  _description: "Mmh, une pi\xE8ce avec un design que je n\u2019avais jamais vu avant,
-    cette personne doit avoir fait quelque chose de particulier pour \xEAtre repr\xE9sent\xE9e
+  _description: "Mmh, une piece avec un design que je n\u2019avais jamais vu avant,
+    cette personne doit avoir fait quelque chose de particulier pour etre representee
     dessus. C\u2019est pas tout les jours que \xE7a arrive."

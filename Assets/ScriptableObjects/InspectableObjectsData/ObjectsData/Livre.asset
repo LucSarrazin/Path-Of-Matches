@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Livre
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Vieux Livre
-  _description: "Un vieux bouquin. Tellement vieux que toute sa couverture est d\xE9chiquet\xE9e.
-    Il ne sert plus \xE0 rien maintenant."
+  _description: Un vieux bouquin. Tellement vieux que toute sa couverture est dechiquetee.
+    Il ne sert plus a rien maintenant.

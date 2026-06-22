@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7019c7559bcd846bbf7dacf177b503, type: 3}
   m_Name: FeuilleEnigme
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
-  _name: "Po\xE8me"
-  _description: "Je pense que ce r\xE9cit m\u2019indique comment ouvrir cette porte
-    qui me bloque la route. \xC7a sembler \xEAtre un esp\xE8ce de casse t\xEAte."
+  _name: Poeme
+  _description: "Je pense que ce recit m\u2019indique comment ouvrir cette porte
+    qui me bloque la route. \xC7a semble etre un espece de casse-tete."

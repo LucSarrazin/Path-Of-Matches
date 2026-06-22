@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FeuilleBizarre
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Message de mise en garde
-  _description: "c\u2019est la m\xEAme \xE9criture que la feuille que j\u2019ai trouv\xE9
-    \xE0 mon r\xE9veil. Je ferais bien de suivre ces conseils de d\u2019utiliser
-    mes allumettes \xE0 bon escient. Je devrais faire attention \xE0 mon rythme cardiaque,
-    il n\u2019y a pas l\u2019air d\u2019avoir de m\xE9decin aux alentours."
+  _description: "C\u2019est la meme ecriture que la feuille que j\u2019ai trouve
+    a mon reveil. Je ferais bien de suivre ces conseils et d\u2019utiliser mes allumettes
+    a bon escient. Je devrais faire attention a mon rythme cardiaque, il n\u2019y
+    a pas l\u2019air d\u2019avoir de medecin aux alentours."
