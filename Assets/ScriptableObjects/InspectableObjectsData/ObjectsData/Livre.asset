@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7019c7559bcd846bbf7dacf177b503, type: 3}
   m_Name: Livre
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
-  _name: Livre
-  _description: Un livre
+  _name: Vieux Livre
+  _description: "Un vieux bouquin. Tellement vieux que toute sa couverture est d\xE9chiquet\xE9e.
+    Il ne sert plus \xE0 rien maintenant."

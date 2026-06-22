@@ -50,6 +50,7 @@ public class PlayerReferences : MonoBehaviour
     [Header("[PLAYER] SFX SOUNDS CLIPS :")]
     [SerializeField] public AudioClip deathSound;
     [SerializeField] public AudioClip reviveSound;
+    
 
     public Action<float> OnPointerSensitivityChanged; 
 

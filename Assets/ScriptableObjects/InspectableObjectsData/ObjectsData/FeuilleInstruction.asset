@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7019c7559bcd846bbf7dacf177b503, type: 3}
   m_Name: FeuilleInstruction
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
-  _name: Lettre
-  _description: 'Une etrange lettre d''un predecesseur... '
+  _name: Une etrange lettre d'un predecesseur...
+  _description: "Quelqu\u2019un \xE0 laiss\xE9 ces explications pour moi. Je ne sais
+    pas si cette personne est toujours en vie, mais il faudrait que je la retrouve.
+    Elle semblait inqui\xE8tes dans son message. Peut \xEAtre qu\u2019elle en pourra
+    m\u2019en dire plus sur cette \xEEle."

@@ -79,6 +79,7 @@ public class SaveSystem : MonoBehaviour
     // * --- Method : Load --- * //
     public void LoadGame()
     {
+        Debug.Log("LoadGame");
         SaveData data = LoadSave();
         int _currentScene = SceneManager.GetActiveScene().buildIndex;
 

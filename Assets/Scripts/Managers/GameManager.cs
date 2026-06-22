@@ -2,22 +2,38 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private SaveSystem saveSystem;
-    [SerializeField] private PlayerReferences playerReferences;
+    [SerializeField] private SaveSystem _saveSystem;
+    [SerializeField] private PlayerReferences _playerReferences;
 
     private void Start()
     {
-        if (saveSystem == null) { FindAnyObjectByType(typeof(SaveSystem)); }
+        if (_saveSystem == null)
+            _saveSystem = FindAnyObjectByType<SaveSystem>();
 
-        saveSystem.LoadGame();
+        if (_playerReferences == null)
+            _playerReferences = FindAnyObjectByType<PlayerReferences>();
+
+        if (_saveSystem != null)
+            _saveSystem.LoadGame();
+
+        if (SessionFlags.SceneLoadedAfterDeath)
+        {
+            if (_playerReferences != null)
+            {
+                _playerReferences.PlayerAudioSource.PlayOneShot(_playerReferences.reviveSound);
+                _playerReferences.blinkingAnimation.SetBool("Start", true);
+                //Debug.Log("Try play revive sound");
+            }
+
+            SessionFlags.SceneLoadedAfterDeath = false;
+        }
     }
 
     private void OnEnable()
     {
-        GameEvents.OnPlayerDeath += PlayerDeath; 
+        GameEvents.OnPlayerDeath += PlayerDeath;
     }
 
     private void OnDisable()
@@ -30,11 +46,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Death());
     }
 
-    IEnumerator Death()
+    private IEnumerator Death()
     {
-        playerReferences.PlayerAudioSource.PlayOneShot(playerReferences.deathSound);
-        playerReferences.blinkingAnimation.SetBool("Death", true);
+        Debug.Log("Start Death Routine");
+
+        if (_playerReferences != null)
+        {
+            _playerReferences.PlayerAudioSource.PlayOneShot(_playerReferences.deathSound);
+            _playerReferences.blinkingAnimation.SetBool("Death", true);
+        }
+
+        SessionFlags.SceneLoadedAfterDeath = true;
+        Debug.Log($"SceneLoadedAfterDeath = {SessionFlags.SceneLoadedAfterDeath}");
+
         yield return new WaitForSeconds(3f);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -43,4 +69,3 @@ public class GameManager : MonoBehaviour
         GameEvents.OnDeleteSaveRequested?.Invoke();
     }
 }
-

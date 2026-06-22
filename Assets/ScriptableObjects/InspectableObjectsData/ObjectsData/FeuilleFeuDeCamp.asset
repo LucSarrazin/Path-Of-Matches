@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7019c7559bcd846bbf7dacf177b503, type: 3}
   m_Name: FeuilleFeuDeCamp
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
-  _name: Feuille de feu de camp
-  _description: Camp
+  _name: Page de mechanisme
+  _description: "Une page qui semble \xEAtre faite pour m\u2019indiquer comment m\u2019y
+    prendre dans cet environnement et \xE9chapper \xE0 la fameuse \xAB chose \xBB."

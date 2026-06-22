@@ -50,7 +50,7 @@ public class WalkingBehind : ScreamerBehaviour
         else
         {
             target.GetComponent<Renderer>().material.color = Color.red;
-            Debug.Log("Don't See");
+            //Debug.Log("Don't See");
             float distance = Vector3.Distance(transform.position, cam.transform.position);
             if (distance >= stopDistance)
             {
