@@ -3281,6 +3281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: porte_grille-path_of-matches
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 512e6788738dbd249b3215c164faf083, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6406,6 +6410,10 @@ PrefabInstance:
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 337662af9acbd1344a5c2e924d2a1b9a, type: 3}
+    - target: {fileID: 3419594045764809921, guid: 0c7c603c2d4cf1547bc6132c841da02c, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3478926572420734442, guid: 0c7c603c2d4cf1547bc6132c841da02c, type: 3}
       propertyPath: _doorPositionEnd.x
       value: 601.37
