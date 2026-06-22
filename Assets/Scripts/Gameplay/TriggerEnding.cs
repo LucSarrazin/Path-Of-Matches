@@ -28,6 +28,8 @@ public class TriggerEnding : MonoBehaviour
                 blinkingEyes.SetBool("Close", true);
                 _playerReferences.PlayerMovements.CanMove(false);
                 _playerReferences.PlayerMovements.CanLook(false);
+
+                GameEvents.OnDeleteSaveRequested?.Invoke();
             }
         }
     }

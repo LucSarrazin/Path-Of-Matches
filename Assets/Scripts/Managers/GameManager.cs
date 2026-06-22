@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SaveSystem _saveSystem;
     [SerializeField] private PlayerReferences _playerReferences;
 
+    private bool _isDead = false;
+
+
     private void Start()
     {
         if (_saveSystem == null)
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
 
             StaticDatasFlags.SceneLoadedAfterDeath = false;
         }
+
     }
 
     private void OnEnable()
@@ -43,12 +47,15 @@ public class GameManager : MonoBehaviour
 
     private void PlayerDeath()
     {
+        if (_isDead) return;
+        _isDead = true;
+
         StartCoroutine(Death());
     }
 
     private IEnumerator Death()
     {
-        Debug.Log("Start Death Routine");
+        //Debug.Log("Start Death Routine");
 
         if (_playerReferences != null)
         {
@@ -57,7 +64,7 @@ public class GameManager : MonoBehaviour
         }
 
         StaticDatasFlags.SceneLoadedAfterDeath = true;
-        Debug.Log($"SceneLoadedAfterDeath = {StaticDatasFlags.SceneLoadedAfterDeath}");
+        //Debug.Log($"SceneLoadedAfterDeath = {StaticDatasFlags.SceneLoadedAfterDeath}");
 
         yield return new WaitForSeconds(3f);
 
