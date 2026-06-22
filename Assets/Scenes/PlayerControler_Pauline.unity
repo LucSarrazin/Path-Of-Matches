@@ -3821,6 +3821,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: blinkingAnimation
+      value: 
+      objectReference: {fileID: 3666019734731273753}
+    - target: {fileID: 2416036259461145865, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _footstepsAudioSource
       value: 
       objectReference: {fileID: 1029454489}
@@ -3892,6 +3896,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3000
       objectReference: {fileID: 0}
+    - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: throwMatches
+      value: 
+      objectReference: {fileID: 8300000, guid: 8601c61215825804f8de7d2e31cc009e, type: 3}
     - target: {fileID: 7661479801854322475, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_Name
       value: ---PLAYER---
@@ -5479,6 +5487,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!95 &3666019734731273753 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7266297330702208539, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+  m_PrefabInstance: {fileID: 3666019734731273751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4820471296601293808
 PrefabInstance:
   m_ObjectHideFlags: 0

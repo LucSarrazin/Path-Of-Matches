@@ -1638,6 +1638,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: throwMatches
+      value: 
+      objectReference: {fileID: 8300000, guid: 8601c61215825804f8de7d2e31cc009e, type: 3}
+    - target: {fileID: 6891605512323746139, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: timeBeforeEndAnimation
       value: 0
       objectReference: {fileID: 0}

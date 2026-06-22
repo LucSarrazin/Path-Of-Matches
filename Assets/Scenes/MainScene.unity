@@ -15453,7 +15453,7 @@ MonoBehaviour:
   handAnimator: {fileID: 2030287976}
   cameraShake: {fileID: 1631836023}
   audioSource: {fileID: 1631836028}
-  throwMatches: {fileID: 8300000, guid: b11af82ac1c777f4790f9a43eae7bc36, type: 3}
+  throwMatches: {fileID: 8300000, guid: 8601c61215825804f8de7d2e31cc009e, type: 3}
   takeMatches: {fileID: 8300000, guid: b11af82ac1c777f4790f9a43eae7bc36, type: 3}
   matchesFire: {fileID: 8300000, guid: 0838a61faf1213849afa7f676a1f29d0, type: 3}
   burningFinger: {fileID: 8300000, guid: d55412610fee92045a94053ea359b733, type: 3}
