@@ -21,7 +21,7 @@ public class PlayerNoneState : PlayerActionState
     {
         //Debug.Log("[NONE STATE] Update");
 
-        if (_playerReferences.Controls.WantToThrow)
+        if (_playerReferences.Controls.WantToThrow && !_playerReferences.PlayerLaunchMatches.LeftHand.IsTakingMatches)
         {
             _stateMachine.TransitionTo(_actionStates.Throw);
             return;
