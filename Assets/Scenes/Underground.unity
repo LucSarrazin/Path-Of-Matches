@@ -7929,6 +7929,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.17
       objectReference: {fileID: 0}
+    - target: {fileID: 7790681792923912123, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7920216451111379999, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 234.8487
