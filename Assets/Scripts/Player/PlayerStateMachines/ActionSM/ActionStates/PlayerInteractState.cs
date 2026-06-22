@@ -28,6 +28,7 @@ public class PlayerInteractState : PlayerActionState
         if (_inspectable != null)
         {
             _playerReferences.Controls.IsInspecting = true;
+            _playerReferences.Controls.MoveInputs = Vector2.zero;
             _playerReferences.Controls.CanThrow = false;
             _playerReferences.Controls.CanEscape = false;
 
@@ -38,8 +39,8 @@ public class PlayerInteractState : PlayerActionState
 
             _needsToStartInteraction = true;
 
-            /* -- If inspectable : long interaction -- */
-            _isInspecting = true;
+            ///* -- If inspectable : long interaction -- */
+            //_isInspecting = true;
 
             /* -- Reset Hand Animation -- */
             //Un peu schlag ---- A revoir !

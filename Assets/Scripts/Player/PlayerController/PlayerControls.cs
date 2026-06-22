@@ -10,7 +10,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private PlayerMovements _playerMovements;
 
     private Vector2 _moveInputs;
-    public Vector2 MoveInputs => _moveInputs;
+    public Vector2 MoveInputs { get => _moveInputs; set => _moveInputs = value; }
+    //public Vector2 MoveInputs => _moveInputs;
 
     private Vector2 _lookInputs;
     public Vector2 LookInputs => _lookInputs;
@@ -29,7 +30,8 @@ public class PlayerControls : MonoBehaviour
     private bool _wantToSwitchMatch;
     public bool WantToSwitchMatch => _wantToSwitchMatch;
 
-    public bool IsInspecting { get; set; }
+    [SerializeField] private bool _isInspecting;
+    public bool IsInspecting { get => _isInspecting; set => _isInspecting = value; }
 
     private bool _canThrow = true; 
     public bool CanThrow { get => _canThrow ; set => _canThrow = value; }
@@ -52,7 +54,7 @@ public class PlayerControls : MonoBehaviour
 
     public void MoveInputsCallback(InputAction.CallbackContext context)
     {
-        if (IsInspecting) return;
+        if (IsInspecting)   return;
         if (context.phase == InputActionPhase.Performed)
         {
             _moveInputs = context.ReadValue<Vector2>();
