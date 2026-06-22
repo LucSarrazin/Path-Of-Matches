@@ -228,7 +228,7 @@ MonoBehaviour:
   _freezeRotationLook: 1
   _moveSpeed: 5
   _rotationReturnSpeed: 5
-  _force: 20
+  _force: 35
   _data: {fileID: 11400000, guid: aa124ff79ed44ed4ca5939a43da0dfed, type: 2}
   _OpenPage:
     m_PersistentCalls:
