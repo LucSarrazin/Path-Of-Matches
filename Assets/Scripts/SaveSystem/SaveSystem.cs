@@ -103,6 +103,14 @@ public class SaveSystem : MonoBehaviour
                 Vector3 targetPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
                 //Debug.Log($"Target position : X = {data._targetPosX} | Y = {data._targetPosY} | Z = {data._targetPosZ}");
 
+                // * - Reload last references * / 
+
+                _playerReferences.PlayerLaunchMatches.NumberOfMatches = data._matchesCount;
+                _playerReferences.PointerSensitivity = data._pointerSensitivity;
+                Debug.Log($"Load matches count {_playerReferences.PlayerLaunchMatches.NumberOfMatches}: data - {data._matchesCount}");
+                Debug.Log($"Load pointer sensitivity {_playerReferences.PointerSensitivity}: data - {data._pointerSensitivity}");
+
+
                 if (data.IsSceneEntrancePosition)
                 {
                     Vector3 playerNewPos = new Vector3(data._targetPosX, data._targetPosY, data._targetPosZ);
@@ -124,6 +132,7 @@ public class SaveSystem : MonoBehaviour
                     _playerReferences.PlayerMovements.SetXRotation(rotX);
                     head.localRotation = Quaternion.Euler(rotX, 0f, 0f);
                 }
+
             }
         }
     }
