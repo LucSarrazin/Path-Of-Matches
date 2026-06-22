@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FeuilleInstruction
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Une etrange lettre d'un predecesseur...
-  _description: "Quelqu\u2019un \xE0 laiss\xE9 ces explications pour moi. Je ne sais
-    pas si cette personne est toujours en vie, mais il faudrait que je la retrouve.
-    Elle semblait inqui\xE8tes dans son message. Peut \xEAtre qu\u2019elle en pourra
-    m\u2019en dire plus sur cette \xEEle."
+  _description: "Quelqu\u2019un a laisse ces explications pour moi. Je ne sais pas
+    si cette personne est toujours en vie, mais il faudrait que je la retrouve. Elle
+    semblait inquiete dans son message. Peut-etre qu\u2019elle en pourra m\u2019en
+    dire plus sur cette ile."

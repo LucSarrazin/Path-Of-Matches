@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Bouteille de vin
   _description: "Du vin. C\u2019est une simple bouteille, rien de plus, mais j\u2019avoue
-    qu\u2019elle me donne envie. J\u2019aime bien le jeu de mot sur l\u2019\xE9tiquette.
+    qu\u2019elle me donne envie. J\u2019aime bien le jeu de mot sur l\u2019etiquette.
     Enfin, il faut aimer l\u2019humour noir\u2026"

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InspectableObjectData
   _name: Page de mechanisme
   _description: "Une page qui semble \xEAtre faite pour m\u2019indiquer comment m\u2019y
-    prendre dans cet environnement et \xE9chapper \xE0 la fameuse \xAB chose \xBB."
+    prendre dans cet environnement et echapper a la fameuse \xAB chose \xBB."
