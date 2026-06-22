@@ -134,7 +134,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 Launch(2f, burningFinger);
                 handAnimator.SetBool("Take", false);
                 //Debug.Log("Bool Take = false (timeBeforeDisable <= timeBeforeEndAnimation && !_autoReleased)");
-                StartCoroutine("TimeDisable");
+                StartCoroutine(TimeDisable());
             }
         }
 
