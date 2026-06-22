@@ -91,11 +91,13 @@ public class PlayerLaunchMatches : MonoBehaviour
                 cameraShake.ShakeScreenMatches();
                 Force += Time.deltaTime * timeForce;
                 handAnimator.SetBool("Throw", false);
+                //Debug.Log("Bool Throw = false force 1 (Charging = true)");
             }
             if (Force > 1 && charging == false)
             {
                 Force = 1;
                 handAnimator.SetBool("Throw", false);
+                //Debug.Log("Bool Throw = false force 1 (Charging = false)");
             }
         }
 
@@ -103,11 +105,13 @@ public class PlayerLaunchMatches : MonoBehaviour
         {
             Force = 10;
             handAnimator.SetBool("Throw", false);
+            //Debug.Log("Bool Throw = false force 10 (Charging = true)");
         }
         else if (Force >= 10 && charging == false)
         {
             Force = 1;
             handAnimator.SetBool("Throw", false);
+            //Debug.Log("Bool Throw = false force 10 (Charging = false)");
         }
 
         if (gotMatches)
@@ -129,6 +133,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 gotMatches = false;
                 Launch(2f, burningFinger);
                 handAnimator.SetBool("Take", false);
+                //Debug.Log("Bool Take = false (timeBeforeDisable <= timeBeforeEndAnimation && !_autoReleased)");
                 StartCoroutine("TimeDisable");
             }
         }
@@ -148,6 +153,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         yield return new WaitForSeconds(2f);
         handAnimator.SetBool("Throw", false);
         canThrow = true;
+        //Debug.Log("Bool Throw = false (timeDisabled)");
     }
 
     /* --- Public methods to call in the State Machine --- */
@@ -190,6 +196,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                     gotMatches = false;
                     handAnimator.SetBool("Throw", true);
                     handAnimator.SetBool("Take", false);
+                    //Debug.Log("Bool Throw = true, take = false (launch gotmaches = true)");
                     Launch(Force, throwMatches);
                     charging = false;
                 }
@@ -207,6 +214,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         StartCoroutine(leftHand.waitAnimTakeMatches());
         yield return new WaitForSeconds(0.35f);
         handAnimator.SetBool("Take", true);
+        Debug.Log("Bool take = true (Take courotines)");
         handMatches.SetActive(true);
         audioSource.Stop();
         audioSource.PlayOneShot(takeMatches);
