@@ -29,9 +29,11 @@ public class LanternManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (int.Parse(actualCode) >= 100)
+        int code;
+
+        if (int.TryParse(actualCode, out code) && code >= 100)
         {
-            if (oneTime == false)
+            if (!oneTime)
             {
                 oneTime = true;
                 LookForCode();

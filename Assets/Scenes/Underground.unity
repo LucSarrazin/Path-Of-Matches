@@ -2930,11 +2930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2072314997562479045, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: m_Name
-      value: LanterneEnigme (1)
+      value: LanterneEnigme Green
       objectReference: {fileID: 0}
     - target: {fileID: 3460130539207282160, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: code
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3460130539207282160, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: _materialOn
@@ -6460,11 +6460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2072314997562479045, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: m_Name
-      value: LanterneEnigme (2)
+      value: LanterneEnigme Blue
       objectReference: {fileID: 0}
     - target: {fileID: 3460130539207282160, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: code
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3460130539207282160, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: _materialOn
@@ -10745,7 +10745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2072314997562479045, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: m_Name
-      value: LanterneEnigme
+      value: LanterneEnigme Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460130539207282160, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
+      propertyPath: code
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4604908203169094300, guid: 380c8aa1746307b4da3dda6dec5191d4, type: 3}
       propertyPath: m_Convex
