@@ -19,9 +19,9 @@ public class PlayerSwitchMatches : MonoBehaviour
 
     private void Start()
     {
-        UpdateSkins();
+        //UpdateSkins();
 
-        Load();
+        //Load();
 
         if (listSkinMatches.Count > 0)
         {
@@ -80,22 +80,22 @@ public class PlayerSwitchMatches : MonoBehaviour
         }
     }
 
-    // section suivante avait été commentée, pourquoi ? 
+    // section suivante avait ï¿½tï¿½ commentï¿½e, pourquoi ? 
 
-    public void Save()
-    {
-        // -- Save skinsID -- //
-
-        PlayerPrefs.SetString(
-            "IDallumette",
-            skinNumber.ToSafeString()
-        );
-    }
-
-    public void Load()
-    {
-        // -- reclaims skinsID -- //
-
-        skinNumber = Convert.ToInt32(PlayerPrefs.GetString("IDallumette"));
-    }
+    // public void Save()
+    // {
+    //     // -- Save skinsID -- //
+    //
+    //     PlayerPrefs.SetString(
+    //         "IDallumette",
+    //         skinNumber.ToSafeString()
+    //     );
+    // }
+    //
+    // public void Load()
+    // {
+    //     // -- reclaims skinsID -- //
+    //
+    //     skinNumber = Convert.ToInt32(PlayerPrefs.GetString("IDallumette"));
+    // }
 }

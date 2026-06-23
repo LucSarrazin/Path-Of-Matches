@@ -1625,6 +1625,30 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: madnessLvl
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: listSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: 'listSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 62679a9dceda18346bb06d62284927b0, type: 3}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: 'listSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c249964c616e8747833eb638afc3331, type: 3}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: 'listSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 12c1a475da0ac784196c244d5b60c055, type: 3}
+    - target: {fileID: 6807503356710301389, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: 'listSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e670880d8ce1b146a6c3ec26dd64ff3, type: 3}
     - target: {fileID: 6891464897095868255, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: _delay
       value: 2
@@ -4798,10 +4822,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreamerController
   screamerData:
-  - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
-  - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
-  - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
-  - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
+  - {fileID: 11400000, guid: bd6614c90fb8ce949908ac9d4a7293ad, type: 2}
+  - {fileID: 11400000, guid: 6644711d2afd79d4e98e94bce5cfee23, type: 2}
+  - {fileID: 11400000, guid: 0b4cffbfd9fff484284b2fdff209bee6, type: 2}
+  - {fileID: 11400000, guid: 31214a95a38db6948855f10843cd25ff, type: 2}
   - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
   - {fileID: 11400000, guid: 0e1c3195f13811044b257ce2601fbd7a, type: 2}
   screamerPoints:
