@@ -82,7 +82,7 @@ public class PlayerLaunchMatches : MonoBehaviour
     public Action<GameObject> OnChangeMatches;
 
     /* --- Update : force --- */
-    void Update()
+    void FixedUpdate()
     {
         if (Force > 0 && Force < 10)
         {
