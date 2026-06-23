@@ -1270,7 +1270,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.7105058e-20, y: 2.479663e-39, z: 2.5642e-41, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: NaN, z: NaN, w: -8.118078e+25}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -2264,6 +2264,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 666385760794903049, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
+      propertyPath: matchesHUD
+      value: 
+      objectReference: {fileID: 692219478}
+    - target: {fileID: 666385760794903049, guid: 8cf3f882f1a59134d858eebf8ed82fcf, type: 3}
       propertyPath: _playerReferences
       value: 
       objectReference: {fileID: 1607863672}
@@ -2933,7 +2937,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.7121598e-20, y: 1.744885e-38, z: 2.4008e-41, w: 0}
+  m_BoundingSphereOverride: {x: 3.673418e-39, y: -9.1835e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -3864,7 +3868,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.6846088e-20, y: 2.571499e-39, z: 2.621e-41, w: 0}
+  m_BoundingSphereOverride: {x: 5.795901e+22, y: 1.1865871e+27, z: 1.7742937e+28, w: 1.8314928e+25}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -4276,7 +4280,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.710677e-20, y: 4.316373e-39, z: 4.215e-42, w: 0}
+  m_BoundingSphereOverride: {x: 4.744764e+27, y: 1.7441901e+28, z: 2.4835406e+27, w: 2.5919681e+32}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -6832,6 +6836,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 5.174, z: 0}
+--- !u!1 &692219478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6366985581848966064, guid: 5e3997fe2bac6d14f8e9dfe1341a80e3, type: 3}
+  m_PrefabInstance: {fileID: 2125731680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &700606331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10235,6 +10244,7 @@ MonoBehaviour:
   _focusSpriteSize: 0.018
   chestAnimator: {fileID: 1039055306}
   _chestSFXSource: {fileID: 309246116}
+  matchesHUD: {fileID: 692219478}
 --- !u!1 &1039873340
 GameObject:
   m_ObjectHideFlags: 0
@@ -11074,7 +11084,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.369532e-20, y: 2.387828e-39, z: 3.147e-42, w: 2.5799225e+34}
+  m_BoundingSphereOverride: {x: 6.75e-43, y: 8.7e-44, z: 0, w: 4.3e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -11325,7 +11335,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.2822527e-20, y: 1.653144e-39, z: 2.6258e-41, w: NaN}
+  m_BoundingSphereOverride: {x: 2.6422481e+29, y: 7.2128373e+22, z: 1.6632139e+22, w: 8.619922e+9}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -17665,7 +17675,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.495e-41, y: 4.2323982e+21, z: 4.4649756e+30, w: 1.15700104e+27}
+  m_BoundingSphereOverride: {x: 1.0277551e-19, y: NaN, z: 5.885e-42, w: 4e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -19631,7 +19641,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.44e-43, y: 8e-44, z: 0, w: 4.3e-44}
+  m_BoundingSphereOverride: {x: 2.1821e+15, y: -4.1038692e+36, z: 0, w: 8.802583e+29}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0

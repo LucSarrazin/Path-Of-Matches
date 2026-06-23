@@ -6,6 +6,7 @@ public class MatchesChest : Interactable
     [SerializeField] private Animator chestAnimator;
     [SerializeField] private AudioSource _chestSFXSource;
     private PlayerLaunchMatches launchMatches;
+    [SerializeField] private GameObject matchesHUD;
 
     public override bool FreezeMovement => throw new System.NotImplementedException();
 
@@ -22,7 +23,7 @@ public class MatchesChest : Interactable
     {
         base.Start();
         //launchMatches = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PlayerLaunchMatches>();
-        launchMatches = _playerReferences.PlayerLaunchMatches; //** moins coûteux qu'un FindGameObject
+        launchMatches = _playerReferences.PlayerLaunchMatches; //** moins coï¿½teux qu'un FindGameObject
     }
 
     public override void Interact()
@@ -32,6 +33,7 @@ public class MatchesChest : Interactable
             chestAnimator.SetBool("Close", false);
             Debug.Log("Chest is Open");
             launchMatches.NumberOfMatches = 10;
+            StartCoroutine(ShowUI());
             StartCoroutine(OpenChest());
     }
 
@@ -42,5 +44,12 @@ public class MatchesChest : Interactable
         chestAnimator.SetBool("Close", true);
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Chest is closed");
+    }
+
+    IEnumerator ShowUI()
+    {
+        matchesHUD.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        matchesHUD.SetActive(false);
     }
 }
