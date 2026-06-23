@@ -41,7 +41,7 @@ public class Watch : MonoBehaviour
             isTakingMatches = true;
             Debug.Log("Close Watch");
             animator.SetBool("Close", true);
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(1.5f);
             Debug.Log("Open Watch");
             animator.SetBool("Close", false);
             isTakingMatches = false;
