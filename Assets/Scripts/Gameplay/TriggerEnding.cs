@@ -9,6 +9,7 @@ public class TriggerEnding : MonoBehaviour
     [SerializeField] private Animator blinkingEyes;
     [SerializeField] private PlayerReferences _playerReferences;
     [SerializeField] private GameObject _endingCanvas;
+    [SerializeField] private GameObject _endingScreamer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,8 +49,11 @@ public class TriggerEnding : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GameEvents.OnDeleteSaveRequested?.Invoke();
         _playerReferences.PlayerAudioSource.PlayOneShot(_playerReferences.reviveSound);
-
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(2f);
+        _endingScreamer.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _endingScreamer.SetActive(false);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene(0);
     }
