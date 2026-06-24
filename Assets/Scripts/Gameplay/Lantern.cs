@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Lantern : MonoBehaviour
 {
@@ -82,17 +83,19 @@ public class Lantern : MonoBehaviour
     {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
 
-        Material[] mats = renderer.materials;
-
-        for (int i = 0; i < mats.Length; i++)
+        Outline outline = GetComponent<Outline>();
+        bool wasEnabled = false;
+        if (outline != null)
         {
-            Debug.Log("Material " + i + " est : " + mats[i].name + " ou ça : " +  mats[i]);
-            if (i == 0)
-            {
-                mats[i] = mat;
-            }
+            wasEnabled = outline.enabled;
+            outline.enabled = false;
         }
 
+        Material[] mats = renderer.materials;
+        if (mats.Length > 0) mats[0] = mat;
         renderer.materials = mats;
+
+        if (outline != null)
+            outline.enabled = wasEnabled;
     }
 }
