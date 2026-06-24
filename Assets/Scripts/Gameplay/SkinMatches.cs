@@ -41,6 +41,7 @@ public class SkinMatches : Interactable
 
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
+        gameObject.layer = 0;
         this.enabled = false;
     }
 }
