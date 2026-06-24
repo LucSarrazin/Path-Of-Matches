@@ -39,12 +39,15 @@ public class SaveSystem : MonoBehaviour
     {
         int matchesCount = _playerReferences.PlayerLaunchMatches.NumberOfMatches;
         float pointerSensitiviy = _playerReferences.PointerSensitivity;
+        GameObject haveMatches = null;
+        if (_playerReferences.PlayerSwitchMatches.listSkinMatches.Count > 0) 
+            haveMatches = _playerReferences.PlayerSwitchMatches.listSkinMatches[0];
         _isNewSave = false;
-        SaveGame(target, matchesCount, pointerSensitiviy, isSceneEntrancePosition);
+        SaveGame(target, matchesCount, pointerSensitiviy, isSceneEntrancePosition, haveMatches);
     }
 
 
-    private void SaveGame(Transform target, int matchesCount, float pointerSensitivity, bool isSceneEntrancePosition)
+    private void SaveGame(Transform target, int matchesCount, float pointerSensitivity, bool isSceneEntrancePosition, GameObject haveMatches)
     {
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
@@ -55,14 +58,18 @@ public class SaveSystem : MonoBehaviour
         // * -- If it is a save of player position -- * //
         data.IsSceneEntrancePosition = isSceneEntrancePosition;
 
-        // * -- Target Position -- * /
+        // * -- Target Position -- * //
         data._targetPosX = target.position.x /*+1*/ ; // try add only 1 meter to check
         data._targetPosY = target.position.y;
         data._targetPosZ = target.position.z;
 
-        // * -- Variables * -- //
+        // * -- Variables -- * //
         data._matchesCount = matchesCount;
         data._pointerSensitivity = pointerSensitivity;
+
+        // * -- If the player have the matches or not -- * //
+        if (haveMatches != null) 
+            data._haveMatches = haveMatches;
 
         /* Convert to JSON text */
         string json = JsonUtility.ToJson(data, true);
@@ -109,6 +116,9 @@ public class SaveSystem : MonoBehaviour
                 _playerReferences.PointerSensitivity = data._pointerSensitivity;
                 Debug.Log($"Load matches count {_playerReferences.PlayerLaunchMatches.NumberOfMatches}: data - {data._matchesCount}");
                 Debug.Log($"Load pointer sensitivity {_playerReferences.PointerSensitivity}: data - {data._pointerSensitivity}");
+                
+                if (data._haveMatches != null)
+                    _playerReferences.PlayerSwitchMatches.listSkinMatches.Add(data._haveMatches);
 
 
                 if (data.IsSceneEntrancePosition)

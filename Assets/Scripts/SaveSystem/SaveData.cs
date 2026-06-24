@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class SaveData
 {
@@ -11,4 +13,6 @@ public class SaveData
     public int _matchesCount;
 
     public float _pointerSensitivity;
+
+    public GameObject _haveMatches;
 }
