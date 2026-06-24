@@ -35,7 +35,7 @@ public class GraphicsMenu : MonoBehaviour
     void Start()
     {
         InitialiseGamma();
-        InitialiseScreenSize();
+        //InitialiseScreenSize();
         InitialiseQuality();
     }
 

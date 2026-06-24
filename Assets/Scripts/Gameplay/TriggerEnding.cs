@@ -55,6 +55,9 @@ public class TriggerEnding : MonoBehaviour
         _endingScreamer.SetActive(false);
         yield return new WaitForSeconds(3f);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         SceneManager.LoadScene(0);
     }
 }
