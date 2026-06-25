@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -51,10 +52,7 @@ public class LanternManager : MonoBehaviour
         else
         {
             Debug.Log("Mauvais code");
-            for (int i = 0; i < lantern.Length; i++)
-            {
-                lantern[i].GetComponent<Lantern>().TurnOff();
-            }
+            StartCoroutine(IncorrectCode());
             oneTime = false;
             actualCode = "";
         }
@@ -64,5 +62,15 @@ public class LanternManager : MonoBehaviour
     {
         actualCode += code;
         Debug.Log(actualCode);
+    }
+
+    IEnumerator IncorrectCode()
+    {
+        yield return new WaitForSeconds(2);
+
+        for (int i = 0; i < lantern.Length; i++)
+        {
+            lantern[i].GetComponent<Lantern>().TurnOff();
+        }
     }
 }

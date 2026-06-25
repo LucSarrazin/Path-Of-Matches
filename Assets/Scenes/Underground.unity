@@ -1659,6 +1659,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5431683900157532527, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: listPrefabsMatches.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431683900157532527, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
+      propertyPath: 'listPrefabsMatches.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
     - target: {fileID: 5467795341916777544, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
       propertyPath: m_LocalPosition.x
       value: 505.277
@@ -1763,7 +1771,8 @@ PrefabInstance:
       propertyPath: 'm_Cameras.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4505722274171052239, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7339282314131170251, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
     - {fileID: 5433676933237780586, guid: a81cf7da9cdd2c6438b98e62951fe535, type: 3}
