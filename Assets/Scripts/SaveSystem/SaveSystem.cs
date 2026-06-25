@@ -118,7 +118,7 @@ public class SaveSystem : MonoBehaviour
                 
                 if (data._haveMatches)
                     _playerReferences.PlayerSwitchMatches.listSkinMatches.Add(_playerReferences.PlayerSwitchMatches.listPrefabsMatches[0]);
-
+                    _playerReferences.PlayerLaunchMatches.Matches = _playerReferences.PlayerSwitchMatches.listPrefabsMatches[0];
 
                 if (data.IsSceneEntrancePosition)
                 {

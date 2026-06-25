@@ -75,7 +75,7 @@ public class PlayerSwitchMatches : MonoBehaviour
         if (listPrefabsMatches.Contains(matches))
         {
             listSkinMatches.Add(matches);
-            matches.GetComponent<Matches>().Save();
+            //matches.GetComponent<Matches>().Save();
             _playerReferences.PlayerLaunchMatches.Matches = matches;
         }
     }
