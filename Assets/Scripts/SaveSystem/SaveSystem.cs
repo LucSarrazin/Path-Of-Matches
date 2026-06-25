@@ -39,15 +39,15 @@ public class SaveSystem : MonoBehaviour
     {
         int matchesCount = _playerReferences.PlayerLaunchMatches.NumberOfMatches;
         float pointerSensitiviy = _playerReferences.PointerSensitivity;
-        GameObject haveMatches = null;
+        bool haveMatches = false;
         if (_playerReferences.PlayerSwitchMatches.listSkinMatches.Count > 0) 
-            haveMatches = _playerReferences.PlayerSwitchMatches.listSkinMatches[0];
+            haveMatches = true;
         _isNewSave = false;
         SaveGame(target, matchesCount, pointerSensitiviy, isSceneEntrancePosition, haveMatches);
     }
 
 
-    private void SaveGame(Transform target, int matchesCount, float pointerSensitivity, bool isSceneEntrancePosition, GameObject haveMatches)
+    private void SaveGame(Transform target, int matchesCount, float pointerSensitivity, bool isSceneEntrancePosition, bool haveMatches)
     {
         /* Create a new SaveData Object and add new settings */
         SaveData data = new SaveData();
@@ -68,8 +68,7 @@ public class SaveSystem : MonoBehaviour
         data._pointerSensitivity = pointerSensitivity;
 
         // * -- If the player have the matches or not -- * //
-        if (haveMatches != null) 
-            data._haveMatches = haveMatches;
+        data._haveMatches = haveMatches;
 
         /* Convert to JSON text */
         string json = JsonUtility.ToJson(data, true);
@@ -117,8 +116,8 @@ public class SaveSystem : MonoBehaviour
                 Debug.Log($"Load matches count {_playerReferences.PlayerLaunchMatches.NumberOfMatches}: data - {data._matchesCount}");
                 Debug.Log($"Load pointer sensitivity {_playerReferences.PointerSensitivity}: data - {data._pointerSensitivity}");
                 
-                if (data._haveMatches != null)
-                    _playerReferences.PlayerSwitchMatches.listSkinMatches.Add(data._haveMatches);
+                if (data._haveMatches)
+                    _playerReferences.PlayerSwitchMatches.listSkinMatches.Add(_playerReferences.PlayerSwitchMatches.listPrefabsMatches[0]);
 
 
                 if (data.IsSceneEntrancePosition)

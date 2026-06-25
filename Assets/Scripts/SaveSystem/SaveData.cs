@@ -14,5 +14,5 @@ public class SaveData
 
     public float _pointerSensitivity;
 
-    public GameObject _haveMatches;
+    public bool _haveMatches;
 }
