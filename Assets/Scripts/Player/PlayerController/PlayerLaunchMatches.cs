@@ -84,19 +84,24 @@ public class PlayerLaunchMatches : MonoBehaviour
     /* --- Update : force --- */
     void FixedUpdate()
     {
+        if (charging)
+        {
+            handAnimator.Play("Cooldown", 0, 0f);
+        }
+
         if (Force > 0 && Force < 10)
         {
             if (charging == true)
             {
                 cameraShake.ShakeScreenMatches();
                 Force += Time.deltaTime * timeForce;
-                handAnimator.SetBool("Throw", false);
+                //handAnimator.SetBool("Throw", false);
                 //Debug.Log("Bool Throw = false force 1 (Charging = true)");
             }
             if (Force > 1 && charging == false)
             {
                 Force = 1;
-                handAnimator.SetBool("Throw", false);
+                //handAnimator.SetBool("Throw", false);
                 //Debug.Log("Bool Throw = false force 1 (Charging = false)");
             }
         }
@@ -104,13 +109,13 @@ public class PlayerLaunchMatches : MonoBehaviour
         if (Force >= 10 && charging == true)
         {
             Force = 10;
-            handAnimator.SetBool("Throw", false);
+            //handAnimator.SetBool("Throw", false);
             //Debug.Log("Bool Throw = false force 10 (Charging = true)");
         }
         else if (Force >= 10 && charging == false)
         {
             Force = 1;
-            handAnimator.SetBool("Throw", false);
+            //handAnimator.SetBool("Throw", false);
             //Debug.Log("Bool Throw = false force 10 (Charging = false)");
         }
 
@@ -132,7 +137,7 @@ public class PlayerLaunchMatches : MonoBehaviour
                 handMatches.SetActive(false);
                 gotMatches = false;
                 Launch(2f, burningFinger);
-                handAnimator.SetBool("Take", false);
+                //handAnimator.SetBool("Take", false);
                 //Debug.Log("Bool Take = false (timeBeforeDisable <= timeBeforeEndAnimation && !_autoReleased)");
                 StartCoroutine(TimeDisable());
             }
@@ -141,7 +146,7 @@ public class PlayerLaunchMatches : MonoBehaviour
         // Reset timeBeforeDisable s�par�ment, une fois qu'il est �puis�
         if (timeBeforeDisable < 0f)
         {
-            timeBeforeDisable = 11f;
+            timeBeforeDisable = 10.5f;
             cameraShake.StopShakeMatches();
             ConsumeAutoRelease();
         }
@@ -151,7 +156,8 @@ public class PlayerLaunchMatches : MonoBehaviour
     {
         canThrow = false;
         yield return new WaitForSeconds(2f);
-        handAnimator.SetBool("Throw", false);
+        //handAnimator.SetBool("Throw", false);
+        handAnimator.Play("StartPos", 0, 0f);
         canThrow = true;
         //Debug.Log("Bool Throw = false (timeDisabled)");
     }
@@ -194,8 +200,9 @@ public class PlayerLaunchMatches : MonoBehaviour
                 {
                     handMatches.SetActive(false);
                     gotMatches = false;
-                    handAnimator.SetBool("Throw", true);
-                    handAnimator.SetBool("Take", false);
+                    //handAnimator.SetBool("Throw", true);
+                    //handAnimator.SetBool("Take", false);
+                    handAnimator.Play("ThrowMatches", 0, 0f);
                     //Debug.Log("Bool Throw = true, take = false (launch gotmaches = true)");
                     Launch(Force, throwMatches);
                     charging = false;
@@ -213,7 +220,10 @@ public class PlayerLaunchMatches : MonoBehaviour
     {
         StartCoroutine(leftHand.waitAnimTakeMatches());
         yield return new WaitForSeconds(0.35f);
-        handAnimator.SetBool("Take", true);
+        //handAnimator.SetBool("Take", true);
+        handAnimator.Play("TakeMatches", 0, 0f);
+        yield return new WaitForSeconds(0.5f);
+        if (!charging) handAnimator.Play("Cooldown", 0, 0f);
         Debug.Log("Bool take = true (Take courotines)");
         handMatches.SetActive(true);
         audioSource.Stop();
@@ -236,7 +246,7 @@ public class PlayerLaunchMatches : MonoBehaviour
             rb.AddForce(transform.forward * forceActual, ForceMode.Impulse);
         }
         Destroy(matchesInstantiate, timeBeforeDisable);
-        timeBeforeDisable = 11f;
+        timeBeforeDisable = 10.5f;
 
         //Force = 1; //  reset propre
     }

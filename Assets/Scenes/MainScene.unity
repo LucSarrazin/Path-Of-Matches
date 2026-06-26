@@ -15853,7 +15853,7 @@ MonoBehaviour:
   gotMatches: 0
   handMatches: {fileID: 661248216}
   leftHand: {fileID: 628093930}
-  timeBeforeDisable: 12
+  timeBeforeDisable: 10.5
   handAnimator: {fileID: 2030287976}
   cameraShake: {fileID: 1631836023}
   audioSource: {fileID: 1631836028}
