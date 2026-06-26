@@ -28,13 +28,16 @@ public class MatchesChest : Interactable
 
     public override void Interact()
     {
-            chestAnimator.SetBool("Open", true);
-            _chestSFXSource.Play();
-            chestAnimator.SetBool("Close", false);
-            Debug.Log("Chest is Open");
+        chestAnimator.SetBool("Open", true);
+        _chestSFXSource.Play();
+        chestAnimator.SetBool("Close", false);
+        Debug.Log("Chest is Open");
+        if (_playerReferences.PlayerSwitchMatches.listSkinMatches.Count > 0 && launchMatches.NumberOfMatches < 10)
+        {
             launchMatches.NumberOfMatches = 10;
             StartCoroutine(ShowUI());
-            StartCoroutine(OpenChest());
+        }
+        StartCoroutine(OpenChest());
     }
 
     IEnumerator OpenChest()

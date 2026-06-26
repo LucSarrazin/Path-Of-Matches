@@ -15848,7 +15848,7 @@ MonoBehaviour:
   matches: {fileID: 2942873205843176930, guid: 340b73e26751f464aa20d9fd9b24e848, type: 3}
   force: 1
   timeForce: 5
-  numberOfMatches: 10
+  numberOfMatches: 0
   keepInHand: 1
   gotMatches: 0
   handMatches: {fileID: 661248216}
